@@ -2569,17 +2569,17 @@ main >.inner {
 .social .item.weibo i {
   color: #ea716e;
 }
-.social .item.about::before {
-  background-color: #3b5998;
-}
-.social .item.about i {
-  color: #3b5998;
-}
 .social .item.bilibili::before {
   background-color: #00aff0;
 }
 .social .item.bilibili i {
   color: #00aff0;
+}
+.social .item.about::before {
+  background-color: #3b5998;
+}
+.social .item.about i {
+  color: #3b5998;
 }
 .social .item:focus i,
 .social .item:hover i {
