@@ -76,7 +76,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>6.7k</span>
+    <span>4.9k</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -84,7 +84,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">Reading time</span>
-    <span>6 mins.</span>
+    <span>4 mins.</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
         </ul>
       </div>
     </header>
@@ -161,7 +161,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
     <meta itemprop="name" content="Nico Niconi">
-    <meta itemprop="description" content="清心如水，清水即心, 你看那咸鱼像谁?">
+    <meta itemprop="description" content="清心如水，清水即心, ">
   </span>
 
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -171,63 +171,8 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="body md" itemprop="articleBody">
     
 
-     <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    li {
-      list-style: none !important;
-    }
-    .slider {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      height: 390px;
-      background-color: #7777770D;
-      border: 1px solid #7777770D;
-      border-radius: 10px;
-    }
-    .slider_item {
-      word-break: break-all;
-      position: absolute;
-      padding: 0!important;
-      margin: 0!important;
-      width: 100%;
-      height: 100%;
-    }
-    .slider_item li {
-      width: 100%;
-      margin: 0!important;
-      height: 100%;
-    }
-    .slider_indicators {
-      display: flex;
-      overflow: hidden;
-      position: relative;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%);
-      width: 70%;
-      text-align: center;
-      border-radius: 10px;
-    }
-    .slider_indicators li {
-      flex: 1;
-      height: 30px;
-      width: 30px;
-      line-height: 30px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      caret-color: transparent;
-    }
-    .slider_indicators li:hover {
-      background-color: #7777770D;
-    }
-     .active{
-         background-color: #7777770D;
-     }
-</style>
+     
+<link rel="stylesheet" href="./assets/css/css_layout_center.css">
 <div class="slider">
     <ul class="slider_item">
       <li>
@@ -253,43 +198,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <li>4</li> 
     <li class='refresh'>刷新</li>
   </ul>
-<script>
-     window.addEventListener('load',function(){
-         function animate(obj, target, callback) {
-      clearInterval(obj.timer)
-      obj.timer = setInterval(() => {
-        let step = (target - obj.offsetTop) / 10;
-        step = step > 0 ? Math.ceil(step) : Math.floor(step)
-        if (obj.offsetTop=== target) {
-          clearInterval(obj.timer)
-          callback && callback()
-        }
-        obj.style.top = obj.offsetTop + step + 'px'
-      })
-    }
-    const slider = document.querySelector('.slider')
-    const slider_item = slider.querySelector('.slider_item')
-    const slider_item_lis = slider.querySelectorAll('.slider_item li')
-    const slider_indicators_lis = document.querySelectorAll('.slider_indicators li')
-    const refresh = document.querySelector('.refresh')
-    refresh.onclick = function(){
-    location = location
-    }
-    console.log(slider_item_lis);
-    if(slider_item_lis.length > 4){
-      slider_indicators_lis.forEach((item, index) => {
-      slider_indicators_lis[0].className = ' active'
-      item.addEventListener('click', function () {
-        for(let i = 0; slider_indicators_lis.length > i; i++){
-        slider_indicators_lis[i].className = ' '
-        }
-        slider_indicators_lis[index].className = 'active '
-        animate(slider_item, -slider_item_lis[index].offsetHeight * index)
-     })
-    })
- }
-  })
-</script>
+  
+<script src='./assets/js/css_layout_center.js'></script>
+
+ 
 <h5 id="1-行内样式居中text-align"><a class="markdownIt-Anchor" href="#1-行内样式居中text-align">#</a> 1. 行内样式居中 (text-align)</h5>
 <figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 50px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">line-height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgb</span><span class="token punctuation">(</span>10<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="11"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="12"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="13"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="14"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>&lt;/body></pre></td></tr></table></figure><p>​		 结果如下：</p>
 <p><img data-src="result1.png" alt="result"></p>
@@ -326,7 +238,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <p>result2:<img data-src="bfcresult6.3.png" alt="result"></p>
 <h5 id="9bfc水平垂直居中grid"><a class="markdownIt-Anchor" href="#9bfc水平垂直居中grid">#</a> 9.BFC 水平垂直居中 (grid)</h5>
 <figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    body</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>170<span class="token punctuation">,</span> 99<span class="token punctuation">,</span> 49<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token selector">.parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token property">align-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token property">justify-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>&lt;/style></pre></td></tr><tr><td data-num="21"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="22"></td><td><pre>  &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="23"></td><td><pre>    &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="24"></td><td><pre>  &lt;/div></pre></td></tr><tr><td data-num="25"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
-<p><img data-src="bfcresult6.png" alt="result"></p>
+<p><img data-src="bfcresult6.3.png" alt="result"></p>
 
       <div class="tags">
           <a href="/nekoaimer.github.io/tags/css/" rel="tag"><i class="ic i-tag"></i> css</a>
@@ -342,7 +254,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-01-01 11:04:30" itemprop="dateModified" datetime="2022-01-01T11:04:30+08:00">2022-01-01</time>
+    <time title="Modified: 2022-01-04 12:10:34" itemprop="dateModified" datetime="2022-01-04T12:10:34+08:00">2022-01-04</time>
   </span>
   <span id="2020/12/10/WebFE/css/css_layout_center/" class="item leancloud_visitors" data-flag-title="css居中布局" title="Views">
       <span class="icon">
@@ -404,7 +316,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2020/12/08/Node/node_order/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclip4jbpj20zk0m87cv.jpg" title="Node.js">
+  <a href="/nekoaimer.github.io/2020/12/08/Node/node_order/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetv6p75j20zk0m8x6p.jpg" title="Node.js">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Node.js</span>
   <h3>Node.js</h3>
@@ -414,7 +326,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2020/12/17/WebFE/JavaScript/strange_choice_questiontion/Strange_01/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew28b65j20zk0m8hdt.jpg" title="Strange_typeof_01">
+  <a href="/nekoaimer.github.io/2020/12/17/WebFE/JavaScript/interesting_question/Strange_01/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciuja1j1j20zk0m8kjl.jpg" title="Strange_typeof_01">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript</span>
   <h3>Strange_typeof_01</h3>
@@ -448,25 +360,25 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <img class="image" itemprop="image" alt="Nico Niconi"
       data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
   <p class="name" itemprop="name">Nico Niconi</p>
-  <div class="description" itemprop="description">你看那咸鱼像谁?</div>
+  <div class="description" itemprop="description"></div>
 </div>
 
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">43</span>
+        <span class="count">46</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/nekoaimer.github.io/categories/">
-        <span class="count">11</span>
+        <span class="count">12</span>
         <span class="name">categories</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/nekoaimer.github.io/tags/">
-        <span class="count">16</span>
+        <span class="count">17</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -478,7 +390,6 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
       <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
       <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
-      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
 </div>
 
 <ul class="menu">
@@ -555,7 +466,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/nekoaimer.github.io/2020/12/17/WebFE/JavaScript/strange_choice_questiontion/Strange_01/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+        <a href="/nekoaimer.github.io/2020/12/17/WebFE/JavaScript/interesting_question/Strange_01/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -580,9 +491,63 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/04/WebFE/Vue/Vue3/OptionsAPI/voa_watch/" title="Vue3 Options API watch">Vue3 Options API watch</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/07/WebFE/Vue/Vue3/CompositionAPI/vca_readonly/" title="Vue3 readonly 的基本用法">Vue3 readonly 的基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/16/WebFE/Vue/Vue3/OptionsAPI/voa_slot_basic/" title="Vue3 slot 基本使用">Vue3 slot 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/21/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect_refEl/" title="Vue3 在 ref 里 使用 watchEffect">Vue3 在 ref 里 使用 watchEffect</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/05/WebFE/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/20/WebFE/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
   </li>
 
       
@@ -594,7 +559,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/12/20/WebFE/JavaScript/strange_choice_questiontion/Strange_02/" title="Strange_typeof_02">Strange_typeof_02</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/20/WebFE/JavaScript/interesting_question/Strange_02/" title="Strange_typeof_02">Strange_typeof_02</a></span>
   </li>
 
       
@@ -603,78 +568,19 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Axios/" title="In Axios">Axios</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/28/WebFE/Vue/Vue3/OptionsAPI/voa_animate&gsap&lodash/" title="animate &amp; gsap &amp; lodash 使用">animate & gsap & lodash 使用</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/19/WebFE/axios/axios-encapsulation/" title="axios_encapsulation">axios_encapsulation</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/03/WebFE/Vue/Vue3/CompositionAPI/vca_reactive/" title="Vue3 reactive基本用法">Vue3 reactive基本用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/24/WebFE/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/08/03/WebFE/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/07/13/WebFE/Vue/Vue3/CompositionAPI/vca_unref-isRef/" title="Vue3 unref和isRef 基本用法">Vue3 unref和isRef 基本用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/14/WebFE/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
+    <span><a href="/nekoaimer.github.io/2022/01/04/WebFE/css/assets/js/css_layout_center/" title="Untitled">Untitled</a></span>
   </li>
 
       
@@ -695,14 +601,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+<a href="/nekoaimer.github.io/categories/Project/" title="In Project">Project</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/01/WebFE/Vue/Vue3/CompositionAPI/vca_encapsulation/" title="Vue3 setup 案例封装">Vue3 setup 案例封装</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/08/%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" title="项目打包和自动化部署">项目打包和自动化部署</a></span>
   </li>
 
   </ul>
@@ -727,13 +629,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">149k words</span>
+    <span title="Symbols count total">152k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">2:15</span>
+    <span title="Reading time total">2:18</span>
   </div>
   <div class="powered-by">
     Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
