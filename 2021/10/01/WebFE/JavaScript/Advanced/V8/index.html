@@ -27,7 +27,7 @@
   <meta name="keywords" content="JavaScript,JavaScript Advanced" />
 
 
-<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/09/01/WebFE/JavaScript/Advanced/V8/">
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/">
 
 
 
@@ -64,19 +64,19 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </h1>
   
 <div class="meta">
-  <span class="item" title="Created: 2021-09-01 12:49:18">
+  <span class="item" title="Created: 2021-10-01 12:49:18">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">Posted on</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-09-01T12:49:18+08:00">2021-09-01</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-01T12:49:18+08:00">2021-10-01</time>
   </span>
   <span class="item" title="Symbols count in article">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>3.1k</span>
+    <span>3.2k</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
         </ul>
       </div>
     </header>
@@ -159,7 +159,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
-  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/09/01/WebFE/JavaScript/Advanced/V8/">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
@@ -265,8 +265,8 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </li>
 </ul>
 <p><img data-src="V8_parse.png" alt="V8_parse"></p>
-<h2 id="javascript-的执行过程"><a class="markdownIt-Anchor" href="#javascript-的执行过程">#</a> JavaScript 的执行过程</h2>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> num1 <span class="token operator">=</span> <span class="token number">20</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">var</span> num2 <span class="token operator">=</span> <span class="token number">30</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">var</span> result <span class="token operator">=</span> num1 <span class="token operator">+</span> num2</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="7"></td><td><pre>  1.JavaScript 代码在被解析时，V8 引擎内部会创建一个对象（GlobalObject -> go），会将需要的属性放在里面。</pre></td></tr><tr><td data-num="8"></td><td><pre>  2. 运行代码</pre></td></tr><tr><td data-num="9"></td><td><pre>    1.v8 为了执行代码，v8 引擎内部会有一个执行上下文栈 (Execution Context Stack,ECStack)(函数调用栈)</pre></td></tr><tr><td data-num="10"></td><td><pre>    2.</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">var</span> GlobalObject <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    String<span class="token operator">:</span> <span class="token string">'类'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Date<span class="token operator">:</span> <span class="token string">'类'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    Number<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    setTimeount<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    setInterval<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token operator">...</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">// 在这个对象里面有一个重要的属性 window，指向当前的对象</span></pre></td></tr><tr><td data-num="22"></td><td><pre>	window<span class="token operator">:</span>GlobalObject<span class="token punctuation">,</span>  </pre></td></tr><tr><td data-num="23"></td><td><pre>    </pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token comment">// 会将上面的属性也放在全局对象 但因为代码没有执行，没有赋值所以是 undefined</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    name<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    num1<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    num2<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    result<span class="token operator">:</span> <span class="token keyword">undefined</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span> </pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token comment">//window.window 无论怎样都是指向自己</span></pre></td></tr><tr><td data-num="31"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window <span class="token operator">===</span> window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>window<span class="token punctuation">)</span>  <span class="token comment">// true</span></pre></td></tr></table></figure><p><img data-src="js_exe.png" alt="js_exe"></p>
+<h2 id="javascript-全局代码执行过程"><a class="markdownIt-Anchor" href="#javascript-全局代码执行过程">#</a> JavaScript 全局代码执行过程</h2>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> num1 <span class="token operator">=</span> <span class="token number">20</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">var</span> num2 <span class="token operator">=</span> <span class="token number">30</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">var</span> result <span class="token operator">=</span> num1 <span class="token operator">+</span> num2</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="7"></td><td><pre>  1.JavaScript 代码在被解析时，V8 引擎内部会创建一个对象（GlobalObject -> go），会将需要的属性放在里面。</pre></td></tr><tr><td data-num="8"></td><td><pre>  2. 运行代码</pre></td></tr><tr><td data-num="9"></td><td><pre>    2.1.v8 为了执行代码，v8 引擎内部会有一个执行上下文栈 (Execution Context Stack,ECStack)(函数调用栈)</pre></td></tr><tr><td data-num="10"></td><td><pre>    2.2. 因为我们执行的是全局代码，为了全局代码能够正常的执行，需要创建 全局执行上下文 (Global Execution Context)(全局代码需要被执行时才会创建)</pre></td></tr><tr><td data-num="11"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">var</span> GlobalObject <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    String<span class="token operator">:</span> <span class="token string">'类'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    Date<span class="token operator">:</span> <span class="token string">'类'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Number<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    setTimeount<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    setInterval<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token operator">...</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 在这个对象里面有一个重要的属性 window，指向当前的对象</span></pre></td></tr><tr><td data-num="21"></td><td><pre>	window<span class="token operator">:</span>GlobalObject<span class="token punctuation">,</span>  </pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment">// 会将上面的属性也放在全局对象 但因为代码没有执行，没有赋值所以是 undefined</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    name<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    num1<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    num2<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    result<span class="token operator">:</span> <span class="token keyword">undefined</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#125;</span> </pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token comment">//window.window 无论怎样都是指向自己</span></pre></td></tr><tr><td data-num="30"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window <span class="token operator">===</span> window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>window<span class="token punctuation">)</span>  <span class="token comment">// true</span></pre></td></tr></table></figure><p><img data-src="js_exe.png" alt="js_exe"></p>
 <h2 id="初始化全局对象"><a class="markdownIt-Anchor" href="#初始化全局对象">#</a> 初始化全局对象</h2>
 <ul>
 <li>js 引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO）
@@ -313,7 +313,6 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </li>
 </ul>
 <p><img data-src="FEC_exe.png" alt="FEC_exe"></p>
-<p><img data-src="Variable.png" alt="Variable"></p>
 
       <div class="tags">
           <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
@@ -329,9 +328,9 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-01-04 15:21:06" itemprop="dateModified" datetime="2022-01-04T15:21:06+08:00">2022-01-04</time>
+    <time title="Modified: 2022-01-04 19:22:12" itemprop="dateModified" datetime="2022-01-04T19:22:12+08:00">2022-01-04</time>
   </span>
-  <span id="2021/09/01/WebFE/JavaScript/Advanced/V8/" class="item leancloud_visitors" data-flag-title="V8 引擎" title="Views">
+  <span id="2021/10/01/WebFE/JavaScript/Advanced/V8/" class="item leancloud_visitors" data-flag-title="V8 引擎" title="Views">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -372,7 +371,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/09/01/WebFE/JavaScript/Advanced/V8/" title="V8 引擎">https://nekoaimer.github.io/nekoaimer.github.io/2021/09/01/WebFE/JavaScript/Advanced/V8/</a>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" title="V8 引擎">https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -391,7 +390,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2021/08/13/WebFE/Vue/Vue3/Mini-Vue/mini-vue/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetfk5zwj20zk0m8e81.jpg" title="Mini-Vue 实现">
+  <a href="/nekoaimer.github.io/2021/08/13/WebFE/Vue/Vue3/Mini-Vue/mini-vue/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevarprfj20zk0m8npd.jpg" title="Mini-Vue 实现">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Vue3</span>
   <h3>Mini-Vue 实现</h3>
@@ -401,10 +400,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2021/12/08/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu7txpzj20zk0m81kx.jpg" title="项目搭建规范">
+  <a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexj2jgzj20zk0m8b09.jpg" title="作用域">
   <span class="type">Next Post</span>
-  <span class="category"><i class="ic i-flag"></i> Project</span>
-  <h3>项目搭建规范</h3>
+  <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
+  <h3>作用域</h3>
   </a>
 
     </div>
@@ -423,11 +422,11 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86javascript%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text"> 认识 JavaScript 引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%92%8Cjs%E5%BC%95%E6%93%8E%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text"> 浏览器内核和 JS 引擎的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text"> V8 引擎的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text"> V8 引擎的架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">5.</span> <span class="toc-text"> V8 执行的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text"> JavaScript 的执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text"> 初始化全局对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88%E8%B0%83%E7%94%A8%E6%A0%88"><span class="toc-number">8.</span> <span class="toc-text"> 执行上下文栈（调用栈）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C"><span class="toc-number">9.</span> <span class="toc-text"> 遇到函数如何执行？</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86javascript%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text"> 认识 JavaScript 引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%92%8Cjs%E5%BC%95%E6%93%8E%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text"> 浏览器内核和 JS 引擎的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text"> V8 引擎的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text"> V8 引擎的架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">5.</span> <span class="toc-text"> V8 执行的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-%E5%85%A8%E5%B1%80%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text"> JavaScript 全局代码执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text"> 初始化全局对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88%E8%B0%83%E7%94%A8%E6%A0%88"><span class="toc-number">8.</span> <span class="toc-text"> 执行上下文栈（调用栈）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C"><span class="toc-number">9.</span> <span class="toc-text"> 遇到函数如何执行？</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li class="active"><a href="/nekoaimer.github.io/2021/09/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2022/01/04/WebFE/JavaScript/Advanced/fn/" rel="bookmark" title="fn">fn</a></li>
+          <li class="active"><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="作用域">作用域</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -541,7 +540,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/nekoaimer.github.io/2021/12/08/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+        <a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -565,34 +564,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Axios/" title="In Axios">Axios</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/12/19/WebFE/axios/axios-encapsulation/" title="axios_encapsulation">axios_encapsulation</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/28/WebFE/Vue/Vue3/OptionsAPI/voa_animate&gsap&lodash/" title="animate &amp; gsap &amp; lodash 使用">animate & gsap & lodash 使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/24/WebFE/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/30/WebFE/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
   </li>
 
       
@@ -606,7 +583,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/25/WebFE/Vue/Vue3/CompositionAPI/vca_watch/" title="Vue3 watch 在 Composition API 中使用">Vue3 watch 在 Composition API 中使用</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/14/WebFE/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
   </li>
 
       
@@ -620,7 +597,35 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/19/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/17/WebFE/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/21/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect_refEl/" title="Vue3 在 ref 里 使用 watchEffect">Vue3 在 ref 里 使用 watchEffect</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/09/WebFE/Vue/Vue3/CompositionAPI/vca_toRef&toRefs/" title="Vue3 toRef和toRefs 的用法">Vue3 toRef和toRefs 的用法</a></span>
   </li>
 
       
@@ -634,7 +639,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/09/01/WebFE/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" title="作用域">作用域</a></span>
   </li>
 
       
@@ -655,12 +660,20 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Axios/" title="In Axios">Axios</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/30/WebFE/Vue/Vue3/CompositionAPI/vca_provide&inject/" title="Vue3 provide &amp; inject">Vue3 provide & inject</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/19/WebFE/axios/axios-encapsulation/" title="axios_encapsulation">axios_encapsulation</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Diary/" title="In Diary">Diary</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/15/Diary/2021-12-15-diary/" title="&lt;ruby&gt;正经人谁写日记？&lt;rt&gt;まともな人なら誰が日記をつける&lt;&#x2F;rt&gt;&lt;&#x2F;ruby&gt;   "><ruby>正经人谁写日记？<rt>まともな人なら誰が日記をつける</rt></ruby>   </a></span>
   </li>
 
       
@@ -669,24 +682,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/12/20/WebFE/JavaScript/interesting_question/Strange_02/" title="Strange_typeof_02">Strange_typeof_02</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/03/WebFE/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/12/WebFE/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
   </li>
 
   </ul>
@@ -711,7 +712,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">150k words</span>
+    <span title="Symbols count total">151k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
@@ -729,7 +730,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/09/01/WebFE/JavaScript/Advanced/V8/',
+    path: '2021/10/01/WebFE/JavaScript/Advanced/V8/',
     favicon: {
       show: "（●´3｀●）Goooood",
       hide: "(´Д｀)Booooom"
