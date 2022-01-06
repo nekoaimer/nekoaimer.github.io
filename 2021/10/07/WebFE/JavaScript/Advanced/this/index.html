@@ -1,0 +1,1082 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript,JavaScript Advanced,JavaScript面试题" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/07/WebFE/JavaScript/Advanced/this/">
+
+
+
+  <title>
+JavaScript name 和 this - JavaScript面试题 - JavaScript Advanced - JavaScript - WebFE |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript name 和 this
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-10-07 15:23:36">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-07T15:23:36+08:00">2021-10-07</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>7.4k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>7 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/" itemprop="item" rel="index" title="In WebFE"><span itemprop="name">WebFE</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" itemprop="item" rel="index" title="In JavaScript Advanced"><span itemprop="name">JavaScript Advanced</span></a>
+<meta itemprop="position" content="3" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="item" rel="index" title="In JavaScript面试题"><span itemprop="name">JavaScript面试题</span></a>
+<meta itemprop="position" content="4" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/07/WebFE/JavaScript/Advanced/this/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="name属性"><a class="markdownIt-Anchor" href="#name属性">#</a> name 属性</h2>
+<h3 id="name是window自带的全局属性它是字符串类型它比较特殊-当你打开浏览器没有给name赋值时consolelogwindowname-是为true的"><a class="markdownIt-Anchor" href="#name是window自带的全局属性它是字符串类型它比较特殊-当你打开浏览器没有给name赋值时consolelogwindowname-是为true的">#</a> name 是 window 自带的全局属性，它是字符串类型。它比较特殊。当你打开浏览器没有给 name 赋值时 console.log (<span class="exturl" data-url="aHR0cDovL3dpbmRvdy5uYW1l">window.name</span> === ‘’) 是为 true 的！</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//name 属性可设置或返回存放窗口的名称的一个字符串</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>参考：</p>
+<p><img data-src="name1.png" alt="name1"></p>
+<h3 id="而当你使用const或者let向给name赋值时console打印的结果也是与刚才一样但不同的是你直接在浏览器输入变量名是可以得到-nekoaimer"><a class="markdownIt-Anchor" href="#而当你使用const或者let向给name赋值时console打印的结果也是与刚才一样但不同的是你直接在浏览器输入变量名是可以得到-nekoaimer">#</a> 而当你使用 const 或者 let 向给 name 赋值时，console 打印的结果也是与刚才一样，但不同的是你直接在浏览器输入变量名是可以得到 nekoaimer ！</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>参考：</p>
+<p><img data-src="name1.png" alt="name1"></p>
+<h3 id="下面是name创建到销毁的执行过程~"><a class="markdownIt-Anchor" href="#下面是name创建到销毁的执行过程~">#</a> 下面是 name 创建到销毁的执行过程～</h3>
+<p>参考：</p>
+<p><img data-src="name1.gif" alt="name1"></p>
+<h3 id="const-name"><a class="markdownIt-Anchor" href="#const-name">#</a> const name</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token comment">// window</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'nekoaimer'</span> </pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;empty string></span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;empty string></span></pre></td></tr></table></figure><p>参考：</p>
+<p><img data-src="name3.png" alt="name3"></p>
+<h3 id="var-name"><a class="markdownIt-Anchor" href="#var-name">#</a> var name</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token comment">// window</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'nekoaimer'</span> </pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// nekoaimer</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// nekoaimer</span></pre></td></tr></table></figure><p>参考：</p>
+<p><img data-src="name4.png" alt="name4"></p>
+<p><span class="rainbow">之所以提及 name 是在测试面试题的时候如果不注意可能会有偏差！</span></p>
+<h2 id="this到底指向什么"><a class="markdownIt-Anchor" href="#this到底指向什么">#</a> this 到底指向什么？</h2>
+<ul>
+<li>
+<p>我们先来看一个让人困惑的问题：</p>
+<ul>
+<li>定义一个函数，我们采用三种不同的方式对它进行调用，它产生了三种不同的结果</li>
+</ul>
+</li>
+<li>
+<p>下面的案例可以给我们什么样的启示呢？</p>
+<ul>
+<li>1. 函数在调用时，JavaScript 会默认给 this 绑定一个值；</li>
+<li>2.this 的绑定和定义的位置（编写的位置）没有关系；</li>
+<li>3.this 的绑定和调用方式以及调用的位置有关系；</li>
+<li>4.this 是在运行时被绑定的；</li>
+</ul>
+</li>
+</ul>
+<h3 id="同一个函数的-this-不同"><a class="markdownIt-Anchor" href="#同一个函数的-this-不同">#</a> 同一个函数的 this 不同</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//this 指向什么，跟函数所处的位置是没有关系的</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 跟函数被调用的方式是有关系</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 1. 直接调用这个函数</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 2. 创建一个对象，对象中的函数指向 foo</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'saber'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  foo<span class="token operator">:</span> foo</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>obj<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">// 3.apply 调用</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token string">"nekoaimer"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>参考：</p>
+<p><img data-src="this1.png" alt="this1"></p>
+<ul>
+<li>
+<p>那么 this 到底是怎么样的绑定规则呢？</p>
+<ul>
+<li>
+<p>绑定一：默认绑定；</p>
+</li>
+<li>
+<p>绑定二：隐式绑定；</p>
+</li>
+<li>
+<p>绑定三：显示绑定；</p>
+</li>
+<li>
+<p>绑定四：new 绑定；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="this-绑定规则-面试题"><a class="markdownIt-Anchor" href="#this-绑定规则-面试题">#</a> this 绑定规则 + 面试题</h2>
+<h3 id="默认绑定"><a class="markdownIt-Anchor" href="#默认绑定">#</a> 默认绑定</h3>
+<ul>
+<li>什么情况下使用默认绑定呢？独立函数调用。
+<ul>
+<li>独立的函数调用我们可以理解成函数没有被绑定到某个对象上进行调用；</li>
+</ul>
+</li>
+<li>我们通过几个案例来看一下，常见的默认绑定～</li>
+</ul>
+<ol class="mistake">
+<li class="quiz fill multi mistake">
+<p>this 指向例题 1</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token function">foo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token function">foo2</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token function">foo3</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">C</span></p>
+<ul class="options">
+<li><code>foo3 foo2 foo1</code></li>
+<li><code>foo3 foo3 foo3</code></li>
+<li class="correct"><code>以上都不对</code> </li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  window window window ~  ]</p>
+<p>参考：</p>
+<p><img data-src="default1.png" alt="default1"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 2</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'nekoaimer'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">var</span> bar <span class="token operator">=</span> obj<span class="token punctuation">.</span>foo</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">C</span></p>
+<ul class="options">
+<li><code>obj</code></li>
+<li><code>bar</code></li>
+<li class="correct"><code>window</code> </li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  window ~ ]</p>
+<p>参考：</p>
+<p><img data-src="default2.png" alt="default2"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 3</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'nekoaimer'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  foo<span class="token operator">:</span> foo</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">var</span> bar <span class="token operator">=</span> obj<span class="token punctuation">.</span>foo</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">C</span></p>
+<ul class="options">
+<li><code>obj</code></li>
+<li><code>bar</code></li>
+<li class="correct"><code>window</code> </li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  window ~ ]</p>
+<p>参考：</p>
+<p><img data-src="default3.png" alt="default3"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi">
+<p>this 指向例题 4</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">C</span></p>
+<ul class="options">
+<li><code>bar</code></li>
+<li><code>foo</code></li>
+<li><code>fn</code></li>
+<li class="correct"><code>window</code> </li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  window ~ ]</p>
+<p>参考：</p>
+<p><img data-src="default3.png" alt="default3"></p>
+<p></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="隐式绑定"><a class="markdownIt-Anchor" href="#隐式绑定">#</a> 隐式绑定</h3>
+<ul>
+<li>另外一种比较常见的调用方式是通过某个对象进行调用的：
+<ul>
+<li>也就是它的调用位置中，是通过某个对象发起的函数调用。</li>
+</ul>
+</li>
+<li>我们通过几个案例来看一下，常见的默认绑定～</li>
+</ul>
+<ol class="mistake">
+<li class="quiz fill multi mistake">
+<p>this 指向例题 2</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"nekoaimer"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function-variable function">studying</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">"在学习"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function-variable function">sleeping</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">===</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> 在睡觉</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">var</span> sleep <span class="token operator">=</span> obj<span class="token punctuation">.</span>sleeping</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">A</span></p>
+<ul class="options">
+<li class="correct"><code>true '在睡觉'</code> </li>
+<li><code>false '在睡觉'</code></li>
+<li><code>true 'nekoaimer在睡觉'</code></li>
+<li><code>false 'nekoaimer在睡觉' </code></li>
+</ul>
+<blockquote>
+<p>正确答案是：true ‘在睡觉’ ~<br>
+[隐式绑定：obj.sleep ()</p>
+<p>obj 对象会被 js 引擎绑定到 sleep 函数中的 this 里面 ]</p>
+<p>参考：</p>
+<p><img data-src="implicit1.png" alt="implicit1"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 2</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'nekoaimer'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  foo<span class="token operator">:</span> fn</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>obj<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">A</span></p>
+<ul class="options">
+<li class="correct"><code>obj</code> </li>
+<li><code>foo</code></li>
+<li><code>fn</code></li>
+<li><code>window</code></li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  obj ~ ]</p>
+<p>参考：</p>
+<p><img data-src="implicit2.png" alt="implicit2"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 3</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'nekoaimer'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  foo<span class="token operator">:</span> fn</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>obj<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">A</span></p>
+<ul class="options">
+<li class="correct"><code>obj</code> </li>
+<li><code>foo</code></li>
+<li><code>fn</code></li>
+<li><code>window</code></li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  obj ~ ]</p>
+<p>参考：</p>
+<p><img data-src="implicit3.png" alt="implicit3"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi">
+<p>this 指向例题 4</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"obj1"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">var</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"obj2"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  bar<span class="token operator">:</span> obj1<span class="token punctuation">.</span>foo</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>obj2<span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">C</span></p>
+<ul class="options">
+<li><code>foo</code></li>
+<li><code>obj1</code></li>
+<li class="correct"><code>obj2</code> </li>
+<li><code>window</code></li>
+</ul>
+<blockquote>
+<p>正确答案是：<br>
+[  obj ~ ]</p>
+<p>参考：</p>
+<p><img data-src="implicit4" alt="implicit4"></p>
+<p></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="显示绑定"><a class="markdownIt-Anchor" href="#显示绑定">#</a> 显示绑定</h3>
+<p>隐式绑定有一个前提条件：</p>
+<ul>
+<li>必须在调用的对象内部有一个对函数的引用（比如一个属性）；</li>
+<li>如果没有这样的引用，在进行调用时，会报找不到该函数的错误；</li>
+<li>正是通过这个引用，间接的将 this 绑定到了这个对象上；</li>
+</ul>
+<p>如果我们不希望在 对象内部 包含这个函数的引用，同时又希望在这个对象上进行强制调用，该怎么做呢？</p>
+<ul>
+<li>
+<p>JavaScript 所有的函数都可以使用 call 和 apply 方法（这个和 Prototype 有关）。</p>
+<ul>
+<li>
+<p>它们两个的区别这里不再展开；</p>
+</li>
+<li>
+<p>其实非常简单，第一个参数是相同的，后面的参数，apply 为数组，call 为参数列表；</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>这两个函数的第一个参数都要求是一个对象，这个对象的作用是什么呢？就是给 this 准备的。</p>
+<p>在调用这个函数时，会将 this 绑定到这个传入的对象上。</p>
+<p>因为上面的过程，我们明确的绑定了 this 指向的对象，所以称之为 显示绑定</p>
+<ul>
+<li>
+<p>通过 call 或者 apply 绑定 this 对象</p>
+<ul>
+<li>显示绑定后，this 就会明确的指向绑定的对象</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> info <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span> <span class="token comment">// window</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span> <span class="token comment">// info</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token number">233</span><span class="token punctuation">)</span> <span class="token comment">// Number, 存放是 233</span></pre></td></tr></table></figure></li>
+<li>
+<p>如果我们希望一个函数总是显示的绑定到一个对象上，可以怎么做呢</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> info <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    name<span class="token operator">:</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">var</span> bar <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//info 对象</span></pre></td></tr></table></figure><h3 id="new绑定"><a class="markdownIt-Anchor" href="#new绑定">#</a> new 绑定</h3>
+<ul>
+<li>JavaScript 中的函数可以当做一个类的构造函数来使用，也就是使用 new 关键字。</li>
+<li>使用 new 关键字来调用函数是，会执行如下的操作：
+<ul>
+<li>创建一个全新的对象；</li>
+<li>这个新对象会被执行 prototype 连接；</li>
+<li>这个新对象会绑定到函数调用的 this 上（this 的绑定在这个步骤完成）；</li>
+<li>如果函数没有返回其他对象，表达式会返回这个新对象；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 我们通过一个 new 关键字调用一个函数时 (构造器), 这个时候 this 是在调用这个构造器时创建出来的对象</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">//this = 创建出来的对象</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 这个绑定过程就是 new 绑定</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name</pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">var</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Lain"</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>name<span class="token punctuation">,</span> p1<span class="token punctuation">.</span>age<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">var</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Saber"</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>name<span class="token punctuation">,</span> p2<span class="token punctuation">.</span>age<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="内置函数绑定"><a class="markdownIt-Anchor" href="#内置函数绑定">#</a> 内置函数绑定</h3>
+<ul>
+<li>有些时候，我们会调用一些 JavaScript 的内置函数，或者一些第三方库中的内置函数。
+<ul>
+<li>这些内置函数会要求我们传入另外一个函数；</li>
+<li>我们自己并不会显示的调用这些函数，而是 JavaScript 内部或者第三方库内部会帮助我们执行；</li>
+<li>这些函数中的 this 又是如何绑定的呢？</li>
+</ul>
+</li>
+<li>setTimeout、数组的 forEach、div 的点击</li>
+</ul>
+<h4 id="settimeout"><a class="markdownIt-Anchor" href="#settimeout">#</a> settimeout</h4>
+<ol class="mistake">
+<li class="quiz fill multi mistake">
+<p>this 指向例题 1</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'Lain'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">mySetTimer</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> duration</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token keyword">return</span> obj</pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>duration<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token function">mySetTimer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">B</span></p>
+<ul class="options">
+<li><code>fn</code></li>
+<li class="correct"><code>obj</code>  </li>
+<li><code>window</code></li>
+<li><code>mySetTimer</code></li>
+</ul>
+<blockquote>
+<p>解析：<br>
+[fn.call 代表调用函数，此时返回值是 obj，而 foo (){}.call () 这种写法虽然不会报错但没有实际意义，而此时调用的函数是 mySetTimer 里面的第一个参数，它正在进行 console.log (this) 操作，此时意味着 fn.call (obj), 那么打印出来的 this 自然就是 obj 了～]</p>
+<p>参考：</p>
+<p><img data-src="setTimeout1.png" alt="setTimeout1"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi">
+<p>this 指向例题 2</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'Lain'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">mySetTimer</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> duration</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token keyword">return</span> mySetTimer</pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> duration<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token function">mySetTimer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的的输出结果是：<span class="gap">D</span></p>
+<ul class="options">
+<li><code>''</code></li>
+<li><code>fn</code></li>
+<li><code>Lain</code></li>
+<li class="correct"><code>mySetTimer</code>  </li>
+</ul>
+<blockquote>
+<p>解析：[  懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub> ]</p>
+<p>参考：</p>
+<p><img data-src="setTimeout2.png" alt="setTimeout2"></p>
+<p></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="监听点击"><a class="markdownIt-Anchor" href="#监听点击">#</a> 监听点击</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// html</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">&lt;</span>button<span class="token operator">></span>点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// js</span></pre></td></tr><tr><td data-num="4"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'load'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  btn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onclick:'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>  btn<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'addEventListener:'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h4 id="foreachmap"><a class="markdownIt-Anchor" href="#foreachmap">#</a> forEach/map</h4>
+<ol class="mistake">
+<li class="quiz fill multi mistake">
+<p>this 指向例题 1</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Saber"</span><span class="token punctuation">,</span> <span class="token string">"Lain"</span><span class="token punctuation">,</span> <span class="token string">"Maelwine"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>names<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面 this 的正确输出结果是：<span class="gap">B</span></p>
+<ul class="options">
+<li><code>names</code></li>
+<li class="correct"><code>Number </code> </li>
+<li><code>Function</code></li>
+<li><code>window</code></li>
+</ul>
+<blockquote>
+<p>解析：[为什么会是 Number 了？其实你只要打印 console.log (setTimeout (() =&gt; {})) 得到的结果是 1，那又为什么打印会是个 1 呢？嗯～个人猜测：大家都知道 setTimeout 是异步的，因为只执行了一次异步，那么它的进程是 1，如果同时打印两次，那么相当于有两个异步进程，第一个是 1，第二个打印的就是 2 了～]</p>
+<p>参考：</p>
+<p><img data-src="forEach1.png" alt="forEach1"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 2</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Saber"</span><span class="token punctuation">,</span> <span class="token string">"Lain"</span><span class="token punctuation">,</span> <span class="token string">"Maelwine"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>names<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面正确的打印顺序是：<span class="gap">B</span></p>
+<ul class="options">
+<li><code>123456</code></li>
+<li class="correct"><code>234567</code>  </li>
+<li><code>112233</code></li>
+<li><code>223344</code></li>
+</ul>
+<blockquote>
+<p>解析：[   懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub> ]</p>
+<p>参考：</p>
+<p><img data-src="forEach2.png" alt="forEach2"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 3</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Saber"</span><span class="token punctuation">,</span> <span class="token string">"Lain"</span><span class="token punctuation">,</span> <span class="token string">"Maelwine"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  names</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">return</span> obj</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>names<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面 this 的指向输出顺序是：<span class="gap">A</span></p>
+<ul class="options">
+<li class="correct"><code>obj obj obj</code> </li>
+<li><code>foo foo foo</code></li>
+<li><code>window window windo</code></li>
+</ul>
+<blockquote>
+<p>解析：[   懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub> ]</p>
+<p>参考：</p>
+<p><img data-src="map1.png" alt="map1"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi">
+<p>this 指向例题 4</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Saber"</span><span class="token punctuation">,</span> <span class="token string">"Lain"</span><span class="token punctuation">,</span> <span class="token string">"Maelwine"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  names</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">return</span> obj</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>names<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面 this 的指向输出顺序是：<span class="gap">B</span></p>
+<ul class="options">
+<li><code>obj obj obj</code></li>
+<li class="correct"><code>foo foo foo</code>  </li>
+<li><code>window window windo</code></li>
+</ul>
+<blockquote>
+<p>解析：[   懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub>就这些吧，出题好累～]</p>
+<p>参考：</p>
+<p><img data-src="map2.png" alt="map2"></p>
+<p></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="this-规则优先级-面试题"><a class="markdownIt-Anchor" href="#this-规则优先级-面试题">#</a> this 规则优先级 + 面试题</h2>
+<ul>
+<li>
+<p>学习了四条规则，接下来开发中我们只需要去查找函数的调用应用了哪条规则即可，但是如果一个函数调用位置应用了多条规则，优先级谁更高呢？</p>
+</li>
+<li>
+<p>1. 默认规则的优先级最低</p>
+<ul>
+<li>毫无疑问，默认规则的优先级是最低的，因为存在其他规则时，就会通过其他规则的方式来绑定 this</li>
+</ul>
+</li>
+<li>
+<p>2. 显示绑定优先级高于隐式绑定</p>
+</li>
+<li>
+<p>3.new 绑定优先级高于隐式绑定</p>
+</li>
+<li>
+<p>4.new 绑定优先级高于 bind</p>
+<ul>
+<li>new 绑定和 call、apply 是不允许同时使用的，所以不存在谁的优先级更高</li>
+<li>new 绑定可以和 bind 一起使用，new 绑定优先级更高</li>
+</ul>
+</li>
+</ul>
+<h3 id="优先级"><a class="markdownIt-Anchor" href="#优先级">#</a> 优先级</h3>
+<ol class="mistake">
+<li class="quiz fill multi mistake">
+<p>this 指向例题 1</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> nekoaimer <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"Lain"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function-variable function">favorite</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>nekoaimer<span class="token punctuation">.</span><span class="token function">favorite</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面 this 的指向是：<span class="gap">D</span></p>
+<ul class="options">
+<li><code>foo</code></li>
+<li><code>bar</code></li>
+<li><code>nekoaimer</code></li>
+<li class="correct"><code>window</code> </li>
+</ul>
+<blockquote>
+<p>解析：[   懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub>~ ]</p>
+<p>参考：</p>
+<p><img data-src="default2.png" alt="default2"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi mistake">
+<p>this 指向例题 2</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">var</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"lain"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  foo<span class="token operator">:</span> <span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"Saber"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>lain<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面 this 的指向输出顺序是：<span class="gap">C</span></p>
+<ul class="options">
+<li><code>foo</code></li>
+<li><code>lain</code></li>
+<li class="correct"><code>Saber</code>  </li>
+</ul>
+<blockquote>
+<p>解析：[   懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub>~ ]</p>
+<p>参考：</p>
+<p><img data-src="priority1.png" alt="priority1"></p>
+<p></p>
+</blockquote>
+</li>
+<li class="quiz fill multi">
+<p>this 指向例题 3</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>面试题</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> nekoaimer <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"nekoaimer"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function-variable function">favorite</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>nekoaimer<span class="token punctuation">.</span><span class="token function">favorite</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token string">'Saber'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>nekoaimer<span class="token punctuation">.</span><span class="token function">favorite</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">'Lain'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>下面 this 的指向输出顺序是：<span class="gap">A</span></p>
+<ul class="options">
+<li class="correct"><code>Saber Lain</code> </li>
+<li><code>window window</code></li>
+<li><code>nekoaimer nekoaimer</code></li>
+</ul>
+<blockquote>
+<p>解析：[   懒得打字了，发挥智慧的小脑瓜想想吧<sub> (～￣▽￣)～</sub>~ ]</p>
+<p>参考：</p>
+<p><img data-src="priority2.png" alt="priority2"></p>
+<p></p>
+</blockquote>
+</li>
+</ol>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-Advanced/" rel="tag"><i class="ic i-tag"></i> JavaScript Advanced</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"><i class="ic i-tag"></i> JavaScript面试题</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-01-06 22:56:11" itemprop="dateModified" datetime="2022-01-06T22:56:11+08:00">2022-01-06</time>
+  </span>
+  <span id="2021/10/07/WebFE/JavaScript/Advanced/this/" class="item leancloud_visitors" data-flag-title="JavaScript name 和 this" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/bilibili.jpg" alt="Nico Niconi bilibili">
+        <p>bilibili</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/07/WebFE/JavaScript/Advanced/this/" title="JavaScript name 和 this">https://nekoaimer.github.io/nekoaimer.github.io/2021/10/07/WebFE/JavaScript/Advanced/this/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclj9410cj20zk0m8h12.jpg" title="JavaScript 闭包">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
+  <h3>JavaScript 闭包</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/08/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph47e9vtj20zk0m8x6l.jpg" title="项目搭建规范">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Project</span>
+  <h3>项目搭建规范</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#name%E5%B1%9E%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text"> name 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#name%E6%98%AFwindow%E8%87%AA%E5%B8%A6%E7%9A%84%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7%E5%AE%83%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E5%AE%83%E6%AF%94%E8%BE%83%E7%89%B9%E6%AE%8A-%E5%BD%93%E4%BD%A0%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B2%A1%E6%9C%89%E7%BB%99name%E8%B5%8B%E5%80%BC%E6%97%B6consolelogwindowname-%E6%98%AF%E4%B8%BAtrue%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text"> name 是 window 自带的全局属性，它是字符串类型。它比较特殊。当你打开浏览器没有给 name 赋值时 console.log (window.name &#x3D;&#x3D;&#x3D; ‘’) 是为 true 的！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%8C%E5%BD%93%E4%BD%A0%E4%BD%BF%E7%94%A8const%E6%88%96%E8%80%85let%E5%90%91%E7%BB%99name%E8%B5%8B%E5%80%BC%E6%97%B6console%E6%89%93%E5%8D%B0%E7%9A%84%E7%BB%93%E6%9E%9C%E4%B9%9F%E6%98%AF%E4%B8%8E%E5%88%9A%E6%89%8D%E4%B8%80%E6%A0%B7%E4%BD%86%E4%B8%8D%E5%90%8C%E7%9A%84%E6%98%AF%E4%BD%A0%E7%9B%B4%E6%8E%A5%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5%E5%8F%98%E9%87%8F%E5%90%8D%E6%98%AF%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0-nekoaimer"><span class="toc-number">1.2.</span> <span class="toc-text"> 而当你使用 const 或者 let 向给 name 赋值时，console 打印的结果也是与刚才一样，但不同的是你直接在浏览器输入变量名是可以得到 nekoaimer ！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E9%9D%A2%E6%98%AFname%E5%88%9B%E5%BB%BA%E5%88%B0%E9%94%80%E6%AF%81%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B~"><span class="toc-number">1.3.</span> <span class="toc-text"> 下面是 name 创建到销毁的执行过程～</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const-name"><span class="toc-number">1.4.</span> <span class="toc-text"> const name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-name"><span class="toc-number">1.5.</span> <span class="toc-text"> var name</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this%E5%88%B0%E5%BA%95%E6%8C%87%E5%90%91%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text"> this 到底指向什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84-this-%E4%B8%8D%E5%90%8C"><span class="toc-number">2.1.</span> <span class="toc-text"> 同一个函数的 this 不同</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99-%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text"> this 绑定规则 + 面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%BB%91%E5%AE%9A"><span class="toc-number">3.1.</span> <span class="toc-text"> 默认绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="toc-number">3.2.</span> <span class="toc-text"> 隐式绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E7%BB%91%E5%AE%9A"><span class="toc-number">3.3.</span> <span class="toc-text"> 显示绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new%E7%BB%91%E5%AE%9A"><span class="toc-number">3.4.</span> <span class="toc-text"> new 绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A"><span class="toc-number">3.5.</span> <span class="toc-text"> 内置函数绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#settimeout"><span class="toc-number">3.5.1.</span> <span class="toc-text"> settimeout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E7%82%B9%E5%87%BB"><span class="toc-number">3.5.2.</span> <span class="toc-text"> 监听点击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#foreachmap"><span class="toc-number">3.5.3.</span> <span class="toc-text"> forEach&#x2F;map</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7-%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text"> this 规则优先级 + 面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">4.1.</span> <span class="toc-text"> 优先级</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li class="active"><a href="/nekoaimer.github.io/2021/10/07/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name 和 this">JavaScript name 和 this</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">47</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">13</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">18</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/12/08/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/24/WebFE/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/12/WebFE/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" title="JavaScript 闭包">JavaScript 闭包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/01/WebFE/Vue/Vue3/CompositionAPI/vca_encapsulation/" title="Vue3 setup 案例封装">Vue3 setup 案例封装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Node-js/" title="In Node.js">Node.js</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/08/Node/node_order/" title="Node.js">Node.js</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/19/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Typora/" title="In Typora">Typora</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2019/09/12/typora_shortcut_key/" title="Typora Shortcut Key">Typora Shortcut Key</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/01/WebFE/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/15/WebFE/Vue/Vue3/CompositionAPI/vca_customRef/" title="Vue3 customRef 自定义 debounce">Vue3 customRef 自定义 debounce</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/19/WebFE/JavaScript/interesting_question/undefined/" title="undefined">undefined</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">162k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">2:27</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/10/07/WebFE/JavaScript/Advanced/this/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',quiz: {
+      choice: "Multiple Choice",
+      multiple: "Multiple Answer",
+      true_false: "True/False",
+      essay: "Questions",
+      gap_fill: "Gap Filling",
+      mistake: "Wrong Answer"
+    },
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
