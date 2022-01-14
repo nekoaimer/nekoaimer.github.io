@@ -1,0 +1,802 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="ES6,JavaScript,JavaScript Advanced" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/">
+
+
+
+  <title>
+Set & Map 数据结构 - JavaScript Advanced - JavaScript - WebFE |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Set & Map 数据结构
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-10-26 13:03:49">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-26T13:03:49+08:00">2021-10-26</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>8k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>7 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/" itemprop="item" rel="index" title="In WebFE"><span itemprop="name">WebFE</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" itemprop="item" rel="index" title="In JavaScript Advanced"><span itemprop="name">JavaScript Advanced</span></a>
+<meta itemprop="position" content="3" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="set"><a class="anchor" href="#set">#</a> Set</h2>
+<ul>
+<li>在 ES6 之前，我们存储数据的结构主要有两种：数组、对象。</li>
+<li>在 ES6 中新增了另外两种数据结构：Set、Map，以及它们的另外形式 WeakSet、WeakMap。</li>
+<li>Set 是一个新增的数据结构，可以用来保存数据，类似于数组，但是和数组的区别是元素不能重复。</li>
+<li>创建 Set 我们需要通过 Set 构造函数（暂时没有字面量创建的方式）：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 1. 生成 Set 结构</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span> <span class="token comment">// Set(4) &#123; 1, 2, 3, '4' &#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 2. 添加对象需注意</span></pre></td></tr><tr><td data-num="11"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span> <span class="token comment">// Set(6) &#123; 1, 2, 3, '4', &#123;&#125;, &#123;&#125; &#125;</span></pre></td></tr></table></figure><h3 id="数组去重"><a class="anchor" href="#数组去重">#</a> 数组去重</h3>
+<ul>
+<li>我们可以发现 Set 中存放的元素是不会重复的，那么 Set 有一个非常常用的功能就是给数组去重。</li>
+<li>我们之前的做法是通过 indexOf 判断是否存在该元素</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> k <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>newArr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    newArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newArr<span class="token punctuation">)</span> <span class="token comment">// [1, 2, 3, 4]</span></pre></td></tr></table></figure><ul>
+<li>而现在使用 Set 会非常方便做到这一点</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> newArr <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">//const newArr = [... new Set (arr)] // 这种方法也是可以的</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newArr<span class="token punctuation">)</span> <span class="token comment">// [1, 2, 3, 4]</span></pre></td></tr></table></figure><h3 id="size-属性"><a class="anchor" href="#size-属性">#</a> size 属性</h3>
+<ul>
+<li>Set 属性：
+<ul>
+<li>size 返回 Set 中元素的个数；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// 4</span></pre></td></tr></table></figure><h3 id="set-方法"><a class="anchor" href="#set-方法">#</a> Set 方法</h3>
+<ul>
+<li>
+<p>Set 常用方法：</p>
+<ul>
+<li>add (value)：添加某个元素，返回 Set 对象本身；</li>
+</ul>
+</li>
+<li>
+<p>delete (value)：从 set 中删除和这个值相等的元素，返回 boolean 类型；</p>
+<ul>
+<li>has (value)：判断 set 中是否存在某个元素，返回 boolean 类型；</li>
+</ul>
+</li>
+<li>
+<p>clear ()：清空 set 中所有的元素，没有返回值；</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="2"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// 6</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 1.delete 传入的是需要删除的元素  不支持索引</span></pre></td></tr><tr><td data-num="7"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// 5</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 2.has 判断是否包含元素</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="12"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">// 3.clear 清除所有元素</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment">// set.clear()</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// console.log(set.size) // 0</span></pre></td></tr></table></figure><h3 id="set-遍历"><a class="anchor" href="#set-遍历">#</a> Set 遍历</h3>
+<ul>
+<li>
+<p>forEach (callback, [, thisArg])：通过 forEach 遍历 set；</p>
+</li>
+<li>
+<p>Set 也是支持 for of 的遍历的</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 对 set 进行遍历</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// forEach</span></pre></td></tr><tr><td data-num="5"></td><td><pre>set<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 1 2 3 4</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// for of</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> set<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token comment">// 1 2 3 4</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="weakset"><a class="anchor" href="#weakset">#</a> WeakSet</h2>
+<ul>
+<li>
+<p>WeakSet 和 Set 区别</p>
+<ul>
+<li>区别一：WeakSet 中只能存放对象类型，不能存放基本数据类型；</li>
+</ul>
+</li>
+<li>
+<p>区别二：WeakSet 对元素的引用是弱引用，如果没有其他引用对某个对象进行引用，那么 GC 可以对该对象进行回收；</p>
+</li>
+<li>
+<p>首先，WeakSet 的成员只能是对象，而不能是其他类型的值。</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> weakSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>weakSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// TypeError: Invalid value used in weak set</span></pre></td></tr></table></figure><ul>
+<li>WeakSet 是一个构造函数，可以使用 <code>new</code>  命令，创建 WeakSet 数据结构。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> weakSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>作为构造函数，WeakSet 可以接受一个数组或类似数组的对象作为参数。（实际上，任何具有 Iterable 接口的对象，都可以作为 WeakSet 的参数。）该数组的所有成员，都会自动成为 WeakSet 实例对象的成员。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// WeakSet &#123;[1, 2], [3, 4]&#125;</span></pre></td></tr></table></figure><ul>
+<li>上面代码中， <code>arr</code>  是一个数组，它有两个成员，也都是数组。将 <code>arr</code>  作为 WeakSet 构造函数的参数， <code>arr</code>  的成员会自动成为 WeakSet 的成员。</li>
+<li>注意，是 <code>arr</code>  数组的成员成为 WeakSet 的成员，而不是 <code>arr</code>  数组本身。这意味着，数组的成员只能是对象。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// TypeError: Invalid value used in weak set</span></pre></td></tr></table></figure><h3 id="weakset-方法"><a class="anchor" href="#weakset-方法">#</a> WeakSet 方法</h3>
+<ul>
+<li>WeakSet.prototype.add (value)：向 WeakSet 实例添加一个新成员。</li>
+<li>WeakSet.prototype.delete (value)：清除 WeakSet 实例的指定成员。</li>
+<li>WeakSet.prototype.has (value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 1.add (value): 添加某个元素，返回 WeakSet 对象本身</span></pre></td></tr><tr><td data-num="6"></td><td><pre>ws<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>ws<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ws<span class="token punctuation">)</span> <span class="token comment">// WeakSet &#123;&#123;…&#125;,&#123;…&#125;&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 2.has (value)：判断 WeakSet 中是否存在某个元素，返回 boolean 类型</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ws<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="12"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ws<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">// 3.delete (value)：从 WeakSet 中删除和这个值相等的元素，返回 boolean 类型</span></pre></td></tr><tr><td data-num="15"></td><td><pre>ws<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ws<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span></pre></td></tr></table></figure><h3 id="应用场景"><a class="anchor" href="#应用场景">#</a> 应用场景</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Characters</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    foo<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token function">sleeping</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>foo<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Characters.prototype.sleeping 只能在Characters的实例上调用！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Characters</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>lain<span class="token punctuation">.</span><span class="token function">sleeping</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>上面代码保证了 <code>Characters</code>  的实例方法，只能在 <code>Characters</code>  的实例上调用。这里使用 WeakSet 的好处是， <code>lain</code>  对实例的引用，不会被计入内存回收机制，所以删除实例的时候，不用考虑 <code>lain</code> ，也不会出现内存泄漏。</li>
+</ul>
+<h2 id="map"><a class="anchor" href="#map">#</a> Map</h2>
+<ul>
+<li>另外一个新增的数据结构是 Map，用于存储映射关系。</li>
+<li>但是在之前我们可以使用对象来存储映射关系，他们有什么区别呢？
+<ul>
+<li>事实上我们对象存储映射关系只能用字符串（ES6 新增了 Symbol）作为属性名（key）；</li>
+<li>某些情况下我们可能希望通过其他类型作为 key，比如对象，这个时候会自动将对象转成字符串来作为 key；</li>
+</ul>
+</li>
+<li>之前对象是不能使用对象作为 key</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'saber'</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> characters <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">[</span>lain<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">[</span>saber<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'saber'</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>characters<span class="token punctuation">)</span> <span class="token comment">// &#123;[object Object]: 'saber'&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 对象作为 key 都会被转为 '[object Object]'，所以只输出下面一个是因为下面的将上面覆盖了</span></pre></td></tr></table></figure><ul>
+<li>Map 则是允许我们对象类型来作为 key 的</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> <span class="token string">'lain'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'obj'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// Map(4) &#123;&#123;…&#125; => 'lain', 1 => 1, 'obj' => ƒ, null => undefined&#125;</span></pre></td></tr></table></figure><h3 id="map-传入-entries-格式"><a class="anchor" href="#map-传入-entries-格式">#</a> Map 传入 entries 格式</h3>
+<p>错误格式</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// Iterator value 123 is not an entry object</span></pre></td></tr></table></figure><ul>
+<li>正确传入格式： [[key, value], [key, value], [key, value]]</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'lain'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment">// Map(3) &#123;'name' => 'lain', 'age' => 16, 123 => 123&#125;</span></pre></td></tr></table></figure><h3 id="size属性返回-map-结构的成员总数"><a class="anchor" href="#size属性返回-map-结构的成员总数">#</a>  <code>size</code>  属性返回 Map 结构的成员总数。</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'lain'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// 3</span></pre></td></tr></table></figure><h3 id="map-方法"><a class="anchor" href="#map-方法">#</a> Map 方法</h3>
+<h4 id="mapprototypesetkey-value"><a class="anchor" href="#mapprototypesetkey-value">#</a> <strong>Map.prototype.set(key, value)</strong></h4>
+<ul>
+<li><code>set</code>  方法设置键名 <code>key</code>  对应的键值为 <code>value</code> ，然后返回整个 Map 结构。如果 <code>key</code>  已经有值，则键值会被更新，否则就新生成该键。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment">// Map(2) &#123;'lain' => 15, 'saber' => 16&#125;</span></pre></td></tr></table></figure><ul>
+<li><code>set</code>  方法返回的是当前的 <code>Map</code>  对象，因此可以采用链式写法。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>   </pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment">// Map (3) &#123;'lain' => 15, 'saber' => 16, ' 樱岛麻衣 ' => 16&#125;</span></pre></td></tr></table></figure><h4 id="mapprototypegetkey"><a class="anchor" href="#mapprototypegetkey">#</a> <strong>Map.prototype.get(key)</strong></h4>
+<ul>
+<li><code>get</code>  方法读取 <code>key</code>  对应的键值，如果找不到 <code>key</code> ，返回 <code>undefined</code> 。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 传入 key 获取 value</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'lain'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 15</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// undefined</span></pre></td></tr></table></figure><h4 id="mapprototypehaskey"><a class="anchor" href="#mapprototypehaskey">#</a> <strong>Map.prototype.has(key)</strong></h4>
+<ul>
+<li><code>has</code>  方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'lain'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr></table></figure><h4 id="mapprototypedeletekey"><a class="anchor" href="#mapprototypedeletekey">#</a> <strong>Map.prototype.delete(key)</strong></h4>
+<ul>
+<li><code>delete</code>  方法删除某个键，返回 <code>true</code> 。如果删除失败，返回 <code>false</code> 。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'lain'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// 0</span></pre></td></tr></table></figure><h4 id="mapprototypeclear"><a class="anchor" href="#mapprototypeclear">#</a> <strong>Map.prototype.clear()</strong></h4>
+<ul>
+<li><code>clear</code>  方法清除所有成员，没有返回值。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// 0</span></pre></td></tr></table></figure><h3 id="遍历方法"><a class="anchor" href="#遍历方法">#</a> 遍历方法</h3>
+<ul>
+<li>forEach</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 15 'lain'  16'saber'  17 ' 樱岛麻衣'</span></pre></td></tr></table></figure><ul>
+<li>for of</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token comment">//  ['lain', 15]  ['saber', 16]  [' 樱岛麻衣 ', 17]</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token comment">//  lain 15  saber 16  樱岛麻衣 17</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="weakmap"><a class="anchor" href="#weakmap">#</a> WeakMap</h2>
+<ul>
+<li>和 Map 类型相似的另外一个数据结构称之为 WeakMap，也是以键值对的形式存在的。</li>
+<li>那么和 Map 有什么区别呢？</li>
+<li><code>WeakMap</code>  和 <code>Map</code>  的区别:
+<ul>
+<li><code>WeakMap</code>  只接受对象作为键名（ <code>null</code>  除外），不接受其他类型的值作为 <code>key</code> 。</li>
+<li><code>WeakMap</code>  的键名所指向的对象，不计入垃圾回收机制。</li>
+<li><code>WeakMap</code>  的 <code>key</code>  对对象想的引用是弱引用，如果没有其他引用引用这个对象，那么 GC 可以回收该对象；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'Lain'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment">// Map(1) &#123;'Lain' => 16&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> weakMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'Lain'</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token comment">// TypeError: Invalid value used as weak map key</span></pre></td></tr></table></figure><ul>
+<li><code>WeakMap</code>  结构与 <code>Map</code>  结构类似，也是用于生成键值对的集合。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// WeakMap 可以接受一个数组，作为构造函数的参数</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> wm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>arr1<span class="token punctuation">,</span> <span class="token string">'arr1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>arr2<span class="token punctuation">,</span> <span class="token string">'arr2'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>wm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// arr1</span></pre></td></tr></table></figure><h3 id="weakmap-方法"><a class="anchor" href="#weakmap-方法">#</a> WeakMap 方法</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'saber'</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> weakMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">//set 方法</span></pre></td></tr><tr><td data-num="7"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>saber<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">//get 方法</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 16</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">//has 方法</span></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="15"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">//delete 方法</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// 删除失败返回 false</span></pre></td></tr><tr><td data-num="19"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">// 删除成功返回 false</span></pre></td></tr><tr><td data-num="22"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="23"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">)</span> <span class="token comment">// WeakMap &#123;&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">// WeakMap 不能遍历</span></pre></td></tr><tr><td data-num="28"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span>forEach<span class="token punctuation">)</span> <span class="token comment">// undefined</span></pre></td></tr></table></figure><h3 id="应用场景-响应式原理数据结构"><a class="anchor" href="#应用场景-响应式原理数据结构">#</a> 应用场景 -&gt; 响应式原理数据结构☟</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//lain 对象</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">//lain 相关方法</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainNameFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain name 发生了改变，执行 lainNameFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainNameFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain name 发生了改变，执行 lainNameFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainAgeFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain age 发生了改变，执行 lainAgeFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainAgeFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain age 发生了改变，执行 lainAgeFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">//saber 对象</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token keyword">const</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'saber'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">17</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">//saber 相关方法</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberNameFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber name 发生了改变，执行 saberNameFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberNameFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber name 发生了改变，执行 saberNameFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberAgeFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber age 发生了改变，执行 saberAgeFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberAgeFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber age 发生了改变，执行 saberAgeFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token comment">// 创建 Map 对象</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token keyword">const</span> lainMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token keyword">const</span> saberMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token comment">// 将属性名设置为 key, 相关方法设置为 value</span></pre></td></tr><tr><td data-num="46"></td><td><pre>lainMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>lainNameFn1<span class="token punctuation">,</span> lainNameFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>lainMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>lainAgeFn1<span class="token punctuation">,</span> lainAgeFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre>saberMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>saberNameFn1<span class="token punctuation">,</span> saberNameFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="49"></td><td><pre>saberMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>saberAgeFn1<span class="token punctuation">,</span> saberAgeFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token comment">// 创建 WeakMap 对象</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token comment">// 因为如果有一天 lain 需要销毁，lain = null。使用 Map 会有依赖，不会被销毁。而 WeakMap 是弱引用，这正是它的价值所在～</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token keyword">const</span> weakMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre></pre></td></tr><tr><td data-num="55"></td><td><pre><span class="token comment">// 将 lain/saber 对象作为 key, lainMap/saberMap 作为 value</span></pre></td></tr><tr><td data-num="56"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> lainMap<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="57"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>saber<span class="token punctuation">,</span> saberMap<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="58"></td><td><pre></pre></td></tr><tr><td data-num="59"></td><td><pre><span class="token comment">// 如果 lain 的 name 属性发生了改变</span></pre></td></tr><tr><td data-num="60"></td><td><pre>lain<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'樱岛麻衣'</span></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token keyword">const</span> lainNamesFns <span class="token operator">=</span> weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token keyword">const</span> saberNamesFns <span class="token operator">=</span> weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    lainNamesFns<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>      <span class="token function">item</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="69"></td><td><pre>    saber<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'小鸟游六花'</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token function">resolve</span><span class="token punctuation">(</span>saberNamesFns<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="72"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="73"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>      res<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>       <span class="token function">item</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="77"></td><td><pre>     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="78"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="79"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-Advanced/" rel="tag"><i class="ic i-tag"></i> JavaScript Advanced</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-01-14 21:13:51" itemprop="dateModified" datetime="2022-01-14T21:13:51+08:00">2022-01-14</time>
+  </span>
+  <span id="2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" class="item leancloud_visitors" data-flag-title="Set & Map 数据结构" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" title="Set &amp; Map 数据结构">https://nekoaimer.github.io/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6_%E3%81%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljgocqbj20zk0m8e81.jpg" title="JavaScript ES6 に">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
+  <h3>JavaScript ES6 に</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES7/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh3brzpj20zk0m8ann.jpg" title="ES7">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
+  <h3>ES7</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">1.</span> <span class="toc-text"> Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 数组去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#size-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text"> size 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text"> Set 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-%E9%81%8D%E5%8E%86"><span class="toc-number">1.4.</span> <span class="toc-text"> Set 遍历</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#weakset"><span class="toc-number">2.</span> <span class="toc-text"> WeakSet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weakset-%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text"> WeakSet 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">3.</span> <span class="toc-text"> Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#map-%E4%BC%A0%E5%85%A5-entries-%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text"> Map 传入 entries 格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#size%E5%B1%9E%E6%80%A7%E8%BF%94%E5%9B%9E-map-%E7%BB%93%E6%9E%84%E7%9A%84%E6%88%90%E5%91%98%E6%80%BB%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">  size  属性返回 Map 结构的成员总数。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map-%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text"> Map 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mapprototypesetkey-value"><span class="toc-number">3.3.1.</span> <span class="toc-text"> Map.prototype.set(key, value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapprototypegetkey"><span class="toc-number">3.3.2.</span> <span class="toc-text"> Map.prototype.get(key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapprototypehaskey"><span class="toc-number">3.3.3.</span> <span class="toc-text"> Map.prototype.has(key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapprototypedeletekey"><span class="toc-number">3.3.4.</span> <span class="toc-text"> Map.prototype.delete(key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapprototypeclear"><span class="toc-number">3.3.5.</span> <span class="toc-text"> Map.prototype.clear()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text"> 遍历方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#weakmap"><span class="toc-number">4.</span> <span class="toc-text"> WeakMap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weakmap-%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text"> WeakMap 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">4.2.</span> <span class="toc-text"> 应用场景 -&gt; 响应式原理数据结构☟</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/WebFE/JavaScript/Advanced/call_apply_bind/" rel="bookmark" title="call & apply & bind 使用与实现原理">call & apply & bind 使用与实现原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6 いち">JavaScript ES6 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6_%E3%81%AB/" rel="bookmark" title="JavaScript ES6 に">JavaScript ES6 に</a></li><li class="active"><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES7/" rel="bookmark" title="ES7">ES7</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">51</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">10</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">14</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6_%E3%81%AB/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES7/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/17/WebFE/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6_%E3%81%84%E3%81%A1/" title="JavaScript ES6 いち">JavaScript ES6 いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/22/WebFE/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/28/WebFE/Vue/Vue3/OptionsAPI/voa_animate&gsap&lodash/" title="animate &amp; gsap &amp; lodash 使用">animate & gsap & lodash 使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/12/WebFE/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES7/" title="ES7">ES7</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" title="JavaScript defineProperty">JavaScript defineProperty</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/13/WebFE/Vue/Vue3/CompositionAPI/vca_unref-isRef/" title="Vue3 unref和isRef 基本用法">Vue3 unref和isRef 基本用法</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">200k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">3:02</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/10/26/WebFE/JavaScript/Advanced/Set_Map/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
