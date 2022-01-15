@@ -1,0 +1,821 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript,JavaScript Advanced,ES6" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/">
+
+
+
+  <title>
+JavaScript ES6+ さん - JavaScript Advanced - JavaScript - WebFE |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript ES6+ さん
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-10-28 21:19:46">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-28T21:19:46+08:00">2021-10-28</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>8.1k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>7 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/" itemprop="item" rel="index" title="In WebFE"><span itemprop="name">WebFE</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" itemprop="item" rel="index" title="In JavaScript Advanced"><span itemprop="name">JavaScript Advanced</span></a>
+<meta itemprop="position" content="3" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="前言声明"><a class="anchor" href="#前言声明">#</a> 前言声明</h2>
+<ul>
+<li>本文大量释义来源于 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04v">MDN</span></li>
+</ul>
+<h2 id="es7"><a class="anchor" href="#es7">#</a> ES7</h2>
+<h3 id="includes"><a class="anchor" href="#includes">#</a> includes</h3>
+<ul>
+<li>在 ES7 之前，如果我们想判断一个数组中是否包含某个元素，需要通过 indexOf 获取结果，并且判断是否为 -1。</li>
+<li>在 ES7 中，我们可以通过 includes 来判断一个数组中是否包含一个指定的元素，根据情况，如果包含则返回 true，否则返回 false。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'伊莉雅'</span><span class="token punctuation">,</span> <span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token string">'入间同学'</span><span class="token punctuation">,</span> <span class="token string">'薇尔莉特'</span><span class="token punctuation">,</span> <span class="token number">NaN</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 在判断 +0 与 -0 时，被认为是相同的。</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment">// 3</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment">// true</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 这里可以看出数组是包含 NaN 的 indexOf 返回的却是 -1</span></pre></td></tr><tr><td data-num="8"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">)</span> <span class="token comment">// 1</span></pre></td></tr><tr><td data-num="9"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">)</span> <span class="token comment">// -1</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'伊莉雅'</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="12"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">// 只能判断简单类型的数据，对于复杂类型的数据，比如对象类型的数组，二维数组，这些，是无法判断的.</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="16"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//false</span></pre></td></tr><tr><td data-num="17"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//-1</span></pre></td></tr></table></figure><ul>
+<li>includes &amp; indexof 区别</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'伊莉雅'</span><span class="token punctuation">,</span> <span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token string">'入间同学'</span><span class="token punctuation">,</span> <span class="token string">'薇尔莉特'</span><span class="token punctuation">,</span> <span class="token number">NaN</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 这里可以看出数组是包含 NaN 的 indexOf 返回的却是 -1  includes 则是 true</span></pre></td></tr><tr><td data-num="4"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span> <span class="token comment">// -1</span></pre></td></tr><tr><td data-num="5"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 第二个参数为 2 代表从第 2 个元素之后开始判断</span></pre></td></tr><tr><td data-num="8"></td><td><pre>friends<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr></table></figure><h3 id="指数运算符"><a class="anchor" href="#指数运算符">#</a> 指数运算符</h3>
+<ul>
+<li>在 ES7 之前，计算数字的乘方需要通过 Math.pow 方法来完成。</li>
+<li>在 ES7 中，增加了 ** 运算符，可以对数字来计算乘方</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> result1 <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> result2 <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">5</span> </pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span> <span class="token comment">// 32</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span> <span class="token comment">// 32</span></pre></td></tr></table></figure><h2 id="es8"><a class="anchor" href="#es8">#</a> ES8</h2>
+<h3 id="objectvalues"><a class="anchor" href="#objectvalues">#</a> Object.values</h3>
+<ul>
+<li><code>Object.values()</code>  返回一个数组，其元素是在对象上找到的可枚举属性值。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 传入对象</span></pre></td></tr><tr><td data-num="6"></td><td><pre>Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span> <span class="token comment">//  ['lain', 16]</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 传入数组</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">[</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token string">'薇尔莉特'</span><span class="token punctuation">,</span> <span class="token string">'伊莉雅'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">//  [' 樱岛麻衣 ', ' 薇尔莉特 ', ' 伊莉雅 ']</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 传入字符串</span></pre></td></tr><tr><td data-num="12"></td><td><pre>Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣是我老婆'</span><span class="token punctuation">)</span> <span class="token comment">//  [' 樱 ', ' 岛 ', ' 麻 ', ' 衣 ', ' 是 ', ' 我 ', ' 老 ', ' 婆 ']</span></pre></td></tr></table></figure><h3 id="objectentries"><a class="anchor" href="#objectentries">#</a> Object.entries</h3>
+<ul>
+<li><code>Object.entries()</code>  返回一个数组，其元素是与直接在 <code>object</code>  上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 传入对象</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span> <span class="token comment">// [ [ 'name', 'lain' ], [ 'age', 16 ] ]</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 传入数组</span></pre></td></tr><tr><td data-num="10"></td><td><pre>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token string">'薇尔莉特'</span><span class="token punctuation">,</span> <span class="token string">'伊莉雅'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// [['0', ' 樱岛麻衣 '], [ '1', ' 薇尔莉特 ' ], [ '2', ' 伊莉雅 ' ] ]</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 传入字符串</span></pre></td></tr><tr><td data-num="13"></td><td><pre>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">)</span> <span class="token comment">// [['0', ' 樱 '], [ '1', ' 岛 ' ], [ '2', ' 麻 ' ], [ '3', ' 衣 ' ] ]</span></pre></td></tr></table></figure><h3 id="padstart"><a class="anchor" href="#padstart">#</a> padStart</h3>
+<ul>
+<li><code>padStart()</code>  方法用另一个字符串填充当前字符串 (如果需要的话，会重复多次)，以便产生的字符串达到给定的长度。从当前字符串的左侧开始填充。</li>
+<li>语法：  <code>str.padStart(targetLength [, padString])</code></li>
+<li>参数：
+<ul>
+<li><code>targetLength: 当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。</code></li>
+<li><code>padString 可选  填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断。此参数的默认值为 &quot; &quot;（U+0020）。</code></li>
+</ul>
+</li>
+<li>返回值： <code>在原字符串开头填充指定的填充字符串直到目标长度所形成的新字符串。</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'樱岛麻衣'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>      <span class="token comment">//     樱岛麻衣</span></pre></td></tr><tr><td data-num="3"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token punctuation">)</span> <span class="token comment">//---- 樱岛麻衣</span></pre></td></tr></table></figure><h3 id="padend"><a class="anchor" href="#padend">#</a> padEnd</h3>
+<ul>
+<li><code>padEnd()</code>   方法会用一个字符串填充当前字符串（如果需要的话则重复填充），返回填充后达到指定长度的字符串。从当前字符串的末尾（右侧）开始填充。</li>
+<li>语法： <code>str.padEnd(targetLength [, padString])</code></li>
+<li>参数：
+<ul>
+<li><code>targetLength：</code> 当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。</li>
+<li><code>padString 可选  填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断。此参数的缺省值为 &quot; &quot;（U+0020）。</code></li>
+</ul>
+</li>
+<li>返回值：在原字符串末尾填充指定的填充字符串直到目标长度所形成的新字符串。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'樱岛麻衣'</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token comment">// 樱岛麻衣  </span></pre></td></tr><tr><td data-num="4"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>        <span class="token comment">// 樱岛麻衣 empty*6     </span></pre></td></tr><tr><td data-num="5"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span>   <span class="token comment">// 樱岛麻衣 ******</span></pre></td></tr><tr><td data-num="6"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">"-"</span><span class="token punctuation">)</span>    <span class="token comment">// 樱岛麻衣 ----</span></pre></td></tr></table></figure><h3 id="demo"><a class="anchor" href="#demo">#</a> Demo</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> identityCard <span class="token operator">=</span> <span class="token string">'421126200006132333'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> lastIdentityCard <span class="token operator">=</span> identityCard<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>lastIdentityCard<span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span>identityCard<span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token string">'*'</span><span class="token punctuation">)</span> <span class="token comment">// **************2333</span></pre></td></tr></table></figure><h2 id="es10"><a class="anchor" href="#es10">#</a> ES10</h2>
+<h3 id="flat"><a class="anchor" href="#flat">#</a> flat</h3>
+<ul>
+<li><code>flat()</code>  方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</li>
+<li>语法： <code>var newArray = arr.flat([depth])</code></li>
+<li>参数：
+<ul>
+<li><code>depth 可选 </code>   指定要提取嵌套数组的结构深度，默认值为 1</li>
+</ul>
+</li>
+<li>返回值：一个包含将数组与子数组中所有元素的新数组。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 声明一个多维数组</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 数组降维默认为 1</span></pre></td></tr><tr><td data-num="5"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// [ 1, 2, 3, 4, 5, 6, 7, [ 8, 9 ], [ 10, [ 11, 12 ] ] ]</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 数组降维 2</span></pre></td></tr><tr><td data-num="8"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, [ 11, 12 ] ]</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 使用 Infinity，可展开任意深度的嵌套数组</span></pre></td></tr><tr><td data-num="11"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token number">Infinity</span><span class="token punctuation">)</span> <span class="token comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]</span></pre></td></tr></table></figure><h3 id="flagmap"><a class="anchor" href="#flagmap">#</a> flagMap</h3>
+<ul>
+<li>
+<p><code>flatMap()</code>  方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。它与 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvbWFw">map</span> 连着深度值为 1 的 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvZmxhdA==">flat</span> 几乎相同，但  <code>flatMap</code>  通常在合并成一种方法的效率稍微高一些。</p>
+</li>
+<li>
+<p>语法： <code>var new_array = arr.flatMap(function callback(currentValue[, index[, array]]) &#123; // return element for new_array &#125;[, thisArg])</code></p>
+</li>
+<li>
+<p>参数：</p>
+<ul>
+<li>
+<p><code>callback</code>  可以生成一个新数组中的元素的函数，可以传入三个参数：</p>
+</li>
+<li>
+<p><code>currentValue</code>  当前正在数组中处理的元素</p>
+</li>
+<li>
+<p><code>index 可选 </code>  可选的。数组中正在处理的当前元素的索引。</p>
+</li>
+<li>
+<p><code>array 可选</code>  可选的。被调用的  <code>map</code>  数组</p>
+</li>
+<li>
+<p><code>thisArg 可选</code>  可选的。执行  <code>callback</code>  函数时 使用的 <code>this</code>  值。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>flatMap 方法与 map 方法和深度 depth 为 1 的 flat 几乎相同.</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> characters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'薇尔莉特 小鸟游六花'</span><span class="token punctuation">,</span><span class="token string">'稚名真白 土间埋'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 使用 map 得到的是多维数组</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> words1 <span class="token operator">=</span> characters<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>words1<span class="token punctuation">)</span> <span class="token comment">// [[' 薇尔莉特 ', ' 小鸟游六花 '], [ ' 稚名真白 ', ' 土间埋 ' ] ]</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 使用 flatMap 得到的是一维数组</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> words2 <span class="token operator">=</span> characters<span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>words2<span class="token punctuation">)</span> <span class="token comment">// [' 薇尔莉特 ', ' 小鸟游六花 ', ' 稚名真白 ', ' 土间埋 ']</span></pre></td></tr></table></figure><h3 id="objectfromentries"><a class="anchor" href="#objectfromentries">#</a> Object.fromEntries</h3>
+<ul>
+<li>​	 <code>Object.fromEntries()</code>  方法把键值对列表转换为一个对象。、</li>
+<li>语法： <code>Object.fromEntries(iterable)</code></li>
+<li>参数： <code>iterable</code>  类似 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array"> <code>Array</code> </a> 、 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map"> <code>Map</code> </a> 或者其它实现了<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvSXRlcmF0aW9uX3Byb3RvY29scyN0aGVfaXRlcmFibGVfcHJvdG9jb2w=">可迭代协议</span>的可迭代对象。</li>
+<li>返回值：一个由该迭代对象条目提供对应属性的新对象。</li>
+<li><code>Object.fromEntries()</code>  方法接收一个键值对的列表参数，并返回一个带有这些键值对的新对象。这个迭代参数应该是一个能够实现 <code>@@iterator</code>  方法的的对象，返回一个迭代器对象。它生成一个具有两个元素的类数组的对象，第一个元素是将用作属性键的值，第二个元素是与该属性键关联的值。</li>
+<li><code>Object.fromEntries()</code>  执行与 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"> <code>Object.entries</code> </a> 互逆的操作。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> entries <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>entries<span class="token punctuation">)</span> <span class="token comment">// Map(2) &#123; 'lain' => 16, 'saber' => 17 &#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> fromEntries <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>entries<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fromEntries<span class="token punctuation">)</span> <span class="token comment">// &#123; lain: 16, saber: 17 &#125;</span></pre></td></tr></table></figure><h3 id="demo-2"><a class="anchor" href="#demo-2">#</a> Demo</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> queryString <span class="token operator">=</span> <span class="token string">'name=saber&amp;age=16'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> queryParams <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>queryString<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queryParams<span class="token punctuation">)</span> <span class="token comment">// URLSearchParams &#123; 'name' => 'saber', 'age' => '16' &#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> param <span class="token keyword">of</span> queryParams<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token comment">// [ 'name', 'saber' ]  [ 'age', '16' ]</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 使用 Object.fromEntries 转换为对象  与 Object.entries 相反</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> paramObj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>queryParams<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>paramObj<span class="token punctuation">)</span> <span class="token comment">// &#123; name: 'saber', age: '16' &#125;</span></pre></td></tr></table></figure><h3 id="trim"><a class="anchor" href="#trim">#</a> trim()</h3>
+<h3 id="trimstart"><a class="anchor" href="#trimstart">#</a> trimStart()</h3>
+<ul>
+<li><code>trimStart()</code>  方法从字符串的开头删除空格。 <code>trimLeft()</code>  是此方法的别名。</li>
+<li>返回值：一个新字符串，表示从其开头（左端）除去空格的调用字符串。</li>
+<li><code>trimStart()</code>  /  <code>trimLeft()</code>  方法移除原字符串左端的连续空白符并返回一个新字符串，并不会直接修改原字符串本身。</li>
+<li>别名：为了与 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/padStart"> <code>String.prototype.padStart</code> </a> 等函数保持一致，标准方法名称为 <code>trimStart</code> 。 但是，出于 Web 兼容性原因， <code>trimLeft</code>  仍然是  <code>trimStart</code>  的别名。在某些引擎中，这意味着： <code>String.prototype.trimLeft.name === &quot;trimStart&quot;</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'   Hello World'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">trimStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// ''*3Hello World</span></pre></td></tr></table></figure><h3 id="trimend"><a class="anchor" href="#trimend">#</a> trimEnd</h3>
+<ul>
+<li><code>trimEnd() </code> 方法从一个字符串的末端移除空白字符。trimRight () 是这个方法的别名。</li>
+<li>返回值：一个新字符串，表示从调用字串的末（右）端除去空白。</li>
+<li><code>trimEnd()</code>  /  <code>trimRight()</code>  方法移除原字符串右端的连续空白符并返回， <code>trimEnd()</code>  /  <code>trimRight()</code>  方法并不会直接修改原字符串本身。</li>
+<li>别名：为了与 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd"> <code>String.prototype.padEnd</code> </a> 等函数保持一致，标准方法名称为 <code>trimEnd</code> 。 但是，出于 Web 兼容性原因， <code>trimRight</code>  仍然是 <code>trimEnd</code>  的别名。 在某些引擎中，这意味着： <code>String.prototype.trimRight.name === &quot;trimEnd&quot;;</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'Hello World   '</span></pre></td></tr><tr><td data-num="2"></td><td><pre>str<span class="token punctuation">.</span><span class="token function">trimEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// Hello World''*3</span></pre></td></tr></table></figure><h3 id="description"><a class="anchor" href="#description">#</a> description</h3>
+<ul>
+<li><code>description</code>  是一个只读属性，它会返回 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol"> <code>Symbol</code> </a> 对象的可选描述的字符串。</li>
+<li>语法： <code>Symbol('myDescription').description;Symbol.iterator.description;Symbol.for('foo').description;</code></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol"> <code>Symbol</code> </a> 对象可以通过一个可选的描述创建，可用于调试，但不能用于访问 symbol 本身。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'lain'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>description <span class="token comment">// lain</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>description <span class="token comment">// ''</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>description <span class="token comment">// undefined</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>description <span class="token comment">// 1,2,3</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>description <span class="token comment">// [object Object]</span></pre></td></tr></table></figure><h2 id="es11"><a class="anchor" href="#es11">#</a> ES11</h2>
+<h3 id="bigint"><a class="anchor" href="#bigint">#</a> BigInt</h3>
+<ul>
+<li><strong> <code>BigInt</code> </strong> 是一种内置对象，它提供了一种方法来表示大于  <code>253 - 1</code>  的整数。这原本是 Javascript 中可以用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number"> <code>Number</code> </a> 表示的最大数字。<strong> <code>BigInt</code> </strong> 可以表示任意大的整数。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">**</span> <span class="token number">53</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// 9007199254740991n</span></pre></td></tr></table></figure><ul>
+<li>可以用在一个整数字面量后面加  <code>n</code>  的方式定义一个  <code>BigInt</code>  ，如： <code>10n</code> ，或者调用函数 <code>BigInt()</code> 。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> bigInt <span class="token operator">=</span> <span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> bigInt<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bigInt <span class="token operator">+</span> <span class="token number">10n</span><span class="token punctuation">)</span> <span class="token comment">// 20n</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token number">100</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token number">100</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bigInt <span class="token operator">+</span> <span class="token function">BigInt</span><span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 110n</span></pre></td></tr><tr><td data-num="9"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bigInt <span class="token operator">+</span> <span class="token function">BigInt</span><span class="token punctuation">(</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 110n</span></pre></td></tr></table></figure><ul>
+<li>将 BigInt 转成 Number 类型</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> bigInt <span class="token operator">=</span> <span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 如果将大数转成 Number 类型，不一定能安全表示</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> smallNum <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>bigInt<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>smallNum<span class="token punctuation">)</span> <span class="token comment">// 10</span></pre></td></tr></table></figure><h3 id="nullish-coalescing-operator"><a class="anchor" href="#nullish-coalescing-operator">#</a> Nullish coalescing operator</h3>
+<ul>
+<li><strong>空值合并操作符</strong>（<strong> <code>??</code> </strong>）是一个逻辑操作符，当左侧的操作数为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null"> <code>null</code> </a> 或者 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"> <code>undefined</code> </a> 时，返回其右侧操作数，否则返回左侧操作数。</li>
+<li>与<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_OR">逻辑或操作符（ <code>||</code> ）</a>不同，逻辑或操作符会在左侧操作数为<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9GYWxzeQ==">假值</span>时返回右侧操作数。也就是说，如果使用  <code>||</code>  来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如， <code>''</code>  或  <code>0</code> ）时。见下面的例子。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> nullValue <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> emptyText <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> someNumber <span class="token operator">=</span> <span class="token number">233</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> valA <span class="token operator">=</span> nullValue <span class="token operator">??</span> <span class="token string">"default valA"</span> <span class="token comment">// "efault valA"</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> valB <span class="token operator">=</span> emptyText <span class="token operator">??</span> <span class="token string">"default valB"</span> <span class="token comment">// "default valB"</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> valC <span class="token operator">=</span> someNumber <span class="token operator">??</span> <span class="token number">0</span> <span class="token comment">// 233</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> valD <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token operator">??</span> <span class="token string">'null value'</span> <span class="token comment">// null value</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">const</span> valE <span class="token operator">=</span> <span class="token keyword">undefined</span> <span class="token operator">??</span> <span class="token string">'undefined value'</span> <span class="token comment">// 'undefined value'</span></pre></td></tr></table></figure><h3 id="optional-chaining"><a class="anchor" href="#optional-chaining">#</a> Optional Chaining</h3>
+<ul>
+<li><strong>可选链</strong>操作符 ( <strong> <code>?.</code> </strong> ) 允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。 <code>?.</code>  操作符的功能类似于  <code>.</code>  链式操作符，不同之处在于，在引用为空 (<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9OdWxsaXNo">nullish</span> ) (<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null"> <code>null</code> </a> 或者 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"> <code>undefined</code> </a>) 的情况下不会引起错误，该表达式短路返回值是  <code>undefined</code> 。与函数调用一起使用时，如果给定的函数不存在，则返回  <code>undefined</code> 。</li>
+<li>当尝试访问可能不存在的对象属性时，可选链操作符将会使表达式更短、更简明。在探索一个对象的内容时，如果不能确定哪些属性必定存在，可选链操作符也是很有帮助的。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>friend<span class="token operator">?.</span>name<span class="token punctuation">)</span> <span class="token comment">// undefined</span></pre></td></tr></table></figure><h3 id="globalthis"><a class="anchor" href="#globalthis">#</a> globalThis</h3>
+<ul>
+<li>全局属性  <code>globalThis</code>  包含全局的  <code>this</code>  值，类似于全局对象（global object）</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>globalThis<span class="token punctuation">)</span> <span class="token comment">// Browser -> window</span></pre></td></tr></table></figure><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvZ2xvYmFsVGhpcw==">详情请参考 MDN	</span></li>
+</ul>
+<h2 id="es12"><a class="anchor" href="#es12">#</a> ES12</h2>
+<h3 id="finalizationregistry"><a class="anchor" href="#finalizationregistry">#</a> FinalizationRegistry</h3>
+<ul>
+<li>
+<p><strong> <code>FinalizationRegistry</code>  对象可以让你在对象被垃圾回收时请求一个回调。</strong></p>
+</li>
+<li>
+<p><code>FinalizationRegistry</code>  提供了这样的一种方法：当一个在注册表中注册的对象被回收时，请求在某个时间点上调用一个清理回调。（清理回调有时被称为 finalizer ）。</p>
+</li>
+<li>
+<p>GC (Garbage Collection) 会不定时回收， 并不是立即销毁就回收的。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> finalRegistry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FinalizationRegistry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">heldValue</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">注册在finalRegistry中的 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>heldValue<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> 对象被销毁了</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">let</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">let</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'saber'</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>finalRegistry<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> <span class="token string">'lain'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>finalRegistry<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>saber<span class="token punctuation">,</span> <span class="token string">'saber'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>finalRegistry<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>lain <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>saber <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="weakref"><a class="anchor" href="#weakref">#</a> WeakRef</h3>
+<p>WeakRef 对象允许您保留对另一个对象的弱引用，而不会阻止被弱引用对象被 GC 回收</p>
+<p><code>WeakRef.prototype.deref()</code>     返回当前实例的 WeakRef 对象所绑定的 target 对象，如果该 target 对象已被 GC 回收则返回 <code>undefined</code></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvV2Vha1JlZg==">详情请参考 MDN</span></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> finalRegistry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FinalizationRegistry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">heldValue</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">注册在finalRegistry中的 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>heldValue<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> 对象被销毁了</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">let</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">let</span> newLain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakRef</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>finalRegistry<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> <span class="token string">'lain'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>finalRegistry<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>newLain<span class="token punctuation">,</span> <span class="token string">'newLain'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>finalRegistry<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>lain <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">.</span><span class="token function">deref</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">?.</span>name<span class="token punctuation">)</span> <span class="token comment">// lain</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token comment">// GC 回收了 lain 后 获取到的则是 undefined</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-Advanced/" rel="tag"><i class="ic i-tag"></i> JavaScript Advanced</a>
+          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-01-15 22:58:56" itemprop="dateModified" datetime="2022-01-15T22:58:56+08:00">2022-01-15</time>
+  </span>
+  <span id="2021/10/28/WebFE/JavaScript/Advanced/ES6+さん/" class="item leancloud_visitors" data-flag-title="JavaScript ES6+ さん" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">https://nekoaimer.github.io/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+さん/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfb3vzhj20zk0m8wny.jpg" title="Set &amp; Map 数据结构">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
+  <h3>Set & Map 数据结构</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/19/WebFE/JavaScript/interesting_question/undefined/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeyvx1d4j20zk0m8hdt.jpg" title="还没想好名字">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>还没想好名字</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text"> 前言声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#es7"><span class="toc-number">2.</span> <span class="toc-text"> ES7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#includes"><span class="toc-number">2.1.</span> <span class="toc-text"> includes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text"> 指数运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#es8"><span class="toc-number">3.</span> <span class="toc-text"> ES8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#objectvalues"><span class="toc-number">3.1.</span> <span class="toc-text"> Object.values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#objectentries"><span class="toc-number">3.2.</span> <span class="toc-text"> Object.entries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padstart"><span class="toc-number">3.3.</span> <span class="toc-text"> padStart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padend"><span class="toc-number">3.4.</span> <span class="toc-text"> padEnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demo"><span class="toc-number">3.5.</span> <span class="toc-text"> Demo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#es10"><span class="toc-number">4.</span> <span class="toc-text"> ES10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flat"><span class="toc-number">4.1.</span> <span class="toc-text"> flat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flagmap"><span class="toc-number">4.2.</span> <span class="toc-text"> flagMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#objectfromentries"><span class="toc-number">4.3.</span> <span class="toc-text"> Object.fromEntries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demo-2"><span class="toc-number">4.4.</span> <span class="toc-text"> Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trim"><span class="toc-number">4.5.</span> <span class="toc-text"> trim()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trimstart"><span class="toc-number">4.6.</span> <span class="toc-text"> trimStart()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trimend"><span class="toc-number">4.7.</span> <span class="toc-text"> trimEnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#description"><span class="toc-number">4.8.</span> <span class="toc-text"> description</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#es11"><span class="toc-number">5.</span> <span class="toc-text"> ES11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bigint"><span class="toc-number">5.1.</span> <span class="toc-text"> BigInt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nullish-coalescing-operator"><span class="toc-number">5.2.</span> <span class="toc-text"> Nullish coalescing operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optional-chaining"><span class="toc-number">5.3.</span> <span class="toc-text"> Optional Chaining</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#globalthis"><span class="toc-number">5.4.</span> <span class="toc-text"> globalThis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#es12"><span class="toc-number">6.</span> <span class="toc-text"> ES12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#finalizationregistry"><span class="toc-number">6.1.</span> <span class="toc-text"> FinalizationRegistry</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#weakref"><span class="toc-number">6.2.</span> <span class="toc-text"> WeakRef</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/WebFE/JavaScript/Advanced/call_apply_bind/" rel="bookmark" title="call & apply & bind 使用与实现原理">call & apply & bind 使用与实现原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li class="active"><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">53</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">12</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/12/19/WebFE/JavaScript/interesting_question/undefined/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/09/WebFE/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" title="Vue3 teleport &amp; plugins">Vue3 teleport & plugins</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Algorithm/" title="In Algorithm">Algorithm</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Algorithm/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/calculate-money-in-leetcode-bank/" title="计算力扣银行的钱">计算力扣银行的钱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/19/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/14/WebFE/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/20/WebFE/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/05/WebFE/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/28/WebFE/Vue/Vue3/CompositionAPI/vca_life-cycle/" title="Vue3 life-cycle">Vue3 life-cycle</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" title="JavaScript defineProperty">JavaScript defineProperty</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/22/WebFE/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">207k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">3:08</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/10/28/WebFE/JavaScript/Advanced/ES6+さん/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
