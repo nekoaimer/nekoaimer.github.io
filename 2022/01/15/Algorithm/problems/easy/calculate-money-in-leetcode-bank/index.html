@@ -76,7 +76,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>715</span>
+    <span>731</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -171,16 +171,16 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="前言声明"><a class="anchor" href="#前言声明">#</a> 前言声明</h3>
+    <h2 id="前言声明"><a class="anchor" href="#前言声明">#</a> 前言声明</h2>
 <p>来源：力扣（LeetCode）<br />
 链接：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvY2FsY3VsYXRlLW1vbmV5LWluLWxlZXRjb2RlLWJhbms=">https://leetcode-cn.com/problems/calculate-money-in-leetcode-bank</span></p>
-<h3 id="计算力扣银行的钱"><a class="anchor" href="#计算力扣银行的钱">#</a> 计算力扣银行的钱</h3>
+<h2 id="计算力扣银行的钱"><a class="anchor" href="#计算力扣银行的钱">#</a> 计算力扣银行的钱</h2>
 <ul>
 <li>Hercy 想要为购买第一辆车存钱。他 每天 都往力扣银行里存钱。</li>
 <li>最开始，他在周一的时候存入 1 块钱。从周二到周日，他每天都比前一天多存入 1 块钱。在接下来每一个周一，他都会比 前一个周一 多存入 1 块钱。</li>
-<li>给你 n ，请你返回在第 n 天结束的时候他在力扣银行总共存了多少块钱。</li>
+<li>给你 n 天，请你返回在第 n 天结束的时候他在力扣银行总共存了多少块钱。</li>
 </ul>
-<h3 id="示例"><a class="anchor" href="#示例">#</a> 示例</h3>
+<h2 id="example"><a class="anchor" href="#example">#</a> Example</h2>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>输入：n = 4</pre></td></tr><tr><td data-num="2"></td><td><pre>输出：10</pre></td></tr><tr><td data-num="3"></td><td><pre>解释：第 4 天后，总额为 1 + 2 + 3 + 4 = 10 。</pre></td></tr></table></figure><p><strong>Example 2:</strong></p>
 <figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>输入：n = 10</pre></td></tr><tr><td data-num="2"></td><td><pre>输出：37</pre></td></tr><tr><td data-num="3"></td><td><pre>解释：第 10 天后，总额为 (1 + 2 + 3 + 4 + 5 + 6 + 7) + (2 + 3 + 4) = 37 。注意到第二个星期一，Hercy 存入 2 块钱。</pre></td></tr></table></figure><p><strong>Example 3:</strong></p>
@@ -188,7 +188,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <ul>
 <li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
-<h2 id="题解"><a class="anchor" href="#题解">#</a> 题解</h2>
+<h2 id="solving-ideas"><a class="anchor" href="#solving-ideas">#</a> Solving Ideas</h2>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">totalMoney</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">let</span> WeekStartMoney <span class="token operator">=</span> <span class="token number">1</span> </pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> dayMoney <span class="token operator">=</span> <span class="token number">1</span> </pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  </pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    result <span class="token operator">+=</span> WeekStartMoney <span class="token operator">+</span> dayMoney <span class="token operator">-</span> <span class="token number">1</span>  </pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token operator">++</span>dayMoney</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>dayMoney <span class="token operator">===</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      WeekStartMoney<span class="token operator">++</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      dayMoney <span class="token operator">=</span> <span class="token number">1</span> </pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      </pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token keyword">return</span> result</pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token function">totalMoney</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token comment">// 30</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token function">totalMoney</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span> <span class="token comment">// 63</span></pre></td></tr></table></figure>
       <div class="tags">
           <a href="/nekoaimer.github.io/tags/Easy/" rel="tag"><i class="ic i-tag"></i> Easy</a>
@@ -205,7 +205,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-01-15 19:52:18" itemprop="dateModified" datetime="2022-01-15T19:52:18+08:00">2022-01-15</time>
+    <time title="Modified: 2022-01-16 15:30:29" itemprop="dateModified" datetime="2022-01-16T15:30:29+08:00">2022-01-16</time>
   </span>
   <span id="2022/01/15/Algorithm/problems/easy/calculate-money-in-leetcode-bank/" class="item leancloud_visitors" data-flag-title="计算力扣银行的钱" title="Views">
       <span class="icon">
@@ -263,7 +263,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/two-sum/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesrnqv3j20zk0m8ava.jpg" title="两数之和">
+  <a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/two-sum/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0n457cj20zk0m8e81.jpg" title="两数之和">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Easy</span>
   <h3>两数之和</h3>
@@ -271,6 +271,14 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
     </div>
     <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2022/01/16/Algorithm/problems/easy/HexBinDecOct/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitcxhpij20zk0m8hdt.jpg" title="进制转换">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Easy</span>
+  <h3>进制转换</h3>
+  </a>
+
     </div>
 </div>
 
@@ -287,11 +295,11 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text"> 前言声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%8A%9B%E6%89%A3%E9%93%B6%E8%A1%8C%E7%9A%84%E9%92%B1"><span class="toc-number">2.</span> <span class="toc-text"> 计算力扣银行的钱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text"> 示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-number"></span> <span class="toc-text"> 题解</span></a>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text"> 前言声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%8A%9B%E6%89%A3%E9%93%B6%E8%A1%8C%E7%9A%84%E9%92%B1"><span class="toc-number">2.</span> <span class="toc-text"> 计算力扣银行的钱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#example"><span class="toc-number">3.</span> <span class="toc-text"> Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solving-ideas"><span class="toc-number">4.</span> <span class="toc-text"> Solving Ideas</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li><a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/two-sum/" rel="bookmark" title="两数之和">两数之和</a></li><li class="active"><a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/calculate-money-in-leetcode-bank/" rel="bookmark" title="计算力扣银行的钱">计算力扣银行的钱</a></li>
+          <li><a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/two-sum/" rel="bookmark" title="两数之和">两数之和</a></li><li class="active"><a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/calculate-money-in-leetcode-bank/" rel="bookmark" title="计算力扣银行的钱">计算力扣银行的钱</a></li><li><a href="/nekoaimer.github.io/2022/01/16/Algorithm/problems/easy/HexBinDecOct/" rel="bookmark" title="进制转换">进制转换</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -305,13 +313,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">53</span>
+        <span class="count">55</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/nekoaimer.github.io/categories/">
-        <span class="count">12</span>
+        <span class="count">11</span>
         <span class="name">categories</span>
       </a>
     </div>
@@ -400,10 +408,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/two-sum/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/nekoaimer.github.io/2022/01/16/Algorithm/problems/easy/HexBinDecOct/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -427,10 +437,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/CSS/" title="In CSS">CSS</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2020/12/10/WebFE/CSS/css_layout_center/" title="css 居中布局">css 居中布局</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/19/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
   </li>
 
       
@@ -451,38 +463,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/20/WebFE/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/07/28/WebFE/Vue/Vue3/CompositionAPI/vca_life-cycle/" title="Vue3 life-cycle">Vue3 life-cycle</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/30/WebFE/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></span>
   </li>
 
       
@@ -496,7 +482,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" title="JavaScript ES6+ に">JavaScript ES6+ に</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
   </li>
 
       
@@ -508,21 +494,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/16/WebFE/Vue/Vue3/OptionsAPI/voa_slot_basic/" title="Vue3 slot 基本使用">Vue3 slot 基本使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/22/WebFE/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
   </li>
 
       
@@ -536,7 +508,33 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/03/WebFE/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
+    <span><a href="/nekoaimer.github.io/2021/08/13/WebFE/Vue/Vue3/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/19/WebFE/JavaScript/interesting_question/undefined/" title="还没想好名字">还没想好名字</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/CSS/" title="In CSS">CSS</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/CSS/Flex/" title="In Flex">Flex</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/01/10/WebFE/CSS/CSS%20Layout/Flex/" title="flex 布局">flex 布局</a></span>
   </li>
 
       
@@ -546,9 +544,25 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/28/WebFE/Vue/Vue3/OptionsAPI/voa_animate&gsap&lodash/" title="animate &amp; gsap &amp; lodash 使用">animate & gsap & lodash 使用</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/05/WebFE/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/05/WebFE/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
   </li>
 
   </ul>
@@ -573,13 +587,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">207k words</span>
+    <span title="Symbols count total">213k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">3:08</span>
+    <span title="Reading time total">3:14</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
