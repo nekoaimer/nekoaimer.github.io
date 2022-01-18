@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="ES6+,JavaScript,JavaScript Advanced" />
+  <meta name="keywords" content="JavaScript,ES6+,JavaScript Advanced" />
 
 
 <link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/">
@@ -32,7 +32,7 @@
 
 
   <title>
-响应式原理 - JavaScript Advanced - JavaScript - WebFE |
+Javascript 响应式原理 - JavaScript Advanced - JavaScript - WebFE |
 Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <meta name="generator" content="Hexo 6.0.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">响应式原理
+  <h1 itemprop="name headline">Javascript 响应式原理
   </h1>
   
 <div class="meta">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
         </ul>
       </div>
     </header>
@@ -235,15 +235,16 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <p><strong> <code>WeakMap -&gt; [key: target(对象), value: map]    </code> </strong></p>
 </li>
 </ul>
+<p><img data-src="WeakMapDataStructure.png" alt="WeakMapDataStructure" /></p>
 <h2 id="proxy-实现"><a class="anchor" href="#proxy-实现">#</a> Proxy 实现</h2>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 定义全局变量保存响应式函数</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> activeReactiveFn <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 1. 封装响应式函数</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">watchFn</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 将函数保存到全局变量 方便后续 add 函数</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  activeReactiveFn <span class="token operator">=</span> fn</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 调用函数</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token comment">// 重置为 null</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  activeReactiveFn <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span> </pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// 2. 设计一个类 用于管理某一个对象的某一个属性的所有响应式函数</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Depend</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 使用 Set 避免获取重复函数 进行重复调用</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>reactiveFns <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token comment">// 将依赖的函数添加进 reactiveFns 中，以供 notify 顺利执行</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token function">depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>activeReactiveFn<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      <span class="token keyword">this</span><span class="token punctuation">.</span>reactiveFns<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>activeReactiveFn<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token comment">// 通知遍历执行所有需要响应式的函数</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>reactiveFns<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">fn</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token comment">// 定义存储的数据结构</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token comment">// WeakMap -> [key: target, value: map] 结构</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token keyword">const</span> targetMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token comment">// 3. 封装一个获取 getDepend 函数 进行收集依赖</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token keyword">function</span> <span class="token function">getDepend</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>  <span class="token comment">// 获取 target 的所有依赖 Fns</span></pre></td></tr><tr><td data-num="43"></td><td><pre>  <span class="token keyword">let</span> map <span class="token operator">=</span> targetMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre>  </pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token comment">// 如果 map 没有获取到 则 undefined 就 new 一个</span></pre></td></tr><tr><td data-num="46"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token comment">// 将 targetMap 以 -> [key: target (对象), value: map (map 结构)] 设置值</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    targetMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre>  <span class="token comment">//depend 为实例对象  将响应式的 Fns 添加进实例的 reactiveFns 中</span></pre></td></tr><tr><td data-num="54"></td><td><pre>  <span class="token keyword">let</span> depend <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre>  <span class="token comment">// 如果属性没有 depend 实例 则 undefined 就 new 一个</span></pre></td></tr><tr><td data-num="57"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>depend<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>    <span class="token comment">// 相当于给每个属性都添加了一个 Depend 实例</span></pre></td></tr><tr><td data-num="59"></td><td><pre>    depend <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token comment">// 将 map 以 [key: 属性名，value: depend] 传入 map 结构中</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> depend<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="64"></td><td><pre></pre></td></tr><tr><td data-num="65"></td><td><pre>  <span class="token comment">// 将实例对象返回出去 </span></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token keyword">return</span> depend</pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token comment">// 4. 使用 Proxy 监听对象的变化 (vue3 采用的方式)</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token keyword">function</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>  <span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token comment">// 收集依赖</span></pre></td></tr><tr><td data-num="73"></td><td><pre>    <span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>      <span class="token comment">// 接收 getDepend 处理的返回值 -> Depend 实例</span></pre></td></tr><tr><td data-num="75"></td><td><pre>      <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>      <span class="token comment">// 调用实例方法 将函数添加到 reactiveFns 中</span></pre></td></tr><tr><td data-num="78"></td><td><pre>      depend<span class="token punctuation">.</span><span class="token function">depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="79"></td><td><pre></pre></td></tr><tr><td data-num="80"></td><td><pre>      <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="81"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="82"></td><td><pre></pre></td></tr><tr><td data-num="83"></td><td><pre>    <span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> newValue<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>      Reflect<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> newValue<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="85"></td><td><pre></pre></td></tr><tr><td data-num="86"></td><td><pre>      <span class="token comment">// 接收 getDepend 处理的返回值 -> Depend 实例</span></pre></td></tr><tr><td data-num="87"></td><td><pre>      <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="88"></td><td><pre></pre></td></tr><tr><td data-num="89"></td><td><pre>      <span class="token comment">// 通知应执行的响应式函数 -> 执行</span></pre></td></tr><tr><td data-num="90"></td><td><pre>      depend<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="91"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="92"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="93"></td><td><pre>  <span class="token comment">// 封装的 reactive 函数，实现复用 传入需要代理的对象进行监听即可</span></pre></td></tr><tr><td data-num="94"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> handler<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="95"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="96"></td><td><pre></pre></td></tr><tr><td data-num="97"></td><td><pre></pre></td></tr><tr><td data-num="98"></td><td><pre><span class="token comment">// 测试: </span></pre></td></tr><tr><td data-num="99"></td><td><pre><span class="token comment">//lain 对象进行响应式</span></pre></td></tr><tr><td data-num="100"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="101"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="102"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span></pre></td></tr><tr><td data-num="103"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="104"></td><td><pre></pre></td></tr><tr><td data-num="105"></td><td><pre><span class="token comment">// 需要响应式的函数</span></pre></td></tr><tr><td data-num="106"></td><td><pre><span class="token function">watchFn</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>　<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="107"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">'我被代理了~~~~~'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="108"></td><td><pre>  <span class="token comment">// 第一次执行: lain 我被代理了～～～～～</span></pre></td></tr><tr><td data-num="109"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="110"></td><td><pre></pre></td></tr><tr><td data-num="111"></td><td><pre>lain<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'saber'</span></pre></td></tr><tr><td data-num="112"></td><td><pre><span class="token comment">// 触发响应式第二次执行: saber 我被代理了～～～～～</span></pre></td></tr></table></figure><h2 id="objectdefineproperty-实现"><a class="anchor" href="#objectdefineproperty-实现">#</a> Object.defineProperty 实现</h2>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 定义全局变量保存响应式函数</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> activeReactiveFn <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 1. 封装响应式函数</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">watchFn</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 将函数保存到全局变量 方便后续 add 函数</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  activeReactiveFn <span class="token operator">=</span> fn</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 调用函数</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token comment">// 重置为 null</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  activeReactiveFn <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span> </pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// 2. 设计一个类 用于管理某一个对象的某一个属性的所有响应式函数</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Depend</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 使用 Set 避免获取重复函数 进行重复调用</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>reactiveFns <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token comment">// 将依赖的函数添加进 reactiveFns 中，以供 notify 顺利执行</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token function">depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>activeReactiveFn<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      <span class="token keyword">this</span><span class="token punctuation">.</span>reactiveFns<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>activeReactiveFn<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token comment">// 通知遍历执行所有需要响应式的函数</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>reactiveFns<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">fn</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token comment">// 定义存储的数据结构</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token comment">// WeakMap -> [key: target, value: map] 结构</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token keyword">const</span> targetMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token comment">// 3. 封装一个获取 getDepend 函数 进行收集依赖</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token keyword">function</span> <span class="token function">getDepend</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>  <span class="token comment">// 获取 target 的所有依赖 Fns</span></pre></td></tr><tr><td data-num="43"></td><td><pre>  <span class="token keyword">let</span> map <span class="token operator">=</span> targetMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre>  </pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token comment">// 如果 map 没有获取到 则 undefined 就 new 一个</span></pre></td></tr><tr><td data-num="46"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token comment">// 将 targetMap 以 -> [key: target (对象), value: map (map 结构)] 设置值</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    targetMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre>  <span class="token comment">//depend 为实例对象  将响应式的 Fns 添加进实例的 reactiveFns 中</span></pre></td></tr><tr><td data-num="54"></td><td><pre>  <span class="token keyword">let</span> depend <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre>  <span class="token comment">// 如果属性没有 depend 实例 则 undefined 就 new 一个</span></pre></td></tr><tr><td data-num="57"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>depend<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>    <span class="token comment">// 相当于给每个属性都添加了一个 Depend 实例</span></pre></td></tr><tr><td data-num="59"></td><td><pre>    depend <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token comment">// 将 map 以 [key: 属性名，value: depend] 传入 map 结构中</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> depend<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="64"></td><td><pre></pre></td></tr><tr><td data-num="65"></td><td><pre>  <span class="token comment">// 将实例对象返回出去 </span></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token keyword">return</span> depend</pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token comment">// 4. 使用 Proxy 监听对象的变化 (vue3 采用的方式)</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token keyword">function</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>  <span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token comment">// 收集依赖</span></pre></td></tr><tr><td data-num="73"></td><td><pre>    <span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>      <span class="token comment">// 接收 getDepend 处理的返回值 -> Depend 实例</span></pre></td></tr><tr><td data-num="75"></td><td><pre>      <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>      <span class="token comment">// 调用实例方法 将函数添加到 reactiveFns 中</span></pre></td></tr><tr><td data-num="78"></td><td><pre>      depend<span class="token punctuation">.</span><span class="token function">depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="79"></td><td><pre></pre></td></tr><tr><td data-num="80"></td><td><pre>      <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="81"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="82"></td><td><pre></pre></td></tr><tr><td data-num="83"></td><td><pre>    <span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> newValue<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> newValue<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>      Reflect<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> newValue<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="86"></td><td><pre></pre></td></tr><tr><td data-num="87"></td><td><pre>      <span class="token comment">// 接收 getDepend 处理的返回值 -> Depend 实例</span></pre></td></tr><tr><td data-num="88"></td><td><pre>      <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="89"></td><td><pre></pre></td></tr><tr><td data-num="90"></td><td><pre>      <span class="token comment">// 通知应执行的响应式函数 -> 执行</span></pre></td></tr><tr><td data-num="91"></td><td><pre>      depend<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="92"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="93"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="94"></td><td><pre>  <span class="token comment">// 封装的 reactive 函数，实现复用 传入需要代理的对象进行监听即可</span></pre></td></tr><tr><td data-num="95"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> handler<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="96"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="97"></td><td><pre></pre></td></tr><tr><td data-num="98"></td><td><pre></pre></td></tr><tr><td data-num="99"></td><td><pre><span class="token comment">// 测试: </span></pre></td></tr><tr><td data-num="100"></td><td><pre><span class="token comment">//lain 对象进行响应式</span></pre></td></tr><tr><td data-num="101"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="102"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="103"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span></pre></td></tr><tr><td data-num="104"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="105"></td><td><pre></pre></td></tr><tr><td data-num="106"></td><td><pre><span class="token comment">// 需要响应式的函数</span></pre></td></tr><tr><td data-num="107"></td><td><pre><span class="token function">watchFn</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>　<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="108"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">'我被代理了~~~~~'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="109"></td><td><pre>  <span class="token comment">// 第一次执行: lain 我被代理了～～～～～</span></pre></td></tr><tr><td data-num="110"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="111"></td><td><pre></pre></td></tr><tr><td data-num="112"></td><td><pre>lain<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'saber'</span></pre></td></tr><tr><td data-num="113"></td><td><pre><span class="token comment">// 触发响应式第二次执行: saber 我被代理了～～～～～</span></pre></td></tr></table></figure><h2 id="objectdefineproperty-实现"><a class="anchor" href="#objectdefineproperty-实现">#</a> Object.defineProperty 实现</h2>
 <ul>
 <li>将 reactive 改为下面代码即可：不再释义</li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">let</span> value <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        depend<span class="token punctuation">.</span><span class="token function">depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">return</span> value</pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token function">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        depend<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  </pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token keyword">return</span> obj</pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">let</span> value <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	</pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        depend<span class="token punctuation">.</span><span class="token function">depend</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">return</span> value</pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token function">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">const</span> depend <span class="token operator">=</span> <span class="token function">getDepend</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        depend<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  </pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token keyword">return</span> obj</pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
       <div class="tags">
-          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
           <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
           <a href="/nekoaimer.github.io/tags/JavaScript-Advanced/" rel="tag"><i class="ic i-tag"></i> JavaScript Advanced</a>
       </div>
   </div>
@@ -256,9 +257,9 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-01-17 23:09:11" itemprop="dateModified" datetime="2022-01-17T23:09:11+08:00">2022-01-17</time>
+    <time title="Modified: 2022-01-18 13:59:19" itemprop="dateModified" datetime="2022-01-18T13:59:19+08:00">2022-01-18</time>
   </span>
-  <span id="2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" class="item leancloud_visitors" data-flag-title="响应式原理" title="Views">
+  <span id="2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" class="item leancloud_visitors" data-flag-title="Javascript 响应式原理" title="Views">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -295,7 +296,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" title="响应式原理">https://nekoaimer.github.io/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/</a>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" title="Javascript 响应式原理">https://nekoaimer.github.io/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -314,7 +315,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2021/10/31/WebFE/%E6%8A%80%E6%9C%AF%E8%83%96/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfw2t96j20zk0m8x6p.jpg" title="技术胖">
+  <a href="/nekoaimer.github.io/2021/10/31/WebFE/%E6%8A%80%E6%9C%AF%E8%83%96/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitcxhpij20zk0m8hdt.jpg" title="技术胖">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> WebFE</span>
   <h3>技术胖</h3>
@@ -324,10 +325,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2021/12/19/WebFE/JavaScript/interesting_question/undefined/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewkhf1zj20zk0m81kx.jpg" title="还没想好名字">
+  <a href="/nekoaimer.github.io/2021/11/03/WebFE/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciuv0socj20zk0m8qes.jpg" title="Javascript Promise いち">
   <span class="type">Next Post</span>
-  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
-  <h3>还没想好名字</h3>
+  <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
+  <h3>Javascript Promise いち</h3>
   </a>
 
     </div>
@@ -350,7 +351,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/WebFE/JavaScript/ImplementationPrinciple/call_apply_bind/" rel="bookmark" title="call & apply & bind 使用与实现原理">call & apply & bind 使用与实现原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/WebFE/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li class="active"><a href="/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" rel="bookmark" title="响应式原理">响应式原理</a></li>
+          <li><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/WebFE/JavaScript/ImplementationPrinciple/call_apply_bind/" rel="bookmark" title="call & apply & bind 使用与实现原理">call & apply & bind 使用与实现原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/WebFE/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li class="active"><a href="/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/03/WebFE/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="bookmark" title="Javascript Promise いち">Javascript Promise いち</a></li><li><a href="/nekoaimer.github.io/2021/11/05/WebFE/JavaScript/Advanced/Promise%E3%81%AB%20/" rel="bookmark" title="Javascript Promise に">Javascript Promise に</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -364,7 +365,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">57</span>
+        <span class="count">58</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -464,7 +465,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/nekoaimer.github.io/2021/12/19/WebFE/JavaScript/interesting_question/undefined/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+        <a href="/nekoaimer.github.io/2021/11/03/WebFE/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -488,12 +489,24 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/19/WebFE/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
+    <span><a href="/nekoaimer.github.io/2020/12/17/WebFE/JavaScript/interesting_question/Strange_01/" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></span>
   </li>
 
       
@@ -507,77 +520,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/30/WebFE/Vue/Vue3/CompositionAPI/vca_provide&inject/" title="Vue3 provide &amp; inject">Vue3 provide & inject</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/07/09/WebFE/Vue/Vue3/CompositionAPI/vca_toRef&toRefs/" title="Vue3 toRef和toRefs 的用法">Vue3 toRef和toRefs 的用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/07/05/WebFE/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/30/WebFE/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/07/07/WebFE/Vue/Vue3/CompositionAPI/vca_readonly/" title="Vue3 readonly 的基本用法">Vue3 readonly 的基本用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/07/01/WebFE/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/13/WebFE/Vue/Vue3/CompositionAPI/vca_unref-isRef/" title="Vue3 unref和isRef 基本用法">Vue3 unref和isRef 基本用法</a></span>
   </li>
 
       
@@ -600,12 +543,52 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/28/WebFE/Vue/Vue3/CompositionAPI/vca_life-cycle/" title="Vue3 life-cycle">Vue3 life-cycle</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" title="Set &amp; Map 数据结构">Set & Map 数据结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" title="JavaScript 闭包">JavaScript 闭包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/CSS/" title="In CSS">CSS</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/10/WebFE/CSS/CSS%20Layout/css_layout_center/" title="css 居中布局">css 居中布局</a></span>
   </li>
 
       
@@ -615,11 +598,21 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/14/WebFE/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/24/WebFE/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/22/WebFE/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
   </li>
 
   </ul>
@@ -644,13 +637,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">221k words</span>
+    <span title="Symbols count total">228k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">3:21</span>
+    <span title="Reading time total">3:27</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">

@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="ES6+,JavaScript,JavaScript Advanced" />
+  <meta name="keywords" content="JavaScript,ES6+,JavaScript Advanced" />
 
 
 <link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
         </ul>
       </div>
     </header>
@@ -236,13 +236,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <p>区别二：WeakSet 对元素的引用是弱引用，如果没有其他引用对某个对象进行引用，那么 GC 可以对该对象进行回收；</p>
 </li>
 <li>
-<p>首先，WeakSet 的成员只能是对象，而不能是其他类型的值。</p>
+<p>WeakSet 是一个构造函数，可以使用 <code>new</code>  命令，创建 WeakSet 数据结构。</p>
 </li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> weakSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>weakSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// TypeError: Invalid value used in weak set</span></pre></td></tr></table></figure><ul>
-<li>WeakSet 是一个构造函数，可以使用 <code>new</code>  命令，创建 WeakSet 数据结构。</li>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> weakSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// WeakSet &#123;&#125;</span></pre></td></tr></table></figure><ul>
+<li>首先，WeakSet 的成员只能是对象，而不能是其他类型的值。</li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> weakSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> weakSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>weakSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// TypeError: Invalid value used in weak set</span></pre></td></tr></table></figure><ul>
 <li>作为构造函数，WeakSet 可以接受一个数组或类似数组的对象作为参数。（实际上，任何具有 Iterable 接口的对象，都可以作为 WeakSet 的参数。）该数组的所有成员，都会自动成为 WeakSet 实例对象的成员。</li>
 </ul>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// WeakSet &#123;[1, 2], [3, 4]&#125;</span></pre></td></tr></table></figure><ul>
@@ -329,8 +329,8 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'saber'</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> weakMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">//set 方法</span></pre></td></tr><tr><td data-num="7"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>saber<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">//get 方法</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 16</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">//has 方法</span></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="15"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">//delete 方法</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// 删除失败返回 false</span></pre></td></tr><tr><td data-num="19"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">// 删除成功返回 false</span></pre></td></tr><tr><td data-num="22"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="23"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">)</span> <span class="token comment">// WeakMap &#123;&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">// WeakMap 不能遍历</span></pre></td></tr><tr><td data-num="28"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span>forEach<span class="token punctuation">)</span> <span class="token comment">// undefined</span></pre></td></tr></table></figure><h3 id="应用场景-响应式原理数据结构"><a class="anchor" href="#应用场景-响应式原理数据结构">#</a> 应用场景 -&gt; 响应式原理数据结构☟</h3>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//lain 对象</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">16</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">//lain 相关方法</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainNameFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain name 发生了改变，执行 lainNameFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainNameFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain name 发生了改变，执行 lainNameFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainAgeFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain age 发生了改变，执行 lainAgeFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">function</span> <span class="token function">lainAgeFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lain age 发生了改变，执行 lainAgeFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">//saber 对象</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token keyword">const</span> saber <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">'saber'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">17</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">//saber 相关方法</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberNameFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber name 发生了改变，执行 saberNameFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberNameFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber name 发生了改变，执行 saberNameFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberAgeFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber age 发生了改变，执行 saberAgeFn1 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token keyword">function</span> <span class="token function">saberAgeFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saber age 发生了改变，执行 saberAgeFn2 函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token comment">// 创建 Map 对象</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token keyword">const</span> lainMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token keyword">const</span> saberMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token comment">// 将属性名设置为 key, 相关方法设置为 value</span></pre></td></tr><tr><td data-num="46"></td><td><pre>lainMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>lainNameFn1<span class="token punctuation">,</span> lainNameFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>lainMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>lainAgeFn1<span class="token punctuation">,</span> lainAgeFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre>saberMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>saberNameFn1<span class="token punctuation">,</span> saberNameFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="49"></td><td><pre>saberMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>saberAgeFn1<span class="token punctuation">,</span> saberAgeFn2<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token comment">// 创建 WeakMap 对象</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token comment">// 因为如果有一天 lain 需要销毁，lain = null。使用 Map 会有依赖，不会被销毁。而 WeakMap 是弱引用，这正是它的价值所在～</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token keyword">const</span> weakMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre></pre></td></tr><tr><td data-num="55"></td><td><pre><span class="token comment">// 将 lain/saber 对象作为 key, lainMap/saberMap 作为 value</span></pre></td></tr><tr><td data-num="56"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>lain<span class="token punctuation">,</span> lainMap<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="57"></td><td><pre>weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>saber<span class="token punctuation">,</span> saberMap<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="58"></td><td><pre></pre></td></tr><tr><td data-num="59"></td><td><pre><span class="token comment">// 如果 lain 的 name 属性发生了改变</span></pre></td></tr><tr><td data-num="60"></td><td><pre>lain<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'樱岛麻衣'</span></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token keyword">const</span> lainNamesFns <span class="token operator">=</span> weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token keyword">const</span> saberNamesFns <span class="token operator">=</span> weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>saber<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    lainNamesFns<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token function">item</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="67"></td><td><pre>    saber<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'小鸟游六花'</span></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token function">resolve</span><span class="token punctuation">(</span>saberNamesFns<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="69"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">saberNamesFns</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> saberNamesFns<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token function">item</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="73"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
       <div class="tags">
-          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
           <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
           <a href="/nekoaimer.github.io/tags/JavaScript-Advanced/" rel="tag"><i class="ic i-tag"></i> JavaScript Advanced</a>
       </div>
   </div>
@@ -343,7 +343,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-01-17 14:50:27" itemprop="dateModified" datetime="2022-01-17T14:50:27+08:00">2022-01-17</time>
+    <time title="Modified: 2022-01-18 16:04:07" itemprop="dateModified" datetime="2022-01-18T16:04:07+08:00">2022-01-18</time>
   </span>
   <span id="2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" class="item leancloud_visitors" data-flag-title="Set & Map 数据结构" title="Views">
       <span class="icon">
@@ -401,7 +401,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeyonbf9j20zk0m8e81.jpg" title="JavaScript ES6+ に">
+  <a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicliwyw55j20zk0m8hdt.jpg" title="JavaScript ES6+ に">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
   <h3>JavaScript ES6+ に</h3>
@@ -411,7 +411,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljgocqbj20zk0m8e81.jpg" title="JavaScript ES6+ さん">
+  <a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclg5ms2rj20zk0m8u0x.jpg" title="JavaScript ES6+ さん">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript Advanced</span>
   <h3>JavaScript ES6+ さん</h3>
@@ -437,7 +437,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/WebFE/JavaScript/ImplementationPrinciple/call_apply_bind/" rel="bookmark" title="call & apply & bind 使用与实现原理">call & apply & bind 使用与实现原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li class="active"><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/WebFE/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li><a href="/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" rel="bookmark" title="响应式原理">响应式原理</a></li>
+          <li><a href="/nekoaimer.github.io/2021/10/01/WebFE/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/WebFE/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/WebFE/JavaScript/ImplementationPrinciple/call_apply_bind/" rel="bookmark" title="call & apply & bind 使用与实现原理">call & apply & bind 使用与实现原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/WebFE/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/WebFE/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/WebFE/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/WebFE/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li class="active"><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/WebFE/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li><a href="/nekoaimer.github.io/2021/11/02/WebFE/JavaScript/Advanced/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/03/WebFE/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="bookmark" title="Javascript Promise いち">Javascript Promise いち</a></li><li><a href="/nekoaimer.github.io/2021/11/05/WebFE/JavaScript/Advanced/Promise%E3%81%AB%20/" rel="bookmark" title="Javascript Promise に">Javascript Promise に</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -451,7 +451,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">57</span>
+        <span class="count">58</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -575,12 +575,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/30/WebFE/Vue/Vue3/CompositionAPI/vca_provide&inject/" title="Vue3 provide &amp; inject">Vue3 provide & inject</a></span>
   </li>
 
       
@@ -594,7 +594,49 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/08/WebFE/JavaScript/Advanced/this/" title="JavaScript name &amp; this">JavaScript name & this</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/14/WebFE/JavaScript/Advanced/defineProperty/" title="JavaScript defineProperty">JavaScript defineProperty</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/24/WebFE/JavaScript/Advanced/ES6+%E3%81%AB/" title="JavaScript ES6+ に">JavaScript ES6+ に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/26/WebFE/JavaScript/Advanced/Set_Map/" title="Set &amp; Map 数据结构">Set & Map 数据结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/25/WebFE/Vue/Vue3/CompositionAPI/vca_watch/" title="Vue3 watch 在 Composition API 中使用">Vue3 watch 在 Composition API 中使用</a></span>
   </li>
 
       
@@ -617,12 +659,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/CSS/" title="In CSS">CSS</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/CSS/Flex/" title="In Flex">Flex</a>
+<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/01/10/WebFE/CSS/CSS%20Layout/Flex/" title="flex 布局">flex 布局</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/12/WebFE/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
   </li>
 
       
@@ -636,7 +678,19 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/28/WebFE/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/12/WebFE/JavaScript/Advanced/currying/" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Algorithm/" title="In Algorithm">Algorithm</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Algorithm/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/15/Algorithm/problems/easy/two-sum/" title="两数之和">两数之和</a></span>
   </li>
 
       
@@ -651,58 +705,6 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </div>
 
     <span><a href="/nekoaimer.github.io/2021/07/05/WebFE/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/30/WebFE/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/JavaScript/JavaScript-Advanced/" title="In JavaScript Advanced">JavaScript Advanced</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/03/WebFE/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/31/WebFE/%E6%8A%80%E6%9C%AF%E8%83%96/" title="技术胖">技术胖</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/WebFE/" title="In WebFE">WebFE</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/WebFE/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/08/03/WebFE/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
   </li>
 
   </ul>
@@ -727,13 +729,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">221k words</span>
+    <span title="Symbols count total">228k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">3:21</span>
+    <span title="Reading time total">3:27</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
