@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="ES6+,JavaScript" />
+  <meta name="keywords" content="JavaScript,ES6+" />
 
 
 <link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
         </ul>
       </div>
     </header>
@@ -212,7 +212,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 注意: Promise 状态一旦确定下来，那么就是不可更改的 (锁定)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token comment">//pending 状态：待定 / 悬而未决的</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"--------"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">success</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token comment">// 处于 fulfilled 状态 (已敲定 / 兑现状态)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'********'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 上面 resolve 已经确定了状态  下面就不可更改</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">failure</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token comment">// 处于 rejected 状态 (已拒绝状态)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token comment">// 这里只会执行第一个状态 输出  failure</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">res:, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>res<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">err:, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>err<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="promiseresolveparams"><a class="anchor" href="#promiseresolveparams">#</a> Promise.resolve(Params)</h2>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 注意: Promise 状态一旦确定下来，那么就是不可更改的 (锁定)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token comment">//pending 状态：待定 / 悬而未决的</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"--------"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">success</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token comment">// 处于 fulfilled 状态 (已敲定 / 兑现状态)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'********'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 上面 resolve 已经确定了状态  下面就不可更改</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">failure</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token comment">// 处于 rejected 状态 (已拒绝状态)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token comment">// 这里只会执行第一个状态 输出  failure</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">res:, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>res<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">err:, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>err<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="promiseresolveparams"><a class="anchor" href="#promiseresolveparams">#</a> Promise.resolve(params)</h2>
 <h3 id="普通的值或者对象-pending-fulfilled"><a class="anchor" href="#普通的值或者对象-pending-fulfilled">#</a> 普通的值或者对象  pending -&gt; fulfilled</h3>
 <ul>
 <li><strong>字符串</strong></li>
@@ -226,11 +226,11 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">我是被传入的普通参数-> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// [Function: foo]</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
 <li><strong>箭头函数</strong></li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">我是被传入的普通参数-> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// () => &#123;console.log (`我是被传入的普通参数 -> $&#123;this&#125;`)&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="promise"><a class="anchor" href="#promise">#</a> Promise</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">我是被传入的普通参数-> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// () => &#123;console.log (`我是被传入的普通参数 -> $&#123;this&#125;`)&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="promise"><a class="anchor" href="#promise">#</a> <strong>Promise</strong></h3>
 <ul>
-<li>传入一个 Promise ：   那么当前的 Promise 的状态会由传入的 Promise 来决定，相当于状态进行了移交</li>
+<li>传入一个 Promise ： 那么当前的 Promise 的状态会由传入的 Promise 来决定，相当于状态进行了移交</li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> newPromise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 如果当前 Promise 状态是 reject, 那么下面的 Promise 状态就会是 reject</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'newPromise reject'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token comment">// 因为 newPromise 是 Promise, 那么状态的决定会移交给 newPromise, newPromise 的状态是 reject, 那么此时状态就是 reject, 与当前 Promise 的 resolve 状态无关</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span>newPromise<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>   <span class="token comment">// 会执行这一步</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token comment">// newPromise reject</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="thenable-catchable"><a class="anchor" href="#thenable-catchable">#</a> thenable &amp; catchable</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> newPromise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 如果当前 Promise 状态是 reject, 那么下面的 Promise 状态就会是 reject</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'newPromise reject'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token comment">// 因为 newPromise 是 Promise, 那么状态的决定会移交给 newPromise, newPromise 的状态是 reject, 那么此时状态就是 reject, 与当前 Promise 的 resolve 状态无关</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token function">resolve</span><span class="token punctuation">(</span>newPromise<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>   <span class="token comment">// 会执行这一步</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token comment">// newPromise reject</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="thenable"><a class="anchor" href="#thenable">#</a> thenable</h3>
 <ul>
 <li>传入一个对象，并且这个对象有实现 then 方法 (并且这个对象是实现了 thenable 接口)  那么也会执行该 then 方法，并且又该 then 方法决定后续状态</li>
 </ul>
@@ -337,8 +337,8 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </p>
 
       <div class="tags">
-          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
           <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
       </div>
   </div>
 
@@ -350,7 +350,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-01-19 14:50:05" itemprop="dateModified" datetime="2022-01-19T14:50:05+08:00">2022-01-19</time>
+    <time title="Modified: 2022-01-19 16:30:32" itemprop="dateModified" datetime="2022-01-19T16:30:32+08:00">2022-01-19</time>
   </span>
   <span id="2021/11/03/JavaScript/Advanced/Promiseいち/" class="item leancloud_visitors" data-flag-title="Javascript Promise いち" title="Views">
       <span class="icon">
@@ -408,7 +408,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2021/11/02/JavaScript/API%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclgi503lj20zk0m8hdt.jpg" title="Javascript 响应式原理">
+  <a href="/nekoaimer.github.io/2021/11/02/JavaScript/API%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclx6phq6j20zk0m8e36.jpg" title="Javascript 响应式原理">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
   <h3>Javascript 响应式原理</h3>
@@ -418,7 +418,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB%20/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesrnqv3j20zk0m8ava.jpg" title="Javascript Promise に">
+  <a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB%20/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciusoyjnj219g0u0x56.jpg" title="Javascript Promise に">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript</span>
   <h3>Javascript Promise に</h3>
@@ -440,7 +440,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text"> 异步任务的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFpromise"><span class="toc-number">2.</span> <span class="toc-text"> 什么是 Promise？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promise-%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-number">3.</span> <span class="toc-text"> Promise 三种状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promiseresolveparams"><span class="toc-number">4.</span> <span class="toc-text"> Promise.resolve(Params)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84%E5%80%BC%E6%88%96%E8%80%85%E5%AF%B9%E8%B1%A1-pending-fulfilled"><span class="toc-number">4.1.</span> <span class="toc-text"> 普通的值或者对象  pending -&gt; fulfilled</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#promise"><span class="toc-number">4.2.</span> <span class="toc-text"> Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#thenable-catchable"><span class="toc-number">4.3.</span> <span class="toc-text"> thenable &amp; catchable</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promisethen"><span class="toc-number">5.</span> <span class="toc-text"> Promise.then()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E5%A4%9A%E6%AC%A1%E8%B0%83%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text"> then 多次调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">5.2.</span> <span class="toc-text"> then 返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E6%99%AE%E9%80%9A%E5%80%BC"><span class="toc-number">5.3.</span> <span class="toc-text"> then 返回值是普通值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AFpromise"><span class="toc-number">5.4.</span> <span class="toc-text"> then 返回值是 Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%AE%9E%E7%8E%B0thenable%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.5.</span> <span class="toc-text"> then 返回值是实现 thenable 的对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promisecatch"><span class="toc-number">6.</span> <span class="toc-text"> Promise.catch()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0-catch"><span class="toc-number">6.1.</span> <span class="toc-text"> then 第二个参数 catch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#catch-%E4%BC%98%E5%85%88%E6%8D%95%E8%8E%B7%E8%87%AA%E8%BA%AB%E5%BC%82%E5%B8%B8"><span class="toc-number">6.2.</span> <span class="toc-text"> catch 优先捕获自身异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E6%9C%AA%E6%8D%95%E8%8E%B7%E5%88%B0%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8catch"><span class="toc-number">6.3.</span> <span class="toc-text"> 抛出异常未捕获到处理异常 (catch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">6.4.</span> <span class="toc-text"> 抛出异常的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#catch-%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">6.5.</span> <span class="toc-text"> Catch 返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next"><span class="toc-number">7.</span> <span class="toc-text">未完待续...... </span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text"> 异步任务的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFpromise"><span class="toc-number">2.</span> <span class="toc-text"> 什么是 Promise？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promise-%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-number">3.</span> <span class="toc-text"> Promise 三种状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promiseresolveparams"><span class="toc-number">4.</span> <span class="toc-text"> Promise.resolve(params)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84%E5%80%BC%E6%88%96%E8%80%85%E5%AF%B9%E8%B1%A1-pending-fulfilled"><span class="toc-number">4.1.</span> <span class="toc-text"> 普通的值或者对象  pending -&gt; fulfilled</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#promise"><span class="toc-number">4.2.</span> <span class="toc-text"> Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#thenable"><span class="toc-number">4.3.</span> <span class="toc-text"> thenable</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promisethen"><span class="toc-number">5.</span> <span class="toc-text"> Promise.then()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E5%A4%9A%E6%AC%A1%E8%B0%83%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text"> then 多次调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">5.2.</span> <span class="toc-text"> then 返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E6%99%AE%E9%80%9A%E5%80%BC"><span class="toc-number">5.3.</span> <span class="toc-text"> then 返回值是普通值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AFpromise"><span class="toc-number">5.4.</span> <span class="toc-text"> then 返回值是 Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%AE%9E%E7%8E%B0thenable%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.5.</span> <span class="toc-text"> then 返回值是实现 thenable 的对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promisecatch"><span class="toc-number">6.</span> <span class="toc-text"> Promise.catch()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#then-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0-catch"><span class="toc-number">6.1.</span> <span class="toc-text"> then 第二个参数 catch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#catch-%E4%BC%98%E5%85%88%E6%8D%95%E8%8E%B7%E8%87%AA%E8%BA%AB%E5%BC%82%E5%B8%B8"><span class="toc-number">6.2.</span> <span class="toc-text"> catch 优先捕获自身异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E6%9C%AA%E6%8D%95%E8%8E%B7%E5%88%B0%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8catch"><span class="toc-number">6.3.</span> <span class="toc-text"> 抛出异常未捕获到处理异常 (catch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">6.4.</span> <span class="toc-text"> 抛出异常的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#catch-%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">6.5.</span> <span class="toc-text"> Catch 返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next"><span class="toc-number">7.</span> <span class="toc-text">未完待续...... </span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -458,7 +458,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">58</span>
+        <span class="count">59</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -580,22 +580,30 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/16/Vue/Vue3/OptionsAPI/voa_slot_basic/" title="Vue3 slot 基本使用">Vue3 slot 基本使用</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" title="JavaScript 闭包">JavaScript 闭包</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/19/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" title="JavaScript defineProperty">JavaScript defineProperty</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></span>
   </li>
 
       
@@ -607,28 +615,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/API%E5%8E%9F%E7%90%86/call_apply_bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/11/02/JavaScript/API%E5%8E%9F%E7%90%86/Reactivity/" title="Javascript 响应式原理">Javascript 响应式原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" title="技术胖">技术胖</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/12/JavaScript/API%E5%8E%9F%E7%90%86/currying/" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></span>
   </li>
 
       
@@ -640,27 +627,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/30/Vue/Vue3/CompositionAPI/vca_provide&inject/" title="Vue3 provide &amp; inject">Vue3 provide & inject</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/05/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
   </li>
 
       
@@ -672,7 +639,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/09/Vue/Vue3/CompositionAPI/vca_toRef&toRefs/" title="Vue3 toRef和toRefs 的用法">Vue3 toRef和toRefs 的用法</a></span>
   </li>
 
       
@@ -685,6 +652,40 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </div>
 
     <span><a href="/nekoaimer.github.io/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/problems/easy/priority-queue/" title="优先级队列实现">优先级队列实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/problems/easy/pass-the-parcel/" title="队列实现击鼓传花">队列实现击鼓传花</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></span>
   </li>
 
   </ul>
@@ -709,13 +710,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">231k words</span>
+    <span title="Symbols count total">241k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">3:30</span>
+    <span title="Reading time total">3:39</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
