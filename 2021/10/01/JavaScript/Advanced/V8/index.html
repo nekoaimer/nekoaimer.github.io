@@ -1,0 +1,754 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/">
+
+
+
+  <title>
+V8 引擎 - JavaScript |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">V8 引擎
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-10-01 12:49:18">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-01T12:49:18+08:00">2021-10-01</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>3.2k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="认识javascript引擎"><a class="anchor" href="#认识javascript引擎">#</a> 认识 JavaScript 引擎</h2>
+<p>为什么需要 JavaScript 引擎？</p>
+<ul>
+<li>我们说过，高级的编程语言都是需要转成最终的机器指令来执行的；</li>
+<li>事实上我们编写的 JavaScript 无论你交给浏览器或者 Node 执行，最后都是需要被 CPU 执行的；</li>
+<li>但是 CPU 只认识自己的指令集，实际上是机器语言，才能被 CPU 执行；</li>
+<li>我们需要 JavaScript 引擎帮助我们将 JavaScript 代码翻译成 CPU 指令来执行；</li>
+</ul>
+<p>比较常见的 JavaScript 引擎：</p>
+<ul>
+<li>SpiderMonkey：第一款 JavaScript 引擎，由 Brendan Eich 开发（JavaScript 作者）；</li>
+<li>Chakra：微软开发，用于 IT 浏览器；</li>
+<li>JavaScriptCore：WebKit 中的 JavaScript 引擎，Apple 公司开发；</li>
+<li>V8：Google 开发的强大 JavaScript 引擎，也帮助 Chrome 从众多浏览器中脱颖而出；</li>
+<li>别称：
+<ul>
+<li>排版引擎（layout engine）</li>
+<li>浏览器引擎（browser engine）</li>
+<li>页面渲染引擎（rendering engine）</li>
+</ul>
+</li>
+<li>......</li>
+</ul>
+<h2 id="浏览器内核和js引擎的关系"><a class="anchor" href="#浏览器内核和js引擎的关系">#</a> 浏览器内核和 JS 引擎的关系</h2>
+<ul>
+<li>WebCore：负责 HTML 解析、布局、渲染等等相关工作；</li>
+<li>JavaScriptCore：解析、执行 JavaScript 代码；</li>
+<li>在小程序中编写的 JavaScript 代码就是被 JSCore 执行的？</li>
+</ul>
+<p><img data-src="WebCore_JavaScriptCore.png" alt="WebCore_JavaScriptCore" /></p>
+<p>另一个强大的 JavaScript 引擎就是 V8 引擎。</p>
+<h2 id="v8引擎的原理"><a class="anchor" href="#v8引擎的原理">#</a> V8 引擎的原理</h2>
+<p>官方对 V8 引擎的定义：</p>
+<ul>
+<li>V8 时用 C++ 编写的 Google 开源高性能 JavaScript 和 WebAssembly 引擎，它用于 Chrome 和 Node.js。</li>
+<li>它实现 ECMAScript 和 WebAssembly，并在 Windows 7 或更高版本，macOS 10.12 + 和使用 x64，IA-32，ARM 或 MIPS 处理器的 Linux 系统上运行。</li>
+<li>V8 可以独立运行，也可以嵌入到任何 C++ 应用程序中。</li>
+</ul>
+<p><img data-src="V8_principle.png" alt="V8_principle" /></p>
+<h2 id="v8引擎的架构"><a class="anchor" href="#v8引擎的架构">#</a> V8 引擎的架构</h2>
+<ul>
+<li>V8 引擎本身的源码非常复杂，大概有超过 100w 行 C++ 代码，通过了解它的架构，我们可以知道它是如何对 JavaScript 执行的：</li>
+<li><span class="red">Parse</span> 模块会将 JavaScript 代码转换成 AST（抽象语法树），这是因为解释器并不直接认识 JavaScript 代码；
+<ul>
+<li>如果函数没有被调用，那么是不会被转换成 AST 的；</li>
+<li>Parse 的 V8 官方文档：<span class="exturl" data-url="aHR0cHM6Ly92OC5kZXYvYmxvZy9zY2FubmVy">https://v8.dev/blog/scanner</span></li>
+</ul>
+</li>
+<li><span class="red">Ignition</span> 是一个解释器，会将 AST 转换成 ByteCode（字节码）
+<ul>
+<li>同时会收集 TurboFan 优化所需要的信息（比如函数参数的类型信息，有了类型才能进行真实的运算）；</li>
+<li>如果函数只调用一次，Ignition 会执行解释执行 ByteCode；</li>
+<li>Ignition 的 V8 官方文档：<span class="exturl" data-url="aHR0cHM6Ly92OC5kZXYvYmxvZy9pZ25pdGlvbi1pbnRlcnByZXRlcg==">https://v8.dev/blog/ignition-interpreter</span></li>
+</ul>
+</li>
+<li><span class="red">TurboFan</span> 是一个编译器，可以将字节码编译为 CPU 可以直接执行的机器码；
+<ul>
+<li>如果一个函数被多次调用，那么就会被标记为<span class="red">热点函数</span>，那么就会经过<span class="red"> TurboFan 转换成优化的机器码，提高代码的执行性能</span>；</li>
+<li>但是，<span class="red">机器码实际上也会被还原为 ByteCode</span>，这是因为如果后续执行函数的过程中，<span class="red">类型发生了变化（比如 sum 函数原来执行的是 number 类型，后来执行变成了 string 类型）</span>，之前优化的机器码并不能正确的处理运算，就会逆向的转换成字节码；</li>
+<li>TurboFan 的 V8 官方文档：<span class="exturl" data-url="aHR0cHM6Ly92OC5kZXYvYmxvZy90dXJib2Zhbi1qaXQ=">https://v8.dev/blog/turbofan-jit</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="v8-执行的细节"><a class="anchor" href="#v8-执行的细节">#</a> V8 执行的细节</h2>
+<p>那么 JavaScript 源码时如何被解析（Parse 过程）的呢？</p>
+<ul>
+<li>
+<p>Bink 将源码交给 V8 引擎，Stream 获取道源码并且进行编码转换；</p>
+</li>
+<li>
+<p>Scanner 会进行词法分析 （lexical analysis），词法分析会将代码转换成 tokens；</p>
+</li>
+<li>
+<p>接下来 tokens 会被转换成 AST 树，经过 Parser 和 PreParser：</p>
+<ul>
+<li>Parser 就是直接将 tokens 转成 AST 树结构；</li>
+</ul>
+</li>
+<li>
+<p>PreParser 称之为预解析，为什么需要预解析呢？</p>
+<ul>
+<li>这是因为并不是所有的 JavaScript 代码，在一开始时就会被执行。那么对所有的 JavaScript 代码进行解析，必然会影响网页的运行效率；</li>
+<li>所有 V8 引擎就实现了 Lazy Parsing（延迟解析）的方案，它的作用是将不必要的函数进行预解析，也就是只解析暂时需要的内容，而对函数的全量解析是在函数被调用时才会进行；</li>
+<li>比如我们在一个函数 outer 内部定义了另一个函数 inner，那么 inner 函数就会进行预解析；</li>
+</ul>
+</li>
+<li>
+<p>生成 AST 树后，会被 Ignition 转成字节码（bytecode），之后的过程就是代码的执行过程。</p>
+</li>
+</ul>
+<p><img data-src="V8_parse.png" alt="V8_parse" /></p>
+<h2 id="javascript-全局代码执行过程"><a class="anchor" href="#javascript-全局代码执行过程">#</a> JavaScript 全局代码执行过程</h2>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> num1 <span class="token operator">=</span> <span class="token number">20</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">var</span> num2 <span class="token operator">=</span> <span class="token number">30</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">var</span> result <span class="token operator">=</span> num1 <span class="token operator">+</span> num2</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="7"></td><td><pre>  1.JavaScript 代码在被解析时，V8 引擎内部会创建一个对象（GlobalObject -> go），会将需要的属性放在里面。</pre></td></tr><tr><td data-num="8"></td><td><pre>  2. 运行代码</pre></td></tr><tr><td data-num="9"></td><td><pre>    2.1.v8 为了执行代码，v8 引擎内部会有一个执行上下文栈 (Execution Context Stack,ECStack)(函数调用栈)</pre></td></tr><tr><td data-num="10"></td><td><pre>    2.2. 因为我们执行的是全局代码，为了全局代码能够正常的执行，需要创建 全局执行上下文 (Global Execution Context)(全局代码需要被执行时才会创建)</pre></td></tr><tr><td data-num="11"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">var</span> GlobalObject <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    String<span class="token operator">:</span> <span class="token string">'类'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    Date<span class="token operator">:</span> <span class="token string">'类'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Number<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    setTimeount<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    setInterval<span class="token operator">:</span> <span class="token string">'函数'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token operator">...</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 在这个对象里面有一个重要的属性 window，指向当前的对象</span></pre></td></tr><tr><td data-num="21"></td><td><pre>	window<span class="token operator">:</span>GlobalObject<span class="token punctuation">,</span>  </pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment">// 会将上面的属性也放在全局对象 但因为代码没有执行，没有赋值所以是 undefined</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    name<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    num1<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    num2<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    result<span class="token operator">:</span> <span class="token keyword">undefined</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#125;</span> </pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token comment">//window.window 无论怎样都是指向自己</span></pre></td></tr><tr><td data-num="30"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window <span class="token operator">===</span> window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>window<span class="token punctuation">.</span>window<span class="token punctuation">)</span>  <span class="token comment">// true</span></pre></td></tr></table></figure><p><img data-src="js_exe.png" alt="js_exe" /></p>
+<h2 id="初始化全局对象"><a class="anchor" href="#初始化全局对象">#</a> 初始化全局对象</h2>
+<ul>
+<li>js 引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO）
+<ul>
+<li>该对象 所有的作用域（scope）都可以访问；</li>
+<li>里面会包含 Date、Array、String、Number、setTimeout、setInterval 等等；</li>
+<li>其中还有一个 window 属性指向自己；</li>
+</ul>
+</li>
+</ul>
+<p><img data-src="heap_memory.png" alt="heap_memory" /></p>
+<h2 id="执行上下文栈调用栈"><a class="anchor" href="#执行上下文栈调用栈">#</a> 执行上下文栈（调用栈）</h2>
+<ul>
+<li>js 引擎内部有一个执行上下文栈（Execution Context Stack，简称 ECS），它是用于执行代码的调用栈。</li>
+<li>那么现在它要执行谁呢？执行的是全局的代码块：</li>
+<li>全局的代码块为了执行会构建一个 Global Execution Context（GEC）；</li>
+<li>GEC 会 被放入到 ECS 中 执行；</li>
+<li>GEC 被放入到 ECS 中里面包含两部分内容：</li>
+<li>第一部分：在代码执行前，在 parser 转成 AST 的过程中，会将全局定义的变量、函数等加入到 GlobalObject 中，</li>
+<li>但是并不会赋值；</li>
+<li>这个过程也称之为变量的作用域提升（hoisting）</li>
+<li>第二部分：在代码执行中，对变量赋值，或者执行其他的函数；</li>
+</ul>
+<p>​</p>
+<p><img data-src="GEC.png" alt="GEC" /></p>
+<p><img data-src="GEX_exe.png" alt="GEX_exe" /></p>
+<h2 id="遇到函数如何执行"><a class="anchor" href="#遇到函数如何执行">#</a> 遇到函数如何执行？</h2>
+<ul>
+<li>
+<p>在执行的过程中执行到一个函数时，就会根据函数体创建一个函数执行上下文（Functional Execution Context，</p>
+</li>
+<li>
+<p>简称 FEC），并且压入到 EC Stack 中。</p>
+</li>
+<li>
+<p>FEC 中包含三部分内容：</p>
+<ul>
+<li>第一部分：在解析函数成为 AST 树结构时，会创建一个 Activation Object（AO）：</li>
+<li>AO 中包含形参、arguments、函数定义和指向函数对象、定义的变量；</li>
+<li>第二部分：作用域链：由 VO（在函数中就是 AO 对象）和父级 VO 组成，查找时会一层层查找；</li>
+<li>第三部分：this 绑定的值</li>
+</ul>
+<p><img data-src="FEC.png" alt="FEC" /></p>
+</li>
+</ul>
+<p><img data-src="FEC_exe.png" alt="FEC_exe" /></p>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-01-19 14:52:12" itemprop="dateModified" datetime="2022-01-19T14:52:12+08:00">2022-01-19</time>
+  </span>
+  <span id="2021/10/01/JavaScript/Advanced/V8/" class="item leancloud_visitors" data-flag-title="V8 引擎" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">https://nekoaimer.github.io/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclx29mstj20zk0m8hdt.jpg" title="Mini-Vue 实现">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>Mini-Vue 实现</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitht3xtj20zk0m8k5v.jpg" title="JavaScript 作用域">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>JavaScript 作用域</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86javascript%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text"> 认识 JavaScript 引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%92%8Cjs%E5%BC%95%E6%93%8E%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text"> 浏览器内核和 JS 引擎的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text"> V8 引擎的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text"> V8 引擎的架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">5.</span> <span class="toc-text"> V8 执行的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-%E5%85%A8%E5%B1%80%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text"> JavaScript 全局代码执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text"> 初始化全局对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88%E8%B0%83%E7%94%A8%E6%A0%88"><span class="toc-number">8.</span> <span class="toc-text"> 执行上下文栈（调用栈）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C"><span class="toc-number">9.</span> <span class="toc-text"> 遇到函数如何执行？</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" rel="bookmark" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></li><li><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" rel="bookmark" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></li><li><a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li class="active"><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/API%E5%8E%9F%E7%90%86/call_apply_bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/API%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/API%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="bookmark" title="Javascript Promise いち">Javascript Promise いち</a></li><li><a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB%20/" rel="bookmark" title="Javascript Promise に">Javascript Promise に</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">58</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">15</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/12/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/26/JavaScript/Advanced/Set_Map/" title="Set &amp; Map 数据结构">Set & Map 数据结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/02/JavaScript/API%E5%8E%9F%E7%90%86/Reactivity/" title="Javascript 响应式原理">Javascript 响应式原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/24/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/14/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" title="Javascript Promise いち">Javascript Promise いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/API%E5%8E%9F%E7%90%86/call_apply_bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" title="JavaScript 闭包">JavaScript 闭包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/Algorithm/problems/easy/pass-the-parcel/" title="击鼓传花">击鼓传花</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">231k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">3:30</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/10/01/JavaScript/Advanced/V8/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
