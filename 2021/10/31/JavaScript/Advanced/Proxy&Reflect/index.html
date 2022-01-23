@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="ES6+,JavaScript" />
+  <meta name="keywords" content="JavaScript,ES6+" />
 
 
 <link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/">
@@ -90,12 +90,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
         </ul>
       </div>
     </header>
@@ -254,8 +254,8 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </ul>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name</pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">function</span> <span class="token function">Bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  </pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 要求：执行 Foo 函数中的内容，但是创建出来对象是 Bar 对象</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// </span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">const</span> bar <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span>Foo<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Lain'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Bar<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span> <span class="token comment">// Bar &#123; name: 'Lain', age: 16 &#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bar<span class="token punctuation">.</span>__proto__ <span class="token operator">==</span> <span class="token class-name">Bar</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr></table></figure>
       <div class="tags">
-          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
           <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6+</a>
       </div>
   </div>
 
@@ -472,42 +472,56 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" title="JavaScript async &amp; await">JavaScript async & await</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/20/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/problems/easy/priority-queue/" title="优先级队列实现">优先级队列实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/14/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/18/Vue/Vue3/OptionsAPI/voa_dynamic_components/" title="Vue3 component 和 keep-alive">Vue3 component 和 keep-alive</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></span>
+    <span><a href="/nekoaimer.github.io/2021/08/01/Vue/Vue3/CompositionAPI/vca_encapsulation/" title="Vue3 setup 案例封装">Vue3 setup 案例封装</a></span>
   </li>
 
       
@@ -519,7 +533,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/API%E5%8E%9F%E7%90%86/call_apply_bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
+    <span><a href="/nekoaimer.github.io/2021/10/12/JavaScript/API%E5%8E%9F%E7%90%86/currying/" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></span>
   </li>
 
       
@@ -538,12 +552,24 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/11/02/JavaScript/API%E5%8E%9F%E7%90%86/Reactivity/" title="Javascript 响应式原理">Javascript 响应式原理</a></span>
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/problems/easy/pass-the-parcel/" title="队列实现击鼓传花">队列实现击鼓传花</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/15/data-structures-and-algorithms/problems/easy/two-sum/" title="两数之和">两数之和</a></span>
   </li>
 
       
@@ -555,27 +581,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/03/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" title="Javascript Promise いち">Javascript Promise いち</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/15/Vue/Vue3/CompositionAPI/vca_customRef/" title="Vue3 customRef 自定义 debounce">Vue3 customRef 自定义 debounce</a></span>
   </li>
 
   </ul>
