@@ -8,10 +8,49 @@
   width: 200px;
   height: 200px;
   border-radius: 5%;
-  animation: avatarF 24s linear infinite alternate;
+  -webkit-animation: avatarF 24s linear infinite alternate;
+          animation: avatarF 24s linear infinite alternate;
 }
 #main #Me #avatar:hover {
-  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+@-webkit-keyframes avatarF {
+  0% {
+    transform: rotate(0) scale(1.2);
+    box-shadow: 0 0 20px #f00;
+  }
+  10% {
+    box-shadow: 0 0 40px #fbe338;
+  }
+  20% {
+    box-shadow: 0 0 20px #58bafe;
+  }
+  30% {
+    box-shadow: 0 0 40px #f57f73;
+  }
+  40% {
+    box-shadow: 0 0 20px #b08cf8;
+  }
+  50% {
+    box-shadow: 0 0 40px #4ed6c6;
+  }
+  60% {
+    box-shadow: 0 0 20px #fe9e95;
+  }
+  70% {
+    box-shadow: 0 0 40px #5ee69c;
+  }
+  80% {
+    box-shadow: 0 0 20px #c177e8;
+  }
+  90% {
+    box-shadow: 0 0 40px #f88945;
+  }
+  100% {
+    transform: rotate(-360deg) scale(1.2);
+    box-shadow: 0 0 40px #f3a388;
+  }
 }
 @keyframes avatarF {
   0% {
@@ -51,7 +90,6 @@
   }
 }
 #main #Me #avatar #neko {
-  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 50%;
@@ -72,8 +110,46 @@
   background-size: cover;
   transition: all .5s;
   box-shadow: 0 0 20px #f00;
-  animation: avatar 24s linear infinite alternate;
+  -webkit-animation: avatar 24s linear infinite alternate;
+          animation: avatar 24s linear infinite alternate;
   opacity: 0.75;
+}
+@-webkit-keyframes avatar {
+  0% {
+    transform: rotate(0) scale(1.2);
+    box-shadow: 0 0 20px #f00;
+  }
+  10% {
+    box-shadow: 0 0 40px #fbe338;
+  }
+  20% {
+    box-shadow: 0 0 20px #58bafe;
+  }
+  30% {
+    box-shadow: 0 0 40px #f57f73;
+  }
+  40% {
+    box-shadow: 0 0 20px #b08cf8;
+  }
+  50% {
+    box-shadow: 0 0 40px #4ed6c6;
+  }
+  60% {
+    box-shadow: 0 0 20px #fe9e95;
+  }
+  70% {
+    box-shadow: 0 0 40px #5ee69c;
+  }
+  80% {
+    box-shadow: 0 0 20px #c177e8;
+  }
+  90% {
+    box-shadow: 0 0 40px #f88945;
+  }
+  100% {
+    transform: rotate(480deg) scale(1);
+    box-shadow: 0 0 20px #f3a388;
+  }
 }
 @keyframes avatar {
   0% {
@@ -115,7 +191,8 @@
 #main #Me #avatar #neko:hover {
   opacity: 1;
   cursor: pointer;
-  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 #main #Me .my-tags {
   margin-top: 15px;

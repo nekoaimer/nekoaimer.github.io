@@ -1,9 +1,11 @@
 .v.wrap {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
   opacity: 0;
 }
 .v .lozaded {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
 }
 .v input,
 .v textarea {
@@ -52,25 +54,21 @@
   padding: 0.625rem;
 }
 .v .form >.inner .auth-section {
-  display: -ms-flexbox;
   display: flex;
   padding: 0.3em 0.6em;
 }
 @media (max-width: 567px) {
   .v .form >.inner {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 .v .form >.inner .input {
-  -ms-flex: 1 1 27%;
-      flex: 1 1 27%;
+  flex: 1 1 27%;
   width: 27%;
 }
 @media (max-width: 567px) {
   .v .form >.inner .input {
-    -ms-flex: 1 1 100%;
-        flex: 1 1 100%;
+    flex: 1 1 100%;
     padding-right: 0;
     width: 100%;
   }
@@ -95,7 +93,6 @@
 }
 .v .form >.inner .btn-group {
   padding: 0.625rem 0;
-  display: -ms-flexbox;
   display: flex;
 }
 .v .form >.inner .btn-group .i-markdown {
@@ -241,7 +238,8 @@
   padding: 0.125em;
 }
 .v .item:hover .avatar {
-  animation: 0.8s ease-out 0s 1 normal both running shake;
+  -webkit-animation: 0.8s ease-out 0s 1 normal both running shake;
+          animation: 0.8s ease-out 0s 1 normal both running shake;
 }
 .v .item .main {
   overflow: hidden;
@@ -367,19 +365,32 @@
   width: 6px;
   margin-right: 3px;
   display: inline-block;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+          animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
 .v .spinner .r2 {
-  animation-delay: -1.1s;
+  -webkit-animation-delay: -1.1s;
+          animation-delay: -1.1s;
 }
 .v .spinner .r3 {
-  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
 }
 .v .spinner .r4 {
-  animation-delay: -0.9s;
+  -webkit-animation-delay: -0.9s;
+          animation-delay: -0.9s;
 }
 .v .spinner .r5 {
-  animation-delay: -0.8s;
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
 }
 @keyframes sk-stretchdelay {
   0%, 40%, 100% {
