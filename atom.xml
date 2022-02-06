@@ -294,13 +294,13 @@
   </entry>
   
   <entry>
-    <title>BOM</title>
+    <title>浏览器 BOM</title>
     <link href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/"/>
     <id>https://nekoaimer.github.io/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/</id>
     <published>2021-12-12T13:48:32.000Z</published>
-    <updated>2022-02-06T13:49:19.934Z</updated>
+    <updated>2022-02-06T13:52:26.206Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="认识bom"><a class="anchor" href="#认识bom">#</a> 认识 BOM</h2><ul><li>JavaScript 有一个非常重要的运行环境就是浏览器，而且浏览器本身又作为一个应用程序需要对其本身进行操作，所以通常浏览器会有对应的对象模型（BOM，Browser Object Model）。<ul><li>我们可以将 BOM 看成是连接 JavaScript 脚本与浏览器窗口的桥梁。</li></ul></li><li>BOM 主要包括一下的对象模型：<ul><li>window：包括全局属性、方法，控制浏览器窗口相关的属性、方法；</li><li>location：浏览器连接到的对象的位置（URL）；</li><li>history：操作浏览器的历史；</li><li>document：当前窗口操作文档的对象；</li></ul></li><li>window 对象在浏览器中有两个身份：<ul><li>身份一：全局对象。<ul><li>我们知道 ECMAScript 其实是有一个全局对象的，这个全局对象在 Node 中是 global；</li><li>在浏览器中就是 window 对象；</li></ul></li><li>身份二：浏览器窗口对象。<ul><li>作为浏览器窗口时，提供了对浏览器操作的相关的 API；</li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="认识bom"><a class="anchor" href="#认识bom">#</a> 认识 BOM</h2><ul><li>JavaScript 有一个非常重要的运行环境就是浏览器，而且浏览器本身又作为一个应用程序需要对其本身进行操作，所以通常浏览器会有对应的对象模型（BOM，Browser Object Model）。<ul><li>我们可以将 BOM 看成是连接 JavaScript 脚本与浏览器窗口的桥梁。</li></ul></li><li>BOM 主要包括一下的对象模型：<ul><li>window：包括全局属性、方法，控制浏览器窗口相关的属性、方法；</li><li>location：浏览器连接到的对象的位置（URL）；</li><li>history：操作浏览器的历史；</li><li>document：当前窗口操作文档的对象；</li></ul></li><li>window 对象在浏览器中有两个身份：<ul><li>身份一：全局对象。<ul><li>我们知道 ECMAScript 其实是有一个全局对象的，这个全局对象在 Node 中是 global；</li><li>在浏览器中就是 window 对象；</li></ul></li><li>身份二：浏览器窗口对象。<ul><li>作为浏览器窗口时，提供了对浏览器操作的相关的 API；</li></ul></li></ul></li></ul><h2 id="window全局对象"><a class="anchor" href="#window全局对象">#</a> Window 全局对象</h2><ul><li>在浏览器中，window 对象就是之前经常提到的全局对象，也就是我们之前提到过 GO 对象：<ul><li>比如在全局通过 var 声明的变量，会被添加到 GO 中，也就是会被添加到 window 上；</li><li>比如 window 默认给我们提供了全局的函数和类：setTimeout、Math、Date、Object 等；</li></ul></li><li>通过 var 声明的变量，全局提供的类和方法：</li><li>这些用法是我们之前讲过的，并且也是作为 JavaScript 语言本身所拥有的一些特性。<ul><li>那么接下来我们来看一下作为窗口对象，它拥有哪些特性。</li></ul></li></ul>]]></content>
     
     
       
