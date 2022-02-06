@@ -1,0 +1,1196 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/">
+
+
+
+  <title>
+JavaScript 包管理工具 - JavaScript |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript 包管理工具
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-11-27 14:56:07">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-11-27T14:56:07+08:00">2021-11-27</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>8.9k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>8 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="代码共享方案"><a class="anchor" href="#代码共享方案">#</a> 代码共享方案</h2>
+<ul>
+<li>我们已经学习了在 JavaScript 中可以通过模块化的方式将代码划分成一个个小的结构：
+<ul>
+<li>在以后的开发中我们就可以通过模块化的方式来封装自己的代码，并且封装成一个工具；</li>
+<li>这个工具我们可以让同事通过导入的方式来使用，甚至你可以分享给世界各地的程序员来使用；</li>
+</ul>
+</li>
+<li>如果我们分享给世界上所有的程序员使用，有哪些方式呢？</li>
+<li>方式一：上传到 GitHub 上、其他程序员通过 GitHub 下载我们的代码手动的引用；
+<ul>
+<li>缺点是大家必须知道你的代码 GitHub 的地址，并且从 GitHub 上手动下载；</li>
+<li>需要在自己的项目中手动的引用，并且管理相关的依赖；</li>
+<li>不需要使用的时候，需要手动来删除相关的依赖；</li>
+<li>当遇到版本升级或者切换时，需要重复上面的操作；</li>
+</ul>
+</li>
+<li>显然，上面的方式是有效的，但是这种传统的方式非常麻烦，并且容易出错；</li>
+<li>方式二：使用一个专业的工具来管理我们的代码
+<ul>
+<li>我们通过工具将代码发布到特定的位置；</li>
+<li>其他程序员直接通过工具来安装、升级、删除我们的工具代码；</li>
+</ul>
+</li>
+<li>显然，通过第二种方式我们可以更好的管理自己的工具包，其他人也可以更好的使用我们的工具包。</li>
+</ul>
+<h2 id="包管理工具npm"><a class="anchor" href="#包管理工具npm">#</a> 包管理工具 npm</h2>
+<ul>
+<li>包管理工具 npm：
+<ul>
+<li>Node Package Manager，也就是 Node 包管理器；</li>
+<li>但是目前已经不仅仅是 Node 包管理器了，在前端项目中我们也在使用它来管理依赖的包；</li>
+<li>比如 vue、vue-router、vuex、express、koa、react、react-dom、axios、babel、webpack 等等；</li>
+</ul>
+</li>
+<li>如何下载 npm 工具呢？
+<ul>
+<li>npm 属于 node 的一个管理工具，所以我们需要先安装 Node；</li>
+<li>node 管理工具：<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">https://nodejs.org/en/</span></li>
+</ul>
+</li>
+<li>npm 管理的包可以在哪里查看、搜索呢？
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMub3JnLw==">https://www.npmjs.org/</span></li>
+<li>这是我们安装相关的 npm 包的官网；</li>
+</ul>
+</li>
+<li>npm 管理的包存放在哪里呢？
+<ul>
+<li>我们发布自己的包其实是发布到 registry 上面的；</li>
+<li>当我们安装一个包时其实是从 registry 上面下载的包；</li>
+</ul>
+</li>
+</ul>
+<h2 id="npm-的配置文件"><a class="anchor" href="#npm-的配置文件">#</a> npm 的配置文件</h2>
+<ul>
+<li>
+<p>那么对于一个项目来说，我们如何使用 npm 来管理这么多包呢？</p>
+<ul>
+<li>
+<p>事实上，我们每一个项目都会有一个对应的配置文件，无论是前端项目（Vue、React）还是后端项目（Node）；</p>
+</li>
+<li>
+<p>这个配置文件会记录着你项目的名称、版本号、项目描述等；</p>
+</li>
+<li>
+<p>也会记录着你项目所依赖的其他库的信息和依赖库的版本号；</p>
+</li>
+</ul>
+</li>
+<li>
+<p>这个配置文件就是 package.json</p>
+</li>
+<li>
+<p>那么这个配置文件如何得到呢？</p>
+<ul>
+<li>方式一：手动从零创建项目，npm init –y</li>
+<li>方式二：通过脚手架创建项目，脚手架会帮助我们生成 package.json，并且里面有相关的配置</li>
+</ul>
+</li>
+</ul>
+<h3 id="npm-init-进行配置"><a class="anchor" href="#npm-init-进行配置">#</a> npm init 进行配置</h3>
+<ol>
+<li>npm init 先进行初始化</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>npm init <span class="token comment">// 执行 添加 初始化 json 文件</span></pre></td></tr></table></figure><ol start="2">
+<li>如果您的文件名称是中文 则会出现以下提示
+<ul>
+<li><code>Sorry, name can only contain URL-friendly characters.</code></li>
+</ul>
+</li>
+<li>所以最好以英文命名，这里我以 <code>demo</code>  命名，就会出现下面这句代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">version</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token number">1.0</span><span class="token number">.0</span><span class="token punctuation">)</span> <span class="token comment">// 代表这个项目准备的版本号是什么</span></pre></td></tr></table></figure><ol start="4">
+<li>我们回车默认 <code>1.0.0</code>  版本号，接着出现下面这句代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token comment">// 可以对项目做一个描述</span></pre></td></tr></table></figure><ol start="5">
+<li>这里我随便加上一句  <code>test demo</code>  来进行描述，然后出现下面代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npmjs</span></figcaption><table><tr><td data-num="1"></td><td><pre>entry point<span class="token operator">:</span> <span class="token punctuation">(</span>index<span class="token punctuation">.</span>js<span class="token punctuation">)</span> <span class="token comment">// 当前项目的入口是什么</span></pre></td></tr></table></figure><ol start="6">
+<li>我这里以 <code>src/main.js</code>  为入口，继续出现下面代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>test command<span class="token operator">:</span> <span class="token comment">// 要不要有个测试的命令</span></pre></td></tr></table></figure><ol start="7">
+<li>这里我暂时不用，直接敲回车就行了，然后继续出现下面代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>git repository<span class="token operator">:</span> <span class="token comment">// 准不准备放到 git 仓库里面</span></pre></td></tr></table></figure><ol start="8">
+<li>这里我也不用，所以直接敲回车，然后继续出现下面代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">keywords</span><span class="token operator">:</span> <span class="token comment">// 关键字 -> 想让别人搜索到你时的关键字</span></pre></td></tr></table></figure><ol start="9">
+<li>这里我也不用，直接敲回车，然后继续出现下面代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">author</span><span class="token operator">:</span> <span class="token comment">// 作者是谁</span></pre></td></tr></table></figure><ol start="9">
+<li>这里我写上 <code>nekoaimer</code>  这个名字，然后回车出现下面代码</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">license</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token constant">ISC</span><span class="token punctuation">)</span> <span class="token comment">// 开源协议</span></pre></td></tr></table></figure><ol start="10">
+<li>这里我也不写了，直接默认 <code>ISC</code>  协议，然后会生成 <code>package.json</code>  内容并会询问你  <code>ok</code> ？</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>About to write to <span class="token comment">// 这里是写代码的路径</span></pre></td></tr><tr><td data-num="2"></td><td><pre>ckage<span class="token punctuation">.</span>json<span class="token operator">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"demo"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-property property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">"test demo"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token string-property property">"main"</span><span class="token operator">:</span> <span class="token string">"src/main.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token string-property property">"test"</span><span class="token operator">:</span> <span class="token string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token string-property property">"author"</span><span class="token operator">:</span> <span class="token string">"nekoaimer"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token string-property property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>Is <span class="token keyword">this</span> <span class="token constant">OK</span><span class="token operator">?</span> <span class="token punctuation">(</span>yes<span class="token punctuation">)</span></pre></td></tr></table></figure><ol start="11">
+<li>这里我们敲回车确认，生成 <code>package.json</code>  文件</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//package.json 文件 </span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"demo"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token string-property property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">"test demo"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token string-property property">"main"</span><span class="token operator">:</span> <span class="token string">"src/main.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token string-property property">"test"</span><span class="token operator">:</span> <span class="token string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token string-property property">"author"</span><span class="token operator">:</span> <span class="token string">"nekoaimer"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token string-property property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="npm-init-y-进行配置"><a class="anchor" href="#npm-init-y-进行配置">#</a> npm init -y 进行配置</h3>
+<ol>
+<li>使用 <code>npm init -y </code> 命令代表刚刚那些问题都是  <code>yes</code></li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>npm init <span class="token operator">-</span>y</pre></td></tr></table></figure><ol start="2">
+<li>但可能会发生下面的错误</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>npm <span class="token constant">ERR</span><span class="token operator">!</span> Invalid name<span class="token operator">:</span> <span class="token function">xxx</span><span class="token punctuation">(</span>中文名<span class="token punctuation">)</span> <span class="token comment">// 上面提到过的，不能使用中文名</span></pre></td></tr><tr><td data-num="2"></td><td><pre>npm <span class="token constant">ERR</span><span class="token operator">!</span> <span class="token constant">A</span> complete log <span class="token keyword">of</span> <span class="token keyword">this</span> run can be found <span class="token keyword">in</span><span class="token operator">:</span> xxx <span class="token comment">// 告诉你 npm 犯错！此运行的完整日志可在以下文件中找到:  </span></pre></td></tr><tr><td data-num="3"></td><td><pre>npm <span class="token constant">ERR</span><span class="token operator">!</span>  xxx 路径</pre></td></tr></table></figure><ol start="3">
+<li>我们将文件名改为 <code>demo</code> , 再进行 <code>npm init -y</code>  操作，则会出现生产成功的代码，只不过都是类似直接回车默认的信息</li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"demo"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token string-property property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-property property">"main"</span><span class="token operator">:</span> <span class="token string">"index.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token string-property property">"test"</span><span class="token operator">:</span> <span class="token string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token string-property property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token string-property property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token string-property property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="或者创建vuereact等脚手架"><a class="anchor" href="#或者创建vuereact等脚手架">#</a> 或者创建 vue/react 等脚手架</h3>
+<ul>
+<li>这里以 <code>vue</code>  举栗，这样也是会有 <code>package.json</code>  文件的</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>vue create demo</pre></td></tr></table></figure><ul>
+<li>一般我们都是以这种方式创建，它会自动帮你生成好这个目录，目录里默认就要这个文件！</li>
+</ul>
+<h2 id="常见的属性"><a class="anchor" href="#常见的属性">#</a> 常见的属性</h2>
+<ul>
+<li>
+<p>必须填写的属性：name、version</p>
+<ul>
+<li>name 是项目的名称；</li>
+<li>version 是当前项目的版本号；</li>
+<li>description 是描述信息，很多时候是作为项目的基本描述；</li>
+<li>author 是作者相关信息（发布时用到）；</li>
+<li>license 是开源协议（发布时用到）；</li>
+</ul>
+</li>
+<li>
+<p>private 属性：</p>
+<ul>
+<li>private 属性记录当前的项目是否是私有的；</li>
+<li>当值为 true 时，npm 是不能发布它的，这是防止私有项目或模块发布出去的方式；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"demo"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token string-property property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-property property">"main"</span><span class="token operator">:</span> <span class="token string">"index.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token string-property property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 脚手架生产时一般会加上这个字段，例如公司项目一般情况下不允许开源</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token string-property property">"test"</span><span class="token operator">:</span> <span class="token string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token string-property property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token string-property property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token string-property property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="main-属性"><a class="anchor" href="#main-属性">#</a> main 属性</h3>
+<ul>
+<li>设置程序的入口。</li>
+<li>很多人会有疑惑，webpack 不是会自动找到程序的入口吗？
+<ul>
+<li>这个入口和 webpack 打包的入口并不冲突</li>
+<li>它是在你发布一个模块的时候会用到的</li>
+<li>比如我们使用 axios 模块 const axios = require ('axios')</li>
+<li>实际上是找到对应的 main 属性查找文件的</li>
+</ul>
+</li>
+<li>一般情况，开源的项目都是需要 <code>main</code>  属性的，下比如 <code>axios</code>  的源码就是指向 <code>index.js</code>  的</li>
+</ul>
+<h3 id="scripts-属性"><a class="anchor" href="#scripts-属性">#</a> scripts 属性</h3>
+<ul>
+<li>scripts 属性用于配置一些脚本命令，以键值对的形式存在；</li>
+<li>配置后我们可以通过 npm run 命令的 key 来执行这个命令；</li>
+<li>举个栗子</li>
+</ul>
+<ol>
+<li><code>foo.js</code></li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 比如在 foo.js 文件 有一句打印命令</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"npm foo~"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ol start="2">
+<li><code>package.json</code></li>
+</ol>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token string-property property">"foo"</span><span class="token operator">:</span> <span class="token string">"node ./foo.js"</span> <span class="token comment">// 在 scripts 写上这句代码</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr></table></figure><ol start="3">
+<li>控制台进行 <code>npm run foo</code>  命令</li>
+<li>成功打印 <code>npm foo~</code>  信息</li>
+</ol>
+<ul>
+<li>有时候能看见不写 run 命令的，类似下面这两句代码</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre>npm start </pre></td></tr><tr><td data-num="2"></td><td><pre>npm run start</pre></td></tr></table></figure><ul>
+<li>
+<p>那么 npm start 和 npm run start 的区别是什么？</p>
+<ul>
+<li>
+<p>它们是等价的；</p>
+</li>
+<li>
+<p>对于常用的 start、 test、stop、restart 可以省略掉 run 直接通过 npm start 等方式运行；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="dependencies-属性"><a class="anchor" href="#dependencies-属性">#</a> dependencies 属性</h3>
+<ul>
+<li>dependencies 属性是指定无论开发环境还是生成环境都需要依赖的包；</li>
+<li>通常是我们项目实际开发用到的一些库模块 vue、vuex、vue-router、react、react-dom、axios 等等；</li>
+<li>比如下面进行安装 <code>axios</code> , 会生成 <code>node_modules</code>  这个文件，同时 <code>dependencies</code>  就会记录下来</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token string-property property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token string-property property">"axios"</span><span class="token operator">:</span> <span class="token string">"^0.25.0"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>这样的好处就是比如给同事代码时，不需要将 <code>node_modules</code>  这个文件也传过去，因为这个文件占用内存可能会非常大，传输也非常麻烦与慢
+<ul>
+<li>而将 <code>package.json</code>  这个文件发过去，对方进行 <code>npm install</code>  操作就会根据依赖自动安装对应的包，这种方法更加简单快速</li>
+</ul>
+</li>
+<li>而与之对应的则是 devDependencies 属性</li>
+</ul>
+<h3 id="devdependencies-属性"><a class="anchor" href="#devdependencies-属性">#</a> devDependencies 属性</h3>
+<ul>
+<li>一些包在生成环境是不需要的，比如 webpack、babel 等；</li>
+<li>这个时候我们会通过 npm install webpack --save-dev，将它安装到 devDependencies 属性中；</li>
+<li>例如安装 <code>webpack</code>  和 <code>webpack-cli</code> , 使用 <code>npm install webpack webpack-cli --save-dev</code>  命令，与上面一样也会记录下来.</li>
+<li>或者 <code>npm install webpack webpack-cli -D</code> , 这是上面命令的缩写</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 代表开发时依赖</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token string-property property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token string-property property">"webpack"</span><span class="token operator">:</span> <span class="token string">"^5.68.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>   <span class="token string-property property">"webpack-cli"</span><span class="token operator">:</span> <span class="token string">"^4.9.2"</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="peerdependencies-属性"><a class="anchor" href="#peerdependencies-属性">#</a> peerDependencies 属性</h3>
+<ul>
+<li>
+<p>还有一种项目依赖关系是对等依赖，也就是你依赖的一个包，它必须是以另外一个宿主包为前提的</p>
+</li>
+<li>
+<p>比如 element-plus 是依赖于 vue3 的，ant design 是依赖于 react、react-dom</p>
+</li>
+<li>
+<p>例如 <code>element-plus</code>  中 <code>package.json</code>  里就有用到 -&gt; <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VsZW1lbnQtcGx1cy9lbGVtZW50LXBsdXMvYmxvYi9kZXYvcGFja2FnZS5qc29u">https://github.com/element-plus/element-plus/blob/dev/package.json</span></p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>npm</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token string-property property">"peerDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token string-property property">"vue"</span><span class="token operator">:</span> <span class="token string">"^3.2.0"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>还有 <code>ant design</code>  中 <code>package.json</code>  也是有的 -&gt; <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FudC1kZXNpZ24vYW50LWRlc2lnbi9ibG9iL21hc3Rlci9wYWNrYWdlLmpzb24=">https://github.com/ant-design/ant-design/blob/master/package.json</span></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token string-property property">"peerDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token string-property property">"react"</span><span class="token operator">:</span> <span class="token string">">=16.9.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token string-property property">"react-dom"</span><span class="token operator">:</span> <span class="token string">">=16.9.0"</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="package中的版本管理"><a class="anchor" href="#package中的版本管理">#</a> package 中的版本管理</h2>
+<ul>
+<li>我们会发现安装的依赖版本出现：^2.0.3 或～2.0.3，这是什么意思呢？</li>
+<li>npm 的包通常需要遵从 semver 版本规范：
+<ul>
+<li>semver：<span class="exturl" data-url="aHR0cHM6Ly9zZW12ZXIub3JnL2xhbmcvemgtQ04=">https://semver.org/lang/zh-CN</span></li>
+<li>npm semver：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5wbWpzLmNvbS9taXNjL3NlbXZlcg==">https://docs.npmjs.com/misc/semver</span></li>
+</ul>
+</li>
+<li>semver 版本规范是 X.Y.Z：
+<ul>
+<li>X 主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y 次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z 修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的 bug）；</li>
+</ul>
+</li>
+<li>我们这里解释一下 ^ 和～的区别：
+<ul>
+<li>^x.y.z：表示 x 是保持不变的，y 和 z 永远安装最新的版本；</li>
+<li>~x.y.z：表示 x 和 y 保持不变的，z 永远安装最新的版本；</li>
+</ul>
+</li>
+<li><code>package.json</code>  记录的是大概版本</li>
+<li><code>package-lock.json</code>  记录的则是真实版本</li>
+<li>而项目里上面两个文件都有，将 <code>node_modules</code>  删掉，执行 <code>npm install</code>  时会根据 <code>package.json</code>  版本匹配 <code>package-lock.json</code>  版本</li>
+<li>如果 <code>package-lock.json</code>  记录的版本是符合 <code>package.json</code>  版本的，那么就会按照 <code>package-lock.json</code>  记录的版本安装</li>
+</ul>
+<h2 id="常见属性"><a class="anchor" href="#常见属性">#</a> 常见属性</h2>
+<ul>
+<li>engines 属性
+<ul>
+<li>engines 属性用于指定 Node 和 NPM 的版本号；</li>
+<li>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</li>
+<li>事实上也可以指定所在的操作系统 &quot;os&quot; : [&quot;darwin&quot;, &quot;linux&quot;]，只是很少用到；</li>
+</ul>
+</li>
+<li>browserslist 属性
+<ul>
+<li>用于配置打包后的 JavaScript 浏览器的兼容情况</li>
+<li>否则我们需要手动的添加 polyfills 来让支持某些语法</li>
+<li>也就是说它是为 webpack 等打包工具服务的一个属性</li>
+</ul>
+</li>
+</ul>
+<h2 id="npm-install-命令"><a class="anchor" href="#npm-install-命令">#</a> npm install 命令</h2>
+<ul>
+<li>
+<p>安装 npm 包分两种情况：</p>
+<ul>
+<li>全局安装（global install）： npm install webpack -g;</li>
+<li>项目（局部）安装（local install）： npm install webpack</li>
+</ul>
+</li>
+<li>
+<p>全局安装</p>
+<ul>
+<li>
+<p>全局安装是直接将某个包安装到全局</p>
+</li>
+<li>
+<p>比如 yarn 的全局安装：</p>
+</li>
+</ul>
+</li>
+<li>
+<p>但是很多人对全局安装有一些误会：</p>
+<ul>
+<li>通常使用 npm 全局安装的包都是一些工具包：yarn、webpack 等；</li>
+<li>并不是类似于 axios、express、koa 等库文件；</li>
+<li>所以全局安装了之后并不能让我们在所有的项目中使用 axios 等库；</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目安装"><a class="anchor" href="#项目安装">#</a> 项目安装</h2>
+<ul>
+<li>项目安装会在当前目录下生产一个 node_modules 文件夹，我们之前讲解 require 查找顺序时有讲解过这个包在什么情况下被查找；</li>
+<li>局部安装分为开发时依赖和生产时依赖：</li>
+<li>安装开发和生产依赖
+<ul>
+<li><code>npm install axios</code></li>
+<li><code>npm i axios</code></li>
+</ul>
+</li>
+<li>开发依赖
+<ul>
+<li><code>npm install webpack --save-dev</code></li>
+<li><code>npm install webpack -D</code></li>
+<li><code>npm i webpack –D</code></li>
+</ul>
+</li>
+<li>根据 package.json 中的依赖包
+<ul>
+<li><code>npm install  </code></li>
+</ul>
+</li>
+</ul>
+<h2 id="npm-install-原理"><a class="anchor" href="#npm-install-原理">#</a> npm install 原理</h2>
+<ul>
+<li>很多同学之前应该已经会了 npm install &lt;package&gt;，但是你是否思考过它的内部原理呢？
+<ul>
+<li>执行 npm install 它背后帮助我们完成了什么操作？</li>
+<li>我们会发现还有一个成为 package-lock.json 的文件，它的作用是什么？</li>
+<li>从 npm5 开始，npm 支持缓存策略（来自 yarn 的压力），缓存有什么作用呢？</li>
+</ul>
+</li>
+<li>这是一幅我画出的根据 npm install 的原理图：</li>
+</ul>
+<p><img data-src="npm-install.png" alt="npm-install" /></p>
+<ul>
+<li>可通过 <code>npm get cache</code>  查看缓存</li>
+</ul>
+<h2 id="npm-install-原理图解析"><a class="anchor" href="#npm-install-原理图解析">#</a> npm install 原理图解析</h2>
+<ul>
+<li>
+<p>npm install 会检测是有 package-lock.json 文件：</p>
+<ol>
+<li>没有 lock 文件</li>
+</ol>
+<ul>
+<li>分析依赖关系，这是因为我们可能包会依赖其他的包，并且多个包之间会产生相同依赖的情况；</li>
+<li>从 registry 仓库中下载压缩包（如果我们设置了镜像，那么会从镜像服务器下载压缩包）；</li>
+<li>获取到压缩包后会对压缩包进行缓存（从 npm5 开始有的）；</li>
+<li>​	将压缩包解压到项目的 node_modules 文件夹中（前面我们讲过，require 的查找顺序会在该包下面查找）</li>
+</ul>
+<ol start="2">
+<li>有 lock 文件</li>
+</ol>
+<ul>
+<li>
+<p>检测 lock 中包的版本是否和 package.json 中一致（会按照 semver 版本规范检测）；</p>
+<ul>
+<li>不一致，那么会重新构建依赖关系，直接会走顶层的流程；</li>
+</ul>
+</li>
+<li>
+<p>一致的情况下，会去优先查找缓存</p>
+<ul>
+<li>没有找到，会从 registry 仓库下载，直接走顶层流程；</li>
+</ul>
+</li>
+<li>
+<p>查找到，会获取缓存中的压缩文件，并且将压缩文件解压到 node_modules 文件夹中；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="package-lockjson"><a class="anchor" href="#package-lockjson">#</a> package-lock.json</h2>
+<ul>
+<li>package-lock.json 文件解析：</li>
+<li>name：项目的名称；</li>
+<li>version：项目的版本；</li>
+<li>lockfileVersion：lock 文件的版本；</li>
+<li>requires：使用 requires 来跟踪模块的依赖关系；</li>
+<li>dependencies：项目的依赖
+<ul>
+<li>当前项目依赖 axios，但是 axios 依赖 follow-redireacts；</li>
+<li>axios 中的属性如下：
+<ul>
+<li>version 表示实际安装的 axios 的版本；</li>
+<li>resolved 用来记录下载的地址，registry 仓库中的位置；</li>
+<li>requires 记录当前模块的依赖；</li>
+<li>integrity 用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="npm-其他命令"><a class="anchor" href="#npm-其他命令">#</a> npm 其他命令</h2>
+<ul>
+<li>我们这里再介绍几个比较常用的：</li>
+<li>卸载某个依赖包：
+<ul>
+<li><code>npm uninstall package</code></li>
+<li><code>npm uninstall package --save-dev</code></li>
+<li><code>npm uninstall package -D</code></li>
+</ul>
+</li>
+<li>强制重新 build
+<ul>
+<li><code>npm rebuild</code></li>
+</ul>
+</li>
+<li>清除缓存
+<ul>
+<li><code>npm cache clean</code></li>
+</ul>
+</li>
+<li>npm 的命令其实是非常多的：
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5wbWpzLmNvbS9jbGktZG9jdW1lbnRhdGlvbi9jbGk=">https://docs.npmjs.com/cli-documentation/cli</span></li>
+<li>更多的命令，可以根据需要查阅官方文档</li>
+</ul>
+</li>
+</ul>
+<h2 id="yarn-工具"><a class="anchor" href="#yarn-工具">#</a> yarn 工具</h2>
+<ul>
+<li>另一个 node 包管理工具 yarn：
+<ul>
+<li>yarn 是由 Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具</li>
+<li>yarn 是为了弥补 npm 的一些缺陷而出现的</li>
+<li>早期的 npm 存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题</li>
+<li>虽然从 npm5 版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用 yarn</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Npm</th>
+<th>Yarn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm install</td>
+<td>yarn install</td>
+</tr>
+<tr>
+<td>npm install [package]</td>
+<td>yarn add [package]</td>
+</tr>
+<tr>
+<td>npm install --save [package]</td>
+<td>yarn add [package]</td>
+</tr>
+<tr>
+<td>npm install --save-dev [package]</td>
+<td>yarn add [package] [--dev/-D]</td>
+</tr>
+<tr>
+<td>npm rebuild</td>
+<td>yarn install --force</td>
+</tr>
+<tr>
+<td>npm uninstall [package]</td>
+<td>yarn remove [package]</td>
+</tr>
+<tr>
+<td>npm uninstall --save [package]</td>
+<td>yarn remove [package]</td>
+</tr>
+<tr>
+<td>npm install --save-dev [package]</td>
+<td>yarn remove [package]</td>
+</tr>
+<tr>
+<td>npm install --save-optional [package]</td>
+<td>yarn remove [package]</td>
+</tr>
+<tr>
+<td>npm cache clean</td>
+<td>yarn cache clean</td>
+</tr>
+<tr>
+<td>rm -rf node_modules &amp;&amp; npm install</td>
+<td>yarn upgrade</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>注意npm和yarn不要混用</code></li>
+</ul>
+<h2 id="cnpm工具"><a class="anchor" href="#cnpm工具">#</a> cnpm 工具</h2>
+<ul>
+<li>
+<p>由于一些特殊的原因，某些情况下我们没办法很好的从 <span class="exturl" data-url="aHR0cHM6Ly9yZWdpc3RyeS5ucG1qcy54bi0tb3JnLXMxOGQwYmEzMmhrMnhnejFjY3Y1YXp3NmJlOW9uNnc=">https://registry.npmjs.org 下载下来一些需要的包</span>。</p>
+</li>
+<li>
+<p>查看 npm 镜像： <code>npm config get registry # npm config get registry</code></p>
+</li>
+<li>
+<p>我们可以直接设置 npm 的镜像： <code>npm config set registry https://registry.npm.taobao.org</code></p>
+</li>
+<li>
+<p>但是对于大多数人来说（比如我），并不希望将 npm 镜像修改了：</p>
+<ul>
+<li>第一，不太希望随意修改 npm 原本从官方下来包的渠道；</li>
+<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li>
+</ul>
+</li>
+<li>
+<p>这个时候，我们可以使用 cnpm，并且将 cnpm 设置为淘宝的镜像：</p>
+<ul>
+<li>npm install -g cnpm --registry=https://registry.npm.taobao.org</li>
+<li>cnpm config get registry # <span class="exturl" data-url="aHR0cHM6Ly9yLm5wbS50YW9iYW8ub3Jn">https://r.npm.taobao.org</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="npx-工具"><a class="anchor" href="#npx-工具">#</a> npx 工具</h2>
+<ul>
+<li>npx 是 npm5.2 之后自带的一个命令。
+<ul>
+<li>npx 的作用非常多，但是比较常见的是使用它来调用项目中的某个模块的指令。</li>
+</ul>
+</li>
+<li>我们以 webpack 为例：
+<ul>
+<li>全局安装的是 webpack5.1.3</li>
+<li>项目安装的是 webpack3.6.0</li>
+</ul>
+</li>
+<li>如果我在终端执行 webpack --version 使用的是哪一个命令呢？
+<ul>
+<li>显示结果会是 webpack 5.1.3，事实上使用的是全局的，为什么呢？</li>
+<li>原因非常简单，在当前目录下找不到 webpack 时，就会去全局找，并且执行命令；</li>
+</ul>
+</li>
+<li>如何解决这个问题呢？</li>
+</ul>
+<h2 id="局部命令的执行"><a class="anchor" href="#局部命令的执行">#</a> 局部命令的执行</h2>
+<ul>
+<li>
+<p>那么如何使用项目（局部）的 webpack，常见的是两种方式：</p>
+<ul>
+<li>方式一：明确查找到 node_module 下面的 webpack</li>
+<li>方式二：在 scripts 定义脚本，来执行 webpack；</li>
+</ul>
+</li>
+<li>
+<p>方式一：在终端中使用如下命令（在项目根目录下）</p>
+<ul>
+<li><code>./node_modules/.bin/webpack --version  </code></li>
+</ul>
+</li>
+<li>
+<p>方式二：修改 package.json 中的 scripts</p>
+<ul>
+<li><code>&quot;scripts&quot;: &#123; &quot;webpack&quot;: &quot;webpack --version&quot; &#125;</code></li>
+</ul>
+</li>
+<li>
+<p>方式三：使用 npx</p>
+<ul>
+<li><code>npx webpack --version  </code></li>
+</ul>
+</li>
+<li>
+<p>npx 的原理非常简单，它会到当前目录的 node_modules/.bin 目录下查找对应的命令；</p>
+</li>
+<li>
+<p>另外全局的环境变量安装查看命令  <code> npm config get prefix</code></p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-02-05 17:20:02" itemprop="dateModified" datetime="2022-02-05T17:20:02+08:00">2022-02-05</time>
+  </span>
+  <span id="2021/11/27/JavaScript/Advanced/package-management-tool/" class="item leancloud_visitors" data-flag-title="JavaScript 包管理工具" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/" title="JavaScript 包管理工具">https://nekoaimer.github.io/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph47e9vtj20zk0m8x6l.jpg" title="JavaScript ES Module">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>JavaScript ES Module</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/11/30/JavaScript/Advanced/publish-package/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewkhf1zj20zk0m81kx.jpg" title="JavaScript Npm 发布自己的包">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>JavaScript Npm 发布自己的包</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text"> 代码共享方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7npm"><span class="toc-number">2.</span> <span class="toc-text"> 包管理工具 npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text"> npm 的配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#npm-init-%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text"> npm init 进行配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm-init-y-%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text"> npm init -y 进行配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%96%E8%80%85%E5%88%9B%E5%BB%BAvuereact%E7%AD%89%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">3.3.</span> <span class="toc-text"> 或者创建 vue&#x2F;react 等脚手架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text"> 常见的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#main-%E5%B1%9E%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text"> main 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scripts-%E5%B1%9E%E6%80%A7"><span class="toc-number">4.2.</span> <span class="toc-text"> scripts 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dependencies-%E5%B1%9E%E6%80%A7"><span class="toc-number">4.3.</span> <span class="toc-text"> dependencies 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#devdependencies-%E5%B1%9E%E6%80%A7"><span class="toc-number">4.4.</span> <span class="toc-text"> devDependencies 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#peerdependencies-%E5%B1%9E%E6%80%A7"><span class="toc-number">4.5.</span> <span class="toc-text"> peerDependencies 属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package%E4%B8%AD%E7%9A%84%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text"> package 中的版本管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text"> 常见属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install-%E5%91%BD%E4%BB%A4"><span class="toc-number">7.</span> <span class="toc-text"> npm install 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85"><span class="toc-number">8.</span> <span class="toc-text"> 项目安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install-%E5%8E%9F%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text"> npm install 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install-%E5%8E%9F%E7%90%86%E5%9B%BE%E8%A7%A3%E6%9E%90"><span class="toc-number">10.</span> <span class="toc-text"> npm install 原理图解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-lockjson"><span class="toc-number">11.</span> <span class="toc-text"> package-lock.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-number">12.</span> <span class="toc-text"> npm 其他命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yarn-%E5%B7%A5%E5%85%B7"><span class="toc-number">13.</span> <span class="toc-text"> yarn 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cnpm%E5%B7%A5%E5%85%B7"><span class="toc-number">14.</span> <span class="toc-text"> cnpm 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npx-%E5%B7%A5%E5%85%B7"><span class="toc-number">15.</span> <span class="toc-text"> npx 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%91%BD%E4%BB%A4%E7%9A%84%E6%89%A7%E8%A1%8C"><span class="toc-number">16.</span> <span class="toc-text"> 局部命令的执行</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" rel="bookmark" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></li><li><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" rel="bookmark" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></li><li><a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="bookmark" title="Javascript Promise いち">Javascript Promise いち</a></li><li><a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" rel="bookmark" title="Javascript Promise に">Javascript Promise に</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="手写 Promise">手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" rel="bookmark" title="JavaScript Iterator">JavaScript Iterator</a></li><li><a href="/nekoaimer.github.io/2021/11/13/JavaScript/Advanced/Generator/" rel="bookmark" title="JavaScript Generator">JavaScript Generator</a></li><li><a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" rel="bookmark" title="JavaScript async & await">JavaScript async & await</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" rel="bookmark" title="事件循环面试题">事件循环面试题</a></li><li><a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" rel="bookmark" title="error-handling">error-handling</a></li><li><a href="/nekoaimer.github.io/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 模块化">JavaScript 模块化</a></li><li><a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" rel="bookmark" title="JavaScript ES Module">JavaScript ES Module</a></li><li class="active"><a href="/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/" rel="bookmark" title="JavaScript 包管理工具">JavaScript 包管理工具</a></li><li><a href="/nekoaimer.github.io/2021/11/30/JavaScript/Advanced/publish-package/" rel="bookmark" title="JavaScript Npm 发布自己的包">JavaScript Npm 发布自己的包</a></li><li><a href="/nekoaimer.github.io/2021/12/02/JavaScript/Advanced/JSON/" rel="bookmark" title="JSON 数据存储">JSON 数据存储</a></li><li><a href="/nekoaimer.github.io/2021/12/05/JavaScript/Advanced/Storage/" rel="bookmark" title="浏览器存储方案 Storage">浏览器存储方案 Storage</a></li><li><a href="/nekoaimer.github.io/2021/12/07/JavaScript/Advanced/IndexedDB/" rel="bookmark" title="浏览器存储方案 IndexedDB">浏览器存储方案 IndexedDB</a></li><li><a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" rel="bookmark" title="浏览器存储方案 Cookie">浏览器存储方案 Cookie</a></li><li><a href="/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/" rel="bookmark" title="BOM">BOM</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">78</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">15</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/11/30/JavaScript/Advanced/publish-package/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/05/JavaScript/Advanced/Storage/" title="浏览器存储方案 Storage">浏览器存储方案 Storage</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" title="JavaScript defineProperty">JavaScript defineProperty</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/21/Vue/Vue3/CompositionAPI/vca_watchEffect_refEl/" title="Vue3 在 ref 里 使用 watchEffect">Vue3 在 ref 里 使用 watchEffect</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/22/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/30/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" title="浏览器存储方案 Cookie">浏览器存储方案 Cookie</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/24/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">339k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">5:08</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/11/27/JavaScript/Advanced/package-management-tool/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
