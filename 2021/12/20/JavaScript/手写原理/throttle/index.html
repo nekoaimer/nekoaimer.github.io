@@ -1,0 +1,808 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript,JavaScript 手写原理" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/">
+
+
+
+  <title>
+JavaScript 手写节流函数(throttle) - JavaScript 手写原理 - JavaScript |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript 手写节流函数(throttle)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-12-20 00:36:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-12-20T00:36:14+08:00">2021-12-20</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>11k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>10 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" itemprop="item" rel="index" title="In JavaScript 手写原理"><span itemprop="name">JavaScript 手写原理</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="认识节流throttle函数"><a class="anchor" href="#认识节流throttle函数">#</a> 认识节流 throttle 函数</h2>
+<ul>
+<li>
+<p>我们来理解一下节流的过程</p>
+<ul>
+<li>
+<p>当事件触发时，会执行这个事件的响应函数</p>
+</li>
+<li>
+<p>如果这个事件会被频繁触发，那么节流函数会按照一定的频率来执行函数</p>
+</li>
+<li>
+<p>不管在这个中间有多少次触发这个事件，执行函数的频繁总是固定的</p>
+</li>
+</ul>
+</li>
+<li>
+<p>节流的应用场景：</p>
+<ul>
+<li>监听页面的滚动事件</li>
+<li>鼠标移动事件</li>
+<li>用户频繁点击按钮操作</li>
+<li>游戏中的一些设计</li>
+</ul>
+</li>
+</ul>
+<h2 id="节流函数的应用场景"><a class="anchor" href="#节流函数的应用场景">#</a> 节流函数的应用场景</h2>
+<ul>
+<li>
+<p>很多人都玩过类似于 <code>王者荣耀或者LOL</code></p>
+<ul>
+<li>当玩 <code>ADC</code>  时，哪怕你疯狂点平 A，射手的射速与你点击的频率没有太大关系</li>
+<li>因为游戏中它们是由自己的 <code>攻速阈值</code> 的，那么这种攻速阈值带来的效果就是 <code>节流</code></li>
+</ul>
+</li>
+<li>
+<p>很多人也都玩过类似于飞机大战的游戏</p>
+</li>
+<li>
+<p>在飞机大战的游戏中，我们按下空格会发射一个子弹：</p>
+<ul>
+<li>很多飞机大战的游戏中会有这样的设定，即使按下的频率非常快，子弹也会保持一定的频率来发射</li>
+<li>比如 1 秒钟只能发射一次，即使用户在这 1 秒钟按下了 10 次，子弹会保持发射一颗的频率来发射</li>
+<li>但是事件是触发了 10 次的，响应的函数只触发了一次</li>
+</ul>
+</li>
+</ul>
+<h2 id="underscore-库的介绍"><a class="anchor" href="#underscore-库的介绍">#</a> Underscore 库的介绍</h2>
+<ul>
+<li>事实上我们可以通过一些第三方库来实现防抖操作：
+<ul>
+<li>lodash</li>
+<li>underscore</li>
+</ul>
+</li>
+<li>这里使用 underscore
+<ul>
+<li>我们可以理解成 lodash 是 underscore 的升级版，它更重量级，功能也更多；</li>
+<li>但是目前我看到 underscore 还在维护，lodash 已经很久没有更新了；</li>
+</ul>
+</li>
+<li>Underscore 的官网： <span class="exturl" data-url="aHR0cHM6Ly91bmRlcnNjb3JlanMub3JnLw==">https://underscorejs.org/</span></li>
+<li>Underscore 的安装有很多种方式：
+<ul>
+<li>下载 Underscore，本地引入；</li>
+<li>通过 CDN 直接引入；</li>
+<li>通过包管理工具（npm）管理安装；</li>
+</ul>
+</li>
+<li>这里我们直接通过 CDN：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></pre></td></tr></table></figure><ul>
+<li><code>HTML</code></li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ul>
+<li><code>js</code>  代码测试</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> inputEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">inputChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">发送了第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token operator">++</span>counter<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">次网络请求</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>inputEl<span class="token punctuation">.</span>oninput <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span>inputChange<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="throttle-v1-基本实现"><a class="anchor" href="#throttle-v1-基本实现">#</a> throttle <sub>v1</sub> 基本实现</h2>
+<ul>
+<li>这里实现节流函数思路是采用 <code>时间戳</code> 的方式
+<ul>
+<li>采用 <code>lastTime</code>  来记录每次执行的上一次函数触发的开始时间，默认为 <code>0</code></li>
+<li>然后通过 <code>传入的时间间隔与当前触发的时间以及上一次触发的开始的时间, 计算出还剩余多长事件需要去触发函数</code></li>
+<li>最后触发函数时，会将 <code>当前触发的时间赋值给用来保存上次触发事件的变量</code> ，实现 <code>节流</code> 效果</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1. 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">// 2.2 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token comment">// 2.3 真正触发的函数</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token comment">// 2.4 保留上次触发的事件</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>那么这就是 <code>节流函数</code> 的基本实现，接下来还会增加一些功能</li>
+</ul>
+<h2 id="throttle-v2-leading实现"><a class="anchor" href="#throttle-v2-leading实现">#</a> throttle <sub>v2</sub> leading 实现</h2>
+<ul>
+<li>实现思路就是传入一个对象，对象控制两个变量 <code>leading</code>  与 <code>trailing</code>
+<ul>
+<li><code>leading</code>  控制第一次是否执行</li>
+<li><code>trailing</code>  控制最后一次是否执行</li>
+</ul>
+</li>
+<li>这里先实现 <code>leading </code> 功能，那么 <code>leading </code> 这里的默认值我设置了 <code>true</code> ，也就是默认第一次就执行</li>
+<li>就下了就涉及到一个小算法，就是当 <code>leading</code>  为 <code>true</code>  时，那么将 <code>nowTime</code>  赋值给 <code>lastTime</code>
+<ul>
+<li>就比如当前触发开始时间 (nowTime) 是 <code>1000000</code> , 那么将上一次触发开始时间 (lastTime) 等于 <code>1000000</code></li>
+<li>在执行 <code>nowTime - lastTime</code>  时，结果必然为 <code>0</code> , 那么就满足下面的 <code>if</code>  判断了，就会执行函数了！</li>
+</ul>
+</li>
+<li>但还要一点要注意，立即执行的前提必然是每次节流函数的第一次生效，所以还需判断 <code>lastTime</code>  是否为 <code>0</code> ，当 <code>lastTime === 0</code>  代表是第一次执行，才会进行上面 <code>leading</code>  的判断</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1.1 控制第一次与最后一次是否执行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> leading<span class="token punctuation">,</span> trailing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// 1.2 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">// 2.2 如果 lastTime 为 0 并且 leading 为 false  将 nowTime 赋值给 lastTime</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>lastTime <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>leading<span class="token punctuation">)</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 2.3 使用当前触发的时间和之前的时间间隔以及上一次开始的时间，计算出还剩余多长事件需要去触发函数</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token comment">// 2.4 真正触发的函数</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>      <span class="token comment">// 2.5 保留上次触发事件的时间戳</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>这里先进行代码测试</li>
+<li><code>HTML</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span></pre></td></tr></table></figure><ul>
+<li><code>JS代码</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> inputEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">inputChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">发送了第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token operator">++</span>counter<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">次网络请求</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">//leading 这里默认就是 true，所以我们测试 false，那么第一次不会即立即触发执</span></pre></td></tr><tr><td data-num="9"></td><td><pre>inputEl<span class="token punctuation">.</span>oninput <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>inputChange<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="throttle-v3-traling实现"><a class="anchor" href="#throttle-v3-traling实现">#</a> throttle <sub>v3</sub> traling 实现</h2>
+<ul>
+<li>
+<p>这里 <code>traling</code>  默认为 <code>false</code> ，也就是默认最后一次不会执行</p>
+</li>
+<li>
+<p>接下来判断如果 <code>trailing</code>  为 <code>true</code>  并且没有执行过定时器时：</p>
+<ul>
+<li>开启定时器并将定时器编号给 timer，方便取消定时器</li>
+<li>执行定时器时，再将 timer 初始化</li>
+<li>判断 <code>leading</code>  为 <code>true</code>  时， <code>lastTime</code>  就需要重新获取时间</li>
+</ul>
+</li>
+<li>
+<p>比如 <code>interval</code>  是为 10s 时</p>
+<ul>
+<li>触发事件也是第 <code>10s</code>  时，就会执行 <code>if (remainTime &lt;= 0)</code>  里面的代码，然后会终止执行</li>
+</ul>
+</li>
+<li>
+<p>触发事件的时间大概率不会刚好与 <code>interval</code>  相等，后面很有可能会有 <code>ms</code>  的，就比如触发事件是 <code>10.1s(10100ms)</code>  时</p>
+<ul>
+<li>首先 <code>10 - (10.1 - 0)</code>  是小于 <code>0</code>  的，那么 <code>if (remainTime &lt;= 0)</code>  里面的代码依旧会执行</li>
+<li>但此时  <code>remainTime</code>  是为 <code>-0.1s</code>  的，所以还会根据 <code>trailing :true</code>  进入函数，再进行最后一次的回调</li>
+<li>那么也就是说，会重复执行两次函数</li>
+</ul>
+</li>
+<li>
+<p>那怎么解决呢？</p>
+<ul>
+<li>就是进行一个判断，当 <code>trailing</code>  为 <code>true</code>  时</li>
+<li><code>lastTime</code>  就通过 <code>new Date()</code>  重新获取下当前的时间戳并赋值，意味着用 <code>interval - (nowTime - lastTime)</code>  重新求出 <code>remain</code>  值作为 <code>setTimeout</code>  延迟时间</li>
+<li>否则的话就初始化变量为 0</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1.1 控制第一次与最好一次是否执行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> leading<span class="token punctuation">,</span> trailing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1.2 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 1.3 用于判断是否存在定时器</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    </pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 2.2 如果 lastTime 为 0 并且 leading 为 false  将 nowTime 赋值给 lastTime</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>lastTime <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>leading<span class="token punctuation">)</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 2.3 使用当前触发的时间和之前的时间间隔以及上一次开始的时间，计算出还剩余多长事件需要去触发函数</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token comment">// 3.1 如果有定时器就取消定时器并初始化 timer</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>      <span class="token comment">// 2.4 真正触发的函数</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token comment">// 2.5 保留上次触发的事件 并终止代码不执行定时器</span></pre></td></tr><tr><td data-num="34"></td><td><pre>      <span class="token keyword">return</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token comment">// 3. 如果 trailing 为 true 并且 没有定时器执行下面代码</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>trailing <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token comment">// 3.2 如果 leading 不为 true 那么就需要重新获取时间戳</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        lastTime <span class="token operator">=</span> leading <span class="token operator">?</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="45"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> remainTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="50"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>这里先进行代码测试</li>
+<li><code>HTML</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span></pre></td></tr></table></figure><ul>
+<li><code>JS代码</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> inputEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">inputChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">发送了第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token operator">++</span>counter<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">次网络请求</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 这里将 trailing 设为 true 最后一次会调用</span></pre></td></tr><tr><td data-num="8"></td><td><pre>inputEl<span class="token punctuation">.</span>oninput <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>inputChange<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="throttle-v4-this参数"><a class="anchor" href="#throttle-v4-this参数">#</a> throttle <sub>v4</sub> this 参数</h2>
+<ul>
+<li><code>this</code>  的写法与 <code>防抖</code> 写法一样，可以用 <code>apply 或 call</code>  都可以</li>
+<li><code>bind不行吗？可以的，在后面加括号调用也可</code> ，这里我依旧采用 <code>apply</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1.1 控制第一次与最好一次是否执行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> leading<span class="token punctuation">,</span> trailing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1.2 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 1.3 用于判断是否存在定时器</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    </pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 2.2 如果 lastTime 为 0 并且 leading 为 false  将 nowTime 赋值给 lastTime</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>lastTime <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>leading<span class="token punctuation">)</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 2.3 使用当前触发的时间和之前的时间间隔以及上一次开始的时间，计算出还剩余多长事件需要去触发函数</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token comment">// 3.1 如果有定时器就取消定时器并初始化 timer</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>      <span class="token comment">// 2.4 真正触发的函数 并传入 this 与 参数</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token comment">// 2.5 保留上次触发的事件 并终止代码不执行定时器</span></pre></td></tr><tr><td data-num="34"></td><td><pre>      <span class="token keyword">return</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token comment">// 3. 如果 trailing 为 true 并且 没有定时器执行下面代码</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>trailing <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token comment">// 3.2 如果 leading 不为 true 那么就需要重新获取时间</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        lastTime <span class="token operator">=</span> leading <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token comment">// 3.3 传入 this 与 参数</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> remainTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>测试代码用上面的就行</li>
+</ul>
+<h2 id="throttle-v5-取消功能"><a class="anchor" href="#throttle-v5-取消功能">#</a> throttle <sub>v5</sub> 取消功能</h2>
+<ul>
+<li>这也是比较简单的，取消定时器就可以了，那么可能会有疑问了，如果 <code>traling</code>  为 <code>false</code>  怎么要取消呢？</li>
+<li>其实这里针对 <code>traling</code>  功能就好了，因为如果在 <code>traling</code>  为 <code>false</code>  的情况下，你输入的时间小于节流函数的 <code>interval</code>  本质上也不会执行</li>
+<li>所以针对 <code>traling</code>  为 <code>true</code>  时，进行取消是没有问题的</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1.1 控制第一次与最好一次是否执行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> leading<span class="token punctuation">,</span> trailing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1.2 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 1.3 用于判断是否存在定时器</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    </pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 2.2 如果 lastTime 为 0 并且 leading 为 false  将 nowTime 赋值给 lastTime</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>lastTime <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>leading<span class="token punctuation">)</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 2.3 使用当前触发的时间和之前的时间间隔以及上一次开始的时间，计算出还剩余多长事件需要去触发函数</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token comment">// 3.1 如果有定时器就取消定时器并初始化 timer</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>      <span class="token comment">// 2.4 真正触发的函数 并传入 this 与 参数</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token comment">// 2.5 保留上次触发的事件 并终止代码不执行定时器</span></pre></td></tr><tr><td data-num="34"></td><td><pre>      <span class="token keyword">return</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token comment">// 3. 如果 trailing 为 true 并且 没有定时器执行下面代码</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>trailing <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token comment">// 3.2 如果 leading 不为 true 那么就需要重新获取时间</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        lastTime <span class="token operator">=</span> leading <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token comment">// 3.3 传入 this 与 参数</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> remainTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token comment">// 4. 取消功能</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  _throttle<span class="token punctuation">.</span><span class="token function-variable function">cancel</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre></pre></td></tr><tr><td data-num="55"></td><td><pre>    <span class="token comment">// 4.1 取消代表整个函数终结了，那么建议初始化变量</span></pre></td></tr><tr><td data-num="56"></td><td><pre>    timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="57"></td><td><pre>    lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="58"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="59"></td><td><pre></pre></td></tr><tr><td data-num="60"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>这里也可以进行代码测试</li>
+<li><code>HTML</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">&lt;</span>button id<span class="token operator">=</span><span class="token string">"cancel"</span><span class="token operator">></span>取消<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span></pre></td></tr></table></figure><ul>
+<li><code>JS代码</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> inputEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> btnEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">inputChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">发送了第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token operator">++</span>counter<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">次网络请求</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 拿到 throttle 返回值</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> _throttle <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>inputChange<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 这种写法与之前的写法没有区别 都是调用 _throttle</span></pre></td></tr><tr><td data-num="10"></td><td><pre>inputEl<span class="token punctuation">.</span>oninput <span class="token operator">=</span> _throttle</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 点击按钮取消</span></pre></td></tr><tr><td data-num="12"></td><td><pre>btnEl<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> _throttle<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="throttle-v6-函数返回值"><a class="anchor" href="#throttle-v6-函数返回值">#</a> throttle <sub>v6</sub> 函数返回值</h2>
+<h3 id="思路一回调函数"><a class="anchor" href="#思路一回调函数">#</a> 思路一：回调函数</h3>
+<ul>
+<li>通过外界传入函数回调形式返回返回值</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1.1 控制第一次与最好一次是否执行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> leading<span class="token punctuation">,</span> trailing<span class="token punctuation">,</span> resultCallback <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1.2 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 1.3 用于判断是否存在定时器</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    </pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 2.2 如果 lastTime 为 0 并且 leading 为 false  将 nowTime 赋值给 lastTime</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>lastTime <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>leading<span class="token punctuation">)</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 2.3 使用当前触发的时间和之前的时间间隔以及上一次开始的时间，计算出还剩余多长事件需要去触发函数</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token comment">// 3.1 如果有定时器就取消定时器并初始化 timer</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>      <span class="token comment">// 2.4 真正触发的函数 并传入 this 与 参数  再拿到其返回值</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token comment">// 2.5 判断 resultCallback 是否传入并是否为函数 再将返回值传入回调函数</span></pre></td></tr><tr><td data-num="34"></td><td><pre>      <span class="token keyword">if</span><span class="token punctuation">(</span>resultCallback <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> resultCallback <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token function">resultCallback</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre>      <span class="token comment">// 2.6 保留上次触发的事件 并终止代码不执行定时器</span></pre></td></tr><tr><td data-num="37"></td><td><pre>      <span class="token keyword">return</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre>    <span class="token comment">// 3. 如果 trailing 为 true 并且 没有定时器执行下面代码</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>trailing <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token comment">// 3.2 如果 leading 不为 true 那么就需要重新获取时间</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        lastTime <span class="token operator">=</span> leading <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="47"></td><td><pre></pre></td></tr><tr><td data-num="48"></td><td><pre>        <span class="token comment">// 3.3 传入 this 与 参数  并拿到其返回值</span></pre></td></tr><tr><td data-num="49"></td><td><pre>        <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre>        <span class="token comment">// 3.4 判断 resultCallback 是否传入并是否为函数 再将返回值传入回调函数</span></pre></td></tr><tr><td data-num="52"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span>resultCallback <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> resultCallback <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token function">resultCallback</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="53"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> remainTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>  <span class="token comment">// 4. 取消功能</span></pre></td></tr><tr><td data-num="58"></td><td><pre>  _throttle<span class="token punctuation">.</span><span class="token function-variable function">cancel</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token comment">// 4.1 取消代表整个函数终结了，那么建议初始化变量</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="63"></td><td><pre>    lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="64"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="65"></td><td><pre></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="思路二promise"><a class="anchor" href="#思路二promise">#</a> 思路二：Promise</h3>
+<ul>
+<li>通过返回 <code>Promise</code>  外部进行 <code>then</code>  方法调用来获取返回值</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> interval<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1.1 控制第一次与最好一次是否执行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> leading<span class="token punctuation">,</span> trailing<span class="token punctuation">,</span> resultCallback <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1.2 记录上一次的开始时间</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 1.3 用于判断是否存在定时器</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2. 事件触发时，执行的函数</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> <span class="token function-variable function">_throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token comment">// 2.1 获取当前事件触发时的时间</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">const</span> nowTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    </pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token comment">// 2.2 如果 lastTime 为 0 并且 leading 为 false  将 nowTime 赋值给 lastTime</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>lastTime <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>leading<span class="token punctuation">)</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 2.3 使用当前触发的时间和之前的时间间隔以及上一次开始的时间，计算出还剩余多长事件需要去触发函数</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">// 余下时间 = 间隔时间 - (触发开始时间 - 上一次的触发开始时间)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">const</span> remainTime <span class="token operator">=</span> interval <span class="token operator">-</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    </pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>remainTime <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token comment">// 3.1 如果有定时器就取消定时器并初始化 timer</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="29"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token comment">// 2.4 真正触发的函数 并传入 this 与 参数  再拿到其返回值</span></pre></td></tr><tr><td data-num="32"></td><td><pre>      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>      <span class="token comment">// 2.5 判断 resultCallback 是否传入并是否为函数 再将返回值传入回调函数</span></pre></td></tr><tr><td data-num="35"></td><td><pre>      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span>resultCallback <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> resultCallback <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token function">resolve</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre>      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre>      <span class="token comment">// 2.6 保留上次触发的事件 并终止代码不执行定时器</span></pre></td></tr><tr><td data-num="42"></td><td><pre>      <span class="token keyword">return</span> lastTime <span class="token operator">=</span> nowTime</pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token comment">// 3. 如果 trailing 为 true 并且 没有定时器执行下面代码</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>trailing <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>timer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>        timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="49"></td><td><pre></pre></td></tr><tr><td data-num="50"></td><td><pre>        <span class="token comment">// 3.2 如果 leading 不为 true 那么就需要重新获取时间</span></pre></td></tr><tr><td data-num="51"></td><td><pre>        lastTime <span class="token operator">=</span> leading <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre>        <span class="token comment">// 3.3 传入 this 与 参数  并拿到其返回值</span></pre></td></tr><tr><td data-num="54"></td><td><pre>        <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre>        <span class="token comment">// 3.4 判断 resultCallback 是否传入并是否为函数 再将返回值传入回调函数</span></pre></td></tr><tr><td data-num="57"></td><td><pre>        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>          <span class="token keyword">if</span><span class="token punctuation">(</span>resultCallback <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> resultCallback <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token function">resolve</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="59"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>          <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="61"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="62"></td><td><pre></pre></td></tr><tr><td data-num="63"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> remainTime<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="64"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="67"></td><td><pre></pre></td></tr><tr><td data-num="68"></td><td><pre>  <span class="token comment">// 4. 取消功能</span></pre></td></tr><tr><td data-num="69"></td><td><pre>  _throttle<span class="token punctuation">.</span><span class="token function-variable function">cancel</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token comment">// 4.1 取消代表整个函数终结了，那么建议初始化变量</span></pre></td></tr><tr><td data-num="73"></td><td><pre>    timer <span class="token operator">=</span> <span class="token keyword">null</span></pre></td></tr><tr><td data-num="74"></td><td><pre>    lastTime <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="75"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>  <span class="token keyword">return</span> _throttle</pre></td></tr><tr><td data-num="78"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>这里我依旧使用代码对 <code>Promise实现的返回值功能</code> 进行简单测试：</li>
+<li><code>HTML测试代码</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">&lt;</span>button id<span class="token operator">=</span><span class="token string">"cancel"</span><span class="token operator">></span>取消<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span></pre></td></tr></table></figure><ul>
+<li><code>js测试代码</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> inputEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> btnEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">inputChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">发送了第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token operator">++</span>counter<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">次网络请求</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    </pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 返回值：返回 0-99 随机一个 s</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">return</span> <span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 拿到 throttle 返回值</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">const</span> _throttle <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>inputChange<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token literal-property property">leading</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token literal-property property">trailing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token function">resultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">// 通过临时函数获得_throttle 返回值 -> Promsie 通过 then 方法拿到返回值</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">tempCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token function">_throttle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Promise的返回值结果:"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token comment">// 调用 tempCallback 函数这种写法与之前的写法没有区别 也都是调用 _throttle</span></pre></td></tr><tr><td data-num="27"></td><td><pre>inputEl<span class="token punctuation">.</span>oninput <span class="token operator">=</span> tempCallback</pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token comment">// 点击按钮取消</span></pre></td></tr><tr><td data-num="30"></td><td><pre>btnEl<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> _throttle<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" rel="tag"><i class="ic i-tag"></i> JavaScript 手写原理</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-02-10 20:50:53" itemprop="dateModified" datetime="2022-02-10T20:50:53+08:00">2022-02-10</time>
+  </span>
+  <span id="2021/12/20/JavaScript/手写原理/throttle/" class="item leancloud_visitors" data-flag-title="JavaScript 手写节流函数(throttle)" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" title="JavaScript 手写节流函数(throttle)">https://nekoaimer.github.io/nekoaimer.github.io/2021/12/20/JavaScript/手写原理/throttle/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipet4bz0yj20zk0m8e81.jpg" title="JavaScript 手写防抖函数(debounce)">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 手写防抖函数(debounce)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepcopy/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitf0kl1j20zk0m87fe.jpg" title="JavaScript 实现深拷贝(deepClone)">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 实现深拷贝(deepClone)</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E8%8A%82%E6%B5%81throttle%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text"> 认识节流 throttle 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text"> 节流函数的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#underscore-%E5%BA%93%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text"> Underscore 库的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle-v1-%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text"> throttle v1 基本实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle-v2-leading%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text"> throttle v2 leading 实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle-v3-traling%E5%AE%9E%E7%8E%B0"><span class="toc-number">6.</span> <span class="toc-text"> throttle v3 traling 实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle-v4-this%E5%8F%82%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text"> throttle v4 this 参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle-v5-%E5%8F%96%E6%B6%88%E5%8A%9F%E8%83%BD"><span class="toc-number">8.</span> <span class="toc-text"> throttle v5 取消功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle-v6-%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">9.</span> <span class="toc-text"> throttle v6 函数返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E4%B8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">9.1.</span> <span class="toc-text"> 思路一：回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E4%BA%8Cpromise"><span class="toc-number">9.2.</span> <span class="toc-text"> 思路二：Promise</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" rel="bookmark" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></li><li class="active"><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" rel="bookmark" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></li><li><a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepcopy/" rel="bookmark" title="JavaScript 实现深拷贝(deepClone)">JavaScript 实现深拷贝(deepClone)</a></li><li><a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" rel="bookmark" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">83</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">15</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepcopy/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/22/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" title="error-handling">error-handling</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/04/Vue/Vue3/OptionsAPI/voa_watch/" title="Vue3 Options API watch">Vue3 Options API watch</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" title="浏览器存储方案 Cookie">浏览器存储方案 Cookie</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/01/Vue/Vue3/CompositionAPI/vca_encapsulation/" title="Vue3 setup 案例封装">Vue3 setup 案例封装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" title="技术胖">技术胖</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" title="JavaScript ES Module">JavaScript ES Module</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/18/Vue/Vue3/OptionsAPI/voa_dynamic_components/" title="Vue3 component 和 keep-alive">Vue3 component 和 keep-alive</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">387k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">5:52</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/12/20/JavaScript/手写原理/throttle/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

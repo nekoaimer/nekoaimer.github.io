@@ -32,7 +32,7 @@
 
 
   <title>
-浏览器 BOM - JavaScript |
+浏览器对象模型(BrowserObjectModel) - JavaScript |
 Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <meta name="generator" content="Hexo 6.0.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">浏览器 BOM
+  <h1 itemprop="name headline">浏览器对象模型(BrowserObjectModel)
   </h1>
   
 <div class="meta">
@@ -76,7 +76,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>615</span>
+    <span>9.6k</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -84,7 +84,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">Reading time</span>
-    <span>1 mins.</span>
+    <span>9 mins.</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,7 +168,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="认识bom"><a class="anchor" href="#认识bom">#</a> 认识 BOM</h2>
+    <h2 id="认识-bom"><a class="anchor" href="#认识-bom">#</a> 认识 BOM</h2>
 <ul>
 <li>JavaScript 有一个非常重要的运行环境就是浏览器，而且浏览器本身又作为一个应用程序需要对其本身进行操作，所以通常浏览器会有对应的对象模型（BOM，Browser Object Model）。
 <ul>
@@ -199,7 +199,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </ul>
 </li>
 </ul>
-<h2 id="window全局对象"><a class="anchor" href="#window全局对象">#</a> Window 全局对象</h2>
+<h2 id="window-全局对象"><a class="anchor" href="#window-全局对象">#</a> Window 全局对象</h2>
 <ul>
 <li>在浏览器中，window 对象就是之前经常提到的全局对象，也就是我们之前提到过 GO 对象：
 <ul>
@@ -208,11 +208,376 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </ul>
 </li>
 <li>通过 var 声明的变量，全局提供的类和方法：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> message <span class="token operator">=</span> <span class="token string">'Hello World'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo function'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>window<span class="token punctuation">.</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>message<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> window<span class="token punctuation">.</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token operator">...</span></pre></td></tr></table></figure><ul>
 <li>这些用法是我们之前讲过的，并且也是作为 JavaScript 语言本身所拥有的一些特性。
 <ul>
 <li>那么接下来我们来看一下作为窗口对象，它拥有哪些特性。</li>
 </ul>
 </li>
+</ul>
+<h2 id="window窗口对象"><a class="anchor" href="#window窗口对象">#</a> Window 窗口对象</h2>
+<ul>
+<li>事实上 window 对象上肩负的重担是非常大的：
+<ul>
+<li>第一：包含大量的属性，localStorage、console、location、history、screenX、scrollX 等等（大概 60 + 个属性）；</li>
+<li>第二：包含大量的方法，alert、close、scrollTo、open 等等（大概 40 + 个方法）；</li>
+<li>第三：包含大量的事件，focus、blur、load、hashchange 等等（大概 30 + 个事件）；</li>
+<li>第四：包含从 EventTarget 继承过来的方法，addEventListener、removeEventListener、dispatchEvent 方法；</li>
+</ul>
+</li>
+<li>那么这些大量的属性、方法、事件在哪里查看呢？
+<ul>
+<li>MDN 文档：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdw==">https://developer.mozilla.org/zh-CN/docs/Web/API/Window</span></li>
+</ul>
+</li>
+<li>查看 MDN 文档时，我们会发现有很多不同的符号，这里我解释一下是什么意思：
+<ul>
+<li>删除符号：表示这个 API 已经废弃，不推荐继续使用了；</li>
+<li>点踩符号：表示这个 API 不属于 W3C 规范，某些浏览器有实现（所以兼容性的问题）；</li>
+<li>实验符号：该 API 是实验性特性，以后可能会修改，并且存在兼容性问题；</li>
+</ul>
+</li>
+</ul>
+<h2 id="window-常见的属性"><a class="anchor" href="#window-常见的属性">#</a> window 常见的属性</h2>
+<ul>
+<li>我们来看一下常见的 window 属性</li>
+</ul>
+<h3 id="windowscreenx"><a class="anchor" href="#windowscreenx">#</a> window.screenX</h3>
+<ul>
+<li>返回浏览器左边界到操作系统桌面左边界的水平距离</li>
+<li>screeX 是返回相对于当前屏幕的 X 坐标，有多块屏幕以主屏幕为准</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>screenX <span class="token operator">=</span> window<span class="token punctuation">.</span>screenX</pre></td></tr></table></figure><ul>
+<li><code>screeX</code>  为浏览器左边到系统桌面左边的像素值</li>
+<li>不妨将窗口缩小打印试试吧～</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenX<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenX<span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="windowscreeny"><a class="anchor" href="#windowscreeny">#</a> window.screenY</h3>
+<ul>
+<li>
+<p>返回浏览器顶部距离系统桌面顶部的垂直距离。</p>
+</li>
+<li>
+<p>ScreenY 是返回相对于当前屏幕的 Y 坐标，有多块屏幕以主屏幕为准</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>screenY <span class="token operator">=</span> window<span class="token punctuation">.</span>screenY</pre></td></tr></table></figure><ul>
+<li>
+<p><code>screenY</code>  距离屏幕顶部的像素值。</p>
+</li>
+<li>
+<p>不妨将窗口缩小打印试试吧～</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenY<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenY<span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="windowouterheight"><a class="anchor" href="#windowouterheight">#</a> window.outerHeight</h3>
+<ul>
+<li><code>Window.outerHeight</code>  获取整个浏览器窗口的高度（单位：像素），包括侧边栏（如果存在）、窗口镶边（window chrome）和窗口调正边框（window resizing borders/handles）</li>
+<li>该属性为只读，没有默认值。</li>
+<li><code>outWindowHeight</code>  为窗口的外层的高度</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>outWindowHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>outerHeight<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>outWindowHeight<span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="windowinnerheight"><a class="anchor" href="#windowinnerheight">#</a> Window.innerHeight</h3>
+<ul>
+<li>浏览器窗口的视口（viewport）高度（以像素为单位）；如果有水平滚动条，也包括滚动条高度</li>
+<li><code>window.innerHeight</code>  属性为只读，且没有默认值</li>
+<li><code>intViewportHeight</code>  为浏览器窗口的视口的高度</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> intViewportHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>intViewportHeight<span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="windowscrollx"><a class="anchor" href="#windowscrollx">#</a> Window.scrollX</h3>
+<ul>
+<li>返回文档 / 页面水平方向滚动的像素值</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> x <span class="token operator">=</span> window<span class="token punctuation">.</span>scrollX</pre></td></tr></table></figure><ul>
+<li>x 为该文档从左侧开始滚动的像素值</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>scrollX<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>scrollX<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>pageXOffset</code>  属性是  <code>scrollX</code>  属性的别名</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span>pageXOffset <span class="token operator">===</span> window<span class="token punctuation">.</span>scrollX <span class="token comment">// 总是 true</span></pre></td></tr></table></figure><h3 id="windowscrolly"><a class="anchor" href="#windowscrolly">#</a> Window.scrollY</h3>
+<ul>
+<li>返回文档在垂直方向已滚动的像素值</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> y <span class="token operator">=</span> window<span class="token punctuation">.</span>scrollY</pre></td></tr></table></figure><ul>
+<li><code>y</code>  是文档从顶部开始滚动过的像素值。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>scrollY<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>scrollY<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>pageYOffset</code>  属性是  <code>scrollY</code>  属性的别名</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span>pageYOffset <span class="token operator">===</span> window<span class="token punctuation">.</span>scrollY <span class="token comment">// 总是返回 true</span></pre></td></tr></table></figure><h2 id="window-常见的方法"><a class="anchor" href="#window-常见的方法">#</a> window 常见的方法</h2>
+<ul>
+<li>我们来看一下常见的 window 方法</li>
+</ul>
+<h3 id="scrollto"><a class="anchor" href="#scrollto">#</a> scrollTo()</h3>
+<ul>
+<li>滚动到文档中的某个坐标</li>
+<li><code>x-coord</code>  是文档中的横轴坐标。</li>
+<li><code>y-coord</code>  是文档中的纵轴坐标。</li>
+<li><code>window.scrollTo(x-coord, y-coord)</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">// 向下滚动 100px</span></pre></td></tr></table></figure><ul>
+<li><code>window.scrollTo(options)</code></li>
+<li><code>options</code>  是一个包含三个属性的对象:</li>
+<li><code>left</code>  等同于  <code>x-coord</code></li>
+<li><code>top</code>  等同于  <code>y-coord</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">left</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token number">100</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>behavior</code>  类型 String, 表示滚动行为，支持参数 smooth (平滑滚动),instant (瞬间滚动), 默认值 auto</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">behavior</span><span class="token operator">:</span> <span class="token string">"smooth"</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="open"><a class="anchor" href="#open">#</a> open()</h3>
+<ul>
+<li><code>Window</code>  接口的 <strong> <code>open()</code> </strong> 方法，是用指定的名称将指定的资源加载到浏览器上下文（窗口  <code>window</code>  ，内嵌框架  <code>iframe</code>  或者标签  <code>tab</code>  ）。如果没有指定名称，则一个新的窗口会被打开并且指定的资源会被加载进这个窗口的浏览器上下文中。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> windowObjectReference <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>strUrl<span class="token punctuation">,</span> strWindowName<span class="token punctuation">,</span> <span class="token punctuation">[</span>strWindowFeatures<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
+<li>strUrl === 要在新打开的窗口中加载的 URL。</li>
+<li>strWindowName === 新窗口的名称。</li>
+<li>strWindowFeatures === 一个可选参数，列出新窗口的特征 (大小，位置，滚动条等) 作为一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString"> <code>DOMString</code> </a>。</li>
+<li>详情参考 <code>MDN</code> <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9vcGVu">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/open</span></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"https://nekoaimer.com"</span><span class="token punctuation">,</span> <span class="token string">"_self"</span><span class="token punctuation">)</span> <span class="token comment">// 当前窗口打开</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"https://nekoaimer.com"</span><span class="token punctuation">,</span> <span class="token string">"_target"</span><span class="token punctuation">)</span> <span class="token comment">// 新窗口打开</span></pre></td></tr></table></figure><h3 id="close"><a class="anchor" href="#close">#</a> close()</h3>
+<ul>
+<li><code>Window.close()</code>  方法关闭当前窗口或某个指定的窗口</li>
+<li>当直接调用 window 对象的  <code>close()</code>  方法而非在一个 window 实例上调用  <code>close()</code>  时，浏览器会关闭最前面的窗口，无论是不是你的脚本创建的这个窗口。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>简写也是可以的</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="window-常见的事件"><a class="anchor" href="#window-常见的事件">#</a> window 常见的事件</h2>
+<ul>
+<li>我们来看一下常见的 window 事件</li>
+</ul>
+<h3 id="load"><a class="anchor" href="#load">#</a> load()</h3>
+<ul>
+<li>
+<p>当整个页面及所有依赖资源如样式表和图片都已完成加载时，将触发 <code>load</code>  事件</p>
+</li>
+<li>
+<p>它与<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/DOMContentLoaded_event"> <code>DOMContentLoaded</code> </a> 不同，后者只要页面 DOM 加载完成就触发，无需等待依赖资源的加载</p>
+</li>
+<li>
+<p>当页面及资源完全加载后在控制台打印一段信息：</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'load'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'window窗口加载完毕~'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>也可以使用 <code>onload</code>  实现：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window窗口加载完毕~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="focus"><a class="anchor" href="#focus">#</a> focus()</h3>
+<ul>
+<li>focus 事件在元素获取焦点时触发。这个事件和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event"> <code>focusin</code> </a> 最大的区别仅仅在于后者会事件冒泡.</li>
+<li>当点击屏幕获取焦点打印信息</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focus'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'window窗口获取焦点~'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>也可以使用 <code>onfocus</code>  实现：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function-variable function">onfocus</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window窗口获取焦点~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="blur"><a class="anchor" href="#blur">#</a> blur()</h3>
+<ul>
+<li>将焦点移出顶层窗口</li>
+<li><code>window.blur()</code></li>
+<li>当 window 窗口失去焦点打印信息</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'window窗口失去焦点~'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>也可以使用 <code>onblur</code>  实现：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function-variable function">onblur</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window窗口失去焦点~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="location-hash"><a class="anchor" href="#location-hash">#</a> Location: hash</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Location"> <code>Location</code> </a> 接口的 <strong> <code>hash</code> </strong> 属性返回一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/USVString"> <code>USVString</code> </a>，其中会包含 URL 标识中的  <code>'#'</code>  和 后面 URL 片段标识符</li>
+<li>首次打印应该是为空</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>hash <span class="token operator">===</span> ‘‘<span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr></table></figure><ul>
+<li>将 <code>location.hash</code>  修改为 <code>nekoaimer</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>hash<span class="token punctuation">)</span> <span class="token comment">// #nekoaimer</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>hash <span class="token operator">===</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>hash <span class="token operator">===</span> <span class="token string">'#nekoaimer'</span><span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr></table></figure><h2 id="eventtarget"><a class="anchor" href="#eventtarget">#</a> EventTarget</h2>
+<ul>
+<li>Window 继承自 EventTarget，所以会继承其中的属性和方法：
+<ul>
+<li>addEventListener：注册某个事件类型以及事件处理函数；</li>
+<li>removeEventListener：移除某个事件类型以及事件处理函数；</li>
+<li>dispatchEvent：派发某个事件类型到 EventTarget 上；</li>
+</ul>
+</li>
+</ul>
+<h3 id="addeventlistener"><a class="anchor" href="#addeventlistener">#</a> addEventListener()</h3>
+<ul>
+<li><strong>EventTarget.addEventListener()</strong> 方法将指定的监听器注册到 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget"> <code>EventTarget</code> </a> 上，当该对象触发指定的事件时，指定的回调函数就会被执行。 事件目标可以是一个文档上的元素 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element"> <code>Element</code> </a>,<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"> <code>Document</code> </a> 和<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window"> <code>Window</code> </a> 或者任何其他支持事件的对象 (比如  <code>XMLHttpRequest</code> ) <code>。</code></li>
+<li><code>addEventListener()</code>  的工作原理是将实现<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventListener"> <code>EventListener</code> </a> 的函数或对象添加到调用它的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget"> <code>EventTarget</code> </a> 上的指定事件类型的事件侦听器列表中</li>
+<li><code>type</code>  表示监听<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvRXZlbnRz">事件类型</span>的字符串</li>
+<li><code>listener</code>  当所监听的事件类型触发时，会接收到一个事件通知（实现了 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event"> <code>Event</code> </a> 接口的对象）对象。 <code>listener</code>  必须是一个实现了 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventListener"> <code>EventListener</code> </a> 接口的对象，或者是一个<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9GdW5jdGlvbnM=">函数</span>。有关回调本身的详细信息，请参阅<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXIjdGhlX2V2ZW50X2xpc3RlbmVyX2NhbGxiYWNr"> The event listener callback</span></li>
+<li>当 <code>window</code>  点击了打印 <code>console.log</code>  信息</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window发生了点击"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>options 可选</code>   一个指定有关  <code>listener </code> 属性的可选参数<strong>对象</strong>。
+<ul>
+<li><code>capture</code> :  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> <code>Boolean</code> </a>，表示  <code>listener</code>  会在该类型的事件捕获阶段传播到该  <code>EventTarget</code>  时触发。</li>
+<li><code>once</code> :  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> <code>Boolean</code> </a>，表示  <code>listener 在添加之后最多只调用一次。如果是</code>   <code>true，</code>   <code>listener</code>  会在其被调用之后自动移除。</li>
+<li><code>passive</code> : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> <code>Boolean</code> </a>，设置为 true 时，表示  <code>listener</code>  永远不会调用  <code>preventDefault()</code> 。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。查看 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXIjJUU0JUJEJUJGJUU3JTk0JUE4X3Bhc3NpdmVfJUU2JTk0JUI5JUU1JTk2JTg0JUU3JTlBJTg0JUU2JUJCJTlBJUU1JUIxJThGJUU2JTgwJUE3JUU4JTgzJUJE">使用 passive 改善的滚屏性能</span> 了解更多.</li>
+<li><code>signal</code> ：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortSignal"> <code>AbortSignal</code> </a>，该  <code>AbortSignal</code>  的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController/abort"> <code>abort()</code> </a> 方法被调用时，监听器会被移除。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">clickHandler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window发生了点击"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> clickHandler<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">once</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token comment">// 打印一次</span></pre></td></tr><tr><td data-num="4"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> clickHandler<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">once</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token comment">// 打印多次</span></pre></td></tr></table></figure><ul>
+<li>返回值是 <code>undefined</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">clickHandler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window发生了点击"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> res <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> clickHandler<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">once</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// undefined</span></pre></td></tr></table></figure><ul>
+<li>详情参考 <code>MDN</code>  <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXI=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener</span></li>
+</ul>
+<h3 id="removeeventlistener"><a class="anchor" href="#removeeventlistener">#</a> removeEventListener()</h3>
+<ul>
+<li>删除使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener"> <code>EventTarget.addEventListener()</code> </a> 方法添加的事件。使用事件类型，事件侦听器函数本身，以及可能影响匹配过程的各种可选择的选项的组合来标识要删除的事件侦听器。</li>
+<li><code>type</code>  一个字符串，表示需要移除的事件类型，如  <code>&quot;click&quot;</code></li>
+<li><code>listener</code>  需要从目标事件移除的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventListener"> <code>EventListener</code> </a> 函数。</li>
+<li><code>options 可选</code>   一个指定事件侦听器特征的可选对象
+<ul>
+<li><code>capture</code> : 一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> <code>Boolean</code> </a> 表示这个类型的事件将会被派遣到已经注册的侦听器，然后再派遣到 DOM 树中它下面的任何  <code>EventTarget</code></li>
+<li><code>mozSystemGroup</code> : 仅可运行于 XBL 或者 Firefox Chrome，它是一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> <code>Boolean</code> </a>，用于定义是否将侦听器添加到系统组。</li>
+</ul>
+</li>
+<li>详情参考 <code>MDN</code>  <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L3JlbW92ZUV2ZW50TGlzdGVuZXI=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/removeEventListener</span></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">clickHandler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"window发生了点击"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  window<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> clickHandler<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> clickHandler<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>点击一次后就取消事件，实现 <code>once</code>  效果</li>
+<li>返回值是 <code>undefined</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> res <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> clickHandler<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// undefined</span></pre></td></tr></table></figure><h3 id="dispatchevent"><a class="anchor" href="#dispatchevent">#</a> dispatchEvent()</h3>
+<ul>
+<li>向一个指定的事件目标派发一个<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50">事件</span>，并以合适的顺序<strong>同步调用</strong>目标元素相关的事件处理函数。标准事件处理规则 (包括事件捕获和可选的冒泡过程) 同样适用于通过手动的使用 <code>dispatchEvent()</code>  方法派发的事件</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>cancelled <span class="token operator">=</span> <span class="token operator">!</span>target<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>event</code>  是要被派发的事件对象</li>
+<li><code>target</code>  被用来初始化 事件 和 决定将会触发 目标</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"nekoaimer"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"监听到了nekoaimer 事件"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>window<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Event</span><span class="token punctuation">(</span><span class="token string">"nekoaimer"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>返回值</code>  当该事件是可取消的 (cancelable 为 true) 并且至少一个该事件的 事件处理方法 调用了<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault"> <code>Event.preventDefault()</code> </a>，则返回值为 <code>false</code> ；否则返回 <code>true</code> 。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> res <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Event</span><span class="token punctuation">(</span><span class="token string">"nekoaimer"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr></table></figure><ul>
+<li>
+<p>详情参考</p>
+<ul>
+<li>MDN <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2Rpc3BhdGNoRXZlbnQ=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/dispatchEvent</span></li>
+<li>阮一峰 JavaScript 教程 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3N0YWNrLmNuL3JlYWQvamF2YXNjcmlwdC10dXRvcmlhbC9kb2NzLWV2ZW50cy1ldmVudHRhcmdldC5tZA==">https://www.bookstack.cn/read/javascript-tutorial/docs-events-eventtarget.md</span></li>
+</ul>
+</li>
+<li>
+<p>更多事件 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvRXZlbnRz">https://developer.mozilla.org/zh-CN/docs/Web/Events</span></p>
+</li>
+</ul>
+<h2 id="location-对象常见的属性"><a class="anchor" href="#location-对象常见的属性">#</a> Location 对象常见的属性</h2>
+<ul>
+<li>
+<p>Location 对象用于表示 window 上当前链接到的 URL 信息。</p>
+</li>
+<li>
+<p>常见的属性有哪些呢？</p>
+<ul>
+<li>
+<p>href: 当前 window 对应的超链接 URL, 整个 URL</p>
+</li>
+<li>
+<p>protocol: 当前的协议</p>
+</li>
+<li>
+<p>host: 主机地址</p>
+</li>
+<li>
+<p>hostname: 主机地址 (不带端口)</p>
+</li>
+<li>
+<p>port: 端口</p>
+</li>
+<li>
+<p>pathname: 路径</p>
+</li>
+<li>
+<p>search: 查询字符串</p>
+</li>
+<li>
+<p>hash: 哈希值</p>
+</li>
+<li>
+<p>username：URL 中的 username（很多浏览器已经禁用）</p>
+</li>
+<li>
+<p>password：URL 中的 password（很多浏览器已经禁用）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下面演示几个</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">)</span> <span class="token comment">// http:</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>host<span class="token punctuation">)</span> <span class="token comment">// 127.0.0.1:5500</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>hostname<span class="token punctuation">)</span> <span class="token comment">// 127.0.0.1</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>port<span class="token punctuation">)</span> <span class="token comment">// 5500</span></pre></td></tr></table></figure><h2 id="location-对象常见的方法"><a class="anchor" href="#location-对象常见的方法">#</a> Location 对象常见的方法</h2>
+<ul>
+<li>我们会发现 location 其实是 URL 的一个抽象实现：</li>
+</ul>
+<p><img data-src="url.png" alt="url" /></p>
+<ul>
+<li>location 有如下常用的方法：
+<ul>
+<li>assign：赋值一个新的 URL，并且跳转到该 URL 中</li>
+<li>replace：打开一个新的 URL，并且跳转到该 URL 中（不同的是不会在浏览记录中留下之前的记录）</li>
+<li>reload：重新加载页面，可以传入一个 Boolean 类型</li>
+</ul>
+</li>
+</ul>
+<h3 id="assign"><a class="anchor" href="#assign">#</a> assign()</h3>
+<ul>
+<li><code>Location.assign()</code>  方法会触发窗口加载并显示指定的 URL 的内容</li>
+<li><code>url</code>  一个包含了要跳转到的链接的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString"> <code>DOMString</code> </a>。</li>
+<li><code>location.assign(url)</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>location<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token string">"http://nekoaimer.com"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>下面这种写法效果与上面是一样的</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">"http://nekoaimer.com"</span></pre></td></tr></table></figure><h3 id="replace"><a class="anchor" href="#replace">#</a> replace()</h3>
+<ul>
+<li><code>**Location**</code> <strong> <code>.replace()</code> </strong> 方法以给定的 URL 来替换当前的资源。 与<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Location/assign"> <code>assign()</code> </a> 方法 不同的是，调用  <code>replace()</code>  方法后，当前页面不会保存到会话历史中（session <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/History"> <code>History</code> </a>），这样，用户点击<em>回退</em>按钮时，将不会再跳转到该页面</li>
+<li><code>url</code>  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString"> <code>DOMString</code> </a> 类型，指定所导航到的页面的 URL 地址。</li>
+<li><code>object.replace(url)</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"http://nekoaimer.com"</span><span class="token punctuation">)</span> <span class="token comment">// 不能回退</span></pre></td></tr></table></figure><h3 id="reload"><a class="anchor" href="#reload">#</a> reload()</h3>
+<ul>
+<li><code>Location.reload()</code>  方法用来刷新当前页面。该方法只有一个参数，当值为  <code>true</code>  时，将强制浏览器从服务器加载页面资源，当值为  <code>false</code>  或者未传参时，浏览器则可能从缓存中读取页面</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>object<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span>forcedReload<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>forcedReload 可选</code> 该参数要求为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> <code>布尔</code>  (en-US)</a> 类型，当取值为  <code>true</code>  时，将强制浏览器从服务器重新获取当前页面资源，而不是从浏览器的缓存中读取，如果取值为  <code>false</code>  或不传该参数时，浏览器则可能会从缓存中读取当前页面</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 无缓存刷新页面（但页面引用的资源还是可能使用缓存，</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 大多数浏览器可以通过设置在打开开发者工具时禁用缓存实现无缓存需求）</span></pre></td></tr><tr><td data-num="3"></td><td><pre>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>详情查看 MDN <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0xvY2F0aW9uL3JlbG9hZA==">https://developer.mozilla.org/zh-CN/docs/Web/API/Location/reload</span></li>
+</ul>
+<h2 id="history对象常见属性和方法"><a class="anchor" href="#history对象常见属性和方法">#</a> history 对象常见属性和方法</h2>
+<ul>
+<li>history 对象允许我们访问浏览器曾经的会话历史记录</li>
+<li>有两个属性：
+<ul>
+<li>length：会话中的记录条数</li>
+<li>state：当前保留的状态值</li>
+</ul>
+</li>
+<li>有五个方法：
+<ul>
+<li>back ()：返回上一页，等价于 history.go (-1)</li>
+<li>forward ()：前进下一页，等价于 history.go (1)</li>
+<li>go ()：加载历史中的某一页</li>
+<li>pushState ()：打开一个指定的地址</li>
+<li>replaceState ()：打开一个新的地址，并且使用 replace</li>
+</ul>
+</li>
+<li>下面举两个栗子</li>
+</ul>
+<h3 id="pushstate"><a class="anchor" href="#pushstate">#</a> pushState()</h3>
+<ul>
+<li><code>history.pushState(state, title[, url])</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token string-property property">'page_id'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string-property property">'user_id'</span><span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> title <span class="token operator">=</span> <span class="token string">''</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">'hello-world.html'</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> title<span class="token punctuation">,</span> url<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>详情查看 <code>MDN</code> -&gt; <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnkvcHVzaFN0YXRl">https://developer.mozilla.org/zh-CN/docs/Web/API/History/pushState</span></li>
+</ul>
+<h3 id="replacestate"><a class="anchor" href="#replacestate">#</a> replaceState()</h3>
+<ul>
+<li><code>replaceState()</code>  方法使用 <code>state objects</code> ,  <code>title</code> , 和  <code>URL</code>  作为参数， 修改当前历史记录实体，如果你想更新当前的 state 对象或者当前历史实体的 URL 来响应用户的的动作的话这个方法将会非常有用</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>history<span class="token punctuation">.</span><span class="token function">replaceState</span><span class="token punctuation">(</span>stateObj<span class="token punctuation">,</span> title<span class="token punctuation">[</span><span class="token punctuation">,</span> url<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>stateObj</code>  状态对象是一个 JavaScript 对象，它与传递给  <code>replaceState</code>  方法的历史记录实体相关联</li>
+<li><code>title</code> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3doYXR3Zy9odG1sL2lzc3Vlcy8yMTc0"> 大部分浏览器忽略这个参数</span>，将来可能有用。在此处传递空字符串应该可以防止将来对方法的更改。或者，您可以为该状态传递简短标题</li>
+<li><code>url 可选</code> 历史记录实体的 URL. 新的 URL 跟当前的 URL 必须是同源；否则 replaceState 抛出一个异常.</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>history<span class="token punctuation">.</span><span class="token function">replaceState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">foo</span><span class="token operator">:</span> <span class="token string">"bar"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"bar.html"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>详情查看 MDN -&gt; <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnkvcmVwbGFjZVN0YXRl">https://developer.mozilla.org/zh-CN/docs/Web/API/History/replaceState</span></li>
 </ul>
 
       <div class="tags">
@@ -228,9 +593,9 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-02-06 21:52:26" itemprop="dateModified" datetime="2022-02-06T21:52:26+08:00">2022-02-06</time>
+    <time title="Modified: 2022-02-07 21:22:08" itemprop="dateModified" datetime="2022-02-07T21:22:08+08:00">2022-02-07</time>
   </span>
-  <span id="2021/12/12/JavaScript/Advanced/BOM/" class="item leancloud_visitors" data-flag-title="浏览器 BOM" title="Views">
+  <span id="2021/12/12/JavaScript/Advanced/BOM/" class="item leancloud_visitors" data-flag-title="浏览器对象模型(BrowserObjectModel)" title="Views">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -267,7 +632,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/" title="浏览器 BOM">https://nekoaimer.github.io/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/</a>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/" title="浏览器对象模型(BrowserObjectModel)">https://nekoaimer.github.io/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -286,7 +651,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeudstjqj20zk0m8k3r.jpg" title="浏览器存储方案 Cookie">
+  <a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicmnywqgpj20zk0m8dwx.jpg" title="浏览器存储方案 Cookie">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript</span>
   <h3>浏览器存储方案 Cookie</h3>
@@ -296,10 +661,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2022/01/13/css/CSS%20Demo/%E8%BE%B9%E6%A1%86%E6%BB%91%E5%9D%97/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="CSS 边框滑块">
+  <a href="/nekoaimer.github.io/2021/12/15/JavaScript/Advanced/DOM/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="文档对象模型(DocumentObjectModel)">
   <span class="type">Next Post</span>
-  <span class="category"><i class="ic i-flag"></i> CSS Demo</span>
-  <h3>CSS 边框滑块</h3>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>文档对象模型(DocumentObjectModel)</h3>
   </a>
 
     </div>
@@ -318,11 +683,11 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86bom"><span class="toc-number">1.</span> <span class="toc-text"> 认识 BOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text"> Window 全局对象</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86-bom"><span class="toc-number">1.</span> <span class="toc-text"> 认识 BOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window-%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text"> Window 全局对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window%E7%AA%97%E5%8F%A3%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text"> Window 窗口对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text"> window 常见的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windowscreenx"><span class="toc-number">4.1.</span> <span class="toc-text"> window.screenX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windowscreeny"><span class="toc-number">4.2.</span> <span class="toc-text"> window.screenY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windowouterheight"><span class="toc-number">4.3.</span> <span class="toc-text"> window.outerHeight</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windowinnerheight"><span class="toc-number">4.4.</span> <span class="toc-text"> Window.innerHeight</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windowscrollx"><span class="toc-number">4.5.</span> <span class="toc-text"> Window.scrollX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windowscrolly"><span class="toc-number">4.6.</span> <span class="toc-text"> Window.scrollY</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text"> window 常见的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#scrollto"><span class="toc-number">5.1.</span> <span class="toc-text"> scrollTo()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#open"><span class="toc-number">5.2.</span> <span class="toc-text"> open()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#close"><span class="toc-number">5.3.</span> <span class="toc-text"> close()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text"> window 常见的事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#load"><span class="toc-number">6.1.</span> <span class="toc-text"> load()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#focus"><span class="toc-number">6.2.</span> <span class="toc-text"> focus()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blur"><span class="toc-number">6.3.</span> <span class="toc-text"> blur()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location-hash"><span class="toc-number">6.4.</span> <span class="toc-text"> Location: hash</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eventtarget"><span class="toc-number">7.</span> <span class="toc-text"> EventTarget</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#addeventlistener"><span class="toc-number">7.1.</span> <span class="toc-text"> addEventListener()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#removeeventlistener"><span class="toc-number">7.2.</span> <span class="toc-text"> removeEventListener()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dispatchevent"><span class="toc-number">7.3.</span> <span class="toc-text"> dispatchEvent()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#location-%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">8.</span> <span class="toc-text"> Location 对象常见的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#location-%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text"> Location 对象常见的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#assign"><span class="toc-number">9.1.</span> <span class="toc-text"> assign()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace"><span class="toc-number">9.2.</span> <span class="toc-text"> replace()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reload"><span class="toc-number">9.3.</span> <span class="toc-text"> reload()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-number">10.</span> <span class="toc-text"> history 对象常见属性和方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pushstate"><span class="toc-number">10.1.</span> <span class="toc-text"> pushState()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replacestate"><span class="toc-number">10.2.</span> <span class="toc-text"> replaceState()</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li><a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" rel="bookmark" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></li><li><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" rel="bookmark" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></li><li><a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="bookmark" title="Javascript Promise いち">Javascript Promise いち</a></li><li><a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" rel="bookmark" title="Javascript Promise に">Javascript Promise に</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="手写 Promise">手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" rel="bookmark" title="JavaScript Iterator">JavaScript Iterator</a></li><li><a href="/nekoaimer.github.io/2021/11/13/JavaScript/Advanced/Generator/" rel="bookmark" title="JavaScript Generator">JavaScript Generator</a></li><li><a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" rel="bookmark" title="JavaScript async & await">JavaScript async & await</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" rel="bookmark" title="事件循环面试题">事件循环面试题</a></li><li><a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" rel="bookmark" title="error-handling">error-handling</a></li><li><a href="/nekoaimer.github.io/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 模块化">JavaScript 模块化</a></li><li><a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" rel="bookmark" title="JavaScript ES Module">JavaScript ES Module</a></li><li><a href="/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/" rel="bookmark" title="JavaScript 包管理工具">JavaScript 包管理工具</a></li><li><a href="/nekoaimer.github.io/2021/11/30/JavaScript/Advanced/publish-package/" rel="bookmark" title="JavaScript Npm 发布自己的包">JavaScript Npm 发布自己的包</a></li><li><a href="/nekoaimer.github.io/2021/12/02/JavaScript/Advanced/JSON/" rel="bookmark" title="JSON 数据存储">JSON 数据存储</a></li><li><a href="/nekoaimer.github.io/2021/12/05/JavaScript/Advanced/Storage/" rel="bookmark" title="浏览器存储方案 Storage">浏览器存储方案 Storage</a></li><li><a href="/nekoaimer.github.io/2021/12/07/JavaScript/Advanced/IndexedDB/" rel="bookmark" title="浏览器存储方案 IndexedDB">浏览器存储方案 IndexedDB</a></li><li><a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" rel="bookmark" title="浏览器存储方案 Cookie">浏览器存储方案 Cookie</a></li><li class="active"><a href="/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/" rel="bookmark" title="浏览器 BOM">浏览器 BOM</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li>
+          <li><a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" rel="bookmark" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></li><li><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" rel="bookmark" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></li><li><a href="/nekoaimer.github.io/2021/08/13/Vue/Vue3/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" rel="bookmark" title="V8 引擎">V8 引擎</a></li><li><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" rel="bookmark" title="JavaScript 作用域">JavaScript 作用域</a></li><li><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" rel="bookmark" title="JavaScript 闭包">JavaScript 闭包</a></li><li><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" rel="bookmark" title="JavaScript name & this">JavaScript name & this</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" rel="bookmark" title="JavaScript defineProperty">JavaScript defineProperty</a></li><li><a href="/nekoaimer.github.io/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 面向对象 いち">JavaScript 面向对象 いち</a></li><li><a href="/nekoaimer.github.io/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" rel="bookmark" title="JavaScript 面向对象 に">JavaScript 面向对象 に</a></li><li><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></li><li><a href="/nekoaimer.github.io/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript ES6+ いち">JavaScript ES6+ いち</a></li><li><a href="/nekoaimer.github.io/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" rel="bookmark" title="JavaScript ES6+ に">JavaScript ES6+ に</a></li><li><a href="/nekoaimer.github.io/2021/10/26/JavaScript/Advanced/Set_Map/" rel="bookmark" title="Set & Map 数据结构">Set & Map 数据结构</a></li><li><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" rel="bookmark" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></li><li><a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" rel="bookmark" title="JavaScript Proxy & Reflect">JavaScript Proxy & Reflect</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" rel="bookmark" title="Javascript Promise いち">Javascript Promise いち</a></li><li><a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" rel="bookmark" title="Javascript Promise に">Javascript Promise に</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" rel="bookmark" title="JavaScript Iterator">JavaScript Iterator</a></li><li><a href="/nekoaimer.github.io/2021/11/13/JavaScript/Advanced/Generator/" rel="bookmark" title="JavaScript Generator">JavaScript Generator</a></li><li><a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" rel="bookmark" title="JavaScript async & await">JavaScript async & await</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" rel="bookmark" title="事件循环面试题">事件循环面试题</a></li><li><a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" rel="bookmark" title="error-handling">error-handling</a></li><li><a href="/nekoaimer.github.io/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" rel="bookmark" title="JavaScript 模块化">JavaScript 模块化</a></li><li><a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" rel="bookmark" title="JavaScript ES Module">JavaScript ES Module</a></li><li><a href="/nekoaimer.github.io/2021/11/27/JavaScript/Advanced/package-management-tool/" rel="bookmark" title="JavaScript 包管理工具">JavaScript 包管理工具</a></li><li><a href="/nekoaimer.github.io/2021/11/30/JavaScript/Advanced/publish-package/" rel="bookmark" title="JavaScript Npm 发布自己的包">JavaScript Npm 发布自己的包</a></li><li><a href="/nekoaimer.github.io/2021/12/02/JavaScript/Advanced/JSON/" rel="bookmark" title="JSON 数据存储">JSON 数据存储</a></li><li><a href="/nekoaimer.github.io/2021/12/05/JavaScript/Advanced/Storage/" rel="bookmark" title="浏览器存储方案 Storage">浏览器存储方案 Storage</a></li><li><a href="/nekoaimer.github.io/2021/12/07/JavaScript/Advanced/IndexedDB/" rel="bookmark" title="浏览器存储方案 IndexedDB">浏览器存储方案 IndexedDB</a></li><li><a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" rel="bookmark" title="浏览器存储方案 Cookie">浏览器存储方案 Cookie</a></li><li class="active"><a href="/nekoaimer.github.io/2021/12/12/JavaScript/Advanced/BOM/" rel="bookmark" title="浏览器对象模型(BrowserObjectModel)">浏览器对象模型(BrowserObjectModel)</a></li><li><a href="/nekoaimer.github.io/2021/12/15/JavaScript/Advanced/DOM/" rel="bookmark" title="文档对象模型(DocumentObjectModel)">文档对象模型(DocumentObjectModel)</a></li><li><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" rel="bookmark" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></li><li><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" rel="bookmark" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></li><li><a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepcopy/" rel="bookmark" title="JavaScript 实现深拷贝(deepClone)">JavaScript 实现深拷贝(deepClone)</a></li><li><a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" rel="bookmark" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -336,7 +701,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">78</span>
+        <span class="count">83</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -436,7 +801,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/nekoaimer.github.io/2022/01/13/css/CSS%20Demo/%E8%BE%B9%E6%A1%86%E6%BB%91%E5%9D%97/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+        <a href="/nekoaimer.github.io/2021/12/15/JavaScript/Advanced/DOM/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -458,10 +823,32 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/04/Vue/Vue3/OptionsAPI/voa_watch/" title="Vue3 Options API watch">Vue3 Options API watch</a></span>
+    <span><a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" title="Javascript Promise いち">Javascript Promise いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/css/" title="In CSS">CSS</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/10/css/CSS%20Layout/css_layout_center/" title="css 居中布局">css 居中布局</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" title="Javascript 响应式原理">Javascript 响应式原理</a></span>
   </li>
 
       
@@ -473,7 +860,43 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/30/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/21/Vue/Vue3/CompositionAPI/vca_watchEffect_refEl/" title="Vue3 在 ref 里 使用 watchEffect">Vue3 在 ref 里 使用 watchEffect</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/15/data-structures-and-algorithms/problems/easy/two-sum/" title="两数之和">两数之和</a></span>
   </li>
 
       
@@ -491,45 +914,11 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/06/24/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" title="every &amp; some &amp; find &amp; findIndex 原理">every & some & find & findIndex 原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/05/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
   </li>
 
       
@@ -539,29 +928,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/12/07/JavaScript/Advanced/IndexedDB/" title="浏览器存储方案 IndexedDB">浏览器存储方案 IndexedDB</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" title="JavaScript name &amp; this">JavaScript name & this</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/problems/easy/pass-the-parcel/" title="队列实现击鼓传花">队列实现击鼓传花</a></span>
+    <span><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></span>
   </li>
 
   </ul>
@@ -586,13 +953,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">339k words</span>
+    <span title="Symbols count total">387k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">5:08</span>
+    <span title="Reading time total">5:52</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
