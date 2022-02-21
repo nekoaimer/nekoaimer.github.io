@@ -1,0 +1,747 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript,JavaScript 手写原理" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/">
+
+
+
+  <title>
+JavaScript 实现 Mustache 模板引擎 - JavaScript 手写原理 - JavaScript |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript 实现 Mustache 模板引擎
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-12-29 12:33:52">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-12-29T12:33:52+08:00">2021-12-29</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>8.7k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>8 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" itemprop="item" rel="index" title="In JavaScript 手写原理"><span itemprop="name">JavaScript 手写原理</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="正则表达式简单实现"><a class="anchor" href="#正则表达式简单实现">#</a> 正则表达式简单实现</h2>
+<ul>
+<li>
+<p>最简单的实现则是利用 <code>replace</code>  方法，进行正则匹配</p>
+</li>
+<li>
+<p><code>/\&#123;\&#123;\s*(\w+)\s*\&#125;\&#125;/g</code>  我是利用这个正则来匹配符合，括号里面允许有多余空格</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 1. 定义模板</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> templateStr <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h2>我喜欢吃&#123;&#123;peach&#125;&#125;, &#123;&#123; lain &#125;&#125;也喜欢吃 &#123;&#123;peach&#125;&#125;吗?&lt;/h2></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 2. 定义数据</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token literal-property property">lain</span><span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token literal-property property">peach</span><span class="token operator">:</span> <span class="token string">'桃子'</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 3. 封装匹配符合 &#123;&#123;&#125;&#125; 语法的字符串</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">templateStr<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">return</span> templateStr<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\&#123;\&#123;\s*(\w+)\s*\&#125;\&#125;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">findStr<span class="token punctuation">,</span> $1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>$1<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">return</span> data<span class="token punctuation">[</span>$1<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// 4. 返回新的字符串</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">const</span> newStr <span class="token operator">=</span> <span class="token function">render</span><span class="token punctuation">(</span>templateStr<span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newStr<span class="token punctuation">)</span> <span class="token comment">// &lt;h2 > 我喜欢吃桃子，lain 也喜欢吃 桃子吗？&lt;/h2></span></pre></td></tr></table></figure><h2 id="什么是-tokens"><a class="anchor" href="#什么是-tokens">#</a> 什么是 tokens</h2>
+<ul>
+<li>
+<p>tokens 是一个 <code>JS的嵌套数组</code> ，也就是 <code>模板字符串JS表示</code></p>
+</li>
+<li>
+<p><code>它是抽象语法树、&quot;虚拟节点&quot; 等等的开山鼻祖</code></p>
+</li>
+<li>
+<p>例如普通模板字符串： <code>&lt;h2&gt;我喜欢吃&#123;&#123;peach&#125;&#125;, &#123;&#123;lain&#125;&#125;也喜欢吃&#123;&#123;peach&#125;&#125;吗?&lt;/h2&gt;</code></p>
+</li>
+<li>
+<p><code>tokens:</code>  由一个个 <code>token</code>  组成</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token string">"&lt;h2>我喜欢吃"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// token</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"peach"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment">// token</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token string">", "</span><span class="token punctuation">]</span><span class="token punctuation">,</span>          <span class="token comment">// token</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"lain"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token comment">// token</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token string">"也喜欢吃"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>     <span class="token comment">// token</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"peach"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment">// token</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">"test "</span><span class="token punctuation">,</span> <span class="token string">"吗?&lt;/h2>"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment">// token</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">]</span></pre></td></tr></table></figure><ul>
+<li>循环嵌套模板字符串</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  &#123;&#123;#arr&#125;&#125;</pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>&#123;&#123;.&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>  &#123;&#123;/arr&#125;&#125;</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ul>
+<li>由下面一个个 <code>token</code>  组成 <code>tokens:</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token string">'&lt;ul>'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">[</span> <span class="token string">'#'</span><span class="token punctuation">,</span> <span class="token string">'arr'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token string">'&lt;li>&lt;span>'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token string">'&lt;/span>&lt;/li>'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token string">'&lt;/ul>'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">]</span></pre></td></tr></table></figure><ul>
+<li><code>mustache</code>  库底层重点要做两个事情：
+<ul>
+<li><code>将模板字符串编译为token形式</code></li>
+<li><code>将tokens结合数据，解析为dom字符串</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="使用webpack和webpack-dev-server构建"><a class="anchor" href="#使用webpack和webpack-dev-server构建">#</a> 使用 webpack 和 webpack-dev-server 构建</h2>
+<ul>
+<li>​	模块化打包工具有 webpack (webpack-dev-server)、rollup、Parcel 等</li>
+<li>mustache  <code>官方库使用rollup进行模块化打包</code> ，而我们使用今天使用 <code>webpack (webpack-dev-server)进行模块化打包</code> ，这是因为 webpack (webpack-dev-server) 能让我们更方便地在 <code>浏览器中 （而不是node.js环境中）</code>  实时调式程序，相比 node.js 控制后台， <code>览器控制台更好用</code> ，比如能够点击展开数组地每项</li>
+<li>生成库是 <code>UMD</code>  的，这意味着它可以同时在 node.js 环境中使用，也可以在浏览器环境中使用。实现 UMD 不难，只需要一个 <code>通用头</code> 即可</li>
+</ul>
+<h2 id="webpack-所需配置文件"><a class="anchor" href="#webpack-所需配置文件">#</a> webpack 所需配置文件</h2>
+<ul>
+<li><code>package.json</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"mustache"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token string-property property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-property property">"main"</span><span class="token operator">:</span> <span class="token string">"index.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token string-property property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server"</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token string-property property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token string-property property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token string-property property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token string-property property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token string-property property">"webpack"</span><span class="token operator">:</span> <span class="token string">"^4.44.2"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token string-property property">"webpack-cli"</span><span class="token operator">:</span> <span class="token string">"^3.3.12"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token string-property property">"webpack-dev-server"</span><span class="token operator">:</span> <span class="token string">"^3.11.0"</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li><code>webpack.config.js</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// 模式，开发</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 入口</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 打包到什么文件</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'bundle.js'</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token comment">// 配置 webpack-dev-server</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token literal-property property">hot</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 静态文件根目录</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token literal-property property">contentBase</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token comment">// 不压缩</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token literal-property property">compress</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment">// 端口号</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">8080</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">// 虚拟打包路径</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token literal-property property">publicPath</span><span class="token operator">:</span> <span class="token string">'/dist/'</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li><code>HTML</code>  引入</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/dist/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="scanner"><a class="anchor" href="#scanner">#</a> Scanner</h2>
+<ul>
+<li><code>扫描器类</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Scanner</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">template</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// 1. 定义 指针 尾巴 与 模板 变量</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>pos 	<span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 指针</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> template <span class="token comment">// 尾巴</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>template <span class="token operator">=</span> template <span class="token comment">// 模板</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 2. 作用与越过指定 tag </span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token function">scan</span><span class="token punctuation">(</span><span class="token parameter">tag</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// 2.1 所以需要将 pos 与 tag 长度进行相加</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>pos <span class="token operator">+=</span> tag<span class="token punctuation">.</span>length</pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token comment">// 2.2 所以需要将 并取 pos 之后的字符串</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>template<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>pos<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token comment">// 3. 让指针进行扫描，遇到指定 stopTag 结束，并返回之间路过的文字</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token function">scanUntil</span><span class="token punctuation">(</span><span class="token parameter">stopTag</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">// 3.1 保存上次 this.pos 位置</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">let</span> pos_backup <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>pos</pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token comment">// 3.2 当 pos 小于 template 长度 并且尾巴不是 stopTag, 说没没有扫描到 stopTag 才会继续循环  </span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">eos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tail<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>stopTag<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      <span class="token comment">// 3.3 每循环依次让指针 ++</span></pre></td></tr><tr><td data-num="27"></td><td><pre>      <span class="token keyword">this</span><span class="token punctuation">.</span>pos<span class="token operator">++</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>      <span class="token comment">// 3.4 获取 this.template 下标 this.pos 的字符串</span></pre></td></tr><tr><td data-num="30"></td><td><pre>      <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>template<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>pos<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token comment">// 4. 返回开始到当前指针之前的字符串</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>template<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>pos_backup<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>pos<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token comment">// 5. 判断 pos 是否到 template 最后了</span></pre></td></tr><tr><td data-num="38"></td><td><pre>  <span class="token function">eos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>pos <span class="token operator">>=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>template<span class="token punctuation">.</span>length </pre></td></tr><tr><td data-num="40"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="parsetemplatetotokens"><a class="anchor" href="#parsetemplatetotokens">#</a> parseTemplateToTokens</h2>
+<ul>
+<li><code>将模板字符串转为tokens数组</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Scanner <span class="token keyword">from</span> <span class="token string">"./Scanner"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> nestTokens <span class="token keyword">from</span> <span class="token string">"./nestTokens"</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">parseTemplateToTokens</span><span class="token punctuation">(</span><span class="token parameter">template</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1. 定义数组 将模板字符串转为 tokens</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> tokens <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2. 创建 Scanner 实例</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">const</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>template<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 3. 接收每次返回的字符串</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">let</span> words <span class="token operator">=</span> <span class="token string">''</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token comment">// 4. 匹配去掉空格</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token keyword">function</span> <span class="token function">trimWords</span><span class="token punctuation">(</span><span class="token parameter">words</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">return</span> words<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\s+(&lt;)|(>)\s+</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'$1$2'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token comment">// 3. 判断 this.tail 与 this.template 长度是否一致 否则一直循环</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>scanner<span class="token punctuation">.</span><span class="token function">eos</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">// 3.1 扫描 &#123;&#123;  返回之前的字符串 text 类型</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    words <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">scanUntil</span><span class="token punctuation">(</span><span class="token string">'&#123;&#123;'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token comment">// 3.2 追入 tokens</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">if</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span> tokens<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token function">trimWords</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token comment">// 3.3 越过 &#123;&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    scanner<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token string">'&#123;&#123;'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token comment">// 3.4 扫描 &#125;&#125;  返回之前的字符串 非 text 类型</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    words <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">scanUntil</span><span class="token punctuation">(</span><span class="token string">'&#125;&#125;'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token comment">// 4. 追入 tokens</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>words<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>      <span class="token comment">// 4.1 判断为 '#' 类型 </span></pre></td></tr><tr><td data-num="36"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>words<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'#'</span><span class="token punctuation">)</span> tokens<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'#'</span><span class="token punctuation">,</span> <span class="token function">trimWords</span><span class="token punctuation">(</span>words<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        </pre></td></tr><tr><td data-num="38"></td><td><pre>      <span class="token comment">// 4.2 判断为 '/' 类型</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>words<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'/'</span><span class="token punctuation">)</span> tokens<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token function">trimWords</span><span class="token punctuation">(</span>words<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        </pre></td></tr><tr><td data-num="41"></td><td><pre>      <span class="token comment">// 4.3 判断为 'name' 类型 </span></pre></td></tr><tr><td data-num="42"></td><td><pre>      <span class="token keyword">else</span> tokens<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> words<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    </pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token comment">// 4.4 越过 &#125;&#125;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    scanner<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token string">'&#125;&#125;'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>  <span class="token comment">// 5. 返回 tokens</span></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token keyword">return</span> <span class="token function">nestTokens</span><span class="token punctuation">(</span>tokens<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="nesttokens"><a class="anchor" href="#nesttokens">#</a> nestTokens</h2>
+<ul>
+<li><code>折叠tokens，将#与/之间的tokens整合起来，作为下标为2的项</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">nestTokens</span><span class="token punctuation">(</span><span class="token parameter">tokens</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1. 定义最终 tokens 数组 </span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> nestTokens <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 2. 定义栈结构，存放小 tokens</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> sections <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 3. 收藏器 主要作用是需要巧妙地引用地址</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> collector <span class="token operator">=</span> nestTokens</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 4. 遍历原 tokens</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> tokens<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 4.1 取出一个个小 token</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">let</span> token <span class="token operator">=</span> tokens<span class="token punctuation">[</span>i<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 5. 进行判断类型</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">switch</span> <span class="token punctuation">(</span>token<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token comment">// 5.1 如果为 '#' 类型代表也是 tokens 需要黄 `# 与 /` 之间地数据放入 token [2]</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token keyword">case</span> <span class="token string">'#'</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token comment">// 5.2 先同时将 token 追加入 数组中</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        collector<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token comment">// 5.3 这里是非常巧妙地利用了引用地址类型 token [2] 地址 给到了 collector</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token comment">// 代表接下来 collector 进行 push 数据时 都是往 token [2] 追加的</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        collector <span class="token operator">=</span> token<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      </pre></td></tr><tr><td data-num="29"></td><td><pre>      <span class="token keyword">case</span> <span class="token string">'/'</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token comment">// 6. 遇到 `/` 代表需要进行弹栈 </span></pre></td></tr><tr><td data-num="31"></td><td><pre>        sections<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>        <span class="token comment">// 7. 判断 sections 中是否还有数组 有的话将数组地址给 collector</span></pre></td></tr><tr><td data-num="34"></td><td><pre>        <span class="token comment">// 例如 [[1,2], [3,4]] 上面 pop 操作将 [3, 4] 弹出后剩下 [[1,2]], 那么此时 collector 地址 === [1,2] 地址 </span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token comment">// 而 [1, 2] 地址也就是栈结构形式的一个个数组 </span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token comment">// 8. 否则返回 nestTokens 而 nestTokens 被 collector 引用，所以返回的也是 collector</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        collector <span class="token operator">=</span> sections<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> sections<span class="token punctuation">[</span>sections<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">:</span> nestTokens</pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>      <span class="token keyword">default</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        <span class="token comment">// 9. `text` 类型为普通文本 之间追加进入就可以了</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        collector<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>  <span class="token comment">// 10. 结果返回</span></pre></td></tr><tr><td data-num="48"></td><td><pre>  <span class="token keyword">return</span> nestTokens</pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>下面我补上分析数组引用的思路图</li>
+</ul>
+<p><img data-src="nestTokens.png" alt="nestTokens" /></p>
+<ul>
+<li>与代码对照图</li>
+</ul>
+<p><img data-src="nestTokens-code.png" alt="nestTokens-code" /></p>
+<h2 id="rendertemplate"><a class="anchor" href="#rendertemplate">#</a> renderTemplate</h2>
+<ul>
+<li><code>将tokens数组变为DOM字符串</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> lookup <span class="token keyword">from</span> <span class="token string">"./lookup"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> parseToken <span class="token keyword">from</span> <span class="token string">"./parseToken"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">renderTemplate</span><span class="token punctuation">(</span><span class="token parameter">tokens<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 1. 定义结果字符串</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">let</span> resultStr <span class="token operator">=</span> <span class="token string">''</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2. 遍历 tokens</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> tokens<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">// 3. 循环获取 token</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">let</span> token <span class="token operator">=</span> tokens<span class="token punctuation">[</span>i<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 4. 从 token [0] 第一项判断是什么类型 </span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">switch</span> <span class="token punctuation">(</span>token<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    </pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token comment">// 4.1 'text' 类型就行普通文本 直接相加即可</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token keyword">case</span> <span class="token string">'text'</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        resultStr <span class="token operator">+=</span> token<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      </pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token comment">// 4.2 'name' 则是 &#123;&#123;&#125;&#125; 里面的，代表是变量 通过 lookup 函数获取变量对应的值</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token keyword">case</span> <span class="token string">'name'</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        resultStr <span class="token operator">+=</span> <span class="token function">lookup</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> token<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      </pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token comment">// 4.3 '#' 代表也是 tokens, 需要将 tokens 再转为 token 进行链接 </span></pre></td></tr><tr><td data-num="26"></td><td><pre>      <span class="token keyword">case</span> <span class="token string">'#'</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token comment">// 5. 所以创建一个递归函数 parseToken</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        resultStr <span class="token operator">+=</span> <span class="token function">parseToken</span><span class="token punctuation">(</span>token<span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  </pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token comment">// 6. 返回字符串</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token keyword">return</span> resultStr</pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="lookup"><a class="anchor" href="#lookup">#</a> lookup</h2>
+<ul>
+<li>
+<p><code>在对象中寻找连续点符号的keyName属性</code></p>
+</li>
+<li>
+<p>举个栗子：</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> dataObj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token number">100</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">lookup</span><span class="token punctuation">(</span>dataObj<span class="token punctuation">,</span> <span class="token string">'a.b.c'</span><span class="token punctuation">)</span> <span class="token comment">// 100</span></pre></td></tr></table></figure><ul>
+<li><code>lookup</code>  函数</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">lookup</span><span class="token punctuation">(</span><span class="token parameter">dataObj<span class="token punctuation">,</span> keyName</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1. 判断 keyName 本身不是。并且 keyName 中没有以。连接地属性名 </span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token comment">// 栗子：a.b.c</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>keyName <span class="token operator">!=</span> <span class="token string">'.'</span> <span class="token operator">&amp;&amp;</span> keyName<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">// 2. 将上面 a.b.c 变成 ['a', 'b', 'c']</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">let</span> keys <span class="token operator">=</span> keyName<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">// 3. 定义一个临时对象保存每次属性拿到的值 </span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">let</span> tempObj <span class="token operator">=</span> dataObj</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// 4. 循环拿到值 举个栗子 tempObj = &#123;a: &#123;b: &#123;c: 100&#125; &#125; &#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">// tempObj = dataObj[a] -> tempObj2 = tempObj[b] -> tempObj3 = tempObj2[c]</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> keys<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> tempObj <span class="token operator">=</span> tempObj<span class="token punctuation">[</span>keys<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      </pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 5. 返回结果</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">return</span> tempObj</pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token comment">// 6. 如果本身就是。属性或者没有。连接的属性的话 就直接取值返回</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token keyword">return</span> dataObj<span class="token punctuation">[</span>keyName<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="parsetoken"><a class="anchor" href="#parsetoken">#</a> parseToken</h2>
+<ul>
+<li>处理 <code>tokens</code>  数组， 结合 <code>parseTemplateToTokens</code>  实现递归</li>
+<li>注意函数参数时 token！不是  <code>tokens</code></li>
+<li><code>token</code>  是一个简单的  <code>['#',  'friends', []]</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> lookup <span class="token keyword">from</span> <span class="token string">"./lookup"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> renderTemplate <span class="token keyword">from</span> <span class="token string">"./renderTemplate"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">parseToken</span><span class="token punctuation">(</span><span class="token parameter">token<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 1. 定义变量接收数据对象</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">const</span> v <span class="token operator">=</span> <span class="token function">lookup</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> token<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  </pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 2. 作为结果字符串</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">let</span> resultStr <span class="token operator">=</span> <span class="token string">''</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token comment">// 3. 遍历数据的长度 递归次数与数据的长度一致</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> v<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    resultStr <span class="token operator">+=</span> <span class="token function">renderTemplate</span><span class="token punctuation">(</span>token<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token operator">...</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token string-property property">'.'</span><span class="token operator">:</span> v</pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token comment">// 4. 返回结果字符串</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">return</span> resultStr</pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="index"><a class="anchor" href="#index">#</a> index</h2>
+<ul>
+<li>将模板转字符串转化为 tokens</li>
+<li>将 tokens 渲染为 DOMString 结构</li>
+<li>将 DOMString 返回</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Scanner <span class="token keyword">from</span> <span class="token string">'./Scanner.js'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> parseTemplateToTokens <span class="token keyword">from</span> <span class="token string">'./parseTemplateToTokens.js'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> renderTemplate <span class="token keyword">from</span> <span class="token string">'./renderTemplate.js'</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>global<span class="token punctuation">.</span>TemplateEngine <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">template<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 1. 将模板转字符串转化为 tokens</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">const</span> tokens <span class="token operator">=</span> <span class="token function">parseTemplateToTokens</span><span class="token punctuation">(</span>template<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    </pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">// 2. 将 tokens 渲染为 DOMString 结构</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">const</span> domStr <span class="token operator">=</span> <span class="token function">renderTemplate</span><span class="token punctuation">(</span>tokens<span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 3. 将 DOMString 返回</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">return</span> domStr</pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>总结一下：这里尽量使用了 <code>switch</code> , 而没有使用 <code>if else if</code> ，是因为我认为 <code>switch</code>  效率会比  <code>if else if</code>  高</li>
+</ul>
+<h2 id="测试代码"><a class="anchor" href="#测试代码">#</a> 测试代码</h2>
+<ul>
+<li>
+<p>我简单实现了 <code>mustache </code> ，的基本功能，下面进行测试，您也可以自行测试</p>
+</li>
+<li>
+<p>如果您不了解用法，可以搜索我之前写的 <code>JavaScript Mustache 模板引擎用法</code></p>
+</li>
+<li>
+<p>下面进行 <code>.</code>  测试</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> templateStr <span class="token operator">=</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;ul></pre></td></tr><tr><td data-num="3"></td><td><pre>    &#123;%#123;#arr&#125;%#125;</pre></td></tr><tr><td data-num="4"></td><td><pre>      &lt;li></pre></td></tr><tr><td data-num="5"></td><td><pre>        &#123;%#123;.&#125;%#125;</pre></td></tr><tr><td data-num="6"></td><td><pre>      &lt;/li></pre></td></tr><tr><td data-num="7"></td><td><pre>    &#123;%#123;/arr&#125;%#125;</pre></td></tr><tr><td data-num="8"></td><td><pre>  &lt;ul></pre></td></tr><tr><td data-num="9"></td><td><pre></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token literal-property property">arr</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'苹果'</span><span class="token punctuation">,</span> <span class="token string">'西瓜'</span><span class="token punctuation">,</span> <span class="token string">'樱桃'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">const</span> domStr <span class="token operator">=</span> TemplateEngine<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>templateStr<span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>domStr<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>container<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> domStr</pre></td></tr></table></figure><ul>
+<li>循环嵌套数组测试</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./dist/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// 1. 定义模板字符串</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> templateStr <span class="token operator">=</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;ul></pre></td></tr><tr><td data-num="7"></td><td><pre>      &#123;&#123;#arr&#125;&#125;</pre></td></tr><tr><td data-num="8"></td><td><pre>        &lt;li class="a"></pre></td></tr><tr><td data-num="9"></td><td><pre>          &lt;span>姓名：&#123;&#123;name&#125;&#125;&lt;/span></pre></td></tr><tr><td data-num="10"></td><td><pre>          &lt;span>年龄：&#123;&#123;age&#125;&#125;&lt;/span></pre></td></tr><tr><td data-num="11"></td><td><pre>          &lt;ol></pre></td></tr><tr><td data-num="12"></td><td><pre>            &#123;&#123;#freiends&#125;&#125;</pre></td></tr><tr><td data-num="13"></td><td><pre>              &lt;li>freiends: &#123;&#123;.&#125;&#125;&lt;/li></pre></td></tr><tr><td data-num="14"></td><td><pre>            &#123;&#123;/freiends&#125;&#125;</pre></td></tr><tr><td data-num="15"></td><td><pre>          &lt;/ol></pre></td></tr><tr><td data-num="16"></td><td><pre>        &lt;/li></pre></td></tr><tr><td data-num="17"></td><td><pre>      &#123;&#123;/arr&#125;&#125;</pre></td></tr><tr><td data-num="18"></td><td><pre>    &lt;ul></pre></td></tr><tr><td data-num="19"></td><td><pre>  </span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token comment">// 2. 定义数据</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token literal-property property">arr</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token punctuation">&#123;</span> <span class="token literal-property property">tag</span><span class="token operator">:</span> <span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token literal-property property">freiends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token string">'樱岛麻衣'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      <span class="token punctuation">&#123;</span> <span class="token literal-property property">tag</span><span class="token operator">:</span> <span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'saber'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token literal-property property">freiends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token string">'稚名真白'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>      <span class="token punctuation">&#123;</span> <span class="token literal-property property">tag</span><span class="token operator">:</span> <span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token literal-property property">freiends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'稚名真白'</span><span class="token punctuation">,</span> <span class="token string">'lain'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#123;</span> <span class="token literal-property property">tag</span><span class="token operator">:</span> <span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'稚名真白'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token literal-property property">freiends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'lain'</span><span class="token punctuation">,</span> <span class="token string">'saber'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token comment">// 3. 返回遍历渲染完的新字符串</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token keyword">const</span> domStr <span class="token operator">=</span> TemplateEngine<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>templateStr<span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>domStr<span class="token punctuation">)</span>	</pre></td></tr><tr><td data-num="35"></td><td><pre>    </pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token comment">// 4. 进行挂载 id 属性可以不用进行获取  </span></pre></td></tr><tr><td data-num="37"></td><td><pre>  container<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> domStr</pre></td></tr><tr><td data-num="38"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="mustache-源码"><a class="anchor" href="#mustache-源码">#</a> Mustache 源码</h2>
+<ul>
+<li>这里放个官网地址以供参考</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.bootcdn.net/ajax/libs/mustache.js/4.1.0/mustache.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" rel="tag"><i class="ic i-tag"></i> JavaScript 手写原理</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-02-21 21:54:04" itemprop="dateModified" datetime="2022-02-21T21:54:04+08:00">2022-02-21</time>
+  </span>
+  <span id="2021/12/29/JavaScript/手写原理/vue-source-code-analysis/mustache/" class="item leancloud_visitors" data-flag-title="JavaScript 实现 Mustache 模板引擎" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" title="JavaScript 实现 Mustache 模板引擎">https://nekoaimer.github.io/nekoaimer.github.io/2021/12/29/JavaScript/手写原理/vue-source-code-analysis/mustache/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/28/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/use-Mustache/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicli3sbvtj20zk0m8x6p.jpg" title="JavaScript Mustache 模板引擎用法">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>JavaScript Mustache 模板引擎用法</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2022/01/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/snabbdom/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwrdwyaj20zk0m8are.jpg" title="JavaScript 实现 diff 算法">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 实现 diff 算法</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.</span> <span class="toc-text"> 正则表达式简单实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tokens"><span class="toc-number">2.</span> <span class="toc-text"> 什么是 tokens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8webpack%E5%92%8Cwebpack-dev-server%E6%9E%84%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text"> 使用 webpack 和 webpack-dev-server 构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-%E6%89%80%E9%9C%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> webpack 所需配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scanner"><span class="toc-number">5.</span> <span class="toc-text"> Scanner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parsetemplatetotokens"><span class="toc-number">6.</span> <span class="toc-text"> parseTemplateToTokens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nesttokens"><span class="toc-number">7.</span> <span class="toc-text"> nestTokens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rendertemplate"><span class="toc-number">8.</span> <span class="toc-text"> renderTemplate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lookup"><span class="toc-number">9.</span> <span class="toc-text"> lookup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parsetoken"><span class="toc-number">10.</span> <span class="toc-text"> parseToken</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index"><span class="toc-number">11.</span> <span class="toc-text"> index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="toc-number">12.</span> <span class="toc-text"> 测试代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mustache-%E6%BA%90%E7%A0%81"><span class="toc-number">13.</span> <span class="toc-text"> Mustache 源码</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" rel="bookmark" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></li><li><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" rel="bookmark" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></li><li><a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/" rel="bookmark" title="JavaScript 实现深拷贝(deepClone)">JavaScript 实现深拷贝(deepClone)</a></li><li><a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" rel="bookmark" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></li><li><a href="/nekoaimer.github.io/2021/12/26/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/waterFall/" rel="bookmark" title="JavaScript 手写瀑布流 (waterFall)">JavaScript 手写瀑布流 (waterFall)</a></li><li class="active"><a href="/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" rel="bookmark" title="JavaScript 实现 Mustache 模板引擎">JavaScript 实现 Mustache 模板引擎</a></li><li><a href="/nekoaimer.github.io/2022/01/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/snabbdom/" rel="bookmark" title="JavaScript 实现 diff 算法">JavaScript 实现 diff 算法</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">88</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">9</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">15</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/12/28/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/use-Mustache/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2022/01/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/snabbdom/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/03/Vue/Vue3/CompositionAPI/vca_reactive/" title="Vue3 reactive基本用法">Vue3 reactive基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/09/Vue/Vue3/CompositionAPI/vca_toRef&toRefs/" title="Vue3 toRef和toRefs 的用法">Vue3 toRef和toRefs 的用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/07/Vue/Vue3/CompositionAPI/vca_readonly/" title="Vue3 readonly 的基本用法">Vue3 readonly 的基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/05/JavaScript/Advanced/closure/" title="JavaScript 闭包">JavaScript 闭包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" title="fill &amp; join &amp; includex 原理">fill & join & includex 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/" title="In data structure">data structure</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/" title="优先级队列实现 (PriorityQueue)">优先级队列实现 (PriorityQueue)</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">419k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">6:21</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/12/29/JavaScript/手写原理/vue-source-code-analysis/mustache/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

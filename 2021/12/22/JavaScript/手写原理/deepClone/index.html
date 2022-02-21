@@ -1,0 +1,710 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript,JavaScript 手写原理" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/">
+
+
+
+  <title>
+JavaScript 实现深拷贝(deepClone) - JavaScript 手写原理 - JavaScript |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript 实现深拷贝(deepClone)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-12-22 11:28:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-12-22T11:28:25+08:00">2021-12-22</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>8.5k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>8 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" itemprop="item" rel="index" title="In JavaScript 手写原理"><span itemprop="name">JavaScript 手写原理</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="自定义深拷贝函数"><a class="anchor" href="#自定义深拷贝函数">#</a> 自定义深拷贝函数</h2>
+<ul>
+<li>对象相互赋值的一些关系，分别包括：</li>
+<li>引入的赋值：指向同一个对象，相互之间会影响；</li>
+<li>对象的浅拷贝：只是浅层的拷贝，内部引入对象时，依然会相互影响；</li>
+<li>对象的深拷贝：两个对象不再有任何关系，不会相互影响；</li>
+<li>我们可以通过一种方法来实现深拷贝了：JSON.parse
+<ul>
+<li>这种深拷贝的方式其实对于函数、Symbol 等是无法处理的；</li>
+<li>并且如果存在对象的循环引用，也会报错的；</li>
+</ul>
+</li>
+<li>自定义深拷贝函数：
+<ul>
+<li>自定义深拷贝的基本功能</li>
+<li>对 Symbol 的 key 进行处理</li>
+<li>其他数据类型的值进程处理：数组、函数、Symbol、Set、Map</li>
+<li>对循环引用的处理</li>
+</ul>
+</li>
+</ul>
+<h2 id="json-实现伪深拷贝"><a class="anchor" href="#json-实现伪深拷贝">#</a> JSON 实现伪深拷贝</h2>
+<ul>
+<li>拿 lain 对象举栗</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> symbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"lain"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token literal-property property">friend</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"saber"</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"foo~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">[</span>symbol<span class="token punctuation">]</span><span class="token operator">:</span> symbol<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token literal-property property">symbol</span><span class="token operator">:</span> symbol</pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>使用 <code>JSON</code>  进行深拷贝</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> newLain <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="5"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="6"></td><td><pre>  name: 'lain',</pre></td></tr><tr><td data-num="7"></td><td><pre>  friend: &#123; name: 'saber' &#125;,</pre></td></tr><tr><td data-num="8"></td><td><pre>  foo: [Function: foo],</pre></td></tr><tr><td data-num="9"></td><td><pre>  symbol: Symbol(),</pre></td></tr><tr><td data-num="10"></td><td><pre>  [Symbol()]: Symbol()</pre></td></tr><tr><td data-num="11"></td><td><pre>&#125;	</pre></td></tr><tr><td data-num="12"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">)</span> <span class="token comment">// &#123; name: 'lain', friend: &#123; name: 'saber' &#125; &#125;</span></pre></td></tr></table></figure><ul>
+<li>
+<p>从上面输出可以看出是有很多弊端的</p>
+<ul>
+<li>对函数是没办法处理的</li>
+<li>对 Symbol 也是无法处理的</li>
+<li>并且无法将 <code>lain</code>  指向自己</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>lain<span class="token punctuation">.</span>lain <span class="token operator">=</span> lain <span class="token comment">// 从逻辑上看是没有问题的，但实际上这样会报错</span></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="deepclone-v1-基本实现"><a class="anchor" href="#deepclone-v1-基本实现">#</a> deepClone <sub>v1</sub> 基本实现</h2>
+<ul>
+<li><code>if (!(isObject(originValue))) return originValue</code>  这句代码最主要是用来终止 <code>deepClone</code>  函数的递归调用</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 用于判断是否是 对象类型或者函数类型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">function</span> <span class="token function">isObject</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> valueType <span class="token operator">=</span> <span class="token keyword">typeof</span> value</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span>valueType <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token parameter">originValue</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 如果不是对象类型则直接将当前值返回</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> originValue</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> newObject <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> originValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    newObject<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>originValue<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">return</span> newObject</pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>测试对象</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"lain"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">friend</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"saber"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token literal-property property">fruits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'cherry'</span><span class="token punctuation">,</span> <span class="token string">'peack'</span><span class="token punctuation">,</span> <span class="token string">'watermelon'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token literal-property property">friend</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">樱岛麻衣 foo~</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"saber foo~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"lain foo~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>测试代码</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> newLain <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="5"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="6"></td><td><pre>  name: 'lain',</pre></td></tr><tr><td data-num="7"></td><td><pre>  friend: &#123;</pre></td></tr><tr><td data-num="8"></td><td><pre>    name: 'saber',</pre></td></tr><tr><td data-num="9"></td><td><pre>    fruits: ['cherry', 'peack', 'watermelon'],       </pre></td></tr><tr><td data-num="10"></td><td><pre>    friend: &#123; name: ' 樱岛麻衣 ', foo: [Function: foo] &#125;,</pre></td></tr><tr><td data-num="11"></td><td><pre>    foo: [Function: foo]</pre></td></tr><tr><td data-num="12"></td><td><pre>  &#125;,</pre></td></tr><tr><td data-num="13"></td><td><pre>  foo: [Function: foo]</pre></td></tr><tr><td data-num="14"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="15"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="19"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="20"></td><td><pre>  name: 'lain',</pre></td></tr><tr><td data-num="21"></td><td><pre>  friend: &#123;</pre></td></tr><tr><td data-num="22"></td><td><pre>    name: 'saber',</pre></td></tr><tr><td data-num="23"></td><td><pre>    fruits: &#123;'0': 'cherry', '1': 'peack', '2': 'watermelon'&#125;,</pre></td></tr><tr><td data-num="24"></td><td><pre>    friend: &#123; name: ' 樱岛麻衣 ', foo: &#123;&#125; &#125;,</pre></td></tr><tr><td data-num="25"></td><td><pre>    foo: &#123;&#125;</pre></td></tr><tr><td data-num="26"></td><td><pre>  &#125;,</pre></td></tr><tr><td data-num="27"></td><td><pre>  foo: &#123;&#125;</pre></td></tr><tr><td data-num="28"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="29"></td><td><pre>*/</span></pre></td></tr></table></figure><ul>
+<li>从上面来看确实是实现了深拷贝，但是限制新对象与原对象是有些许差异的
+<ul>
+<li>比如数组 <code>fruits</code> ，原对象是一个数组，有三个元素，而新对象的 <code>fruits</code>  已经变为了一个对象，用索引作为 <code>key</code> ，用 <code>value</code>  作为值</li>
+<li>还有函数也变为了对象</li>
+<li>没有对 <code>Symbol</code>  类型进行处理</li>
+<li>也没有对 <code>Set/Map</code>  进行处理</li>
+</ul>
+</li>
+<li>所以接下来我会进一步进行完善深拷贝的其他类型判断</li>
+</ul>
+<h2 id="deepclone-v2-其他类型"><a class="anchor" href="#deepclone-v2-其他类型">#</a> deepClone <sub>v2</sub> 其他类型</h2>
+<ul>
+<li>这里进行了非常多的判断逻辑，都是比较简单的</li>
+<li>可能对于 <code>Symbol/Set/Map</code>  类型的深拷贝会稍微复杂些</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 用于判断是否是对象类型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">function</span> <span class="token function">isObject</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> valueType <span class="token operator">=</span> <span class="token keyword">typeof</span> value</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span>valueType <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> valueType <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token parameter">originValue</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2.1 函数浅拷贝</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">/* if (typeof originValue == 'function') return originValue */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    </pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2.2 函数深拷贝</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> originValue <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^function</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>originValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'return '</span> <span class="token operator">+</span> originValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'return '</span> <span class="token operator">+</span> <span class="token string">'function '</span> <span class="token operator">+</span> originValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">&#125;</span>  </pre></td></tr><tr><td data-num="18"></td><td><pre>  </pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token comment">// 3.Date 深拷贝</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>originValue <span class="token keyword">instanceof</span> <span class="token class-name">Date</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>originValue<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token comment">// 4. 判断如果是 Symbol 的 value, 那么创建一个新的 Symbol</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> originValue <span class="token operator">===</span> <span class="token string">'symbol'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">Symbol</span><span class="token punctuation">(</span>originValue<span class="token punctuation">.</span>description<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token comment">// 5. 判断是否是 Set 类型 进行深拷贝</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>originValue <span class="token keyword">instanceof</span> <span class="token class-name">Set</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token comment">// 5.1 浅拷贝 直接进行解构即可</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token comment">// return new Set([...originValue])</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token comment">// 5.2 深拷贝</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token keyword">const</span> newSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> originValue<span class="token punctuation">)</span> newSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">deepClone</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token keyword">return</span> newSet</pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  </pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token comment">// 6. 判断是否是 Map 类型 </span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>originValue <span class="token keyword">instanceof</span> <span class="token class-name">Map</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token comment">// 6.1 浅拷贝 直接进行解构即可</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token comment">// return new Map([...originValue])</span></pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token comment">// 6.2 深拷贝</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token keyword">const</span> newMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> originValue<span class="token punctuation">)</span> newMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token function">deepClone</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token keyword">return</span> newMap</pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>  <span class="token comment">// 1. 如果不是对象类型则直接将当前值返回</span></pre></td></tr><tr><td data-num="48"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> originValue</pre></td></tr><tr><td data-num="49"></td><td><pre></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token comment">// 7. 判断传入的对象是数组，还是对象</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token keyword">const</span> newObject <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> originValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token comment">// 8 进行递归调用</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    newObject<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>originValue<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>  <span class="token comment">// 4.1 对 Symbol 作为 key 进行特殊的处理 拿到对象上面的所有 Symbol key，以数组形式返回</span></pre></td></tr><tr><td data-num="58"></td><td><pre>  <span class="token keyword">const</span> symbolKeys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertySymbols</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="59"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> sKey <span class="token keyword">of</span> symbolKeys<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token comment">// 4.2 这里没有必要创建一个新的 Symbol</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    <span class="token comment">// const newSKey = Symbol(sKey.description)</span></pre></td></tr><tr><td data-num="63"></td><td><pre></pre></td></tr><tr><td data-num="64"></td><td><pre>    <span class="token comment">// 4.3 直接将原来的 Symbol key 拷贝到新对象上就可以了</span></pre></td></tr><tr><td data-num="65"></td><td><pre>    newObject<span class="token punctuation">[</span>sKey<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>originValue<span class="token punctuation">[</span>sKey<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="67"></td><td><pre></pre></td></tr><tr><td data-num="68"></td><td><pre>  <span class="token keyword">return</span> newObject</pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="测试目标对象"><a class="anchor" href="#测试目标对象">#</a> 测试目标对象</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> symboLain <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'lain'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> symboSaber <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'saber'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> lain <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"lain"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token literal-property property">friend</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"saber"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token literal-property property">fruits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'cherry'</span><span class="token punctuation">,</span> <span class="token string">'peack'</span><span class="token punctuation">,</span> <span class="token string">'watermelon'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token literal-property property">friend</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">樱岛麻衣 foo~</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"saber foo~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"lain foo~"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">[</span>symboLain<span class="token punctuation">]</span><span class="token operator">:</span> symboLain<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token punctuation">[</span>symboSaber<span class="token punctuation">]</span><span class="token operator">:</span> symboSaber<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token literal-property property">symboLain</span><span class="token operator">:</span> symboSaber<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token literal-property property">set</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'入间同学'</span><span class="token punctuation">,</span> <span class="token string">'蝶祈'</span><span class="token punctuation">,</span> <span class="token string">'枫'</span><span class="token punctuation">,</span>  <span class="token punctuation">&#123;</span><span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token literal-property property">map</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'age1'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'age2'</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'age3'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'obj'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="测试-function"><a class="anchor" href="#测试-function">#</a> 测试  <code>Function</code></h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>foo <span class="token operator">===</span> newLain<span class="token punctuation">.</span>foo<span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>foo <span class="token operator">===</span> newLain<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>foo<span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>foo <span class="token operator">===</span> newLain<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>foo<span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr></table></figure><h3 id="测试-date"><a class="anchor" href="#测试-date">#</a> 测试  <code>Date</code></h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 可自行测试</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 时间与上面一样 可自行测试</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">]</span> <span class="token operator">===</span> newLain<span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr></table></figure><h3 id="测试-symbol"><a class="anchor" href="#测试-symbol">#</a> 测试  <code>Symbol</code></h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="3"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="4"></td><td><pre>  name: 'lain',</pre></td></tr><tr><td data-num="5"></td><td><pre>  friend: &#123;</pre></td></tr><tr><td data-num="6"></td><td><pre>    name: 'saber',</pre></td></tr><tr><td data-num="7"></td><td><pre>    fruits: ['cherry', 'peack', 'watermelon'],</pre></td></tr><tr><td data-num="8"></td><td><pre>    friend: &#123; name: ' 樱岛麻衣 ', foo: [Function: foo] &#125;,</pre></td></tr><tr><td data-num="9"></td><td><pre>    foo: [Function: foo]</pre></td></tr><tr><td data-num="10"></td><td><pre>  &#125;,</pre></td></tr><tr><td data-num="11"></td><td><pre>  foo: [Function: foo],</pre></td></tr><tr><td data-num="12"></td><td><pre>  'Sun Feb 13 2022 14:52:05 GMT+0800 (中国标准时间)': 2022-02-13T06:52:05.892Z,</pre></td></tr><tr><td data-num="13"></td><td><pre>  symboLain: Symbol (saber),</pre></td></tr><tr><td data-num="14"></td><td><pre>  set: Set (4) &#123; ' 入间同学 ', ' 蝶祈 ', ' 枫 ', &#123; a: 1, b: 2 &#125; &#125;,</pre></td></tr><tr><td data-num="15"></td><td><pre>  map: Map (4) &#123;</pre></td></tr><tr><td data-num="16"></td><td><pre>    'age1' => 16,</pre></td></tr><tr><td data-num="17"></td><td><pre>    'age2' => 17,</pre></td></tr><tr><td data-num="18"></td><td><pre>    'age3' => 18,</pre></td></tr><tr><td data-num="19"></td><td><pre>    'obj' => &#123; a: 1, b: 2 &#125;</pre></td></tr><tr><td data-num="20"></td><td><pre>  &#125;,</pre></td></tr><tr><td data-num="21"></td><td><pre>  [Symbol (lain)]: Symbol (lain),</pre></td></tr><tr><td data-num="22"></td><td><pre>  [Symbol (saber)]: Symbol (saber)</pre></td></tr><tr><td data-num="23"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="24"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="28"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="29"></td><td><pre>  name: 'lain',</pre></td></tr><tr><td data-num="30"></td><td><pre>  friend: &#123;</pre></td></tr><tr><td data-num="31"></td><td><pre>    name: 'saber',</pre></td></tr><tr><td data-num="32"></td><td><pre>    fruits: ['cherry', 'peack', 'watermelon'],</pre></td></tr><tr><td data-num="33"></td><td><pre>    friend: &#123; name: ' 樱岛麻衣 ', foo: [Function: foo] &#125;,</pre></td></tr><tr><td data-num="34"></td><td><pre>    foo: [Function: foo]</pre></td></tr><tr><td data-num="35"></td><td><pre>  &#125;,</pre></td></tr><tr><td data-num="36"></td><td><pre>  foo: [Function: foo],</pre></td></tr><tr><td data-num="37"></td><td><pre>  'Sun Feb 13 2022 14:52:05 GMT+0800 (中国标准时间)': 2022-02-13T06:52:05.892Z,</pre></td></tr><tr><td data-num="38"></td><td><pre>  symboLain: Symbol (saber),</pre></td></tr><tr><td data-num="39"></td><td><pre>  set: Set (4) &#123; ' 入间同学 ', ' 蝶祈 ', ' 枫 ', &#123; a: 1, b: 2 &#125; &#125;,</pre></td></tr><tr><td data-num="40"></td><td><pre>  map: Map (4) &#123;</pre></td></tr><tr><td data-num="41"></td><td><pre>    'age1' => 16,</pre></td></tr><tr><td data-num="42"></td><td><pre>    'age2' => 17,</pre></td></tr><tr><td data-num="43"></td><td><pre>    'age3' => 18,</pre></td></tr><tr><td data-num="44"></td><td><pre>    'obj' => &#123; a: 1, b: 2 &#125;</pre></td></tr><tr><td data-num="45"></td><td><pre>  &#125;,</pre></td></tr><tr><td data-num="46"></td><td><pre>  [Symbol (lain)]: Symbol (lain),</pre></td></tr><tr><td data-num="47"></td><td><pre>  [Symbol (saber)]: Symbol (saber)</pre></td></tr><tr><td data-num="48"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="49"></td><td><pre>*/</span></pre></td></tr></table></figure><ul>
+<li>可以发现没有丝毫问题，接下来对 <code>Set</code>  进行代码测试</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>lain<span class="token punctuation">.</span>set<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// 这里对 lain 中 set 属性中的对象进行添加属性</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    item<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">3</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>set<span class="token punctuation">)</span> <span class="token comment">// Set (4) &#123; ' 入间同学 ', ' 蝶祈 ', ' 枫 ', &#123; a: 1, b: 2, c: 3 &#125; &#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">.</span>set<span class="token punctuation">)</span> <span class="token comment">// Set (4) &#123; ' 入间同学 ', ' 蝶祈 ', ' 枫 ', &#123; a: 1, b: 2 &#125; &#125;</span></pre></td></tr></table></figure><h3 id="最后对map进行代码测试"><a class="anchor" href="#最后对map进行代码测试">#</a> 最后对 <code>Map</code>  进行代码测试</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>lain<span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// 这里对 lain 中 map 属性中的对象进行添加属性</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    item<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">3</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">.</span>map<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="10"></td><td><pre>Map(4) &#123;</pre></td></tr><tr><td data-num="11"></td><td><pre>  'age1' => 16,</pre></td></tr><tr><td data-num="12"></td><td><pre>  'age2' => 17,</pre></td></tr><tr><td data-num="13"></td><td><pre>  'age3' => 18,</pre></td></tr><tr><td data-num="14"></td><td><pre>  'obj' => &#123; a: 1, b: 2, c: 3 &#125;</pre></td></tr><tr><td data-num="15"></td><td><pre>&#125;	</pre></td></tr><tr><td data-num="16"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">.</span>map<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="20"></td><td><pre>Map(4) &#123;</pre></td></tr><tr><td data-num="21"></td><td><pre>  'age1' => 16,</pre></td></tr><tr><td data-num="22"></td><td><pre>  'age2' => 17,</pre></td></tr><tr><td data-num="23"></td><td><pre>  'age3' => 18,</pre></td></tr><tr><td data-num="24"></td><td><pre>  'obj' => &#123; a: 1, b: 2 &#125;</pre></td></tr><tr><td data-num="25"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="26"></td><td><pre>*/</span></pre></td></tr></table></figure><ul>
+<li>
+<p><code>map</code>  也是没有问题的</p>
+</li>
+<li>
+<p>那么类型篇章算是完结了，但我们此时的代码是有 <code>bug</code>  的，至于是什么 <code>bug</code> ，看下面标题应该就知道了～</p>
+</li>
+</ul>
+<h2 id="deepclone-v3-循环引用"><a class="anchor" href="#deepclone-v3-循环引用">#</a> deepClone <sub>v3</sub> 循环引用</h2>
+<ul>
+<li>此时我们进行一步操作，用下面的代码对上面对象进行测试会发生什么呢？</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>lain<span class="token punctuation">.</span>lain <span class="token operator">=</span> lain</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> newLain <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li><code>Uncaught RangeError: Maximum call stack size exceeded</code>  没错，会发生栈溢出！</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 用于判断是否是对象类型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">function</span> <span class="token function">isObject</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> valueType <span class="token operator">=</span> <span class="token keyword">typeof</span> value</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span>valueType <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> valueType <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>originValue<span class="token punctuation">,</span> weakMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2.1 函数浅拷贝</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">/* if (typeof originValue == 'function') return originValue */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    </pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 2.2 函数深拷贝</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> originValue <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^function</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>originValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'return '</span> <span class="token operator">+</span> originValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'return '</span> <span class="token operator">+</span> <span class="token string">'function '</span> <span class="token operator">+</span> originValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">&#125;</span>  </pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token comment">// 3.Date 深拷贝</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token keyword">if</span><span class="token punctuation">(</span>originValue <span class="token keyword">instanceof</span> <span class="token class-name">Date</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>originValue<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token comment">// 4. 判断如果是 Symbol 的 value, 那么创建一个新的 Symbol</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> originValue <span class="token operator">===</span> <span class="token string">'symbol'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">Symbol</span><span class="token punctuation">(</span>originValue<span class="token punctuation">.</span>description<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token comment">// 5. 判断是否是 Set 类型 进行深拷贝</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>originValue <span class="token keyword">instanceof</span> <span class="token class-name">Set</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token comment">// 5.1 浅拷贝 直接进行解构即可</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token comment">// return new Set([...originValue])</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token comment">// 5.2 深拷贝</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token keyword">const</span> newSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> originValue<span class="token punctuation">)</span> newSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">deepClone</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> weakMap<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token keyword">return</span> newSet</pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  </pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token comment">// 6. 判断是否是 Map 类型 </span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>originValue <span class="token keyword">instanceof</span> <span class="token class-name">Map</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token comment">// 5.1 浅拷贝 直接进行解构即可</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token comment">// return new Map([...originValue])</span></pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token comment">// 5.2 深拷贝</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token keyword">const</span> newMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> originValue<span class="token punctuation">)</span> newMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token function">deepClone</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> weakMap<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> weakMap<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token keyword">return</span> newMap</pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>  <span class="token comment">// 9. 判断 weakMap 是否有值 有值的情况下就直接将值返回就可以</span></pre></td></tr><tr><td data-num="48"></td><td><pre>  <span class="token keyword">if</span><span class="token punctuation">(</span>weakMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> weakMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="49"></td><td><pre></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token comment">// 1. 如果不是对象类型 (函数也是对象) 则直接将当前值返回</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> originValue</pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre>  <span class="token comment">// 7. 判断传入的对象是数组，还是对象</span></pre></td></tr><tr><td data-num="54"></td><td><pre>  <span class="token keyword">const</span> newObject <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre>  <span class="token comment">// 10. 当 weakMap 没有值时，将 originValue 作为 key, newObject 作为 value</span></pre></td></tr><tr><td data-num="57"></td><td><pre>  weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>originValue<span class="token punctuation">,</span> newObject<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="58"></td><td><pre></pre></td></tr><tr><td data-num="59"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> originValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    weakMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>originValue<span class="token punctuation">,</span> newObject<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token comment">// 8 进行递归调用</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    newObject<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>originValue<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> weakMap<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="64"></td><td><pre></pre></td></tr><tr><td data-num="65"></td><td><pre>  <span class="token comment">// 4.1 对 Symbol 作为 key 进行特殊的处理 拿到对象上面的所有 Symbol key，以数组形式返回</span></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token keyword">const</span> symbolKeys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertySymbols</span><span class="token punctuation">(</span>originValue<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="67"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> sKey <span class="token keyword">of</span> symbolKeys<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token comment">// 4.2 这里没有必要创建一个新的 Symbol</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token comment">// const newSKey = Symbol(sKey.description)</span></pre></td></tr><tr><td data-num="71"></td><td><pre></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token comment">// 4.3 直接将原来的 Symbol key 拷贝到新对象上就可以了</span></pre></td></tr><tr><td data-num="73"></td><td><pre>    newObject<span class="token punctuation">[</span>sKey<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>originValue<span class="token punctuation">[</span>sKey<span class="token punctuation">]</span><span class="token punctuation">,</span> weakMap<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="74"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="75"></td><td><pre></pre></td></tr><tr><td data-num="76"></td><td><pre>  <span class="token keyword">return</span> newObject</pre></td></tr><tr><td data-num="77"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>继续用上面的代码进行测试，建议用 <code>浏览器测试</code></li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>lain<span class="token punctuation">.</span>lain <span class="token operator">=</span> lain</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> newLain <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 没有溢栈 可自行去测</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lain<span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="6"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newLain<span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>此时代码就没有问题了，那么深拷贝篇到此就结束了～</li>
+</ul>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" rel="tag"><i class="ic i-tag"></i> JavaScript 手写原理</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-02-13 15:16:57" itemprop="dateModified" datetime="2022-02-13T15:16:57+08:00">2022-02-13</time>
+  </span>
+  <span id="2021/12/22/JavaScript/手写原理/deepClone/" class="item leancloud_visitors" data-flag-title="JavaScript 实现深拷贝(deepClone)" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/" title="JavaScript 实现深拷贝(deepClone)">https://nekoaimer.github.io/nekoaimer.github.io/2021/12/22/JavaScript/手写原理/deepClone/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicli3sbvtj20zk0m8x6p.jpg" title="JavaScript 手写节流函数(throttle)">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 手写节流函数(throttle)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciszlczyj20zk0m816d.jpg" title="JavaScript 事件总线 (EventBus)">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 事件总线 (EventBus)</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text"> 自定义深拷贝函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json-%E5%AE%9E%E7%8E%B0%E4%BC%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.</span> <span class="toc-text"> JSON 实现伪深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deepclone-v1-%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text"> deepClone v1 基本实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deepclone-v2-%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text"> deepClone v2 其他类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%9B%AE%E6%A0%87%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.1.</span> <span class="toc-text"> 测试目标对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-function"><span class="toc-number">4.2.</span> <span class="toc-text"> 测试  Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-date"><span class="toc-number">4.3.</span> <span class="toc-text"> 测试  Date</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-symbol"><span class="toc-number">4.4.</span> <span class="toc-text"> 测试  Symbol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%AF%B9map%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95"><span class="toc-number">4.5.</span> <span class="toc-text"> 最后对 Map  进行代码测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deepclone-v3-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text"> deepClone v3 循环引用</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" rel="bookmark" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></li><li><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" rel="bookmark" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></li><li class="active"><a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/" rel="bookmark" title="JavaScript 实现深拷贝(deepClone)">JavaScript 实现深拷贝(deepClone)</a></li><li><a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" rel="bookmark" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></li><li><a href="/nekoaimer.github.io/2021/12/26/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/waterFall/" rel="bookmark" title="JavaScript 手写瀑布流 (waterFall)">JavaScript 手写瀑布流 (waterFall)</a></li><li><a href="/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" rel="bookmark" title="JavaScript 实现 Mustache 模板引擎">JavaScript 实现 Mustache 模板引擎</a></li><li><a href="/nekoaimer.github.io/2022/01/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/snabbdom/" rel="bookmark" title="JavaScript 实现 diff 算法">JavaScript 实现 diff 算法</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">88</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">9</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">15</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/20/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/" title="In data structure">data structure</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/" title="优先级队列实现 (PriorityQueue)">优先级队列实现 (PriorityQueue)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" title="error-handling">error-handling</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/28/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/use-Mustache/" title="JavaScript Mustache 模板引擎用法">JavaScript Mustache 模板引擎用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/30/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" title="JavaScript 面向对象 さん">JavaScript 面向对象 さん</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/18/Vue/Vue3/OptionsAPI/voa_dynamic_components/" title="Vue3 component 和 keep-alive">Vue3 component 和 keep-alive</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/css/" title="In CSS">CSS</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/10/css/CSS%20Layout/css_layout_center/" title="css 居中布局">css 居中布局</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/30/Vue/Vue3/CompositionAPI/vca_provide&inject/" title="Vue3 provide &amp; inject">Vue3 provide & inject</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">419k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">6:21</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/12/22/JavaScript/手写原理/deepClone/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
