@@ -1,0 +1,870 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Ajax" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/07/Ajax/01-Ajax/">
+
+
+
+  <title>
+李南江老师 Ajax 笔记 いち |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">李南江老师 Ajax 笔记 いち
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-03-07 14:22:49">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-03-07T14:22:49+08:00">2022-03-07</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>4.9k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>4 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/07/Ajax/01-Ajax/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="基本概念"><a class="anchor" href="#基本概念">#</a> 基本概念</h2>
+<ul>
+<li>
+<p>什么是服务器？</p>
+<ul>
+<li>
+<p>服务器也是电脑，只不过是一台 24 小时不断电，不关机的电脑</p>
+</li>
+<li>
+<p>根据提供的服务功能不同：文件服务器、邮件服务器、Web 服务器等等；</p>
+</li>
+<li>
+<p>简而言之：服务器其实就是一台 &quot;提供了某种服务功能&quot; 的超级电脑</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何让电脑能够提供某种服务？</p>
+<ul>
+<li>
+<p>如何让电脑可以聊天？听歌？浏览网页？</p>
+</li>
+<li>
+<p>想让电脑提供聊天服务，可以安装相应的聊天软件，例如：QQ / 旺旺...</p>
+</li>
+<li>
+<p>想让电脑可以提供听歌服务，可以安装相应音乐软件，例如：酷我 / 酷狗...</p>
+</li>
+<li>
+<p>想让电脑可以提供浏览网页服务，可以安装相应浏览网页软件，例如：谷歌 / 欧朋..</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何让电脑提供管理网站的服务？</p>
+</li>
+<li>
+<p>安装 Web 服务相关软件，例如: Apache、IIS、Tomcat、Nginx、NodeJS 等；</p>
+</li>
+<li>
+<p>安装了 Web 服务软件的电脑，我们称之为 &quot;Web 服务器&quot;</p>
+</li>
+<li>
+<p>Web 服务器软件：Apache、IIS、Tomcat、Nginx、NodeJS 等；</p>
+</li>
+</ul>
+<h2 id="什么是cs架构clientserver"><a class="anchor" href="#什么是cs架构clientserver">#</a> 什么是 C/S 架构 (Client/Server)</h2>
+<ul>
+<li>
+<p>对于 C/S 架构，最为常见的例子就是网络游戏，例如 &quot;魔兽世界&quot; 如果不联网无法使用，你在软件内所做的所有操作通过互联网能够传递到其他玩家身上</p>
+</li>
+<li>
+<p>优点：性能较高 / 界面酷炫 / 用户体验好</p>
+</li>
+<li>
+<p>缺点：更新软件 / 重量级</p>
+</li>
+</ul>
+<h2 id="什么是bs架构browserserver"><a class="anchor" href="#什么是bs架构browserserver">#</a> 什么是 B/S 架构 (Browser/Server)</h2>
+<ul>
+<li>
+<p>对于 B/S 架构，现在所有的网站都是 B/S 架构，较为常见的例子有百度，淘宝，网易云音乐等等，所有只需要通过浏览器即可使用</p>
+</li>
+<li>
+<p>优点：更新软件 / 轻量级 / 用户体验稍差</p>
+</li>
+<li>
+<p>缺点：性能较低 / 兼容问题</p>
+</li>
+</ul>
+<h2 id="http"><a class="anchor" href="#http">#</a> HTTP</h2>
+<ul>
+<li>HTTP（hypertext transport protocol）协议『超文本传输协议』，协议详细规定了浏览器和万维网服务器之间互相通信的规则。</li>
+</ul>
+<h3 id="http请求头"><a class="anchor" href="#http请求头">#</a> HTTP 请求头</h3>
+<ul>
+<li>
+<p>User-Agent：浏览器的具体类型　　如：User-Agent：Mozilla/5.0 (Windows NT 6.1; rv:17.0) Gecko/20100101 Firefox/17.0</p>
+</li>
+<li>
+<p>Accept：浏览器支持哪些数据类型　　如：Accept: text/html,application/xhtml+xml,application/xml;q=0.9;</p>
+</li>
+<li>
+<p>Accept-Charset：浏览器采用的是哪种编码　　如：Accept-Charset: ISO-8859-1</p>
+</li>
+<li>
+<p>Accept-Encoding：浏览器支持解码的数据压缩格式　　如：Accept-Encoding: gzip, deflate</p>
+</li>
+<li>
+<p>Accept-Language：浏览器的语言环境　　如：Accept-Language zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3</p>
+</li>
+<li>
+<p>Host：请求的主机名，允许多个域名同处一个 IP 地址，即虚拟主机。Host:www.baidu.com</p>
+</li>
+<li>
+<p>Connection：表示是否需要持久连接。Keep-Alive/close，HTTP1.1 默认是持久连接，它可以利用持久连接的优点，当页面包含多个元素时（例如 Applet，图片），显著地减少下载所需要的时间。要实现这一点，Servlet 需要在应答中发送一个 Content-Length 头，最简单的实现方法是：先把内容写入 ByteArrayOutputStream，然后在正式写出内容之前计算它的大小。如：Connection: Keep-Alive</p>
+</li>
+<li>
+<p>Content-Length：表示请求消息正文的长度。对于 POST 请求来说 Content-Length 必须出现。</p>
+</li>
+<li>
+<p>Content-Type：WEB 服务器告诉浏览器自己响应的对象的类型和字符集。例如：Content-Type: text/html; charset='gb2312'</p>
+</li>
+<li>
+<p>Content-Encoding：WEB 服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip</p>
+</li>
+<li>
+<p>Content-Language：WEB 服务器告诉浏览器自己响应的对象的语言。</p>
+</li>
+<li>
+<p>Cookie：最常用的请求头，浏览器每次都会将 cookie 发送到服务器上，允许服务器在客户端存储少量数据。</p>
+</li>
+<li>
+<p>Referer：包含一个 URL，用户从该 URL 代表的页面出发访问当前请求的页面。服务器能知道你是从哪个页面过来的。Referer: <span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb20v">http://www.baidu.com/</span></p>
+</li>
+</ul>
+<h3 id="http响应头"><a class="anchor" href="#http响应头">#</a> HTTP 响应头</h3>
+<ul>
+<li>
+<p>Server:WEB 服务器表明自己是什么软件及版本等信息。例如：Server：Apache/2.0.61 (Unix)</p>
+</li>
+<li>
+<p>Accept-Ranges:WEB 服务器表明自己是否接受获取其某个实体的一部分（比如文件的一部分）的请求。bytes：表示接受，none：表示不接受</p>
+</li>
+<li>
+<p>Content-Type:WEB 服务器告诉浏览器自己响应的对象的类型。例如：Content-Type：application/xml</p>
+</li>
+<li>
+<p>Etag: 就是一个对象（比如 URL）的标志值，就一个对象而言，比如一个 html 文件，如果被修改了，其 Etag 也会别修改，所以，ETag 的作用跟 Last-Modified 的作用差不多，主要供 WEB 服务器判断一个对象是否改变了。比如前一次请求某个 html 文件时，获得了其 ETag，当这次又请求这个文件时，浏览器就会把先前获得 ETag 值发送给 WEB 服务器，然后 WEB 服务器会把这个 ETag 跟该文件的当前 ETag 进行对比，然后就知道这个文件有没有改变了。</p>
+</li>
+<li>
+<p>Allow: 服务器支持哪些请求方法（如 GET、POST 等）</p>
+</li>
+<li>
+<p>Location: 表示客户应当到哪里去提取文档，用于将接收端定位到资源的位置（URL）上。Location 通常不是直接设置的，而是通过 HttpServletResponse 的 sendRedirect 方法，该方法同时设置状态代码为 302。</p>
+</li>
+<li>
+<p>Content-Base: 解析主体中的相对 URL 时使用的基础 URL。</p>
+</li>
+<li>
+<p>Content-Encoding:WEB 服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip</p>
+</li>
+<li>
+<p>Content-Language:WEB 服务器告诉浏览器理解主体时最适宜使用的自然语言。</p>
+</li>
+<li>
+<p>Content-Length:WEB 服务器告诉浏览器自己响应的对象的长度或尺寸，例如：Content-Length: 26012</p>
+</li>
+<li>
+<p>Content-Location: 资源实际所处的位置。</p>
+</li>
+<li>
+<p>Content-MD5: 主体的 MD5 校验和。</p>
+</li>
+<li>
+<p>Content-Range: 实体头用于指定整个实体中的一部分的插入位置，他也指示了整个实体的长度。在服务器向客户返回一个部分响应，它必须描述响应覆盖的范围和整个实体长度。一般格式： Content-Range:bytes-unitSPfirst-byte-pos-last-byte-pos/entity-legth。例如，传送头 500 个字节次字段的形式：Content-Range:bytes0- 499/1234 如果一个 http 消息包含此节（例如，对范围请求的响应或对一系列范围的重叠请求），Content-Range 表示传送的范围，Content-Length 表示实际传送的字节数。</p>
+</li>
+<li>
+<p>Expires:WEB 服务器表明该实体将在什么时候过期，对于过期了的对象，只有在跟 WEB 服务器验证了其有效性后，才能用来响应客户请求。是 HTTP/1.0 的头部。例如：Expires：Sat, 23 May 2009 10:02:12 GMT</p>
+</li>
+<li>
+<p>Last-Modified:WEB 服务器认为对象的最后修改时间，比如文件的最后修改时间，动态页面的最后产生时间等等。例如：Last-Modified：Tue, 06 May 2008 02:42:43 GMT</p>
+</li>
+</ul>
+<h3 id="http-常见状态码"><a class="anchor" href="#http-常见状态码">#</a> http 常见状态码</h3>
+<ul>
+<li>100 Continue  继续，一般在发送 post 请求时，已发送了 http header 之后服务端将返回此信息，表示确认，之后发送具体参数信息</li>
+<li>200 OK   正常返回信息</li>
+<li>201 Created  请求成功并且服务器创建了新的资源</li>
+<li>202 Accepted  服务器已接受请求，但尚未处理</li>
+<li>301 Moved Permanently  请求的网页已永久移动到新位置</li>
+<li>302 Found  临时性重定向</li>
+<li>303 See Other  临时性重定向，且总是使用 GET 请求新的 URI</li>
+<li>304 Not Modified  自从上次请求后，请求的网页未修改过</li>
+<li>400 Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求</li>
+<li>401 Unauthorized  请求未授权</li>
+<li>403 Forbidden  禁止访问</li>
+<li>404 Not Found  找不到如何与 URI 相匹配的资源</li>
+<li>500 Internal Server Error  最常见的服务器端错误</li>
+<li>503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）</li>
+</ul>
+<h2 id="web服务器搭建"><a class="anchor" href="#web服务器搭建">#</a> Web 服务器搭建</h2>
+<h3 id="什么是wampserver软件"><a class="anchor" href="#什么是wampserver软件">#</a> 什么是 WAMPServer 软件？</h3>
+<ul>
+<li>W: Windows 操作系统</li>
+<li>A: Apache 世界排名第一的服务器软件，特点是简单，速度快，性能稳定</li>
+<li>M: MySQL 开源免费的数据库软件，特点是体积小、速度快、使用成本低</li>
+<li>P: PHP 超文本预处理器，直接将代码嵌入 HTML 文档中执行，特点是简单易学，容易上手</li>
+</ul>
+<h3 id="如何搭建apache服务器"><a class="anchor" href="#如何搭建apache服务器">#</a> 如何搭建 Apache 服务器？</h3>
+<ul>
+<li>
+<p>安装 WAMPServer</p>
+</li>
+<li>
+<p>点击 Next</p>
+</li>
+<li>
+<p>选择安装路径 (注意：路径中不要出现中文)</p>
+</li>
+<li>
+<p>勾选两个方框，点击 next 继续安装</p>
+</li>
+<li>
+<p>点击 install 开始安装</p>
+</li>
+<li>
+<p>安装完毕以后点击 finish 即可启动 wamp</p>
+</li>
+</ul>
+<h3 id="测试访问"><a class="anchor" href="#测试访问">#</a> 测试访问</h3>
+<ul>
+<li>打开浏览器输入 127.0.0.1 查看显示的内容</li>
+<li>如何修改默认端口号？</li>
+<li>在 httpd.conf 文件中搜索 Listen , 改为你想要的数字即可</li>
+<li>重启 WAMP</li>
+</ul>
+<h3 id="如何运行编写好的php文件"><a class="anchor" href="#如何运行编写好的php文件">#</a> 如何运行编写好的 PHP 文件？</h3>
+<ul>
+<li>
+<p>因为 PHP 是服务端编程语言，所以要在服务端运行</p>
+</li>
+<li>
+<p>php 文件名称不能有中文</p>
+</li>
+<li>
+<p>php 文件必须放到服务器文件夹下</p>
+</li>
+<li>
+<p>通过 ip 找到服务器文件夹，选中 php 文件访问</p>
+</li>
+</ul>
+<h3 id="服务端返回浏览器的是什么"><a class="anchor" href="#服务端返回浏览器的是什么">#</a> 服务端返回浏览器的是什么？</h3>
+<ul>
+<li>
+<p>php 程序的执行结果</p>
+</li>
+<li>
+<p>注意：执行结果中有中文，必须在 php 文件顶部设置</p>
+</li>
+<li>
+<p>header(&quot;content-type:text/html; charset=utf-8&quot;);</p>
+</li>
+<li>
+<p>浏览器访问 http 服务器，接收到响应时，会根据响应报文头的内容进行一些具体的操作，在 php 中，我们能够使用 header 来设置这些内容</p>
+</li>
+</ul>
+<h2 id="phppai-huang-pian-基础"><a class="anchor" href="#phppai-huang-pian-基础">#</a> PHP (pai huang pian) 基础</h2>
+<ul>
+<li>PHP 基础语法大部分和 JS 差不多 (切菜)</li>
+</ul>
+<h3 id="php中如何定义变量"><a class="anchor" href="#php中如何定义变量">#</a> php 中如何定义变量？</h3>
+<figure class="highlight php"><figcaption data-lang="PHP"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token php language-php"><span class="token delimiter important">&lt;?php</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token variable">$num</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token delimiter important">?></span></span></pre></td></tr></table></figure><h3 id="php中如何打印内容"><a class="anchor" href="#php中如何打印内容">#</a> php 中如何打印内容</h3>
+<ul>
+<li>注意点：后端编写的代码不能直接运行，只能放到服务器对应的文件夹下，通过服务器运行</li>
+<li>如何通过服务器运行：通过 ip 地址 (127.0.0.1) 找到服务器对应的文件夹，然后再找到对应的文件运行</li>
+</ul>
+<figure class="highlight php"><figcaption data-lang="PHP"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token php language-php"><span class="token delimiter important">&lt;?php</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">echo</span> <span class="token variable">$num</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token delimiter important">?></span></span></pre></td></tr></table></figure><h3 id="php中如何定义集合"><a class="anchor" href="#php中如何定义集合">#</a> php 中如何定义集合</h3>
+<figure class="highlight php"><figcaption data-lang="PHP"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token php language-php"><span class="token delimiter important">&lt;?php</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">echo</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  </pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token variable">$dict</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"name"</span> <span class="token operator">=></span> <span class="token string double-quoted-string">"lnj"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"age"</span> <span class="token operator">=></span> <span class="token string double-quoted-string">"33"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$dict</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token delimiter important">?></span></span></pre></td></tr></table></figure><h3 id="php中的分支循环语句"><a class="anchor" href="#php中的分支循环语句">#</a> php 中的分支循环语句</h3>
+<figure class="highlight php"><figcaption data-lang="PHP"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token php language-php"><span class="token delimiter important">&lt;?php</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// if</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token variable">$age</span> <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$age</span> <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"成年"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"未成年"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span>  </pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 三目</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$age</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string double-quoted-string">"成年人"</span> <span class="token punctuation">:</span> <span class="token string double-quoted-string">"未成年人"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">echo</span> <span class="token variable">$res</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token comment">// switch</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token keyword">case</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"非人类"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token keyword">case</span> <span class="token number">18</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"成年人"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token keyword">default</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"未成年人"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token comment">// for</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">echo</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;br>"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre> <span class="token comment">// while</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  <span class="token variable">$index</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$index</span> <span class="token operator">&lt;</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token keyword">echo</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token variable">$index</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;br>"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token variable">$index</span><span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token delimiter important">?></span></span></pre></td></tr></table></figure><p><code>b站视频教程</code> ：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTdXNDExMzdqbg==">https://www.bilibili.com/video/BV17W41137jn</span></p>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/Ajax/" rel="tag"><i class="ic i-tag"></i> Ajax</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-03-07 18:10:32" itemprop="dateModified" datetime="2022-03-07T18:10:32+08:00">2022-03-07</time>
+  </span>
+  <span id="2022/03/07/Ajax/01-Ajax/" class="item leancloud_visitors" data-flag-title="李南江老师 Ajax 笔记 いち" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/07/Ajax/01-Ajax/" title="李南江老师 Ajax 笔记 いち">https://nekoaimer.github.io/nekoaimer.github.io/2022/03/07/Ajax/01-Ajax/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="JavaScript 实现数组扁平化">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 实现数组扁平化</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2022/03/07/Ajax/02-Ajax/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfdu6exj20zk0m87hw.jpg" title="李南江老师 Ajax 笔记 に">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>李南江老师 Ajax 笔记 に</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFcs%E6%9E%B6%E6%9E%84clientserver"><span class="toc-number">2.</span> <span class="toc-text"> 什么是 C&#x2F;S 架构 (Client&#x2F;Server)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFbs%E6%9E%B6%E6%9E%84browserserver"><span class="toc-number">3.</span> <span class="toc-text"> 什么是 B&#x2F;S 架构 (Browser&#x2F;Server)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-number">4.</span> <span class="toc-text"> HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="toc-number">4.1.</span> <span class="toc-text"> HTTP 请求头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="toc-number">4.2.</span> <span class="toc-text"> HTTP 响应头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">4.3.</span> <span class="toc-text"> http 常见状态码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA"><span class="toc-number">5.</span> <span class="toc-text"> Web 服务器搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFwampserver%E8%BD%AF%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text"> 什么是 WAMPServer 软件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAapache%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text"> 如何搭建 Apache 服务器？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AE"><span class="toc-number">5.3.</span> <span class="toc-text"> 测试访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84php%E6%96%87%E4%BB%B6"><span class="toc-number">5.4.</span> <span class="toc-text"> 如何运行编写好的 PHP 文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BF%94%E5%9B%9E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">5.5.</span> <span class="toc-text"> 服务端返回浏览器的是什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phppai-huang-pian-%E5%9F%BA%E7%A1%80"><span class="toc-number">6.</span> <span class="toc-text"> PHP (pai huang pian) 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-number">6.1.</span> <span class="toc-text"> php 中如何定义变量？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E4%B8%AD%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9"><span class="toc-number">6.2.</span> <span class="toc-text"> php 中如何打印内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E9%9B%86%E5%90%88"><span class="toc-number">6.3.</span> <span class="toc-text"> php 中如何定义集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E4%B8%AD%E7%9A%84%E5%88%86%E6%94%AF%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">6.4.</span> <span class="toc-text"> php 中的分支循环语句</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">96</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">9</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">21</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2022/03/07/Ajax/02-Ajax/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/26/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/waterFall/" title="JavaScript 手写瀑布流 (waterFall)">JavaScript 手写瀑布流 (waterFall)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/12/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/18/Vue/Vue3/OptionsAPI/voa_dynamic_components/" title="Vue3 component 和 keep-alive">Vue3 component 和 keep-alive</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/03/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" title="JavaScript name &amp; this">JavaScript name & this</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/31/Vue/Vue%20Hmilyl/01-Hmilyl/" title="Vue Hmilyl いち">Vue Hmilyl いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" title="JavaScript async &amp; await">JavaScript async & await</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" title="fill &amp; join &amp; includex 原理">fill & join & includex 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" title="every &amp; some &amp; find &amp; findIndex 原理">every & some & find & findIndex 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/05/JavaScript/Advanced/Storage/" title="浏览器存储方案 Storage">浏览器存储方案 Storage</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">470k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">7:07</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/03/07/Ajax/01-Ajax/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
