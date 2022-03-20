@@ -1,0 +1,707 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript,JavaScript 手写原理" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/">
+
+
+
+  <title>
+instanceof & new 原理 - JavaScript 手写原理 - JavaScript |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">instanceof & new 原理
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-01-27 10:44:52">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-27T10:44:52+08:00">2022-01-27</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>3.6k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="item" rel="index" title="In JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" itemprop="item" rel="index" title="In JavaScript 手写原理"><span itemprop="name">JavaScript 手写原理</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="instanceof-原理"><a class="anchor" href="#instanceof-原理">#</a> instanceof 原理</h2>
+<ul>
+<li><strong> <code>instanceof</code> </strong> <strong>运算符</strong>用于检测构造函数的  <code>prototype</code>  属性是否出现在某个实例对象的原型链上。</li>
+<li>语法  <code>object instanceof constructor</code></li>
+<li>参数  <code>object(某个实例对象)</code>  、 <code>constructor(某个构造函数)</code></li>
+<li>本质上  <code>instanceof</code>  运算符用来检测  <code>constructor.prototype </code> 是否存在于参数  <code>object</code>  的原型链上。</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> origin</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 这里需要加层判断</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> target <span class="token operator">!==</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 循环 当 target 为 null 时 (代表已经达到顶层原型已经指向 null)，那么停止循环</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">while</span> <span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>Reflect<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token operator">===</span> origin<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      </pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 否则再取出 target 的隐式原型对象</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    target <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">return</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="instanceof-测试"><a class="anchor" href="#instanceof-测试">#</a> instanceof 测试</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span></pre></td></tr><tr><td data-num="3"></td><td><pre>            </pre></td></tr><tr><td data-num="4"></td><td><pre>f <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span>    <span class="token comment">// true</span></pre></td></tr><tr><td data-num="5"></td><td><pre>f <span class="token keyword">instanceof</span> <span class="token class-name">Object</span>   <span class="token comment">// true</span></pre></td></tr><tr><td data-num="6"></td><td><pre>f <span class="token keyword">instanceof</span> <span class="token class-name">Function</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            </pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token string">'abc'</span> <span class="token keyword">instanceof</span> <span class="token class-name">String</span>        <span class="token comment">// false</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token number">123</span> <span class="token keyword">instanceof</span> <span class="token class-name">Number</span>          <span class="token comment">// false</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">instanceof</span> <span class="token class-name">Array</span>            <span class="token comment">// true</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token keyword">instanceof</span> <span class="token class-name">Object</span>           <span class="token comment">// true</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">Object</span>   <span class="token comment">// true</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">Function</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">Array</span>    <span class="token comment">// false</span></pre></td></tr></table></figure><h3 id="_instanceof-测试"><a class="anchor" href="#_instanceof-测试">#</a> _instanceof 测试</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> Foo<span class="token punctuation">)</span>      <span class="token comment">// true</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> Object<span class="token punctuation">)</span>   <span class="token comment">// true</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> Function<span class="token punctuation">)</span> <span class="token comment">// false</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">,</span> String<span class="token punctuation">)</span>      <span class="token comment">// false</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> Number<span class="token punctuation">)</span>        <span class="token comment">// false</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Array<span class="token punctuation">)</span>          <span class="token comment">// true</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> Object<span class="token punctuation">)</span>         <span class="token comment">// true</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> Object<span class="token punctuation">)</span>   <span class="token comment">// true</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> Function<span class="token punctuation">)</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token function">_instanceof</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> Array<span class="token punctuation">)</span>   <span class="token comment">// false</span></pre></td></tr></table></figure><h2 id="new-原理"><a class="anchor" href="#new-原理">#</a> new 原理</h2>
+<ul>
+<li>
+<p><code>new</code>  实际做了什么？</p>
+<ul>
+<li>
+<p>创建一个新的空对象</p>
+</li>
+<li>
+<p>把新对象的原型绑定到构造函数的原型上</p>
+</li>
+<li>
+<p>构造函数被执行，执行过程中的 <code>this</code>  被绑定在新的对象上</p>
+</li>
+<li>
+<p>返回这个新对象 (构造函数中一般不会显示返回， 但有时也可以 return this)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="objectsetprototypeof-实现"><a class="anchor" href="#objectsetprototypeof-实现">#</a> Object.setPrototypeOf 实现</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">_new</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1. 创建新的空对象</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 2. 把新对象的原型绑定到构造函数的原型上</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  Object<span class="token punctuation">.</span><span class="token function">setPrototypeOf</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> fn<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 3. 构造函数被执行，绑定 `this` 与传入参数在新的对象上，并获取 obj 函数执行的结果</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 4. 如果执行结果有返回值并且是一个对象，返回执行的结果，否则，返回新创建的对象 </span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object Object]'</span> <span class="token operator">?</span> result <span class="token operator">:</span> obj</pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>测试</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">_new</span><span class="token punctuation">(</span>Foo<span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="5"></td><td><pre>foo <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span> <span class="token comment">// true</span></pre></td></tr></table></figure><h3 id="object-create-实现"><a class="anchor" href="#object-create-实现">#</a> Object. create 实现</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">_new</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1. 基于 obj 的原型创建一个新的对象</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>fn<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 2. 添加属性到新创建的 newObj 上，并获取 obj 函数执行的结果</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 3. 如果执行结果有返回值并且是一个对象，返回执行的结果，否则，返回新创建的对象</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object Object]'</span> <span class="token operator">?</span> result <span class="token operator">:</span> obj</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>测试</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">_new</span><span class="token punctuation">(</span>Foo<span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="5"></td><td><pre>foo <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span> <span class="token comment">// true</span></pre></td></tr></table></figure><h2 id="typeof-原理"><a class="anchor" href="#typeof-原理">#</a> typeof 原理</h2>
+<ul>
+<li>
+<p><code>typeof</code>  一般被用于判断一个变量的类型，我们可以利用  <code>typeof</code>  来判断 <code>number</code> ,   <code>string</code> ,   <code>object</code> ,   <code>boolean</code> ,   <code>function</code> ,  <code>undefined</code> ,   <code>symbol</code>  这七种类型</p>
+</li>
+<li>
+<p>这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候， <code>typeof</code>  能比较清楚的告诉我们具体是哪一类的类型。</p>
+</li>
+<li>
+<p>但是，很遗憾的一点是， <code>typeof</code>  在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object</p>
+</li>
+<li>
+<p>, 比如我们都知道  <code>typeof(null) === 'object'</code> ，关于原因，在小黄书《你不知道的<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9wcm9kdWN0L3Ntcz9mcm9tPTEwNjgw"> JavaScript</span>》中有这么一段解释：</p>
+<blockquote>
+<p>原理是这样的， 不同的对象在底层都表示为二进制， 在 JavaScript 中二进制前三位都为 0 的话会被判断为 object 类型， null 的二进制表示是全 0， 自然前三位也是 0， 所以执行 typeof 时会返回 “object”。</p>
+</blockquote>
+</li>
+<li>
+<p>javascript 中的  <code>null</code> ：既是对象，又不是对象，史称「薛定谔的对象」。</p>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">typeof</span> <span class="token keyword">null</span> <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">null</span> <span class="token keyword">instanceof</span> <span class="token class-name">Object</span>  <span class="token comment">// false</span></pre></td></tr></table></figure><ul>
+<li>如果我们这样比较</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">null</span> <span class="token keyword">instanceof</span> <span class="token class-name">null</span></pre></td></tr></table></figure><ul>
+<li>会抛出异常： <code>TypeError: invalid 'instanceof' operand null</code></li>
+<li>在 javascript 的最初版本中，使用的 32 位系统，为了性能考虑使用低位存储了变量的类型信息：
+<ul>
+<li>000：对象</li>
+<li>1：整数</li>
+<li>010：浮点数</li>
+<li>100：字符串</li>
+<li>110：布尔</li>
+</ul>
+</li>
+<li>有 2 个值比较特殊：
+<ul>
+<li>undefined：用 - （−2^30）表示。</li>
+<li>null：对应机器码的 NULL 指针，一般是全零。</li>
+</ul>
+</li>
+<li>在第一版的 javascript 实现中，判断类型的代码是这么写的：</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">JSVAL_IS_VOID</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// (1)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    type <span class="token operator">=</span> <span class="token constant">JSTYPE_VOID</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">JSVAL_IS_OBJECT</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// (2)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    obj <span class="token operator">=</span> <span class="token constant">JSVAL_TO_OBJECT</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">&amp;&amp;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token punctuation">(</span>ops <span class="token operator">=</span> obj<span class="token operator">-</span><span class="token operator">></span>map<span class="token operator">-</span><span class="token operator">></span>ops<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            ops <span class="token operator">==</span> <span class="token operator">&amp;</span>js_ObjectOps</pre></td></tr><tr><td data-num="8"></td><td><pre>            <span class="token operator">?</span> <span class="token punctuation">(</span>clasp <span class="token operator">=</span> <span class="token constant">OBJ_GET_CLASS</span><span class="token punctuation">(</span>cx<span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            clasp<span class="token operator">-</span><span class="token operator">></span>call <span class="token operator">||</span> clasp <span class="token operator">==</span> <span class="token operator">&amp;</span>js_FunctionClass<span class="token punctuation">)</span> <span class="token comment">// (3,4)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            <span class="token operator">:</span> ops<span class="token operator">-</span><span class="token operator">></span>call <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// (3)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        type <span class="token operator">=</span> <span class="token constant">JSTYPE_FUNCTION</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        type <span class="token operator">=</span> <span class="token constant">JSTYPE_OBJECT</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">JSVAL_IS_NUMBER</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    type <span class="token operator">=</span> <span class="token constant">JSTYPE_NUMBER</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">JSVAL_IS_STRING</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    type <span class="token operator">=</span> <span class="token constant">JSTYPE_STRING</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">JSVAL_IS_BOOLEAN</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    type <span class="token operator">=</span> <span class="token constant">JSTYPE_BOOLEAN</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>判断是否为 undefined</li>
+<li>如果不是 undefined，判断是否为对象</li>
+<li>如果不是对象，判断是否为数字</li>
+<li>......</li>
+<li>这样一来， <code>null</code>  就出了一个 bug。根据 type tags 信息，低位是  <code>000</code> ，因此  <code>null</code>  被判断成了一个对象。这就是为什么  <code>typeof null</code>  的返回值是  <code>object</code> 。</li>
+<li>摘自：<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xMzYyNjYw">https://cloud.tencent.com/developer/article/1362660</span></li>
+</ul>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" rel="tag"><i class="ic i-tag"></i> JavaScript 手写原理</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-03-17 13:13:40" itemprop="dateModified" datetime="2022-03-17T13:13:40+08:00">2022-03-17</time>
+  </span>
+  <span id="2022/01/27/JavaScript/手写原理/instanceof-new-typeof/" class="item leancloud_visitors" data-flag-title="instanceof & new 原理" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/" title="instanceof &amp; new 原理">https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/手写原理/instanceof-new-typeof/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="fill &amp; join &amp; includex 原理">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>fill & join & includex 原理</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxfdlttj20zk0m8npd.jpg" title="JavaScript 实现数组扁平化">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 实现数组扁平化</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#instanceof-%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text"> instanceof 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof-%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.</span> <span class="toc-text"> instanceof 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_instanceof-%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.</span> <span class="toc-text"> _instanceof 测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text"> new 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#objectsetprototypeof-%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.</span> <span class="toc-text"> Object.setPrototypeOf 实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#object-create-%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text"> Object. create 实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typeof-%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text"> typeof 原理</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" rel="bookmark" title="Mini-Vue 实现">Mini-Vue 实现</a></li><li><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" rel="bookmark" title="call & apply & bind 原理">call & apply & bind 原理</a></li><li><a href="/nekoaimer.github.io/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" rel="bookmark" title="JavaScript 柯里化实现">JavaScript 柯里化实现</a></li><li><a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" rel="bookmark" title="Javascript 响应式原理">Javascript 响应式原理</a></li><li><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" rel="bookmark" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></li><li><a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></li><li><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" rel="bookmark" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></li><li><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" rel="bookmark" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></li><li><a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/" rel="bookmark" title="JavaScript 实现深拷贝(deepClone)">JavaScript 实现深拷贝(deepClone)</a></li><li><a href="/nekoaimer.github.io/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" rel="bookmark" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></li><li><a href="/nekoaimer.github.io/2021/12/26/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/waterFall/" rel="bookmark" title="JavaScript 手写瀑布流 (waterFall)">JavaScript 手写瀑布流 (waterFall)</a></li><li><a href="/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" rel="bookmark" title="JavaScript 实现 Mustache 模板引擎">JavaScript 实现 Mustache 模板引擎</a></li><li><a href="/nekoaimer.github.io/2022/01/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/snabbdom/" rel="bookmark" title="JavaScript 实现 Snabbdom 库">JavaScript 实现 Snabbdom 库</a></li><li><a href="/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" rel="bookmark" title="forEach & filter & map & reduce 原理">forEach & filter & map & reduce 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" rel="bookmark" title="every & some & find & findIndex 原理">every & some & find & findIndex 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="bookmark" title="fill & join & includex 原理">fill & join & includex 原理</a></li><li class="active"><a href="/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/" rel="bookmark" title="instanceof & new 原理">instanceof & new 原理</a></li><li><a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" rel="bookmark" title="JavaScript 实现数组扁平化">JavaScript 实现数组扁平化</a></li><li><a href="/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/" rel="bookmark" title="JavaScript 实现图片懒加载">JavaScript 实现图片懒加载</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">108</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">11</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">23</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includex-join/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/24/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" title="JavaScript 实现数组扁平化">JavaScript 实现数组扁平化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/16/data-structures-and-algorithms/algorithm/problems/easy/HexBinDecOct/" title="进制转换">进制转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/20/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/throttle/" title="JavaScript 手写节流函数(throttle)">JavaScript 手写节流函数(throttle)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" title="JavaScript Iterator">JavaScript Iterator</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" title="JavaScript ES Module">JavaScript ES Module</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/css/" title="In CSS">CSS</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/10/css/CSS%20Layout/css_layout_center/" title="css 居中布局">css 居中布局</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" title="JavaScript ES6+ class">JavaScript ES6+ class</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">576k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">8:44</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/01/27/JavaScript/手写原理/instanceof-new-typeof/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

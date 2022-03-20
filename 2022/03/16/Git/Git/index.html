@@ -1,0 +1,883 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/">
+
+
+
+  <title>
+Git 武沛齐笔记 - Git |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Git 武沛齐笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-03-16 14:52:22">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-03-16T14:52:22+08:00">2022-03-16</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>4.5k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>4 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/Git/" itemprop="item" rel="index" title="In Git"><span itemprop="name">Git</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="第一章-快速入门"><a class="anchor" href="#第一章-快速入门">#</a> 第一章 快速入门</h2>
+<h3 id="什么是git"><a class="anchor" href="#什么是git">#</a> 什么是 Git</h3>
+<ul>
+<li>
+<p>Git 是一个分布式的版本控制软件。</p>
+</li>
+<li>
+<p>软件，类似于 QQ、office、dota 等安装到电脑上才能使用的工具。</p>
+</li>
+<li>
+<p>版本控制，类似于毕业论文、写文案、视频剪辑等，需要反复修改和保留原历史数据。</p>
+</li>
+<li>
+<p>分布式</p>
+<ul>
+<li>文件夹拷贝</li>
+<li>本地版本控制</li>
+<li>集中式版本控制</li>
+<li>分布式版本控制</li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么要做版本控制"><a class="anchor" href="#为什么要做版本控制">#</a> 为什么要做版本控制</h3>
+<ul>
+<li>要保留之前所有的版本，以便回滚和修改。</li>
+</ul>
+<h3 id="安装-git"><a class="anchor" href="#安装-git">#</a> 安装 GIT</h3>
+<ul>
+<li>详见：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">https://git-scm.com/book/zh/v2 / 起步 - 安装 - Git</span></li>
+</ul>
+<h2 id="第二章-东北热-创业史"><a class="anchor" href="#第二章-东北热-创业史">#</a> 第二章 东北热 创业史</h2>
+<h3 id="第一阶段单枪匹马开始干"><a class="anchor" href="#第一阶段单枪匹马开始干">#</a> 第一阶段：单枪匹马开始干</h3>
+<ul>
+<li>
+<p>想要让 git 对一个目录进行版本控制需要以下步骤：</p>
+</li>
+<li>
+<p>进入要管理的文件夹</p>
+</li>
+<li>
+<p>执行初始化命令</p>
+</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git init</pre></td></tr></table></figure><ul>
+<li>管理目录下的文件状态</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git status</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>注：新增的文件和修改过后的文件都是红色</pre></td></tr></table></figure><ul>
+<li>管理指定文件（红变绿）</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git add xxx(文件名)</pre></td></tr><tr><td data-num="2"></td><td><pre>git add . 所有文件</pre></td></tr></table></figure><ul>
+<li>个人信息配置：用户名、邮箱【一次即可】</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git config --global user.email "you@example </pre></td></tr><tr><td data-num="2"></td><td><pre>git config --global user.name <span class="token string">"Your Name"</span></pre></td></tr></table></figure><ul>
+<li>生成版本</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git commit -m '描述信息’</pre></td></tr></table></figure><ul>
+<li>查看版本记录</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git log</pre></td></tr></table></figure><h3 id="第二阶段拓展新功能"><a class="anchor" href="#第二阶段拓展新功能">#</a> 第二阶段：拓展新功能</h3>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git add</pre></td></tr><tr><td data-num="2"></td><td><pre>git commit -m '短视频’</pre></td></tr></table></figure><h3 id="第三阶段约饭事件"><a class="anchor" href="#第三阶段约饭事件">#</a> 第三阶段：“约饭事件”</h3>
+<ul>
+<li>回滚至之前版本</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git log</pre></td></tr><tr><td data-num="2"></td><td><pre>git reset --hard 版本号</pre></td></tr></table></figure><ul>
+<li>回滚之之后版本</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git reflog</pre></td></tr><tr><td data-num="2"></td><td><pre>git reset --hard 版本号</pre></td></tr></table></figure><ul>
+<li>小总结</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git init</pre></td></tr><tr><td data-num="2"></td><td><pre>git add</pre></td></tr><tr><td data-num="3"></td><td><pre>git commit</pre></td></tr><tr><td data-num="4"></td><td><pre>git log</pre></td></tr><tr><td data-num="5"></td><td><pre>git reflog</pre></td></tr><tr><td data-num="6"></td><td><pre>git reset --hard 版本号</pre></td></tr></table></figure><p><img data-src="xiaozongjie.bmp" alt="xiaozongjie" /></p>
+<h3 id="第四阶段商城紧急修复bug"><a class="anchor" href="#第四阶段商城紧急修复bug">#</a> 第四阶段：商城 &amp; 紧急修复 bug</h3>
+<h4 id="分支"><a class="anchor" href="#分支">#</a> 分支</h4>
+<ul>
+<li>分支可以给使用者提供多个环境的可以，意味着你可以把你的工作从开发主线上分离开来，以免影响开 发主线。</li>
+</ul>
+<h4 id="紧急修复bug方案"><a class="anchor" href="#紧急修复bug方案">#</a> 紧急修复 bug 方案</h4>
+<p><img data-src="bug.png" alt="bug" /></p>
+<h4 id="命令总结"><a class="anchor" href="#命令总结">#</a> 命令总结</h4>
+<ul>
+<li>查看分支</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git branch</pre></td></tr></table></figure><ul>
+<li>创建分支</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git branch 分支名称</pre></td></tr></table></figure><ul>
+<li>切换分支</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git checkout 分支名称</pre></td></tr></table></figure><ul>
+<li>分支合并（可能产生冲突）</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git merge 要合并的分支</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>注意：切换分支再合并</pre></td></tr></table></figure><ul>
+<li>删除分支</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git branch -d 分支名称</pre></td></tr></table></figure><h4 id="工作流"><a class="anchor" href="#工作流">#</a> 工作流</h4>
+<p><img data-src="gongzuoliu.png" alt="gongzuoliu" /></p>
+<h3 id="第五阶段进军三里屯"><a class="anchor" href="#第五阶段进军三里屯">#</a> 第五阶段：进军三里屯</h3>
+<ul>
+<li>有钱之后就要造呀，一个人在三里屯买了一层楼做办公室。</li>
+</ul>
+<p><img data-src="sanlitun.png" alt="sanlitun" /></p>
+<h4 id="第一天上班在家上传代码"><a class="anchor" href="#第一天上班在家上传代码">#</a> 第一天上班在家上传代码</h4>
+<ul>
+<li>首先，需要注册 github 账号，并创建远程仓库，然后再执行如下命令，将代码上传到 github。</li>
+</ul>
+<p><img data-src="register-github.png" alt="register-github" /></p>
+<p><img data-src="git-push.png" alt="git-push" /></p>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1. 给远程仓库起别名</pre></td></tr><tr><td data-num="2"></td><td><pre> git remote add origin 远程仓库地址</pre></td></tr><tr><td data-num="3"></td><td><pre> </pre></td></tr><tr><td data-num="4"></td><td><pre>2.创建分支</pre></td></tr><tr><td data-num="5"></td><td><pre> git branch -M 分支</pre></td></tr><tr><td data-num="6"></td><td><pre> </pre></td></tr><tr><td data-num="7"></td><td><pre>3. 向远程推送代码</pre></td></tr><tr><td data-num="8"></td><td><pre> git push -u origin 分支</pre></td></tr></table></figure><h4 id="初次在公司新电脑下载代码"><a class="anchor" href="#初次在公司新电脑下载代码">#</a> 初次在公司新电脑下载代码</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.克隆远程仓库代码</pre></td></tr><tr><td data-num="2"></td><td><pre>  git clone远程仓库地址（内部已实现git remote add origin远程仓库地址）</pre></td></tr><tr><td data-num="3"></td><td><pre>2.切换分支</pre></td></tr><tr><td data-num="4"></td><td><pre>  git checkout 分支</pre></td></tr></table></figure><ul>
+<li>在公司下载完代码后，继续开发</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.切换到dev分支进行开发</pre></td></tr><tr><td data-num="2"></td><td><pre>  git checkout dev</pre></td></tr><tr><td data-num="3"></td><td><pre>2.把master分支合并到dev ［仅一次］</pre></td></tr><tr><td data-num="4"></td><td><pre>  git merge master</pre></td></tr><tr><td data-num="5"></td><td><pre>3.修改代码</pre></td></tr><tr><td data-num="6"></td><td><pre>4.提交代码</pre></td></tr><tr><td data-num="7"></td><td><pre>  git add .</pre></td></tr><tr><td data-num="8"></td><td><pre>  git commit -m <span class="token string">'xx'</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  git push origin dev</pre></td></tr></table></figure><h4 id="下班回到家继续写代码"><a class="anchor" href="#下班回到家继续写代码">#</a> 下班回到家继续写代码</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.切换到dev分支进行开发 </pre></td></tr><tr><td data-num="2"></td><td><pre>  git checkout dev</pre></td></tr><tr><td data-num="3"></td><td><pre>2.拉代码</pre></td></tr><tr><td data-num="4"></td><td><pre>  git pull origin dev</pre></td></tr><tr><td data-num="5"></td><td><pre>3.继续开发</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>4.提交代码</pre></td></tr><tr><td data-num="8"></td><td><pre>  git add .</pre></td></tr><tr><td data-num="9"></td><td><pre>  git commit -m <span class="token string">'xx'</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  git push origin dev</pre></td></tr></table></figure><h4 id="到公司继续开发"><a class="anchor" href="#到公司继续开发">#</a> 到公司继续开发</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.切换到dev分支进行开发</pre></td></tr><tr><td data-num="2"></td><td><pre>  git checkout dev</pre></td></tr><tr><td data-num="3"></td><td><pre>2.拉最新代码（不必再clone,只需要通过pull获取最新代码即可）</pre></td></tr><tr><td data-num="4"></td><td><pre>  git pull origin dev</pre></td></tr><tr><td data-num="5"></td><td><pre>3.继续开发</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>4.提交代码</pre></td></tr><tr><td data-num="8"></td><td><pre>  git add .</pre></td></tr><tr><td data-num="9"></td><td><pre>  git commit -m <span class="token string">'xx'</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  git push origin dev</pre></td></tr></table></figure><h4 id="开发完毕要上线"><a class="anchor" href="#开发完毕要上线">#</a> 开发完毕，要上线</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.将dev分支合并到master,进行上线</pre></td></tr><tr><td data-num="2"></td><td><pre>  git checkout master </pre></td></tr><tr><td data-num="3"></td><td><pre>  git merge dev</pre></td></tr><tr><td data-num="4"></td><td><pre>  git push origin master</pre></td></tr><tr><td data-num="5"></td><td><pre>2.把dev分支也推送到远程</pre></td></tr><tr><td data-num="6"></td><td><pre>  git checkout dev </pre></td></tr><tr><td data-num="7"></td><td><pre>  git merge master</pre></td></tr><tr><td data-num="8"></td><td><pre>  git push origin dev</pre></td></tr></table></figure><h4 id="在公司约妹子忘记提交代码"><a class="anchor" href="#在公司约妹子忘记提交代码">#</a> 在公司约妹子忘记提交代码</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.拉代码 </pre></td></tr><tr><td data-num="2"></td><td><pre>  git pull origin dev</pre></td></tr><tr><td data-num="3"></td><td><pre>2.继续开发</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>3.提交代码</pre></td></tr><tr><td data-num="6"></td><td><pre>  git add .</pre></td></tr><tr><td data-num="7"></td><td><pre>  git commit -m <span class="token string">'xx'</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  </pre></td></tr><tr><td data-num="9"></td><td><pre>注：忘记push 了</pre></td></tr></table></figure><h4 id="回家继续写代码"><a class="anchor" href="#回家继续写代码">#</a> 回家继续写代码</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.拉代码，发现在公司写的代码忘记提交...</pre></td></tr><tr><td data-num="2"></td><td><pre>  git pull origin dev</pre></td></tr><tr><td data-num="3"></td><td><pre>  </pre></td></tr><tr><td data-num="4"></td><td><pre>2.继续开发其他功能</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>3.把dev分支也推送到远程</pre></td></tr><tr><td data-num="7"></td><td><pre>  git add .</pre></td></tr><tr><td data-num="8"></td><td><pre>  git commit -m <span class="token string">'xx'</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  git push origin dev</pre></td></tr></table></figure><h4 id="到公司继续写代码"><a class="anchor" href="#到公司继续写代码">#</a> 到公司继续写代码</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.拉代码，把晚上在家写的代码拉到本地（有合并、可能产生冲突）</pre></td></tr><tr><td data-num="2"></td><td><pre>  git pull origin dev</pre></td></tr><tr><td data-num="3"></td><td><pre>  </pre></td></tr><tr><td data-num="4"></td><td><pre>2.如果有冲突，手动解决冲突</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>3.继续开发其他功能</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>4.把dev分支也推送到远程</pre></td></tr><tr><td data-num="9"></td><td><pre>  git add .</pre></td></tr><tr><td data-num="10"></td><td><pre>  git commit -m <span class="token string">'xx'</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  git push origin dev</pre></td></tr></table></figure><h4 id="补充命令"><a class="anchor" href="#补充命令">#</a> 补充命令</h4>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git pull origin dev</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>等价于</pre></td></tr><tr><td data-num="4"></td><td><pre>git fetch origin dev // 拉到版本库</pre></td></tr><tr><td data-num="5"></td><td><pre>git merge origin/dev // 更新到工作区</pre></td></tr></table></figure><p><img data-src="qita.png" alt="qita" /></p>
+<h3 id="rebase-的作用"><a class="anchor" href="#rebase-的作用">#</a> rebase 的作用？</h3>
+<ul>
+<li>rebase 可以保持提交记录简洁，不分叉</li>
+</ul>
+<p><img data-src="rebase.png" alt="rebase" /></p>
+<h4 id="快速解决冲突"><a class="anchor" href="#快速解决冲突">#</a> 快速解决冲突</h4>
+<ul>
+<li>安装 beyond compare</li>
+<li>在 git 中配置</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git config --local merge.tool bc3</pre></td></tr><tr><td data-num="2"></td><td><pre>  git config --local mergetool.path <span class="token string">'usr/local/bin/bcomp'</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  git config --local mergetool.keepBackup false</pre></td></tr></table></figure><ul>
+<li>3. 应用 beyond compare 解决冲突</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git mergetool</pre></td></tr></table></figure><h4 id="小总结"><a class="anchor" href="#小总结">#</a> 小总结</h4>
+<ul>
+<li>添加远程连接（别名）</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git remote add origin 地址</pre></td></tr></table></figure><ul>
+<li>推送代码</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git push origin dev</pre></td></tr></table></figure><ul>
+<li>下载代码</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git clone 地址</pre></td></tr></table></figure><ul>
+<li>拉取代码</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git pull origin dev</pre></td></tr><tr><td data-num="2"></td><td><pre>等价于</pre></td></tr><tr><td data-num="3"></td><td><pre>git fetch origin dev </pre></td></tr><tr><td data-num="4"></td><td><pre>git merge origin/dev</pre></td></tr></table></figure><ul>
+<li>保持代码提交整洁（变基）</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git rebase 分支</pre></td></tr></table></figure><ul>
+<li>记录图形展示</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git log --graph --pretty=format:"%h %s</pre></td></tr></table></figure><h3 id="第六阶段多人协同开发工作流"><a class="anchor" href="#第六阶段多人协同开发工作流">#</a> 第六阶段：多人协同开发工作流</h3>
+<p><img data-src="duoren.png" alt="duoren" /></p>
+<h4 id="创建项目-邀请成员"><a class="anchor" href="#创建项目-邀请成员">#</a> 创建项目 &amp; 邀请成员</h4>
+<ul>
+<li>协同开发时，需要所有成员都可以对同一个项目进行操作，需要邀请成员并赋予权限，否则无法开发。 github 支持两种创建项目的方式（供多人协同开发）。</li>
+<li>合作者，将用户添加到仓库合作者中之后，该用户就可以向当前仓库提交代码。</li>
+</ul>
+<p><img data-src="hezuozhe.png" alt="hezuozhe" /></p>
+<ul>
+<li>组织，将成员邀请进入组织，组织下可以创建多个仓库，组织成员可以向组织下仓库提交代码。</li>
+</ul>
+<p><img data-src="zuzhi.png" alt="zuzhi" /></p>
+<ul>
+<li>v1.2 、v2.0 版本</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>git tag -a v1.0 -m ' 版本介绍'</th>
+<th>创建本地创建 Tag 信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git tag -d v1.0</td>
+<td>删除 Tag</td>
+</tr>
+<tr>
+<td>git push origin --tags</td>
+<td>将本地 tag 信息推送到远程仓库</td>
+</tr>
+<tr>
+<td>git pull origin --tags</td>
+<td>更新本地 tag 版本信息</td>
+</tr>
+<tr>
+<td>git checkout v.10</td>
+<td>切换 tag</td>
+</tr>
+<tr>
+<td>git clone -b v0.1 地址</td>
+<td>指定 tag 下载代码</td>
+</tr>
+</tbody>
+</table>
+<h4 id="小弟开发"><a class="anchor" href="#小弟开发">#</a> 小弟开发</h4>
+<ul>
+<li>小弟注册 Github 或 Gitlab 账号</li>
+<li>邀请小弟进入组织（默认对组织中的项目具有读权限）</li>
+</ul>
+<p><img data-src="yaoqing.png" alt="yaoqing" /></p>
+<ul>
+<li>邀请小弟成为某项目的合作者</li>
+</ul>
+<p><img data-src="hezuozheyaoqing.png" alt="hezuozheyaoqing" /></p>
+<ul>
+<li>小弟在自己电脑上下载代码并开发</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git clone https://github.com/oldboy-org/dbhot.git cd dbhot</pre></td></tr><tr><td data-num="2"></td><td><pre>git checkout dev</pre></td></tr><tr><td data-num="3"></td><td><pre>git checkout -b dzz</pre></td></tr><tr><td data-num="4"></td><td><pre>写代码...</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>git add .</pre></td></tr><tr><td data-num="7"></td><td><pre>git commit -m <span class="token string">'斗地主功能开发完成'</span></pre></td></tr><tr><td data-num="8"></td><td><pre>git push origin ddz</pre></td></tr></table></figure><h4 id="code-review"><a class="anchor" href="#code-review">#</a> code review</h4>
+<ul>
+<li>配置，代码 review 之后才能合并到 dev 分支。</li>
+</ul>
+<p><img data-src="code-review1.png" alt="code-review1" /></p>
+<p><img data-src="code-review2.png" alt="code-review1" /></p>
+<ul>
+<li>小弟提交 code review 申请</li>
+</ul>
+<p><img data-src="code-review3.png" alt="code-review1" /></p>
+<p><img data-src="code-review4.png" alt="code-review1" /></p>
+<ul>
+<li>组长做 code review</li>
+</ul>
+<p><img data-src="code-review5.png" alt="code-review1" /></p>
+<p><img data-src="code-review6.png" alt="code-review1" /></p>
+<h4 id="提测上线预发布"><a class="anchor" href="#提测上线预发布">#</a> 提测上线（预发布）</h4>
+<ul>
+<li>由专门团队或团队 leader 执行以下步骤:</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.基于dev分值创建release分值</pre></td></tr><tr><td data-num="2"></td><td><pre>git checkout dev</pre></td></tr><tr><td data-num="3"></td><td><pre>git checkout -b release</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>2.测试等</pre></td></tr><tr><td data-num="6"></td><td><pre>3.合并到master</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  使用 pull request</pre></td></tr><tr><td data-num="9"></td><td><pre>  或</pre></td></tr><tr><td data-num="10"></td><td><pre>  本地将release合并到master分支</pre></td></tr><tr><td data-num="11"></td><td><pre>  </pre></td></tr><tr><td data-num="12"></td><td><pre>4.在master分支打tag</pre></td></tr><tr><td data-num="13"></td><td><pre>  git tag -a v2 -m '第二版 斗地主功能’</pre></td></tr><tr><td data-num="14"></td><td><pre>  git push origin --tags</pre></td></tr><tr><td data-num="15"></td><td><pre>  </pre></td></tr><tr><td data-num="16"></td><td><pre>5.运维人员就可以去下载代码做上线了</pre></td></tr><tr><td data-num="17"></td><td><pre>  git clone -b v2 地址</pre></td></tr></table></figure><h3 id="第七阶段给开源软件贡献代码"><a class="anchor" href="#第七阶段给开源软件贡献代码">#</a> 第七阶段：给开源软件贡献代码</h3>
+<ul>
+<li>fork 源代码将别人源代码拷贝到我自己的远程仓库。</li>
+<li>在自己仓库进行修改代码</li>
+<li>给源代码的作者提交修复 bug 的申请 (pull request)</li>
+</ul>
+<h2 id="第三章-其他"><a class="anchor" href="#第三章-其他">#</a> 第三章 其他</h2>
+<h3 id="配置"><a class="anchor" href="#配置">#</a> 配置</h3>
+<ul>
+<li>项目配置文件：项目 /.git/config</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git config --local user.name <span class="token string">'武沛齐'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git config --local user.email 'wupeiqi@xx.com</pre></td></tr></table></figure><ul>
+<li>全局配置文件:~/.gitconfig</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git config --global user.name <span class="token string">'wupeiq'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git config --global user.name 'wupeiqi@xx.com</pre></td></tr></table></figure><ul>
+<li>系统配置文件：/etc/.gitconfig</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git config --system user.name <span class="token string">'wupeiq'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git config --system user.name <span class="token string">'wupeiqi@xx.com'</span></pre></td></tr><tr><td data-num="3"></td><td><pre>注意：需要有root权限</pre></td></tr></table></figure><ul>
+<li>应用场景</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>git config --local user.name <span class="token string">'武沛齐'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git config --local user.email <span class="token string">'wupeiqi@xx.com'</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>git config --local merge.tool bc3</pre></td></tr><tr><td data-num="5"></td><td><pre>git config --local mergetool.path <span class="token string">'/usr/local/bin/bcomp'</span></pre></td></tr><tr><td data-num="6"></td><td><pre>git config --local mergetool.keepBackup false</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>git remote add origin地址，默认添加在本地配置文件中（--local）</pre></td></tr></table></figure><h3 id="免密码登录"><a class="anchor" href="#免密码登录">#</a> 免密码登录</h3>
+<ul>
+<li>URL 中体现</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>原来的地址：https://github.com/WuPeiqi/dbhot.git</pre></td></tr><tr><td data-num="2"></td><td><pre>修改的地址：https://用户名：密码@github.com/WuPeiqi/dbhot.git</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>git remote add origin https://用户名：密码@github.com/WuPeiqi/dbhot.git git push origin master</pre></td></tr></table></figure><ul>
+<li>SH 实现</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>1.生成公钥和私钥（默认放在~/.ssh目录下，id_rsa.pub公钥、id_rsa私钥）</pre></td></tr><tr><td data-num="2"></td><td><pre>  ssh-keygen</pre></td></tr><tr><td data-num="3"></td><td><pre>2.拷贝公钥的内容，并设置到github中。</pre></td></tr><tr><td data-num="4"></td><td><pre>3.在git本地中配置ssh地址</pre></td></tr><tr><td data-num="5"></td><td><pre>  git remote add origin git@github.com:WuPeiqi/dbhot.git</pre></td></tr><tr><td data-num="6"></td><td><pre>4.以后使用</pre></td></tr><tr><td data-num="7"></td><td><pre>  git push origin master</pre></td></tr></table></figure><ul>
+<li>git 自动管理凭证</li>
+</ul>
+<h3 id="git忽略文件"><a class="anchor" href="#git忽略文件">#</a> git 忽略文件</h3>
+<ul>
+<li>让 Git 不再管理当前目录下的某些文件</li>
+</ul>
+<figure class="highlight git"><figcaption data-lang="git"></figcaption><table><tr><td data-num="1"></td><td><pre>*.h</pre></td></tr><tr><td data-num="2"></td><td><pre>! a. h</pre></td></tr><tr><td data-num="3"></td><td><pre>fi les/</pre></td></tr><tr><td data-num="4"></td><td><pre>*.py[c|a|d]</pre></td></tr></table></figure><ul>
+<li>更多参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dpdGh1Yi9naXRpZ25vcmU=">https://github.com/github/gitignore</span></li>
+</ul>
+<h3 id="github任务管理相关"><a class="anchor" href="#github任务管理相关">#</a> github 任务管理相关</h3>
+<ul>
+<li>issues，文档以及任务管理</li>
+<li>wiki，项目文档</li>
+</ul>
+<h2 id="结课"><a class="anchor" href="#结课">#</a> 结课</h2>
+<ul>
+<li>感谢各位同学的关注和学习，希望 git 实战课程对你能够有所帮助，更多资源关注:
+<ul>
+<li>小猿圈 <span class="exturl" data-url="aHR0cDovL3d3dy5hcGVsYW5kLmNu">www.apeland.cn</span></li>
+<li>路飞学城 <span class="exturl" data-url="aHR0cDovL3d3dy5sdWZmeWNpdHkuY29t">www.luffycity.com</span></li>
+<li>老男孩 IT 教育 <span class="exturl" data-url="aHR0cDovL3d3dy5vbGRib3llZHUuY29t">www.oldboyedu.com</span></li>
+</ul>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-03-18 10:09:37" itemprop="dateModified" datetime="2022-03-18T10:09:37+08:00">2022-03-18</time>
+  </span>
+  <span id="2022/03/16/Git/Git/" class="item leancloud_visitors" data-flag-title="Git 武沛齐笔记" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/" title="Git 武沛齐笔记">https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfb3vzhj20zk0m8wny.jpg" title="JavaScript 实现图片懒加载">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript 手写原理</span>
+  <h3>JavaScript 实现图片懒加载</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text"> 第一章 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFgit"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text"> 为什么要做版本控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-git"><span class="toc-number">1.3.</span> <span class="toc-text"> 安装 GIT</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E4%B8%9C%E5%8C%97%E7%83%AD-%E5%88%9B%E4%B8%9A%E5%8F%B2"><span class="toc-number">2.</span> <span class="toc-text"> 第二章 东北热 创业史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E5%8D%95%E6%9E%AA%E5%8C%B9%E9%A9%AC%E5%BC%80%E5%A7%8B%E5%B9%B2"><span class="toc-number">2.1.</span> <span class="toc-text"> 第一阶段：单枪匹马开始干</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%8B%93%E5%B1%95%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-number">2.2.</span> <span class="toc-text"> 第二阶段：拓展新功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%E7%BA%A6%E9%A5%AD%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text"> 第三阶段：“约饭事件”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%95%86%E5%9F%8E%E7%B4%A7%E6%80%A5%E4%BF%AE%E5%A4%8Dbug"><span class="toc-number">2.4.</span> <span class="toc-text"> 第四阶段：商城 &amp; 紧急修复 bug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">2.4.1.</span> <span class="toc-text"> 分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A7%E6%80%A5%E4%BF%AE%E5%A4%8Dbug%E6%96%B9%E6%A1%88"><span class="toc-number">2.4.2.</span> <span class="toc-text"> 紧急修复 bug 方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93"><span class="toc-number">2.4.3.</span> <span class="toc-text"> 命令总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">2.4.4.</span> <span class="toc-text"> 工作流</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5%E8%BF%9B%E5%86%9B%E4%B8%89%E9%87%8C%E5%B1%AF"><span class="toc-number">2.5.</span> <span class="toc-text"> 第五阶段：进军三里屯</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9%E4%B8%8A%E7%8F%AD%E5%9C%A8%E5%AE%B6%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.1.</span> <span class="toc-text"> 第一天上班在家上传代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AC%A1%E5%9C%A8%E5%85%AC%E5%8F%B8%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.2.</span> <span class="toc-text"> 初次在公司新电脑下载代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E7%8F%AD%E5%9B%9E%E5%88%B0%E5%AE%B6%E7%BB%A7%E7%BB%AD%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.3.</span> <span class="toc-text"> 下班回到家继续写代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B0%E5%85%AC%E5%8F%B8%E7%BB%A7%E7%BB%AD%E5%BC%80%E5%8F%91"><span class="toc-number">2.5.4.</span> <span class="toc-text"> 到公司继续开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E5%AE%8C%E6%AF%95%E8%A6%81%E4%B8%8A%E7%BA%BF"><span class="toc-number">2.5.5.</span> <span class="toc-text"> 开发完毕，要上线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%85%AC%E5%8F%B8%E7%BA%A6%E5%A6%B9%E5%AD%90%E5%BF%98%E8%AE%B0%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.6.</span> <span class="toc-text"> 在公司约妹子忘记提交代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%AE%B6%E7%BB%A7%E7%BB%AD%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.7.</span> <span class="toc-text"> 回家继续写代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B0%E5%85%AC%E5%8F%B8%E7%BB%A7%E7%BB%AD%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.8.</span> <span class="toc-text"> 到公司继续写代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E5%91%BD%E4%BB%A4"><span class="toc-number">2.5.9.</span> <span class="toc-text"> 补充命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.6.</span> <span class="toc-text"> rebase 的作用？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">2.6.1.</span> <span class="toc-text"> 快速解决冲突</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E6%80%BB%E7%BB%93"><span class="toc-number">2.6.2.</span> <span class="toc-text"> 小总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5%E5%A4%9A%E4%BA%BA%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">2.7.</span> <span class="toc-text"> 第六阶段：多人协同开发工作流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE-%E9%82%80%E8%AF%B7%E6%88%90%E5%91%98"><span class="toc-number">2.7.1.</span> <span class="toc-text"> 创建项目 &amp; 邀请成员</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E5%BC%9F%E5%BC%80%E5%8F%91"><span class="toc-number">2.7.2.</span> <span class="toc-text"> 小弟开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#code-review"><span class="toc-number">2.7.3.</span> <span class="toc-text"> code review</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E6%B5%8B%E4%B8%8A%E7%BA%BF%E9%A2%84%E5%8F%91%E5%B8%83"><span class="toc-number">2.7.4.</span> <span class="toc-text"> 提测上线（预发布）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E9%98%B6%E6%AE%B5%E7%BB%99%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81"><span class="toc-number">2.8.</span> <span class="toc-text"> 第七阶段：给开源软件贡献代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%85%B6%E4%BB%96"><span class="toc-number">3.</span> <span class="toc-text"> 第三章 其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text"> 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="toc-number">3.2.</span> <span class="toc-text"> 免密码登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text"> git 忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3"><span class="toc-number">3.4.</span> <span class="toc-text"> github 任务管理相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%BE"><span class="toc-number">4.</span> <span class="toc-text"> 结课</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/nekoaimer.github.io/2022/03/16/Git/Git/" rel="bookmark" title="Git 武沛齐笔记">Git 武沛齐笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">108</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">11</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">23</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/05/Vue/Vue%20note/01-atguigu/" title="Vue2 配置项">Vue2 配置项</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/css/" title="In CSS">CSS</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/25/css/CSS%20Layout/grid/" title="grid 布局">grid 布局</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/11/Vue/Vue3/CompositionAPI/vca_shallowRef&triggerRef/" title="Vue3 shallowRef和triggerRef 用法">Vue3 shallowRef和triggerRef 用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" title="JavaScript 实现数组扁平化">JavaScript 实现数组扁平化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/13/Vue/Vue%20note/05-atguigu/" title="Vue2 Vuex">Vue2 Vuex</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/01/Vue/Vue2/event-modifier/" title="Vue2 事件修饰符">Vue2 事件修饰符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Ajax/" title="In Ajax">Ajax</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/01/07/Ajax/04-Ajax/" title="尚硅谷 3小时Ajax入门到精通 に">尚硅谷 3小时Ajax入门到精通 に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">576k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">8:44</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/03/16/Git/Git/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
