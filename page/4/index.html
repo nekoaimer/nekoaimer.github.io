@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
         </ul>
       </div>
     </header>
@@ -120,7 +120,63 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" itemprop="url" title="事件循环面试题"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" itemprop="url" title="error-handling"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-11-20 12:28:23">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-11-20T12:28:23+08:00">2021-11-20</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3.1k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+    <h3><a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" itemprop="url" title="error-handling">error-handling</a></h3>
+    <div class="excerpt">
+        # 错误处理方案
+
+很多时候我们可能验证到不是希望得到的参数时，就会直接 return：
+
+但是 return 存在很大的弊端：调用者不知道是因为函数内部没有正常执行，还是执行结果就是一个 undefined；
+事实上，正确的做法应该是如果没有通过某些验证，那么应该让外界知道函数内部报错了；
+
+如何可以让一个函数告知外界自己内部出现了错误呢？
+
+通过 throw 关键字，抛出一个异常；
+
+throw 语句：
+
+throw 语句用于抛出一个用户自定义的异常；
+当遇到 throw 语句时，当前的函数执行会被停止（throw...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="url" title="JavaScript"><i class="ic i-flag"></i>JavaScript</a>
+      </span>
+    </div>
+    <a href="/nekoaimer.github.io/2021/11/20/JavaScript/Advanced/error-handling/" itemprop="url" title="error-handling" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/nekoaimer.github.io/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" itemprop="url" title="事件循环面试题"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipey0a334j20zk0m8qpt.jpg"></a>
   </div>
   <div class="info">
     
@@ -172,7 +228,7 @@ JavaScript 的代码执行是在一个单独的线程中执行的：
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" itemprop="url" title="JavaScript 异步代码处理方案*演化过程*"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" itemprop="url" title="JavaScript 异步代码处理方案*演化过程*"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicljgocqbj20zk0m8e81.jpg"></a>
   </div>
   <div class="info">
     
@@ -228,7 +284,7 @@ url: https://nekoaimer + &amp;quot;.com&amp;quot; -&amp;gt; res: https://nekoaim
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" itemprop="url" title="JavaScript async &amp; await"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclx29mstj20zk0m8hdt.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/15/JavaScript/Advanced/async-await/" itemprop="url" title="JavaScript async &amp; await"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></a>
   </div>
   <div class="info">
     
@@ -276,7 +332,7 @@ async function foo() &amp;#123; console.log(&#39;foo function...
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/13/JavaScript/Advanced/Generator/" itemprop="url" title="JavaScript Generator"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/13/JavaScript/Advanced/Generator/" itemprop="url" title="JavaScript Generator"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciuv0socj20zk0m8qes.jpg"></a>
   </div>
   <div class="info">
     
@@ -329,7 +385,7 @@ MDN：Instead, they return a special type of...
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" itemprop="url" title="JavaScript Iterator"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipey0a334j20zk0m8qpt.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" itemprop="url" title="JavaScript Iterator"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></a>
   </div>
   <div class="info">
     
@@ -379,7 +435,7 @@ MDN：Instead, they return a special type of...
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" itemprop="url" title="Javascript Promise に"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicm0n457cj20zk0m8e81.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" itemprop="url" title="Javascript Promise に"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclip4jbpj20zk0m87cv.jpg"></a>
   </div>
   <div class="info">
     
@@ -431,7 +487,7 @@ new Promise((resolve, reject) =&gt;...
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" itemprop="url" title="Javascript Promise いち"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" itemprop="url" title="Javascript Promise いち"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciuv0socj20zk0m8qes.jpg"></a>
   </div>
   <div class="info">
     
@@ -478,7 +534,7 @@ function requsetDate(url, resolve, reject) &amp;#123; // 模拟网络请求 setT
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclx29mstj20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
@@ -531,7 +587,7 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
         
 <article class="item">
   <div class="cover">
-    <a href="/nekoaimer.github.io/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" itemprop="url" title="技术胖"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipetlbztpj20zk0m84qp.jpg"></a>
+    <a href="/nekoaimer.github.io/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" itemprop="url" title="技术胖"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclh5u05ej20zk0m87df.jpg"></a>
   </div>
   <div class="info">
     
@@ -575,65 +631,6 @@ TypeScript 教程 | 最好的...
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" itemprop="url" title="JavaScript Proxy &amp; Reflect"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="Created: 2021-10-31 16:59:58">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2021-10-31T16:59:58+08:00">2021-10-31</time>
-  </span>
-  <span class="item" title="Symbols count in article">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>6.2k</span>
-    <span class="text">words</span>
-  </span>
-  <span class="item" title="Reading time">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>6 mins.</span>
-  </span>
-</div>
-
-    <h3><a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" itemprop="url" title="JavaScript Proxy &amp; Reflect">JavaScript Proxy & Reflect</a></h3>
-    <div class="excerpt">
-        # 前言声明
-
-本章大量释义来源于 MDN
-
-# Proxy
-# handler.get()
-
-handler.get 方法用于拦截对象的读取属性操作。
-
-target 目标对象。
-
-property 被获取的属性名。
-
-receiver Proxy 或者继承 Proxy 的对象
-
-get 方法可以返回任何值。
-
-const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy = new Proxy(lain, &amp;#123; // 获取值的捕获器 get(target, property)...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/nekoaimer.github.io/categories/JavaScript/" itemprop="url" title="JavaScript"><i class="ic i-flag"></i>JavaScript</a>
-      </span>
-    </div>
-    <a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" itemprop="url" title="JavaScript Proxy &amp; Reflect" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -669,7 +666,7 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">108</span>
+        <span class="count">109</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -790,32 +787,22 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/03/09/Vue/Vue%20note/03-atguigu/" title="Vue 事件总线">Vue 事件总线</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/" title="In data structure">data structure</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/" title="优先级队列实现 (PriorityQueue)">优先级队列实现 (PriorityQueue)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></span>
+    <span><a href="/nekoaimer.github.io/2021/03/07/Vue/Vue%20note/02-atguigu/" title="Vue TodoList 案例">Vue TodoList 案例</a></span>
   </li>
 
       
@@ -827,7 +814,27 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" title="JavaScript ES6+ に">JavaScript ES6+ に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/29/JavaScript/JavaScript%20Hmilyl/01-Hmilyl/" title="JavaScript Hmilyl いち">JavaScript Hmilyl いち</a></span>
   </li>
 
       
@@ -839,29 +846,17 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
 <a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/22/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/deepClone/" title="JavaScript 实现深拷贝(deepClone)">JavaScript 实现深拷贝(deepClone)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" title="JavaScript 对象原型与方法">JavaScript 对象原型与方法</a></span>
+    <span><a href="/nekoaimer.github.io/2021/03/03/Vue/Vue2/style/" title="Vue2 绑定样式">Vue2 绑定样式</a></span>
   </li>
 
       
@@ -878,12 +873,10 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+<a href="/nekoaimer.github.io/categories/css/" title="In CSS">CSS</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/07/11/Vue/Vue3/CompositionAPI/vca_shallowRef&triggerRef/" title="Vue3 shallowRef和triggerRef 用法">Vue3 shallowRef和triggerRef 用法</a></span>
+    <span><a href="/nekoaimer.github.io/2020/12/10/css/CSS%20Layout/css_layout_center/" title="css 居中布局">css 居中布局</a></span>
   </li>
 
       
@@ -891,9 +884,11 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
     
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2020/12/31/Vue/Vue%20Hmilyl/01-Hmilyl/" title="Vue Hmilyl いち">Vue Hmilyl いち</a></span>
+    <span><a href="/nekoaimer.github.io/2021/08/03/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
   </li>
 
   </ul>
@@ -918,13 +913,13 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">576k words</span>
+    <span title="Symbols count total">588k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">8:44</span>
+    <span title="Reading time total">8:54</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
