@@ -1,0 +1,660 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/">
+
+
+
+  <title>
+Git 命令补充 - Git |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Git 命令补充
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-04-23 02:58:23">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-04-23T02:58:23+08:00">2022-04-23</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>1.8k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>2 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/Git/" itemprop="item" rel="index" title="In Git"><span itemprop="name">Git</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="获取用户"><a class="anchor" href="#获取用户">#</a> 获取用户</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git config user<span class="token punctuation">.</span>name  <span class="token comment">// 获取用户名</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git config user<span class="token punctuation">.</span>email <span class="token comment">// 获取邮箱</span></pre></td></tr></table></figure><h2 id="帮助命令"><a class="anchor" href="#帮助命令">#</a> 帮助命令</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git help xx                <span class="token comment">// 获取帮助命令</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git config <span class="token operator">--</span>global        <span class="token comment">// 获取命令信息</span></pre></td></tr><tr><td data-num="3"></td><td><pre>git config <span class="token operator">--</span>list <span class="token operator">--</span>global <span class="token comment">// 获取全局列表</span></pre></td></tr><tr><td data-num="4"></td><td><pre>git config <span class="token operator">--</span>list          <span class="token comment">// 获取列表</span></pre></td></tr></table></figure><h2 id="状态查看"><a class="anchor" href="#状态查看">#</a> 状态查看</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git status <span class="token operator">--</span>short  <span class="token comment">// 精简展示未跟踪</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git status <span class="token operator">-</span>s 		<span class="token comment">// 上面代码的缩写</span></pre></td></tr></table></figure><h2 id="移除暂存区"><a class="anchor" href="#移除暂存区">#</a> 移除暂存区</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git checkout xx 	<span class="token comment">// 撤销 xx 文件 </span></pre></td></tr><tr><td data-num="2"></td><td><pre>git reset <span class="token constant">HEAD</span> xxx  <span class="token comment">// 移出暂存区</span></pre></td></tr><tr><td data-num="3"></td><td><pre>git reset <span class="token constant">HEAD</span> <span class="token punctuation">.</span>	<span class="token comment">// 所有文件移出暂存区</span></pre></td></tr></table></figure><h2 id="跳过暂存区"><a class="anchor" href="#跳过暂存区">#</a> 跳过暂存区</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git commit <span class="token operator">-</span>a <span class="token operator">-</span>m <span class="token string">''</span> <span class="token comment">// 对已经提交过到暂存区的，可以跳过暂存区</span></pre></td></tr></table></figure><h2 id="移出暂存区"><a class="anchor" href="#移出暂存区">#</a> 移出暂存区</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git rm <span class="token operator">-</span>f xx 	   <span class="token comment">// 从 git 仓库和工作区同时移除文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git rm <span class="token operator">--</span>cached xx <span class="token comment">// 移出 git 仓库中的文件</span></pre></td></tr></table></figure><h2 id="gitignore"><a class="anchor" href="#gitignore">#</a> .gitignore</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre># 忽略所有 <span class="token punctuation">.</span>abc 文件</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">*</span><span class="token punctuation">.</span>abc</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre># 跟踪所有 ssr<span class="token punctuation">.</span>abc 即便在前面忽略了 <span class="token punctuation">.</span>abc 文件</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">!</span>ssr<span class="token punctuation">.</span>abc</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre># 只忽略当前目录下的ssr文件，而不忽略abcd<span class="token operator">/</span>ssr文件</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">/</span>ssr</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre># 忽略任何目录下名为dist的文件夹</pre></td></tr><tr><td data-num="11"></td><td><pre>dist<span class="token operator">/</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre># 忽略 doc<span class="token operator">/</span>notes<span class="token punctuation">.</span>txt，但不忽略 doc<span class="token operator">/</span>server<span class="token operator">/</span>arch<span class="token punctuation">.</span>txt</pre></td></tr><tr><td data-num="14"></td><td><pre>doc<span class="token comment">/*.txt</pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</pre></td></tr><tr><td data-num="17"></td><td><pre>doc/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>pdf</pre></td></tr></table></figure><h2 id="查看日志"><a class="anchor" href="#查看日志">#</a> 查看日志</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre># 按事件先行顺序列出所有的提交历史m最近的提交排在最上面</pre></td></tr><tr><td data-num="2"></td><td><pre>git log</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre># 只暂时最新的两条提交历史，数字可以按需进行填写</pre></td></tr><tr><td data-num="5"></td><td><pre>git log <span class="token operator">-</span><span class="token number">2</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre># 在以后上展示最近两条提交历史的信息</pre></td></tr><tr><td data-num="8"></td><td><pre>git log <span class="token operator">-</span><span class="token number">2</span> <span class="token operator">--</span>pretty<span class="token operator">=</span>oneline</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre># 在一行上展示最近两条提交历史的信息，并自定义输出的格式</pre></td></tr><tr><td data-num="11"></td><td><pre># <span class="token operator">%</span>h  提交的简写哈希值</pre></td></tr><tr><td data-num="12"></td><td><pre># <span class="token operator">%</span>an 作者名字</pre></td></tr><tr><td data-num="13"></td><td><pre># <span class="token operator">%</span>ar 作者修订日期，按多久以前的方式显示</pre></td></tr><tr><td data-num="14"></td><td><pre># <span class="token operator">%</span>s  提交说明</pre></td></tr><tr><td data-num="15"></td><td><pre>git log <span class="token operator">-</span><span class="token number">2</span> <span class="token operator">--</span>pretty<span class="token operator">=</span>format<span class="token operator">:</span><span class="token string">"%h | %an | %ar | %s"</span></pre></td></tr></table></figure><h2 id="回退版本"><a class="anchor" href="#回退版本">#</a> 回退版本</h2>
+<ul>
+<li>在一行上展示所有的提交历史
+<ul>
+<li><code>git log --pretty=oneline</code></li>
+</ul>
+</li>
+<li>使用 git reset --hard 命令 根据指定的提交 ID 回退到指定版本
+<ul>
+<li><code>git reset --hard &lt;CommitID&gt;</code></li>
+</ul>
+</li>
+<li>在旧版种使用 <code> git reflog --pretty=oneline</code>  命令 查看命令操作的历史</li>
+<li>再次根据最新的提交 ID 跳转到最新的版本</li>
+</ul>
+<h2 id="github-开源协议"><a class="anchor" href="#github-开源协议">#</a> Github 开源协议</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">https</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com<span class="token operator">/</span>w3cnote<span class="token operator">/</span>open<span class="token operator">-</span>source<span class="token operator">-</span>license<span class="token punctuation">.</span>html</pre></td></tr></table></figure><h2 id="上传代码"><a class="anchor" href="#上传代码">#</a> 上传代码</h2>
+<ul>
+<li>https</li>
+</ul>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre>git remote add origin https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>xx<span class="token punctuation">.</span>com  <span class="token comment">// 远程连接</span></pre></td></tr><tr><td data-num="2"></td><td><pre>git push <span class="token operator">-</span>u origin master <span class="token comment">// 上传代码</span></pre></td></tr><tr><td data-num="3"></td><td><pre>git push <span class="token comment">// 当已经执行过上面代码时，再提交只需要 git push 就可以了</span></pre></td></tr></table></figure><h2 id="配置-ssh-key"><a class="anchor" href="#配置-ssh-key">#</a> 配置 SSH key</h2>
+<h3 id="ssh配置"><a class="anchor" href="#ssh配置">#</a> SSH 配置</h3>
+<ul>
+<li>
+<p>打开 <code>git Bash Here</code> ，输入下面命令：</p>
+</li>
+<li>
+<p>ssh-keygen -t rsa -b 4096 -C 'your_email@example.com'</p>
+</li>
+<li>
+<p>连续敲击三次回车，在 C:\Users\ 用户名文件夹.ssh 目录中生成 id_rsa 和 id_rsa.pub 两个文件</p>
+</li>
+</ul>
+<h3 id="配置-ssh-key-2"><a class="anchor" href="#配置-ssh-key-2">#</a> 配置 SSH key</h3>
+<ol>
+<li>使用记事本打开 id_rsa.pub 文件，复制里面内容</li>
+<li>在浏览器中登录 GitHub，点击头像 -&gt; Settings -&gt; SSH and GPG Keys -&gt; News SSH key</li>
+<li>将 id_rsa.pub 文件中的内容，粘贴到 Key 对应的文本框中</li>
+<li>在 Title 文本框中国任意填写一个名称，来标识这个 Key 从何而来</li>
+</ol>
+<h3 id="检测github的ssh-key-是否配置成功"><a class="anchor" href="#检测github的ssh-key-是否配置成功">#</a> 检测 Github 的 SSH key 是否配置成功</h3>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre># 打开 Git Bash，执行下面命令</pre></td></tr><tr><td data-num="2"></td><td><pre>① ssh <span class="token operator">-</span><span class="token constant">T</span> git@github<span class="token punctuation">.</span>com <span class="token comment">// Hi nekoaimer! You've successfully authenticated, but GitHub does not provide shell access.</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre># 命令成功后可能会看到如下提示消息</pre></td></tr><tr><td data-num="5"></td><td><pre>Hi nekoaimer<span class="token operator">!</span> You've successfully authenticated<span class="token punctuation">,</span> but GitHub does not provide shell access<span class="token punctuation">.</span></pre></td></tr></table></figure><h2 id="克隆仓库"><a class="anchor" href="#克隆仓库">#</a> 克隆仓库</h2>
+<figure class="highlight javascript"><figcaption data-lang="javascript"><span>Git</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">git clone 远程仓库地址</span><span class="token template-punctuation string">`</span></span></pre></td></tr></table></figure><h2 id="分支"><a class="anchor" href="#分支">#</a> 分支</h2>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-04-23 03:00:27" itemprop="dateModified" datetime="2022-04-23T03:00:27+08:00">2022-04-23</time>
+  </span>
+  <span id="2022/04/23/Git/git-command/" class="item leancloud_visitors" data-flag-title="Git 命令补充" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/" title="Git 命令补充">https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexe4oykj20zk0m87ji.jpg" title="判断是否是回文数">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Easy</span>
+  <h3>判断是否是回文数</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7"><span class="toc-number">1.</span> <span class="toc-text"> 获取用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text"> 帮助命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9F%A5%E7%9C%8B"><span class="toc-number">3.</span> <span class="toc-text"> 状态查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text"> 移除暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BF%87%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">5.</span> <span class="toc-text"> 跳过暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%87%BA%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">6.</span> <span class="toc-text"> 移出暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore"><span class="toc-number">7.</span> <span class="toc-text"> .gitignore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="toc-number">8.</span> <span class="toc-text"> 查看日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC"><span class="toc-number">9.</span> <span class="toc-text"> 回退版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE"><span class="toc-number">10.</span> <span class="toc-text"> Github 开源协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81"><span class="toc-number">11.</span> <span class="toc-text"> 上传代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-ssh-key"><span class="toc-number">12.</span> <span class="toc-text"> 配置 SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh%E9%85%8D%E7%BD%AE"><span class="toc-number">12.1.</span> <span class="toc-text"> SSH 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-ssh-key-2"><span class="toc-number">12.2.</span> <span class="toc-text"> 配置 SSH key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8Bgithub%E7%9A%84ssh-key-%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F"><span class="toc-number">12.3.</span> <span class="toc-text"> 检测 Github 的 SSH key 是否配置成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E4%BB%93%E5%BA%93"><span class="toc-number">13.</span> <span class="toc-text"> 克隆仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">14.</span> <span class="toc-text"> 分支</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2022/03/16/Git/Git/" rel="bookmark" title="Git 武沛齐笔记">Git 武沛齐笔记</a></li><li class="active"><a href="/nekoaimer.github.io/2022/04/23/Git/git-command/" rel="bookmark" title="Git 命令补充">Git 命令补充</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">115</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">11</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">24</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" title="JavaScript Iterator">JavaScript Iterator</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/16/data-structures-and-algorithms/algorithm/problems/easy/HexBinDecOct/" title="进制转换">进制转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/08/JavaScript/Advanced/this/" title="JavaScript name &amp; this">JavaScript name & this</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/" title="In data structure">data structure</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/" title="队列实现击鼓传花 (Queue)">队列实现击鼓传花 (Queue)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/05/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/11/Vue/Vue3/CompositionAPI/vca_shallowRef&triggerRef/" title="Vue3 shallowRef和triggerRef 用法">Vue3 shallowRef和triggerRef 用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" title="JavaScript Proxy &amp; Reflect">JavaScript Proxy & Reflect</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/30/Vue/Vue3/CompositionAPI/vca_provide&inject/" title="Vue3 provide &amp; inject">Vue3 provide & inject</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">605k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">9:10</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/04/23/Git/git-command/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

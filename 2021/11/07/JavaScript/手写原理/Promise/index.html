@@ -76,7 +76,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>16k</span>
+    <span>17k</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
         </ul>
       </div>
     </header>
@@ -233,7 +233,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </li>
 </ul>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">_Promise</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token operator">...</span><span class="token operator">...</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token operator">...</span><span class="token operator">...</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">//then 方法</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">onFulfilled<span class="token punctuation">,</span> onRejected</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">// 判断下是否有有值  没有就抛出</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    onRejected <span class="token operator">??=</span> <span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token keyword">throw</span> err <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    </pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 链式调用 返回新的 Promise</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">_Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token comment">//if 判断状态 -> 解决定时器问题</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>onFulfilled <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token constant">PROMISE_STATUS_FULFILLED</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token function">execFunctionWithCatchError</span><span class="token punctuation">(</span>onFulfilled<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      </pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span>onRejected <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token constant">PROMISE_STATUS_REJECTED</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token function">execFunctionWithCatchError</span><span class="token punctuation">(</span>onRejected<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reason<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      </pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token constant">PROMISE_STATUS_PENDING</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token comment">// 严谨点 先判断是否有值 传入一个函数 在其内部进行得到返回值</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span>onFulfilled<span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onFulfilledFns<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> </pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token function">execFunctionWithCatchError</span><span class="token punctuation">(</span>onFulfilled<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span>onRejected<span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onRejectedFns<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> </pre></td></tr><tr><td data-num="27"></td><td><pre>          <span class="token function">execFunctionWithCatchError</span><span class="token punctuation">(</span>onRejected<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reason<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token comment">//catch 方法</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token keyword">catch</span><span class="token punctuation">(</span>onRejected<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token comment">//return 出 catch 的返回值</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> onRejected<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token comment">// 测试代码：</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">_Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'我被抛出了/(ㄒoㄒ)/~~'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token comment">// Error: 我被抛出了 /(ㄒ o ㄒ)/~~</span></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">_Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'我被抛出了/(ㄒoㄒ)/~~'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token comment">// Error: 我被抛出了 /(ㄒ o ㄒ)/~~</span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>  <span class="token comment">// 因为上面已经用 err 接收了</span></pre></td></tr><tr><td data-num="57"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="58"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
-<li>补充一点：如果不加这一句，类似下面这种 <code>.then(res =&gt; console.log(res))</code> , 这种没有 <code>err</code>  参数时，相当于 <code>undefined.catch()</code> ，所以应该抛出</li>
+<li>补充一点：如果不加这一句，类似下面这种 <code>.then(res =&gt; console.log(res))</code> , 这种没有 <code>err</code>  参数时，then 就没有 err 函数就是 undefined，那么执行时 <code>then</code>  方法时， <code>onRejected</code>  是 <code>undefined</code> ，所以会报 <code>execFn is not a function</code> ，这是只要判断一下，在为 <code>undefined</code>  时抛出一个函数即可</li>
 </ul>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">_Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token number">2333</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token number">1123</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="finally-方法"><a class="anchor" href="#finally-方法">#</a> finally 方法</h2>
 <ul>
@@ -312,7 +312,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-04-07 23:45:12" itemprop="dateModified" datetime="2022-04-07T23:45:12+08:00">2022-04-07</time>
+    <time title="Modified: 2022-04-22 10:42:47" itemprop="dateModified" datetime="2022-04-22T10:42:47+08:00">2022-04-22</time>
   </span>
   <span id="2021/11/07/JavaScript/手写原理/Promise/" class="item leancloud_visitors" data-flag-title="JavaScript 手写 Promise" title="Views">
       <span class="icon">
@@ -370,7 +370,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetv6p75j20zk0m8x6p.jpg" title="Javascript Promise に">
+  <a href="/nekoaimer.github.io/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciundwu5j20zk0m8n9e.jpg" title="Javascript Promise に">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript</span>
   <h3>Javascript Promise に</h3>
@@ -380,7 +380,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxxcb6rj20zk0m8b29.jpg" title="JavaScript Iterator">
+  <a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciub8ja1j20zk0m81ky.jpg" title="JavaScript Iterator">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript</span>
   <h3>JavaScript Iterator</h3>
@@ -420,7 +420,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/nekoaimer.github.io/archives/">
-        <span class="count">114</span>
+        <span class="count">115</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -542,12 +542,44 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/" title="JavaScript 实现无缝滚动轮播图(carousel)">JavaScript 实现无缝滚动轮播图(carousel)</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/21/Vue/Vue3/CompositionAPI/vca_watchEffect_refEl/" title="Vue3 在 ref 里 使用 watchEffect">Vue3 在 ref 里 使用 watchEffect</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/22/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/CSS/" title="In CSS">CSS</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/CSS/CSS-Demo/" title="In CSS Demo">CSS Demo</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/17/CSS/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/" title="CSS 三角形">CSS 三角形</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/28/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/use-Mustache/" title="JavaScript Mustache 模板引擎用法">JavaScript Mustache 模板引擎用法</a></span>
   </li>
 
       
@@ -559,7 +591,17 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/30/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
+    <span><a href="/nekoaimer.github.io/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/29/JavaScript/JavaScript%20Hmilyl/01-Hmilyl/" title="JavaScript Hmilyl いち">JavaScript Hmilyl いち</a></span>
   </li>
 
       
@@ -571,51 +613,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/03/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/" title="In data structure">data structure</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/" title="优先级队列实现 (PriorityQueue)">优先级队列实现 (PriorityQueue)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/03/03/Vue/Vue2/style/" title="Vue2 绑定样式">Vue2 绑定样式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/25/Vue/Vue3/CompositionAPI/vca_watch/" title="Vue3 watch 在 Composition API 中使用">Vue3 watch 在 Composition API 中使用</a></span>
   </li>
 
       
@@ -627,7 +625,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/14/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
+    <span><a href="/nekoaimer.github.io/2021/07/05/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
   </li>
 
       
@@ -639,17 +637,17 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/" title="JavaScript 实现图片懒加载">JavaScript 实现图片懒加载</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" title="JavaScript 模块化">JavaScript 模块化</a></span>
+    <span><a href="/nekoaimer.github.io/2021/03/11/Vue/Vue%20note/04-atguigu/" title="Vue2 插槽">Vue2 插槽</a></span>
   </li>
 
   </ul>
@@ -674,13 +672,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">603k words</span>
+    <span title="Symbols count total">605k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">9:08</span>
+    <span title="Reading time total">9:10</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
