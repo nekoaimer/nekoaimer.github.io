@@ -1,0 +1,643 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="CSS,CSS 居中布局" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2020/12/10/CSS3/CSS%20Layout/css_layout_center/">
+
+
+
+  <title>
+css 居中布局 - CSS |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">css 居中布局
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-12-10 22:16:37">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-12-10T22:16:37+08:00">2020-12-10</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>4.9k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>4 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/CSS3/" itemprop="item" rel="index" title="In CSS"><span itemprop="name">CSS</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2020/12/10/CSS3/CSS%20Layout/css_layout_center/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h5 id="1-行内样式居中text-align"><a class="anchor" href="#1-行内样式居中text-align">#</a> 1. 行内样式居中 (text-align)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 50px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">line-height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgb</span><span class="token punctuation">(</span>10<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="11"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="12"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="13"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="14"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>&lt;/body></pre></td></tr></table></figure><p>​		 结果如下：</p>
+<p><img data-src="result1.png" alt="result" /></p>
+<h5 id="2-行内样式居中width"><a class="anchor" href="#2-行内样式居中width">#</a> 2. 行内样式居中 (width)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>      .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token property">margin</span><span class="token punctuation">:</span> 50px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token property">line-height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgb</span><span class="token punctuation">(</span>10<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>       # <span class="token comment">/* 具体使用查看 https://developer.mozilla.org/zh-CN/docs/Web/CSS/width */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      # <span class="token comment">/* 使用 fit-content/max-content/min-content 和上面效果一致 */</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token property">width</span><span class="token punctuation">:</span> fit-content<span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    &lt;/style></pre></td></tr><tr><td data-num="16"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="17"></td><td><pre>     &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="18"></td><td><pre>       &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="19"></td><td><pre>     &lt;/div></pre></td></tr><tr><td data-num="20"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="result1.png" alt="result" /></p>
+<h5 id="3bfc水平垂直居中margin"><a class="anchor" href="#3bfc水平垂直居中margin">#</a> 3.BFC 水平垂直居中 margin</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #ed1e11<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>     <span class="token selector"># // position定位后主要利用margin走自身宽高负一半即可居中  </pre></td></tr><tr><td data-num="8"></td><td><pre>    .childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      # <span class="token comment">/* 自身宽度的一般 */</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">margin-left</span><span class="token punctuation">:</span> -50px<span class="token punctuation">;</span> || <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 50px<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      # <span class="token comment">/* 自身高度的一般  */</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">margin-top</span><span class="token punctuation">:</span> -50px<span class="token punctuation">;</span> || <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 50px<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="21"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="22"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="23"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="24"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="25"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult1.png" alt="result" /></p>
+<h5 id="4bfc水平垂直居中translate"><a class="anchor" href="#4bfc水平垂直居中translate">#</a> 4.BFC 水平垂直居中 (translate)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token selector"># // 定位后用transform的translate移动自身宽高负一半即可居中</pre></td></tr><tr><td data-num="8"></td><td><pre>    .childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="18"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="19"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="20"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="21"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="22"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult2.png" alt="result" /></p>
+<h5 id="5bfc水平垂直居中padding"><a class="anchor" href="#5bfc水平垂直居中padding">#</a> 5.BFC 水平垂直居中 (padding)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre>&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>     # <span class="token comment">/* 注意 padding 会撑大盒子 */</span></pre></td></tr><tr><td data-num="3"></td><td><pre>     # <span class="token comment">/* 给子元素设置宽度，不使用 padding 挤压给子元素宽度，正常结果参考 result1*/</span> </pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token selector">.parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 50px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">padding</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      # <span class="token comment">/* 如果想不撑大盒子可加 box-sizing: border-box; */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      # <span class="token comment">/* 但是此时 padding 不可超过父元素宽度一半，否则会挤压消失 */</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      # <span class="token comment">/* box-sizing: border-box; */</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      # <span class="token comment">/* 如果连高度也没有设置，则会超出在一行显示不会换行增加高度，参考 result2*/</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="19"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="20"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="21"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="22"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="23"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p>result1:<img data-src="bfcresult3.1.png" alt="result" /></p>
+<p>result2:<img data-src="bfcresult3.2.png" alt="result" /></p>
+<h5 id="6bfc水平垂直居中flex"><a class="anchor" href="#6bfc水平垂直居中flex">#</a> 6.BFC 水平垂直居中 (flex)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 200px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      # <span class="token comment">/* 水平居中 */</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      # <span class="token comment">/* 垂直居中 */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #4d9c58<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="20"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="21"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="22"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="23"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="24"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult4.png" alt="result" /></p>
+<h5 id="7bfc水平垂直居中beforeafter"><a class="anchor" href="#7bfc水平垂直居中beforeafter">#</a> 7.BFC 水平垂直居中 (before/after)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>   .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 200px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="16"></td><td><pre>     &lt;body></pre></td></tr><tr><td data-num="17"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="18"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="19"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="20"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult5.1.png" alt="result" /></p>
+<h6 id="此时给父元素加上before并给父元素的before开启bfc"><a class="anchor" href="#此时给父元素加上before并给父元素的before开启bfc">#</a> #此时给父元素加上 before 并给父元素的 before 开启 BFC</h6>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 200px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>   </pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token selector">.parentEl::before</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="24"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="25"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="26"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="27"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="28"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult5.2.png" alt="result" /></p>
+<h6 id="最后再给parentel和childel都加上vertical-align-middle即可居中参考rsult2"><a class="anchor" href="#最后再给parentel和childel都加上vertical-align-middle即可居中参考rsult2">#</a> #最后再给 parentEl 和 childEl 都加上 vertical-align: middle; 即可居中参考 rsult2</h6>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">margin</span><span class="token punctuation">:</span> 200px auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>   </pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      # <span class="token comment">/* 先给 childEl 设置 vertical-align: middle; 参考 result1 */</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token selector">.parentEl::before</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      # <span class="token comment">/* 再给.parentEl::before 设置 vertical-align: middle; 即可居中即 result2 */</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span> # <span class="token comment">/* 注意最后要把宽度设置为 0 才是真正居中 */</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  &lt;/style></pre></td></tr><tr><td data-num="28"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="29"></td><td><pre>    &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="30"></td><td><pre>      &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="31"></td><td><pre>    &lt;/div></pre></td></tr><tr><td data-num="32"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>result1:<img data-src="bfcresult5.3.png" alt="result" /></p>
+<p>result2:<img data-src="bfcresult5.4.png" alt="result" /></p>
+<h5 id="8bfc水平垂直居中background-clip"><a class="anchor" href="#8bfc水平垂直居中background-clip">#</a> 8.BFC 水平垂直居中 (background-clip)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  &lt;/style>></pre></td></tr><tr><td data-num="14"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="15"></td><td><pre>  &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="16"></td><td><pre>    &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="17"></td><td><pre>  &lt;/div></pre></td></tr><tr><td data-num="18"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult6.1.png" alt="result" /></p>
+<h6 id="此时需要添加两个属性"><a class="anchor" href="#此时需要添加两个属性">#</a> 此时需要添加两个属性</h6>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    .parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      # <span class="token comment">/* 此时加上 padding: calc ((100% - 100px) / 2); 参考 result1 */</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>100% - 100px<span class="token punctuation">)</span> /2<span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="13"></td><td><pre>      # <span class="token comment">/* 最后再加上 background-clip: content-box; 就可居中，参考 result2 */</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token property">background-clip</span><span class="token punctuation">:</span> content-box<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  &lt;/style>></pre></td></tr><tr><td data-num="18"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="19"></td><td><pre>  &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="20"></td><td><pre>    &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="21"></td><td><pre>  &lt;/div></pre></td></tr><tr><td data-num="22"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>result1:<img data-src="bfcresult6.2.png" alt="result" /></p>
+<p>result2:<img data-src="bfcresult6.3.png" alt="result" /></p>
+<h5 id="9bfc水平垂直居中grid"><a class="anchor" href="#9bfc水平垂直居中grid">#</a> 9.BFC 水平垂直居中 (grid)</h5>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style></pre></td></tr><tr><td data-num="2"></td><td><pre>    body</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>170<span class="token punctuation">,</span> 99<span class="token punctuation">,</span> 49<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token selector">.parentEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #d2691e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token selector">.childEl</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token property">align-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token property">justify-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token property">background-color</span><span class="token punctuation">:</span> #1a8ae5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>&lt;/style></pre></td></tr><tr><td data-num="21"></td><td><pre>  &lt;body></pre></td></tr><tr><td data-num="22"></td><td><pre>  &lt;div class=<span class="token string">"parentEl"</span>></pre></td></tr><tr><td data-num="23"></td><td><pre>    &lt;div class=<span class="token string">"childEl"</span>>content&lt;/div></pre></td></tr><tr><td data-num="24"></td><td><pre>  &lt;/div></pre></td></tr><tr><td data-num="25"></td><td><pre>  &lt;/body></pre></td></tr></table></figure><p>结果如下：</p>
+<p><img data-src="bfcresult6.3.png" alt="result" /></p>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/CSS/" rel="tag"><i class="ic i-tag"></i> CSS</a>
+          <a href="/nekoaimer.github.io/tags/CSS-%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/" rel="tag"><i class="ic i-tag"></i> CSS 居中布局</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-02-27 16:36:11" itemprop="dateModified" datetime="2022-02-27T16:36:11+08:00">2022-02-27</time>
+  </span>
+  <span id="2020/12/10/CSS3/CSS Layout/css_layout_center/" class="item leancloud_visitors" data-flag-title="css 居中布局" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2020/12/10/CSS3/CSS%20Layout/css_layout_center/" title="css 居中布局">https://nekoaimer.github.io/nekoaimer.github.io/2020/12/10/CSS3/CSS Layout/css_layout_center/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclip4jbpj20zk0m87cv.jpg" title="关于奇怪的 typeof 选择题 いち">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>关于奇怪的 typeof 选择题 いち</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E8%A1%8C%E5%86%85%E6%A0%B7%E5%BC%8F%E5%B1%85%E4%B8%ADtext-align"><span class="toc-number">1.</span> <span class="toc-text"> 1. 行内样式居中 (text-align)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%A1%8C%E5%86%85%E6%A0%B7%E5%BC%8F%E5%B1%85%E4%B8%ADwidth"><span class="toc-number">2.</span> <span class="toc-text"> 2. 行内样式居中 (width)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADmargin"><span class="toc-number">3.</span> <span class="toc-text"> 3.BFC 水平垂直居中 margin</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADtranslate"><span class="toc-number">4.</span> <span class="toc-text"> 4.BFC 水平垂直居中 (translate)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADpadding"><span class="toc-number">5.</span> <span class="toc-text"> 5.BFC 水平垂直居中 (padding)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADflex"><span class="toc-number">6.</span> <span class="toc-text"> 6.BFC 水平垂直居中 (flex)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADbeforeafter"><span class="toc-number">7.</span> <span class="toc-text"> 7.BFC 水平垂直居中 (before&#x2F;after)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%A4%E6%97%B6%E7%BB%99%E7%88%B6%E5%85%83%E7%B4%A0%E5%8A%A0%E4%B8%8Abefore%E5%B9%B6%E7%BB%99%E7%88%B6%E5%85%83%E7%B4%A0%E7%9A%84before%E5%BC%80%E5%90%AFbfc"><span class="toc-number">7.1.</span> <span class="toc-text"> #此时给父元素加上 before 并给父元素的 before 开启 BFC</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%86%8D%E7%BB%99parentel%E5%92%8Cchildel%E9%83%BD%E5%8A%A0%E4%B8%8Avertical-align-middle%E5%8D%B3%E5%8F%AF%E5%B1%85%E4%B8%AD%E5%8F%82%E8%80%83rsult2"><span class="toc-number">7.2.</span> <span class="toc-text"> #最后再给 parentEl 和 childEl 都加上 vertical-align: middle; 即可居中参考 rsult2</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADbackground-clip"><span class="toc-number">8.</span> <span class="toc-text"> 8.BFC 水平垂直居中 (background-clip)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%A4%E6%97%B6%E9%9C%80%E8%A6%81%E6%B7%BB%E5%8A%A0%E4%B8%A4%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="toc-number">8.1.</span> <span class="toc-text"> 此时需要添加两个属性</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9bfc%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%ADgrid"><span class="toc-number">9.</span> <span class="toc-text"> 9.BFC 水平垂直居中 (grid)</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/nekoaimer.github.io/2020/12/10/CSS3/CSS%20Layout/css_layout_center/" rel="bookmark" title="css 居中布局">css 居中布局</a></li><li><a href="/nekoaimer.github.io/2020/12/23/CSS3/CSS%20Layout/flex/" rel="bookmark" title="flex 布局">flex 布局</a></li><li><a href="/nekoaimer.github.io/2020/12/25/CSS3/CSS%20Layout/grid/" rel="bookmark" title="grid 布局">grid 布局</a></li><li><a href="/nekoaimer.github.io/2020/12/27/CSS3/CSS%20Hmilyl/01-Hmilyl/" rel="bookmark" title="CSS Hmilyl いち">CSS Hmilyl いち</a></li><li><a href="/nekoaimer.github.io/2022/01/15/CSS3/CSS%20Demo/CSS%E8%BE%B9%E6%A1%86%E6%BB%91%E5%9D%97/" rel="bookmark" title="CSS 边框滑块">CSS 边框滑块</a></li><li><a href="/nekoaimer.github.io/2022/01/16/CSS3/CSS%20Demo/CSS%E5%A4%A7%E4%BA%8E%E5%8F%B7/" rel="bookmark" title="CSS 小三角">CSS 小三角</a></li><li><a href="/nekoaimer.github.io/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/" rel="bookmark" title="CSS 三角形">CSS 三角形</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">120</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">12</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">25</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/06/12/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Ajax/" title="In Ajax">Ajax</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/01/01/Ajax/01-Ajax/" title="李南江老师 Ajax 笔记 いち">李南江老师 Ajax 笔记 いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/" title="In data structure">data structure</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/" title="队列实现击鼓传花 (Queue)">队列实现击鼓传花 (Queue)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/01/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/snabbdom/" title="JavaScript 实现 Snabbdom 库">JavaScript 实现 Snabbdom 库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/17/JavaScript/interesting_question/Strange_01/" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/07/JavaScript/Advanced/IndexedDB/" title="浏览器存储方案 IndexedDB">浏览器存储方案 IndexedDB</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/15/Vue/Vue%20note/06-atguigu/" title="Vue2 路由">Vue2 路由</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">632k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">9:34</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2020/12/10/CSS3/CSS Layout/css_layout_center/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

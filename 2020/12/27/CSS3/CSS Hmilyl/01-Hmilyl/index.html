@@ -1,0 +1,923 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="CSS,CSS Hmilyl" />
+
+
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2020/12/27/CSS3/CSS%20Hmilyl/01-Hmilyl/">
+
+
+
+  <title>
+CSS Hmilyl いち - CSS |
+Nico Niconi = nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">CSS Hmilyl いち
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-12-27 13:40:59">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-12-27T13:40:59+08:00">2020-12-27</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>5.2k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>5 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/CSS3/" itemprop="item" rel="index" title="In CSS"><span itemprop="name">CSS</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2020/12/27/CSS3/CSS%20Hmilyl/01-Hmilyl/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="介绍css盒子模型"><a class="anchor" href="#介绍css盒子模型">#</a> 介绍 CSS 盒子模型</h2>
+<ul>
+<li>CSS 的盒子模型有哪些：标准盒子模型。IE 盒子模型</li>
+<li>CSS 的盒子模型区别：
+<ul>
+<li>标准盒子模型：margin、border、paddig、content</li>
+<li>IE 盒子模型：margin content (border + padding + content)</li>
+</ul>
+</li>
+<li>通过 CSS 如何转换盒子模型：
+<ul>
+<li>box-sizing: content-box：标准盒子模型</li>
+<li>box-sizing: border-box：IE 盒子模型</li>
+</ul>
+</li>
+<li>当然注意设置了 <code>box-sizing: border-box，并不代表一定是width的宽度</code> ，例如下面例子</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre>.box &#123;</pre></td></tr><tr><td data-num="2"></td><td><pre>  padding: 50px;</pre></td></tr><tr><td data-num="3"></td><td><pre>  width: 100px;</pre></td></tr><tr><td data-num="4"></td><td><pre>  height: 100px;</pre></td></tr><tr><td data-num="5"></td><td><pre>  border: 5px solid #ccc;</pre></td></tr><tr><td data-num="6"></td><td><pre>  box-sizing: border-box;</pre></td></tr><tr><td data-num="7"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>box<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ul>
+<li>此时 <code>box</code>  盒子的宽度则是  <code>210px</code> , 但如果 <code>padding</code>  是 <code>40px</code>  的话， <code>40px + 40px + 5px + 5px &lt; 100px </code> ，所以此时 <code>box</code>  盒子的宽度就是 <code>100px</code></li>
+</ul>
+<h2 id="line-height-height-区别"><a class="anchor" href="#line-height-height-区别">#</a> line-height &amp; height 区别</h2>
+<ul>
+<li>line-height：是每一行文字的高，如果文字换行则整个盒子高度会增大 (行数 * 行高)</li>
+<li>height：是一个固定值，就是这个盒子的高度</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">.box</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>  仙袂乍飘兮，闻麝兰之馥郁;荷衣欲动兮，听环佩之铿锵。靥笑</pre></td></tr><tr><td data-num="11"></td><td><pre>  春桃兮，云堆翠髻;唇绽樱颗兮，榴齿含香。纤腰之楚楚兮，回</pre></td></tr><tr><td data-num="12"></td><td><pre>  风舞雪;珠翠之辉辉兮，满额鹅黄。出没花间兮，宜嗔宜喜;徘</pre></td></tr><tr><td data-num="13"></td><td><pre>  徊池上兮，若飞若扬。蛾眉颦笑兮，将言而未语;莲步乍移兮，</pre></td></tr><tr><td data-num="14"></td><td><pre>  待止而欲行。羡彼之良质兮，冰清玉润;慕彼之华服兮，闪灼文</pre></td></tr><tr><td data-num="15"></td><td><pre>  章。爱彼之貌容兮，香培玉琢;美彼之态度兮，凤翥龙翔。</pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ul>
+<li>正常高度依然是 200px，并且会自动换行，有 9 行。但如果设置的是 <code>line-height = 200px</code> ，那么就是  <code>9 * 200 = 1800px</code> ，那么盒子高度就是 <code>1800px</code>  了，这就是它们的区别</li>
+</ul>
+<h2 id="css-选择符"><a class="anchor" href="#css-选择符">#</a> CSS 选择符</h2>
+<ul>
+<li><code>选择器参考表 MDN</code> ：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9DU1MvQnVpbGRpbmdfYmxvY2tzL1NlbGVjdG9ycyMlRTklODAlODklRTYlOEIlQTklRTUlOTklQTglRTUlOEYlODIlRTglODAlODMlRTglQTElQTg=">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors# 选择器参考表</span></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>示例</th>
+<th>学习 CSS 的教程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1R5cGVfc2VsZWN0b3Jz">类型选择器</span></td>
+<td><code>h1 &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy91c2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9UeXBlX0NsYXNzX2FuZF9JRF9TZWxlY3RvcnMjVHlwZV9zZWxlY3RvcnM=">类型选择器</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1VuaXZlcnNhbF9zZWxlY3RvcnM=">通配选择器</span></td>
+<td><code>* &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy91c2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9UeXBlX0NsYXNzX2FuZF9JRF9TZWxlY3RvcnMjVGhlX3VuaXZlcnNhbF9zZWxlY3Rvcg==">通配选择器</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0NsYXNzX3NlbGVjdG9ycw==">类选择器</span></td>
+<td><code>.box &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy91c2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9UeXBlX0NsYXNzX2FuZF9JRF9TZWxlY3RvcnMjQ2xhc3Nfc2VsZWN0b3Jz">类选择器</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0lEX3NlbGVjdG9ycw==">ID 选择器</span></td>
+<td><code>#unique &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy91c2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9UeXBlX0NsYXNzX2FuZF9JRF9TZWxlY3RvcnMjSURfU2VsZWN0b3Jz">ID 选择器</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0F0dHJpYnV0ZV9zZWxlY3RvcnM=">标签属性选择器</span></td>
+<td><code>a[title] &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9BdHRyaWJ1dGVfc2VsZWN0b3Jz">标签属性选择器</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1BzZXVkby1jbGFzc2Vz">伪类选择器</span></td>
+<td><code>p:first-child &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9Qc2V1c28tY2xhc3Nlc19hbmRfUHNldWRvLWVsZW1lbnRzI1doYXRfaXNfYV9wc2V1ZG8tY2xhc3M=">伪类</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1BzZXVkby1lbGVtZW50cw==">伪元素选择器</span></td>
+<td><code>p::first-line &#123; &#125;</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9Qc2V1c28tY2xhc3Nlc19hbmRfUHNldWRvLWVsZW1lbnRzI1doYXRfaXNfYV9wc2V1ZG8tZWxlbWVudA==">伪元素</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0Rlc2NlbmRhbnRfY29tYmluYXRvcg==">后代选择器</span></td>
+<td><code>article p</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9Db21iaW5hdG9ycyNEZXNjZW5kYW50X1NlbGVjdG9y">后代运算符</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0NoaWxkX2NvbWJpbmF0b3I=">子代选择器</span></td>
+<td><code>article &gt; p</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9Db21iaW5hdG9ycyNDaGlsZF9jb21iaW5hdG9y">子代选择器</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0FkamFjZW50X3NpYmxpbmdfY29tYmluYXRvcg==">相邻兄弟选择器</span></td>
+<td><code>h1 + p</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9Db21iaW5hdG9ycyNBZGphY2VudF9zaWJsaW5n">相邻兄弟</span></td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0dlbmVyYWxfc2libGluZ19jb21iaW5hdG9y">通用兄弟选择器</span></td>
+<td><code>h1 ~ p</code></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9Vc2VyOmNocmlzZGF2aWRtaWxscy9DU1NfTGVhcm4vQ1NTX1NlbGVjdG9ycy9Db21iaW5hdG9ycyNHZW5lcmFsX3NpYmxpbmc=">通用兄弟</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="css-属性继承"><a class="anchor" href="#css-属性继承">#</a> CSS 属性继承</h2>
+<ul>
+<li>来自：<span class="exturl" data-url="aHR0cHM6Ly93d3cucGhwLmNuL2Nzcy10dXRvcmlhbC00MDcxNDcuaHRtbA==">https://www.php.cn/css-tutorial-407147.html</span></li>
+</ul>
+<h3 id="常用的css不可继承的属性"><a class="anchor" href="#常用的css不可继承的属性">#</a> 常用的 css 不可继承的属性</h3>
+<ul>
+<li>
+<p>display：规定元素应该生成的框的类型</p>
+</li>
+<li>
+<p>text-decoration：规定添加到文本的装饰</p>
+</li>
+<li>
+<p>text-shadow：文本阴影效果</p>
+</li>
+<li>
+<p>white-space：空白符的处理</p>
+</li>
+<li>
+<p>盒子模型的属性：width、height、margin 、border、padding</p>
+</li>
+<li>
+<p>背景属性：background</p>
+</li>
+<li>
+<p>定位属性：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index</p>
+</li>
+</ul>
+<h3 id="常用的css可继承的属性"><a class="anchor" href="#常用的css可继承的属性">#</a> 常用的 css 可继承的属性：</h3>
+<ul>
+<li>
+<p>font：组合字体</p>
+</li>
+<li>
+<p>font-family：规定元素的字体系列</p>
+</li>
+<li>
+<p>font-weight：设置字体的粗细</p>
+</li>
+<li>
+<p>font-size：设置字体的尺寸</p>
+</li>
+<li>
+<p>font-style：定义字体的风格</p>
+</li>
+<li>
+<p>text-indent：文本缩进</p>
+</li>
+<li>
+<p>text-align：文本水平对齐</p>
+</li>
+<li>
+<p>line-height：行高</p>
+</li>
+<li>
+<p>color：文本颜色</p>
+</li>
+<li>
+<p>visibility：元素可见性</p>
+</li>
+<li>
+<p>光标属性：cursor</p>
+</li>
+</ul>
+<h3 id="所有元素可以继承的"><a class="anchor" href="#所有元素可以继承的">#</a> 所有元素可以继承的</h3>
+<ol>
+<li>
+<p>元素可见性：visibility</p>
+</li>
+<li>
+<p>光标属性：cursor</p>
+</li>
+</ol>
+<p>内联元素可以继承的属性</p>
+<ol>
+<li>
+<p>字体系列属性</p>
+</li>
+<li>
+<p>除 text-indent、text-align 之外的文本系列属性</p>
+</li>
+</ol>
+<h3 id="块级元素可以继承的属性"><a class="anchor" href="#块级元素可以继承的属性">#</a> 块级元素可以继承的属性</h3>
+<ul>
+<li>text-indent、text-align</li>
+</ul>
+<h3 id="inherit继承值"><a class="anchor" href="#inherit继承值">#</a> inherit（继承）值</h3>
+<ul>
+<li>
+<p>每一个属性可以指定值为 “inherit”，即：对于给定的元素，该属性和它父元素相对属性的计算值取一样的值。继承值通常只用作后备值，它可以通过显式地指定 “inherit” 而得到加强，例如：</p>
+<ul>
+<li font-size:="" inherit;=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="css-优先级算法"><a class="anchor" href="#css-优先级算法">#</a> CSS 优先级算法</h2>
+<ul>
+<li>
+<p>优先级比较： <code>!important &gt; 内联样式(行内) &gt; id &gt; class &gt; 标签(div、ul、header ...) &gt; 统配 (*)</code></p>
+</li>
+<li>
+<p>CSS 权重 4 个等级的定义如下</p>
+<ul>
+<li>第一等：内联样式，如：style=&quot;color:red;&quot;，权值为 <code>1000</code> （该方法会造成 css 难以管理，所以不推荐使用）</li>
+<li>第二等：ID 选择器，如：#header，权值为 <code>0100</code></li>
+<li>第三等：类、伪类、属性选择器如：.bar， 权值为 <code>0010</code></li>
+<li>第四等：标签、伪元素选择器，如：div ::first-line 权值为 <code>0001</code></li>
+</ul>
+</li>
+<li>
+<p>最后把这些值加起来，再就是当前元素的权重了。</p>
+<p>其他：</p>
+<ul>
+<li>无条件优先的属性只需要在属性后面使用！important。它会覆盖页面内任何位置定义的元素样式。（ie6 支持上有些 bug）。</li>
+<li>通配符，子选择器，相邻选择器等。如 *，&gt;,+, 权值为 <code>00001</code></li>
+<li>继承的样式没有权值。</li>
+</ul>
+</li>
+<li>
+<p>CSS 权重计算方式</p>
+<ul>
+<li>计算选择符中的 ID 选择器的数量（=a）</li>
+<li>计算选择符中类、属性和伪类选择器的数量（=b）</li>
+<li>计算选择符中标签和伪元素选择器的数量（=c）</li>
+<li>忽略全局选择器</li>
+</ul>
+</li>
+<li>
+<p>来源：<span class="exturl" data-url="aHR0cHM6Ly93d3cuaHRtbC5jbi9xYS9jc3MzLzE2NTQ5Lmh0bWw=">https://www.html.cn/qa/css3/16549.html</span></p>
+</li>
+</ul>
+<h2 id="css-画三角形"><a class="anchor" href="#css-画三角形">#</a> CSS 画三角形</h2>
+<ul>
+<li>用边框话 (border)，例如下面</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">.box</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">border</span><span class="token punctuation">:</span> 10px solid transparent<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">/* border-left: 10px solid #ccc;  */</span>    <span class="token comment">/* 左三角 */</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">/* border-right: 10px solid #ccc; */</span>    <span class="token comment">/* 右三角 */</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">/* border-top: 10px solid #ccc;   */</span>    <span class="token comment">/* 上三角 */</span> </pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token property">border-bottom</span><span class="token punctuation">:</span> 10px solid #ccc<span class="token punctuation">;</span>         <span class="token comment">/* 下三角 */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="不给盒子宽度和高度如何水平垂直居中"><a class="anchor" href="#不给盒子宽度和高度如何水平垂直居中">#</a> 不给盒子宽度和高度如何水平垂直居中？</h2>
+<h3 id="方式一"><a class="anchor" href="#方式一">#</a> 方式一</h3>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">main</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token selector">.box</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>box<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h3 id="方式二"><a class="anchor" href="#方式二">#</a> 方式二</h3>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">main</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token selector">.box</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>box<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ul>
+<li>当然还要很多方式，这里只写两种。可搜索 CSS 布局查看</li>
+</ul>
+<h2 id="对bfc规范的理解"><a class="anchor" href="#对bfc规范的理解">#</a> 对 BFC 规范的理解？</h2>
+<ul>
+<li>BFC 就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面元素</li>
+<li>了解 BFC：(块级格式化上下文：block formatting context)</li>
+<li>BFC 的原值：如果一个元素具有 BFC，那么内部元素再怎么弄，都不会影响到外面的元素</li>
+<li>如何触发 BFC：
+<ul>
+<li>float 的值非 none</li>
+<li>overflow 的值非 visible</li>
+<li>display 的值为：inlin-block、table-cell ...</li>
+<li>position 的值为：absolute、fixed</li>
+</ul>
+</li>
+</ul>
+<h2 id="清除浮动有哪些方式"><a class="anchor" href="#清除浮动有哪些方式">#</a> 清除浮动有哪些方式？</h2>
+<ul>
+<li>
+<p>触发 BFC，比如  <code>overflow: hidden;</code></p>
+</li>
+<li>
+<p>多创建一个盒子，添加样式： <code>clear: both;</code></p>
+</li>
+<li>
+<p><code>after|before</code>  方式：</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">*</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token selector">ul</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token property">border</span><span class="token punctuation">:</span> 10px solid #ccc<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token selector">ul::after,</pre></td></tr><tr><td data-num="11"></td><td><pre>  ul::before</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token selector">ul li</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="在网页中应该使用奇数还是偶数字体"><a class="anchor" href="#在网页中应该使用奇数还是偶数字体">#</a> 在网页中应该使用奇数还是偶数字体？</h2>
+<ul>
+<li>
+<p>使用偶数字体。偶数字号相对更容易和 web 设计的其他部分构成比例关系。Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14、16 px 这三个大小的点阵，而 13、15、17 px 时用的是小一号的点。（即每个字占的空间大了 1 px，但点阵没变），于是略显稀疏。</p>
+</li>
+<li>
+<p>偶数：让文字在浏览器上表现更好看</p>
+</li>
+<li>
+<p>另外说明：ui 给前端一般设计图都是偶数的，这样不管是布局、转换 px 都方便一点</p>
+</li>
+</ul>
+<h2 id="position-根据什么定位"><a class="anchor" href="#position-根据什么定位">#</a> position 根据什么定位？</h2>
+<ul>
+<li>static [默认]：没有定位</li>
+<li>fixed：固定定位，相对于浏览器窗口进行定位</li>
+<li>reactive： 相对于自身定位，不脱离文档流</li>
+<li>absolute：相对于第一个有 reactive 的父元素，脱离文档流</li>
+<li>absolute 与 reactive 区别
+<ul>
+<li>reactive 不脱离文档流、absolute 脱离文档流</li>
+<li>reactive 相对于自身定位、absolute 相对于第一个有 reactive 的父元素</li>
+<li>reactive 如果有 left、right、top、bottom，只会存在 left、top（有效果）</li>
+<li>absolute 如果有 left、right、top、bottom，都会存在（有效果）</li>
+</ul>
+</li>
+</ul>
+<h2 id="双飞翼布局"><a class="anchor" href="#双飞翼布局">#</a> 双飞翼布局</h2>
+<ul>
+<li>写一个左中右布局，高度 200px，其中左、右固定宽 200px，中间自适应宽，要求先加载中间块</li>
+</ul>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">*</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token selector">body</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 100vw<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token selector">main>div</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token selector">.left</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token property">margin-left</span><span class="token punctuation">:</span> -100%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token selector">.center</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token selector">.right</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token property">margin-left</span><span class="token punctuation">:</span> -200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>center<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>left<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>right<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="什么是css-reset"><a class="anchor" href="#什么是css-reset">#</a> 什么是 CSS reset ？</h2>
+<ul>
+<li>reset 是一个 css 文件，用来重置样式的</li>
+<li>normalize.css 为了增强跨浏览器渲染的一致性，一个 css 重置样式库</li>
+</ul>
+<h2 id="css-sprite-优点缺点"><a class="anchor" href="#css-sprite-优点缺点">#</a> CSS sprite 优点缺点？</h2>
+<ul>
+<li>sprite (精灵图、雪碧图) ，是把多个小图标合并成一张大图片</li>
+<li>优点：减少了 http 请求次数，提升了性能</li>
+<li>缺点：维护差 （例如图片位置进行修改或者内容宽高修改）</li>
+</ul>
+
+      <div class="tags">
+          <a href="/nekoaimer.github.io/tags/CSS/" rel="tag"><i class="ic i-tag"></i> CSS</a>
+          <a href="/nekoaimer.github.io/tags/CSS-Hmilyl/" rel="tag"><i class="ic i-tag"></i> CSS Hmilyl</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2022-03-06 16:13:47" itemprop="dateModified" datetime="2022-03-06T16:13:47+08:00">2022-03-06</time>
+  </span>
+  <span id="2020/12/27/CSS3/CSS Hmilyl/01-Hmilyl/" class="item leancloud_visitors" data-flag-title="CSS Hmilyl いち" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2020/12/27/CSS3/CSS%20Hmilyl/01-Hmilyl/" title="CSS Hmilyl いち">https://nekoaimer.github.io/nekoaimer.github.io/2020/12/27/CSS3/CSS Hmilyl/01-Hmilyl/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/nekoaimer.github.io/2020/12/25/CSS3/CSS%20Layout/grid/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuibk9fj20zk0m8ay2.jpg" title="grid 布局">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> CSS</span>
+  <h3>grid 布局</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/nekoaimer.github.io/2020/12/29/JavaScript/JavaScript%20Hmilyl/01-Hmilyl/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="JavaScript Hmilyl いち">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>JavaScript Hmilyl いち</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8Dcss%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text"> 介绍 CSS 盒子模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height-height-%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text"> line-height &amp; height 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text"> CSS 选择符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E5%B1%9E%E6%80%A7%E7%BB%A7%E6%89%BF"><span class="toc-number">4.</span> <span class="toc-text"> CSS 属性继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84css%E4%B8%8D%E5%8F%AF%E7%BB%A7%E6%89%BF%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text"> 常用的 css 不可继承的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84css%E5%8F%AF%E7%BB%A7%E6%89%BF%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">4.2.</span> <span class="toc-text"> 常用的 css 可继承的属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%9A%84"><span class="toc-number">4.3.</span> <span class="toc-text"> 所有元素可以继承的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">4.4.</span> <span class="toc-text"> 块级元素可以继承的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#inherit%E7%BB%A7%E6%89%BF%E5%80%BC"><span class="toc-number">4.5.</span> <span class="toc-text"> inherit（继承）值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text"> CSS 优先级算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">6.</span> <span class="toc-text"> CSS 画三角形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%BB%99%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A6%82%E4%BD%95%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="toc-number">7.</span> <span class="toc-text"> 不给盒子宽度和高度如何水平垂直居中？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="toc-number">7.1.</span> <span class="toc-text"> 方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="toc-number">7.2.</span> <span class="toc-text"> 方式二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9bfc%E8%A7%84%E8%8C%83%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">8.</span> <span class="toc-text"> 对 BFC 规范的理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F"><span class="toc-number">9.</span> <span class="toc-text"> 清除浮动有哪些方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%A5%87%E6%95%B0%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%AD%97%E4%BD%93"><span class="toc-number">10.</span> <span class="toc-text"> 在网页中应该使用奇数还是偶数字体？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#position-%E6%A0%B9%E6%8D%AE%E4%BB%80%E4%B9%88%E5%AE%9A%E4%BD%8D"><span class="toc-number">11.</span> <span class="toc-text"> position 根据什么定位？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80"><span class="toc-number">12.</span> <span class="toc-text"> 双飞翼布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFcss-reset"><span class="toc-number">13.</span> <span class="toc-text"> 什么是 CSS reset ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-sprite-%E4%BC%98%E7%82%B9%E7%BC%BA%E7%82%B9"><span class="toc-number">14.</span> <span class="toc-text"> CSS sprite 优点缺点？</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/nekoaimer.github.io/2020/12/10/CSS3/CSS%20Layout/css_layout_center/" rel="bookmark" title="css 居中布局">css 居中布局</a></li><li><a href="/nekoaimer.github.io/2020/12/23/CSS3/CSS%20Layout/flex/" rel="bookmark" title="flex 布局">flex 布局</a></li><li><a href="/nekoaimer.github.io/2020/12/25/CSS3/CSS%20Layout/grid/" rel="bookmark" title="grid 布局">grid 布局</a></li><li class="active"><a href="/nekoaimer.github.io/2020/12/27/CSS3/CSS%20Hmilyl/01-Hmilyl/" rel="bookmark" title="CSS Hmilyl いち">CSS Hmilyl いち</a></li><li><a href="/nekoaimer.github.io/2022/01/15/CSS3/CSS%20Demo/CSS%E8%BE%B9%E6%A1%86%E6%BB%91%E5%9D%97/" rel="bookmark" title="CSS 边框滑块">CSS 边框滑块</a></li><li><a href="/nekoaimer.github.io/2022/01/16/CSS3/CSS%20Demo/CSS%E5%A4%A7%E4%BA%8E%E5%8F%B7/" rel="bookmark" title="CSS 小三角">CSS 小三角</a></li><li><a href="/nekoaimer.github.io/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/" rel="bookmark" title="CSS 三角形">CSS 三角形</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/nekoaimer.github.io/archives/">
+        <span class="count">120</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/nekoaimer.github.io/categories/">
+        <span class="count">12</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/nekoaimer.github.io/tags/">
+        <span class="count">25</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/nekoaimer.github.io/2020/12/25/CSS3/CSS%20Layout/grid/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/nekoaimer.github.io/2020/12/29/JavaScript/JavaScript%20Hmilyl/01-Hmilyl/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/" title="判断是否是回文数">判断是否是回文数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Ajax/" title="In Ajax">Ajax</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/01/03/Ajax/02-Ajax/" title="李南江老师 Ajax 笔记 に">李南江老师 Ajax 笔记 に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/03/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/07/Vue/Vue%20note/02-atguigu/" title="Vue TodoList 案例">Vue TodoList 案例</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/07/19/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" title="JavaScript 实现 Mustache 模板引擎">JavaScript 实现 Mustache 模板引擎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/11/Vue/Vue%20note/04-atguigu/" title="Vue2 插槽">Vue2 插槽</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">632k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">9:34</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2020/12/27/CSS3/CSS Hmilyl/01-Hmilyl/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
