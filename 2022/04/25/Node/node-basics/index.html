@@ -15,9 +15,9 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.com/rss.xml" />
-<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.com/atom.xml" />
-<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.com/feed.json" />
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
@@ -27,7 +27,7 @@
   <meta name="keywords" content="Node" />
 
 
-<link rel="canonical" href="https://nekoaimer.com/2022/04/25/Node/node-basics/">
+<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/">
 
 
 
@@ -101,7 +101,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
     </div>
     <ul class="menu">
-      <li class="item title"><a href="/" rel="start">Nico Niconi</a></li>
+      <li class="item title"><a href="/nekoaimer.github.io/" rel="start">Nico Niconi</a></li>
     </ul>
     <ul class="right">
       <li class="item theme">
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
           <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
         </ul>
       </div>
     </header>
@@ -147,13 +147,13 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Node/" itemprop="item" rel="index" title="In Node"><span itemprop="name">Node</span></a>
+<span><a href="/nekoaimer.github.io/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/nekoaimer.github.io/categories/Node/" itemprop="item" rel="index" title="In Node"><span itemprop="name">Node</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
-  <link itemprop="mainEntityOfPage" href="https://nekoaimer.com/2022/04/25/Node/node-basics/">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
@@ -259,9 +259,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <ul>
 <li>根据不同 url 响应不同的 html 内容</li>
 </ul>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 1. 获取请求的 url 地址</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2. 设置默认的响应内容为 404 Not founc</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">'404 Not found!'</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 3. 判断用户请求的是否为 / 或 /index.html 首页</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 4. 判断用户请求的是否为 /about.html 关于页面</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/'</span> <span class="token operator">||</span> url <span class="token operator">===</span> <span class="token string">'/index.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>首页&lt;/h2>'</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/about.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>关于&lt;/h2>'</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token comment">// 5. 设置 Content-Type 响应头，防止中文乱码</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token comment">// 6. 使用 res.end () 把内容响应给客户端</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8001</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server running at http://127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 1. 获取请求的 url 地址</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2. 设置默认的响应内容为 404 Not founc</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">'404 Not found!'</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 3. 判断用户请求的是否为 / 或 /index.html 首页</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 4. 判断用户请求的是否为 /about.html 关于页面</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/'</span> <span class="token operator">||</span> url <span class="token operator">===</span> <span class="token string">'/index.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>首页&lt;/h2>'</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/about.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>关于&lt;/h2>'</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token comment">// 5. 设置 Content-Type 响应头，防止中文乱码</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token comment">// 6. 使用 res.end () 把内容响应给客户端</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8001</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server running at http://127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="os-模块"><a class="anchor" href="#os-模块">#</a> os 模块</h2>
+
       <div class="tags">
-          <a href="/tags/Node/" rel="tag"><i class="ic i-tag"></i> Node</a>
+          <a href="/nekoaimer.github.io/tags/Node/" rel="tag"><i class="ic i-tag"></i> Node</a>
       </div>
   </div>
 
@@ -273,7 +274,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-05-15 11:18:30" itemprop="dateModified" datetime="2022-05-15T11:18:30+08:00">2022-05-15</time>
+    <time title="Modified: 2022-05-18 08:42:28" itemprop="dateModified" datetime="2022-05-18T08:42:28+08:00">2022-05-18</time>
   </span>
   <span id="2022/04/25/Node/node-basics/" class="item leancloud_visitors" data-flag-title="Node Basics" title="Views">
       <span class="icon">
@@ -312,7 +313,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="https://nekoaimer.com/2022/04/25/Node/node-basics/" title="Node Basics">https://nekoaimer.com/2022/04/25/Node/node-basics/</a>
+    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/" title="Node Basics">https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -331,7 +332,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/2022/04/23/Git/git-command/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipey0a334j20zk0m8qpt.jpg" title="Git 命令补充">
+  <a href="/nekoaimer.github.io/2022/04/23/Git/git-command/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciub8ja1j20zk0m81ky.jpg" title="Git 命令补充">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Git</span>
   <h3>Git 命令补充</h3>
@@ -341,7 +342,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/2022/05/01/Node/node-express/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxxcb6rj20zk0m8b29.jpg" title="Node Express">
+  <a href="/nekoaimer.github.io/2022/05/01/Node/node-express/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicit4jrvuj20zk0m8785.jpg" title="Node Express">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Node</span>
   <h3>Node Express</h3>
@@ -363,11 +364,11 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fs-%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text"> fs 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#readfile"><span class="toc-number">1.1.</span> <span class="toc-text"> readFile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#writefile"><span class="toc-number">1.2.</span> <span class="toc-text"> writeFile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#__dirname"><span class="toc-number">1.3.</span> <span class="toc-text"> __dirname</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text"> path 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">2.1.</span> <span class="toc-text"> join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basename"><span class="toc-number">2.2.</span> <span class="toc-text"> basename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extname"><span class="toc-number">2.3.</span> <span class="toc-text"> extname</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text"> http 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#req-%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text"> req 请求对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#res-%E5%93%8D%E5%BA%94%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text"> res 响应对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setheader"><span class="toc-number">3.3.</span> <span class="toc-text"> setHeader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">3.4.</span> <span class="toc-text"> 案例</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fs-%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text"> fs 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#readfile"><span class="toc-number">1.1.</span> <span class="toc-text"> readFile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#writefile"><span class="toc-number">1.2.</span> <span class="toc-text"> writeFile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#__dirname"><span class="toc-number">1.3.</span> <span class="toc-text"> __dirname</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text"> path 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">2.1.</span> <span class="toc-text"> join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basename"><span class="toc-number">2.2.</span> <span class="toc-text"> basename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extname"><span class="toc-number">2.3.</span> <span class="toc-text"> extname</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text"> http 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#req-%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text"> req 请求对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#res-%E5%93%8D%E5%BA%94%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text"> res 响应对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setheader"><span class="toc-number">3.3.</span> <span class="toc-text"> setHeader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">3.4.</span> <span class="toc-text"> 案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os-%E6%A8%A1%E5%9D%97"><span class="toc-number">4.</span> <span class="toc-text"> os 模块</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li class="active"><a href="/2022/04/25/Node/node-basics/" rel="bookmark" title="Node Basics">Node Basics</a></li><li><a href="/2022/05/01/Node/node-express/" rel="bookmark" title="Node Express">Node Express</a></li><li><a href="/2022/05/05/Node/node-express-middleware/" rel="bookmark" title="Node Middleware">Node Middleware</a></li><li><a href="/2022/05/08/Node/node-cors-jsonp/" rel="bookmark" title="Node CORS-JSONP">Node CORS-JSONP</a></li><li><a href="/2022/05/13/Node/node-connect-mysql/" rel="bookmark" title="Node Connect MySQL">Node Connect MySQL</a></li><li><a href="/2022/05/14/Node/node-express-session/" rel="bookmark" title="Node Express Session">Node Express Session</a></li>
+          <li class="active"><a href="/nekoaimer.github.io/2022/04/25/Node/node-basics/" rel="bookmark" title="Node Basics">Node Basics</a></li><li><a href="/nekoaimer.github.io/2022/05/01/Node/node-express/" rel="bookmark" title="Node Express">Node Express</a></li><li><a href="/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/" rel="bookmark" title="Node Middleware">Node Middleware</a></li><li><a href="/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/" rel="bookmark" title="Node CORS-JSONP">Node CORS-JSONP</a></li><li><a href="/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/" rel="bookmark" title="Node Connect MySQL">Node Connect MySQL</a></li><li><a href="/nekoaimer.github.io/2022/05/14/Node/node-express-session/" rel="bookmark" title="Node Express Session">Node Express Session</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -380,19 +381,19 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
 <nav class="state">
     <div class="item posts">
-      <a href="/archives/">
+      <a href="/nekoaimer.github.io/archives/">
         <span class="count">120</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item categories">
-      <a href="/categories/">
+      <a href="/nekoaimer.github.io/categories/">
         <span class="count">12</span>
         <span class="name">categories</span>
       </a>
     </div>
     <div class="item tags">
-      <a href="/tags/">
+      <a href="/nekoaimer.github.io/tags/">
         <span class="count">25</span>
         <span class="name">tags</span>
       </a>
@@ -411,7 +412,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   
     
   <li class="item">
-    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+    <a href="/nekoaimer.github.io/" rel="section"><i class="ic i-home"></i>Home</a>
   </li>
 
         
@@ -421,7 +422,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
         
   <li class="item">
-    <a href="/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+    <a href="/nekoaimer.github.io/about/" rel="section"><i class="ic i-user"></i>Neko</a>
   </li>
 
   </ul>
@@ -432,17 +433,17 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
         
   <li class="item">
-    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+    <a href="/nekoaimer.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
   </li>
 
         
   <li class="item">
-    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+    <a href="/nekoaimer.github.io/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
   </li>
 
         
   <li class="item">
-    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+    <a href="/nekoaimer.github.io/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
   </li>
 
   </ul>
@@ -453,17 +454,17 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
         
   <li class="item">
-    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+    <a href="/nekoaimer.github.io/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
   </li>
 
         
   <li class="item">
-    <a href="/website/" rel="section"><i class="ic i-star"></i>Website</a>
+    <a href="/nekoaimer.github.io/website/" rel="section"><i class="ic i-star"></i>Website</a>
   </li>
 
         
   <li class="item">
-    <a href="/music/" rel="section"><i class="ic i-music"></i>Music</a>
+    <a href="/nekoaimer.github.io/music/" rel="section"><i class="ic i-music"></i>Music</a>
   </li>
 
   </ul>
@@ -476,12 +477,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2022/04/23/Git/git-command/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+        <a href="/nekoaimer.github.io/2022/04/23/Git/git-command/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2022/05/01/Node/node-express/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+        <a href="/nekoaimer.github.io/2022/05/01/Node/node-express/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -503,110 +504,106 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/07/05/Vue/Vue3/CompositionAPI/vca_ref/" title="Vue3 ref 基本用法">Vue3 ref 基本用法</a></span>
+    <span><a href="/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/" title="JavaScript 实现图片懒加载">JavaScript 实现图片懒加载</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" title="事件循环面试题">事件循环面试题</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/09/JavaScript/Advanced/Cookie/" title="浏览器存储方案 Cookie">浏览器存储方案 Cookie</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" title="Javascript 响应式原理">Javascript 响应式原理</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/Git/" title="In Git">Git</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/03/16/Git/Git/" title="Git 武沛齐笔记">Git 武沛齐笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2020/12/20/JavaScript/interesting_question/Strange_02/" title="关于奇怪的 typeof 选择题 に">关于奇怪的 typeof 选择题 に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Node/" title="In Node">Node</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/" title="Node CORS-JSONP">Node CORS-JSONP</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/03/Vue/Vue2/style/" title="Vue2 绑定样式">Vue2 绑定样式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/10/14/JavaScript/Advanced/defineProperty/" title="JavaScript defineProperty">JavaScript defineProperty</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Node/" title="In Node">Node</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/05/01/Node/node-express/" title="Node Express">Node Express</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
-</div>
-
-    <span><a href="/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/calculate-money-in-leetcode-bank/" title="计算力扣银行的钱">计算力扣银行的钱</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Node/" title="In Node">Node</a>
-</div>
-
-    <span><a href="/2022/05/08/Node/node-cors-jsonp/" title="Node CORS-JSONP">Node CORS-JSONP</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/11/20/JavaScript/Advanced/error-handling/" title="error-handling">error-handling</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Node/" title="In Node">Node</a>
-</div>
-
-    <span><a href="/2022/05/01/Node/node-express/" title="Node Express">Node Express</a></span>
+    <span><a href="/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/" title="instanceof &amp; new &amp; typeof 原理">instanceof & new & typeof 原理</a></span>
   </li>
 
   </ul>
@@ -702,5 +699,5 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 
 
 
-<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/nekoaimer.github.io/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/nekoaimer.github.io/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

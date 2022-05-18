@@ -3,11 +3,11 @@
   <title>nekoaimer</title>
   
   <subtitle>清心如水，清水即心</subtitle>
-  <link href="https://nekoaimer.com/atom.xml" rel="self"/>
+  <link href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" rel="self"/>
   
-  <link href="https://nekoaimer.com/"/>
+  <link href="https://nekoaimer.github.io/nekoaimer.github.io/"/>
   <updated>2022-05-17T14:11:32.795Z</updated>
-  <id>https://nekoaimer.com/</id>
+  <id>https://nekoaimer.github.io/nekoaimer.github.io/</id>
   
   <author>
     <name>Nico Niconi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Node Express Session</title>
-    <link href="https://nekoaimer.com/2022/05/14/Node/node-express-session/"/>
-    <id>https://nekoaimer.com/2022/05/14/Node/node-express-session/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session/</id>
     <published>2022-05-14T13:20:20.000Z</published>
     <updated>2022-05-17T14:11:32.795Z</updated>
     
@@ -36,17 +36,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Connect MySQL</title>
-    <link href="https://nekoaimer.com/2022/05/13/Node/node-connect-mysql/"/>
-    <id>https://nekoaimer.com/2022/05/13/Node/node-connect-mysql/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/</id>
     <published>2022-05-13T08:50:31.000Z</published>
     <updated>2022-05-17T12:15:20.496Z</updated>
     
@@ -63,17 +63,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node CORS-JSONP</title>
-    <link href="https://nekoaimer.com/2022/05/08/Node/node-cors-jsonp/"/>
-    <id>https://nekoaimer.com/2022/05/08/Node/node-cors-jsonp/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/</id>
     <published>2022-05-08T06:01:27.000Z</published>
     <updated>2022-05-17T08:03:32.867Z</updated>
     
@@ -93,17 +93,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Middleware</title>
-    <link href="https://nekoaimer.com/2022/05/05/Node/node-express-middleware/"/>
-    <id>https://nekoaimer.com/2022/05/05/Node/node-express-middleware/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/</id>
     <published>2022-05-05T04:16:40.000Z</published>
     <updated>2022-05-16T06:03:51.879Z</updated>
     
@@ -121,17 +121,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Express</title>
-    <link href="https://nekoaimer.com/2022/05/01/Node/node-express/"/>
-    <id>https://nekoaimer.com/2022/05/01/Node/node-express/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/01/Node/node-express/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/01/Node/node-express/</id>
     <published>2022-05-01T12:11:35.000Z</published>
     <updated>2022-05-15T04:17:30.772Z</updated>
     
@@ -149,21 +149,21 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Basics</title>
-    <link href="https://nekoaimer.com/2022/04/25/Node/node-basics/"/>
-    <id>https://nekoaimer.com/2022/04/25/Node/node-basics/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/</id>
     <published>2022-04-25T09:35:48.000Z</published>
-    <updated>2022-05-15T03:18:30.923Z</updated>
+    <updated>2022-05-18T00:42:28.035Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="fs-模块"><a class="anchor" href="#fs-模块">#</a> fs 模块</h2><h3 id="readfile"><a class="anchor" href="#readfile">#</a> readFile</h3><ul><li>使用  <code>fs.readFile</code>  方法，可以读取指定文件中的内容，语法格式如下</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span></pre></td></tr></table></figure><ul><li><p>参数一：必选参数，字符串，表示文件的路径</p></li><li><p>参数二：可选参数，表示以什么编码格式来读取文件</p></li><li><p>参数三：必选参数，文件读取完成后，通过回调函数拿到读取的结果</p></li><li><p>示例代码：</p></li><li><p>以 utf8 的编码格式，读取指定文件的内容，并打印 err 和 data 的值</p></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 1. 导入 fs 模块</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 2. 调用 fs.readFile () 方法读取文件</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 参数一 读取文件存放路径</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 参数二 读取文件时采用的编码格式 一般默认指定 utf8</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 参数三 回调函数 拿到读取失败和成功的结果</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'./files/data.yml'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'读取文件失败'</span><span class="token punctuation">,</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'读取文件成功'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="writefile"><a class="anchor" href="#writefile">#</a> writeFile</h3><ul><li>使用 fs.writeFile 方法，可以向指定的文件中写入内容，语法格式如下：</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span></pre></td></tr></table></figure><ul><li><p>参数一：必选参数，指定文件路径的字符串，表示文件存放的路径</p></li><li><p>参数二：必选参数，表示要写入的内容</p></li><li><p>参数三：可选参数，表示以什么格式写入文件内容，默认值是 utf8</p></li><li><p>参数四：必选参数， 文件写入完成后的回调函数</p></li><li><p>示例代码：</p></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 2. 调用 fs.writeFile () 方法读取文件</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 参数一 表示文件的存放路径</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 参数二 表示要写入的内容</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 参数三 回调函数</span></pre></td></tr><tr><td data-num="7"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 文件写入成功 err 为 null</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 文件写入失败 err 为一个错误对象</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="__dirname"><a class="anchor" href="#__dirname">#</a> __dirname</h3><ul><li>在使用 fs 模块操作文件时，如果提供的操作路径是以 ./ 或 ../ 开头的相对路径时，很容易出现路径动态拼接错误的问题</li><li>原因：代码在运行的时候，会以执行 node 命令时所处的目录，动态拼接被操作文件的完整路径</li><li>解决方案：在使用 fs 模块操作文件时，直接提供完整的路径，不要提供 ./ 或../ 开头的相对路径，从而防止路径动态拼接的问题</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">//__dirname 表示当前文件所处的目录</span></pre></td></tr><tr><td data-num="4"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>__dirname <span class="token operator">+</span> <span class="token string">'./txt'</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="path-模块"><a class="anchor" href="#path-模块">#</a> path 模块</h2><ul><li>path 模块是 node.js 官方提供的、用来处理路径的模块。它提供了一系列的方法和属性，用来满足用户对路径的处理需求</li><li>path.join () 方法，用来将多个路径片段拼接成一个完整的路径字符串</li><li>path.basename () 方法，用来从路径字符串中，将文件名解析出来</li></ul><h3 id="join"><a class="anchor" href="#join">#</a> join</h3><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 注意 ../ 回抵消前面的路径</span></pre></td></tr><tr><td data-num="4"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>   <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>message<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="basename"><a class="anchor" href="#basename">#</a> basename</h3><ul><li>使用 path.basename () 方法，可以获取路径中最后一部分，经常通过这个方法获取路径中的文件名</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span> ext<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul><li>path &lt;string&gt; 必选参数，表示一个路径的字符串</li><li>ext  &lt;string&gt; 可选参数，表示文件扩展名</li><li>返回  &lt;string&gt; 表示路径中的最后一部分</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> fpath <span class="token operator">=</span> <span class="token string">'/a/b/c/index.html'</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 获取当前路径的文件名</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> fullName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fpath<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fullName<span class="token punctuation">)</span> <span class="token comment">// index.html</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 移除扩展名</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> nameWithoutExt <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fpath<span class="token punctuation">,</span> <span class="token string">'.html'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nameWithoutExt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// index</span></pre></td></tr></table></figure><h3 id="extname"><a class="anchor" href="#extname">#</a> extname</h3><ul><li>使用 path.extname () 方法，可以获取路径中的扩展名部分</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> fpath <span class="token operator">=</span> <span class="token string">'index.html'</span> <span class="token comment">// 路径字符串</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> fext <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>fpath<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fext<span class="token punctuation">)</span> <span class="token comment">// html</span></pre></td></tr></table></figure><h2 id="http-模块"><a class="anchor" href="#http-模块">#</a> http 模块</h2><h3 id="req-请求对象"><a class="anchor" href="#req-请求对象">#</a> <em>req</em> 请求对象</h3><ul><li><p>服务器接收到了客服端的请求，就会调用通过 <code>server.on()</code>  为服务器绑定的 <code>request事件处理函数</code></p></li><li><p>如果想在事件处理函数中访问与客户端相关数据与属性，可以使用如下方式</p></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">//req.url 是客户端请求的 URL 地址</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">//req.method 是客户端请求的 method 类型</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> method <span class="token operator">=</span> req<span class="token punctuation">.</span>method</pre></td></tr><tr><td data-num="7"></td><td><pre>  </pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Your request url is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, and request method is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>method<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="9"></td><td><pre> </pre></td></tr><tr><td data-num="10"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="res-响应对象"><a class="anchor" href="#res-响应对象">#</a> res 响应对象</h3><ul><li>在服务器的 request 事件处理函数中，如果想访问与服务器相关的数据与属性，可以使用如下方式</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">//req.url 是客户端请求的 URL 地址</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">//req.method 是客户端请求的 method 类型</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> method <span class="token operator">=</span> req<span class="token punctuation">.</span>method</pre></td></tr><tr><td data-num="7"></td><td><pre>  </pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">您请求的 URL 地址是 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, 请求的 method 类型为 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>method<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="9"></td><td><pre>  </pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 调用 res.end () 方法，向客户端发送指定内容，并结束这次请求的处理过程</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="setheader"><a class="anchor" href="#setheader">#</a> setHeader</h3><ul><li>解决中文乱码问题，需要设置响应头 <code>Content-Type</code>  的值为  <code>text/html; charset=utd-8</code></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="案例"><a class="anchor" href="#案例">#</a> 案例</h3><ul><li>根据不同 url 响应不同的 html 内容</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 1. 获取请求的 url 地址</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2. 设置默认的响应内容为 404 Not founc</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">'404 Not found!'</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 3. 判断用户请求的是否为 / 或 /index.html 首页</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 4. 判断用户请求的是否为 /about.html 关于页面</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/'</span> <span class="token operator">||</span> url <span class="token operator">===</span> <span class="token string">'/index.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>首页&lt;/h2>'</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/about.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>关于&lt;/h2>'</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token comment">// 5. 设置 Content-Type 响应头，防止中文乱码</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token comment">// 6. 使用 res.end () 把内容响应给客户端</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8001</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server running at http://127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="fs-模块"><a class="anchor" href="#fs-模块">#</a> fs 模块</h2><h3 id="readfile"><a class="anchor" href="#readfile">#</a> readFile</h3><ul><li>使用  <code>fs.readFile</code>  方法，可以读取指定文件中的内容，语法格式如下</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span></pre></td></tr></table></figure><ul><li><p>参数一：必选参数，字符串，表示文件的路径</p></li><li><p>参数二：可选参数，表示以什么编码格式来读取文件</p></li><li><p>参数三：必选参数，文件读取完成后，通过回调函数拿到读取的结果</p></li><li><p>示例代码：</p></li><li><p>以 utf8 的编码格式，读取指定文件的内容，并打印 err 和 data 的值</p></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 1. 导入 fs 模块</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 2. 调用 fs.readFile () 方法读取文件</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 参数一 读取文件存放路径</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 参数二 读取文件时采用的编码格式 一般默认指定 utf8</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 参数三 回调函数 拿到读取失败和成功的结果</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'./files/data.yml'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'读取文件失败'</span><span class="token punctuation">,</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'读取文件成功'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="writefile"><a class="anchor" href="#writefile">#</a> writeFile</h3><ul><li>使用 fs.writeFile 方法，可以向指定的文件中写入内容，语法格式如下：</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span></pre></td></tr></table></figure><ul><li><p>参数一：必选参数，指定文件路径的字符串，表示文件存放的路径</p></li><li><p>参数二：必选参数，表示要写入的内容</p></li><li><p>参数三：可选参数，表示以什么格式写入文件内容，默认值是 utf8</p></li><li><p>参数四：必选参数， 文件写入完成后的回调函数</p></li><li><p>示例代码：</p></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 2. 调用 fs.writeFile () 方法读取文件</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 参数一 表示文件的存放路径</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 参数二 表示要写入的内容</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 参数三 回调函数</span></pre></td></tr><tr><td data-num="7"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 文件写入成功 err 为 null</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">// 文件写入失败 err 为一个错误对象</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="__dirname"><a class="anchor" href="#__dirname">#</a> __dirname</h3><ul><li>在使用 fs 模块操作文件时，如果提供的操作路径是以 ./ 或 ../ 开头的相对路径时，很容易出现路径动态拼接错误的问题</li><li>原因：代码在运行的时候，会以执行 node 命令时所处的目录，动态拼接被操作文件的完整路径</li><li>解决方案：在使用 fs 模块操作文件时，直接提供完整的路径，不要提供 ./ 或../ 开头的相对路径，从而防止路径动态拼接的问题</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">//__dirname 表示当前文件所处的目录</span></pre></td></tr><tr><td data-num="4"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>__dirname <span class="token operator">+</span> <span class="token string">'./txt'</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="path-模块"><a class="anchor" href="#path-模块">#</a> path 模块</h2><ul><li>path 模块是 node.js 官方提供的、用来处理路径的模块。它提供了一系列的方法和属性，用来满足用户对路径的处理需求</li><li>path.join () 方法，用来将多个路径片段拼接成一个完整的路径字符串</li><li>path.basename () 方法，用来从路径字符串中，将文件名解析出来</li></ul><h3 id="join"><a class="anchor" href="#join">#</a> join</h3><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 注意 ../ 回抵消前面的路径</span></pre></td></tr><tr><td data-num="4"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>   <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>message<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="basename"><a class="anchor" href="#basename">#</a> basename</h3><ul><li>使用 path.basename () 方法，可以获取路径中最后一部分，经常通过这个方法获取路径中的文件名</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span> ext<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul><li>path &lt;string&gt; 必选参数，表示一个路径的字符串</li><li>ext  &lt;string&gt; 可选参数，表示文件扩展名</li><li>返回  &lt;string&gt; 表示路径中的最后一部分</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> fpath <span class="token operator">=</span> <span class="token string">'/a/b/c/index.html'</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 获取当前路径的文件名</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> fullName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fpath<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fullName<span class="token punctuation">)</span> <span class="token comment">// index.html</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 移除扩展名</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> nameWithoutExt <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fpath<span class="token punctuation">,</span> <span class="token string">'.html'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nameWithoutExt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// index</span></pre></td></tr></table></figure><h3 id="extname"><a class="anchor" href="#extname">#</a> extname</h3><ul><li>使用 path.extname () 方法，可以获取路径中的扩展名部分</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> fpath <span class="token operator">=</span> <span class="token string">'index.html'</span> <span class="token comment">// 路径字符串</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> fext <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>fpath<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fext<span class="token punctuation">)</span> <span class="token comment">// html</span></pre></td></tr></table></figure><h2 id="http-模块"><a class="anchor" href="#http-模块">#</a> http 模块</h2><h3 id="req-请求对象"><a class="anchor" href="#req-请求对象">#</a> <em>req</em> 请求对象</h3><ul><li><p>服务器接收到了客服端的请求，就会调用通过 <code>server.on()</code>  为服务器绑定的 <code>request事件处理函数</code></p></li><li><p>如果想在事件处理函数中访问与客户端相关数据与属性，可以使用如下方式</p></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">//req.url 是客户端请求的 URL 地址</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">//req.method 是客户端请求的 method 类型</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> method <span class="token operator">=</span> req<span class="token punctuation">.</span>method</pre></td></tr><tr><td data-num="7"></td><td><pre>  </pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Your request url is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, and request method is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>method<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="9"></td><td><pre> </pre></td></tr><tr><td data-num="10"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="res-响应对象"><a class="anchor" href="#res-响应对象">#</a> res 响应对象</h3><ul><li>在服务器的 request 事件处理函数中，如果想访问与服务器相关的数据与属性，可以使用如下方式</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">//req.url 是客户端请求的 URL 地址</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="4"></td><td><pre>  </pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">//req.method 是客户端请求的 method 类型</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">const</span> method <span class="token operator">=</span> req<span class="token punctuation">.</span>method</pre></td></tr><tr><td data-num="7"></td><td><pre>  </pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">您请求的 URL 地址是 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, 请求的 method 类型为 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>method<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="9"></td><td><pre>  </pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 调用 res.end () 方法，向客户端发送指定内容，并结束这次请求的处理过程</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="setheader"><a class="anchor" href="#setheader">#</a> setHeader</h3><ul><li>解决中文乱码问题，需要设置响应头 <code>Content-Type</code>  的值为  <code>text/html; charset=utd-8</code></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="案例"><a class="anchor" href="#案例">#</a> 案例</h3><ul><li>根据不同 url 响应不同的 html 内容</li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 1. 获取请求的 url 地址</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 2. 设置默认的响应内容为 404 Not founc</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">'404 Not found!'</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 3. 判断用户请求的是否为 / 或 /index.html 首页</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">// 4. 判断用户请求的是否为 /about.html 关于页面</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/'</span> <span class="token operator">||</span> url <span class="token operator">===</span> <span class="token string">'/index.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>首页&lt;/h2>'</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/about.html'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    content <span class="token operator">=</span> <span class="token string">'&lt;h2>关于&lt;/h2>'</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token comment">// 5. 设置 Content-Type 响应头，防止中文乱码</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token comment">// 6. 使用 res.end () 把内容响应给客户端</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8001</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server running at http://127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="os-模块"><a class="anchor" href="#os-模块">#</a> os 模块</h2>]]></content>
     
     
       
@@ -175,17 +175,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Git 命令补充</title>
-    <link href="https://nekoaimer.com/2022/04/23/Git/git-command/"/>
-    <id>https://nekoaimer.com/2022/04/23/Git/git-command/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/</id>
     <published>2022-04-22T18:58:23.000Z</published>
     <updated>2022-04-23T06:59:58.824Z</updated>
     
@@ -200,17 +200,17 @@
     
     
     
-    <category term="Git" scheme="https://nekoaimer.com/categories/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://nekoaimer.com/tags/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>判断是否是回文数</title>
-    <link href="https://nekoaimer.com/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/"/>
-    <id>https://nekoaimer.com/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/</id>
     <published>2022-04-13T10:08:11.000Z</published>
     <updated>2022-04-13T12:51:19.866Z</updated>
     
@@ -229,21 +229,21 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
     
-    <category term="Easy" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/Easy/"/>
+    <category term="Easy" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/"/>
     
     
-    <category term="Easy" scheme="https://nekoaimer.com/tags/Easy/"/>
+    <category term="Easy" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Easy/"/>
     
-    <category term="数据结构与算" scheme="https://nekoaimer.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97/"/>
+    <category term="数据结构与算" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97/"/>
     
   </entry>
   
   <entry>
     <title>Git 武沛齐笔记</title>
-    <link href="https://nekoaimer.com/2022/03/16/Git/Git/"/>
-    <id>https://nekoaimer.com/2022/03/16/Git/Git/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/</id>
     <published>2022-03-16T06:52:22.000Z</published>
     <updated>2022-04-23T06:54:59.942Z</updated>
     
@@ -258,17 +258,17 @@
     
     
     
-    <category term="Git" scheme="https://nekoaimer.com/categories/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://nekoaimer.com/tags/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现无缝滚动轮播图(carousel)</title>
-    <link href="https://nekoaimer.com/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/"/>
-    <id>https://nekoaimer.com/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/</id>
     <published>2022-02-12T06:16:58.000Z</published>
     <updated>2022-04-04T02:25:56.112Z</updated>
     
@@ -286,21 +286,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现 Vuex</title>
-    <link href="https://nekoaimer.com/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/"/>
-    <id>https://nekoaimer.com/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/</id>
     <published>2022-02-01T12:27:24.000Z</published>
     <updated>2022-03-25T04:29:39.072Z</updated>
     
@@ -316,21 +316,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现图片懒加载</title>
-    <link href="https://nekoaimer.com/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/"/>
-    <id>https://nekoaimer.com/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/</id>
     <published>2022-01-31T05:00:00.000Z</published>
     <updated>2022-03-20T06:33:56.492Z</updated>
     
@@ -346,21 +346,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现数组扁平化</title>
-    <link href="https://nekoaimer.com/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/"/>
-    <id>https://nekoaimer.com/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/</id>
     <published>2022-01-29T09:25:20.000Z</published>
     <updated>2022-04-18T08:51:07.323Z</updated>
     
@@ -376,21 +376,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>instanceof &amp; new &amp; typeof 原理</title>
-    <link href="https://nekoaimer.com/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/"/>
-    <id>https://nekoaimer.com/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/</id>
     <published>2022-01-27T02:44:52.000Z</published>
     <updated>2022-04-07T15:28:20.400Z</updated>
     
@@ -406,21 +406,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>fill &amp; join &amp; includes 原理</title>
-    <link href="https://nekoaimer.com/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/"/>
-    <id>https://nekoaimer.com/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/</id>
     <published>2022-01-25T03:14:44.000Z</published>
     <updated>2022-04-01T05:53:19.126Z</updated>
     
@@ -435,21 +435,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>every &amp; some &amp; find &amp; findIndex 原理</title>
-    <link href="https://nekoaimer.com/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/"/>
-    <id>https://nekoaimer.com/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/</id>
     <published>2022-01-23T08:29:59.000Z</published>
     <updated>2022-03-07T03:45:56.547Z</updated>
     
@@ -464,21 +464,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>forEach &amp; filter &amp; map &amp; reduce 原理</title>
-    <link href="https://nekoaimer.com/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/"/>
-    <id>https://nekoaimer.com/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/</id>
     <published>2022-01-21T07:26:10.000Z</published>
     <updated>2022-02-08T16:40:30.027Z</updated>
     
@@ -493,21 +493,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>优先级队列实现 (PriorityQueue)</title>
-    <link href="https://nekoaimer.com/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/"/>
-    <id>https://nekoaimer.com/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/</id>
     <published>2022-01-19T15:01:23.000Z</published>
     <updated>2022-02-12T12:52:45.947Z</updated>
     
@@ -526,19 +526,19 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
     
-    <category term="data structure" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/data-structure/"/>
+    <category term="data structure" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>队列实现击鼓传花 (Queue)</title>
-    <link href="https://nekoaimer.com/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/"/>
-    <id>https://nekoaimer.com/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/</id>
     <published>2022-01-19T01:58:35.000Z</published>
     <updated>2022-02-12T12:52:58.136Z</updated>
     
@@ -555,19 +555,19 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
     
-    <category term="data structure" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/data-structure/"/>
+    <category term="data structure" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>CSS 三角形</title>
-    <link href="https://nekoaimer.com/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
-    <id>https://nekoaimer.com/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/</id>
     <published>2022-01-17T12:32:28.000Z</published>
     <updated>2022-04-08T13:10:00.439Z</updated>
     
@@ -587,14 +587,14 @@
     
     
     
-    <category term="CSS" scheme="https://nekoaimer.com/categories/CSS3/"/>
+    <category term="CSS" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/CSS3/"/>
     
-    <category term="CSS Demo" scheme="https://nekoaimer.com/categories/CSS3/CSS-Demo/"/>
+    <category term="CSS Demo" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/CSS3/CSS-Demo/"/>
     
     
-    <category term="CSS" scheme="https://nekoaimer.com/tags/CSS/"/>
+    <category term="CSS" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/CSS/"/>
     
-    <category term="CSS Demo" scheme="https://nekoaimer.com/tags/CSS-Demo/"/>
+    <category term="CSS Demo" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/CSS-Demo/"/>
     
   </entry>
   
