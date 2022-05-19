@@ -15,9 +15,9 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/rss.xml" />
-<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" />
-<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.github.io/nekoaimer.github.io/feed.json" />
+<link rel="alternate" type="application/rss+xml" title="nekoaimer" href="https://nekoaimer.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="nekoaimer" href="https://nekoaimer.com/atom.xml" />
+<link rel="alternate" type="application/json" title="nekoaimer" href="https://nekoaimer.com/feed.json" />
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
@@ -27,7 +27,7 @@
   <meta name="keywords" content="Node" />
 
 
-<link rel="canonical" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/">
+<link rel="canonical" href="https://nekoaimer.com/2022/05/14/Node/node-express-session-jwt/">
 
 
 
@@ -117,12 +117,12 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,7 +153,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
-  <link itemprop="mainEntityOfPage" href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.com/2022/05/14/Node/node-express-session-jwt/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
@@ -238,6 +238,9 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <li>②当把 JWT 字符串解析还原成 JSON 对象的时候，需要使用 secret 密钥进行解密</li>
 </ul>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> secretKey <span class="token operator">=</span> <span class="token string">'nekoaimer'</span></pre></td></tr></table></figure><h2 id="jwt-案例"><a class="anchor" href="#jwt-案例">#</a> JWT 案例</h2>
+<ul>
+<li>关于 JWT 的案例</li>
+</ul>
 <figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 导入 express 模块</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 创建 express 的服务器实例</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// TODO_01：安装并导入 JWT 相关的两个包，分别是 jsonwebtoken 和 express-jwt</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> jwt <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'jsonwebtoken'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> expressJWT <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express-jwt'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 允许跨域资源共享</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> cors <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cors'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">cors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">// 解析 post 表单数据的中间件</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">const</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">extended</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// TODO_02：定义 secret 密钥，建议将密钥命名为 secretKey</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">const</span> secretKey <span class="token operator">=</span> <span class="token string">'nekoaimer'</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">// TODO_04：注册将 JWT 字符串解析还原成 JSON 对象的中间件</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token comment">// 注意：只要配置成功了 express-jwt 这个中间件，就可以把解析出来的用户信息，挂载到 req.user 属性上</span></pre></td></tr><tr><td data-num="23"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">expressJWT</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">secret</span><span class="token operator">:</span> secretKey <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unless</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\/api\/</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token comment">// 创建 router 路由</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token keyword">function</span> <span class="token function">Router</span><span class="token punctuation">(</span><span class="token parameter">router<span class="token punctuation">,</span> jwt</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  <span class="token comment">// 登录接口</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/api/login'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token comment">// 将 req.body 请求体中的数据，转存为 userinfo 常量</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">const</span> userinfo <span class="token operator">=</span> req<span class="token punctuation">.</span>body</pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token comment">// 登录失败</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>userinfo<span class="token punctuation">.</span>username <span class="token operator">!==</span> <span class="token string">'admin'</span> <span class="token operator">||</span> userinfo<span class="token punctuation">.</span>password <span class="token operator">!==</span> <span class="token string">'2333'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>      <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'登录失败！'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="38"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    <span class="token comment">// 登录成功</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token comment">// TODO_03：在登录成功之后，调用 jwt.sign () 方法生成 JWT 字符串。并通过 token 属性发送给客户端</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token comment">// 参数 1：用户的信息对象</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token comment">// 参数 2：加密的秘钥</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token comment">// 参数 3：配置对象，可以配置当前 token 的有效期</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token comment">// 记住：千万不要把密码加密到 token 字符中</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token keyword">const</span> tokenStr <span class="token operator">=</span> jwt<span class="token punctuation">.</span><span class="token function">sign</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">username</span><span class="token operator">:</span> userinfo<span class="token punctuation">.</span>username <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> secretKey<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">expiresIn</span><span class="token operator">:</span> <span class="token string">'30s'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>      <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="49"></td><td><pre>      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'登录成功！'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="50"></td><td><pre>      <span class="token literal-property property">token</span><span class="token operator">:</span> tokenStr<span class="token punctuation">,</span> <span class="token comment">// 要发送给客户端的 token 字符串</span></pre></td></tr><tr><td data-num="51"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="53"></td><td><pre></pre></td></tr><tr><td data-num="54"></td><td><pre>  <span class="token comment">// 这是一个有权限的 API 接口</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/getinfo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token comment">// TODO_05：使用 req.user 获取用户信息，并使用 data 属性将用户信息发送给客户端</span></pre></td></tr><tr><td data-num="57"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>user<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="58"></td><td><pre>    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>      <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="60"></td><td><pre>      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'获取用户信息成功！'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="61"></td><td><pre>      <span class="token literal-property property">data</span><span class="token operator">:</span> req<span class="token punctuation">.</span>user<span class="token punctuation">,</span> <span class="token comment">// 要发送给客户端的用户信息</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="64"></td><td><pre>  <span class="token keyword">return</span> router</pre></td></tr><tr><td data-num="65"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="66"></td><td><pre></pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token comment">// 使用路由中间件</span></pre></td></tr><tr><td data-num="68"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">Router</span><span class="token punctuation">(</span>router<span class="token punctuation">,</span> jwt<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="69"></td><td><pre></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token comment">// TODO_06：使用全局错误处理中间件，捕获解析 JWT 失败后产生的错误</span></pre></td></tr><tr><td data-num="71"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>  <span class="token comment">// 这次错误是由 token 解析失败导致的</span></pre></td></tr><tr><td data-num="73"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'UnauthorizedError'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>      <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">401</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="76"></td><td><pre>      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'无效的token'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="77"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="78"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>    <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="81"></td><td><pre>    <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'未知的错误'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="82"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="83"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="84"></td><td><pre></pre></td></tr><tr><td data-num="85"></td><td><pre><span class="token comment">// 调用 app.listen 方法，指定端口号并启动 web 服务器</span></pre></td></tr><tr><td data-num="86"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8001</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Express server running at http://127.0.0.1:8001'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="88"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
       <div class="tags">
           <a href="/nekoaimer.github.io/tags/Node/" rel="tag"><i class="ic i-tag"></i> Node</a>
@@ -252,7 +255,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2022-05-18 15:49:30" itemprop="dateModified" datetime="2022-05-18T15:49:30+08:00">2022-05-18</time>
+    <time title="Modified: 2022-05-18 15:57:17" itemprop="dateModified" datetime="2022-05-18T15:57:17+08:00">2022-05-18</time>
   </span>
   <span id="2022/05/14/Node/node-express-session-jwt/" class="item leancloud_visitors" data-flag-title="Node Express Session JWT" title="Views">
       <span class="icon">
@@ -291,7 +294,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/" title="Node Express Session JWT">https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/</a>
+    <a href="https://nekoaimer.com/2022/05/14/Node/node-express-session-jwt/" title="Node Express Session JWT">https://nekoaimer.com/2022/05/14/Node/node-express-session-jwt/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -310,7 +313,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4fomxoj20zk0m8axp.jpg" title="Node Connect MySQL">
+  <a href="/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwuom7cj20zk0m8dvn.jpg" title="Node Connect MySQL">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Node</span>
   <h3>Node Connect MySQL</h3>
@@ -472,10 +475,10 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/Node/" title="In Node">Node</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" title="事件循环面试题">事件循环面试题</a></span>
+    <span><a href="/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/" title="Node Connect MySQL">Node Connect MySQL</a></span>
   </li>
 
       
@@ -485,19 +488,29 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" title="JavaScript ES6+ さん">JavaScript ES6+ さん</a></span>
+    <span><a href="/nekoaimer.github.io/2021/12/15/JavaScript/Advanced/DOM/" title="文档对象模型(DocumentObjectModel)">文档对象模型(DocumentObjectModel)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/" title="JavaScript 实现图片懒加载">JavaScript 实现图片懒加载</a></span>
+    <span><a href="/nekoaimer.github.io/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" title="Vue3 teleport &amp; plugins">Vue3 teleport & plugins</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Node/" title="In Node">Node</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2022/05/01/Node/node-express/" title="Node Express">Node Express</a></span>
   </li>
 
       
@@ -509,7 +522,17 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2022/01/16/data-structures-and-algorithms/algorithm/problems/easy/HexBinDecOct/" title="进制转换">进制转换</a></span>
+    <span><a href="/nekoaimer.github.io/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/calculate-money-in-leetcode-bank/" title="计算力扣银行的钱">计算力扣银行的钱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/nekoaimer.github.io/2021/03/11/Vue/Vue%20note/04-atguigu/" title="Vue2 插槽">Vue2 插槽</a></span>
   </li>
 
       
@@ -527,43 +550,19 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
     
 <div class="breadcrumb">
 <a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/08/01/Vue/Vue3/CompositionAPI/vca_encapsulation/" title="Vue3 setup 案例封装">Vue3 setup 案例封装</a></span>
+    <span><a href="/nekoaimer.github.io/2021/06/22/Vue/Vue3/OptionsAPI/voa_life-cycle/" title="Vue3 options API 生命周期">Vue3 options API 生命周期</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
+<a href="/nekoaimer.github.io/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/06/04/Vue/Vue3/OptionsAPI/voa_watch/" title="Vue3 Options API watch">Vue3 Options API watch</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/nekoaimer.github.io/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/nekoaimer.github.io/categories/Node/" title="In Node">Node</a>
-</div>
-
-    <span><a href="/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/" title="Node Connect MySQL">Node Connect MySQL</a></span>
+    <span><a href="/nekoaimer.github.io/2021/11/10/JavaScript/Advanced/iterator/" title="JavaScript Iterator">JavaScript Iterator</a></span>
   </li>
 
       
@@ -575,7 +574,7 @@ Nico Niconi = nekoaimer = 清心如水，清水即心</title>
 <a href="/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/nekoaimer.github.io/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></span>
+    <span><a href="/nekoaimer.github.io/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
   </li>
 
   </ul>
