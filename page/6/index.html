@@ -8,9 +8,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
-  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//nekoaimer/nekoaimer.github.ioimages/apple-touch-icon.png">
 
-<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+<link rel="icon" type="image/ico" sizes="32x32" href="//nekoaimer/nekoaimer.github.ioimages/favicon.ico">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+<link rel="stylesheet" href="//nekoaimer/nekoaimer.github.iocss/app.css?v=0.2.5">
 
   
 
@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
         </ul>
       </div>
     </header>
@@ -120,7 +120,60 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" itemprop="url" title="技术胖"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></a>
+    <a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipetlbztpj20zk0m84qp.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-11-02 13:16:56">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-11-02T13:16:56+08:00">2021-11-02</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>2.9k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+    <h3><a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理">Javascript 响应式原理</a></h3>
+    <div class="excerpt">
+        # 什么是响应式？
+
+我们先来看一下响应式意味着什么？我们来看一段代码：
+
+有一个初始化的值，有一段代码使用了这个值；
+当 n 发生了改变 下面的数据应该重新执行一遍 就应该会输出 40
+
+let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触发响应式自动执行第二次结果为 40
+
+上面的这样一种可以自动响应数据变量的代码机制，我们就称之为是响应式的。
+
+#...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" itemprop="url" title="JavaScript 手写原理"><i class="ic i-flag"></i>JavaScript 手写原理</a>
+      </span>
+    </div>
+    <a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" itemprop="url" title="技术胖"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></a>
   </div>
   <div class="info">
     
@@ -167,7 +220,7 @@ TypeScript 教程 | 最好的...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" itemprop="url" title="JavaScript Proxy &amp; Reflect"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></a>
+    <a href="/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" itemprop="url" title="JavaScript Proxy &amp; Reflect"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></a>
   </div>
   <div class="info">
     
@@ -226,7 +279,7 @@ const lain = &amp;#123; name: &#39;lain&#39;, age: 16&amp;#125;const lainProxy =
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" itemprop="url" title="JavaScript ES6+ さん"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></a>
+    <a href="/2021/10/28/JavaScript/Advanced/ES6+%E3%81%95%E3%82%93/" itemprop="url" title="JavaScript ES6+ さん"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeun65urj20zk0m81ii.jpg"></a>
   </div>
   <div class="info">
     
@@ -278,7 +331,7 @@ const friends = [&#39;伊莉雅&#39;, &#39;樱岛麻衣&#39;, &#39;入间同学&
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/26/JavaScript/Advanced/Set_Map/" itemprop="url" title="Set &amp; Map 数据结构"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></a>
+    <a href="/2021/10/26/JavaScript/Advanced/Set_Map/" itemprop="url" title="Set &amp; Map 数据结构"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclj9410cj20zk0m8h12.jpg"></a>
   </div>
   <div class="info">
     
@@ -327,7 +380,7 @@ Set 是一个新增的数据结构，可以用来保存数据，类似于数组�
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" itemprop="url" title="JavaScript ES6+ に"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></a>
+    <a href="/2021/10/24/JavaScript/Advanced/ES6+%E3%81%AB/" itemprop="url" title="JavaScript ES6+ に"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciub8ja1j20zk0m81ky.jpg"></a>
   </div>
   <div class="info">
     
@@ -370,7 +423,7 @@ const date = new Date()console.log(`现在是北京时间： $&amp;#123;date.get
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" itemprop="url" title="JavaScript ES6+ いち"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></a>
+    <a href="/2021/10/22/JavaScript/Advanced/ES6+%E3%81%84%E3%81%A1/" itemprop="url" title="JavaScript ES6+ いち"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipevuctzzj20zk0m84qp.jpg"></a>
   </div>
   <div class="info">
     
@@ -420,7 +473,7 @@ const friends = [&#39;樱岛麻衣&#39;, &#39;小鸟游六花&#39;]const Lain = 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" itemprop="url" title="JavaScript ES6+ class"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giciundwu5j20zk0m8n9e.jpg"></a>
+    <a href="/2021/10/20/JavaScript/Advanced/object_oriented_%E3%81%95%E3%82%93/" itemprop="url" title="JavaScript ES6+ class"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
@@ -474,7 +527,7 @@ const friends = [&#39;樱岛麻衣&#39;, &#39;小鸟游六花&#39;]const Lain = 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" itemprop="url" title="JavaScript 原型链和继承"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></a>
+    <a href="/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" itemprop="url" title="JavaScript 原型链和继承"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclhnx9glj20zk0m8npd.jpg"></a>
   </div>
   <div class="info">
     
@@ -534,7 +587,7 @@ const friends = [&#39;樱岛麻衣&#39;, &#39;小鸟游六花&#39;]const Lain = 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" itemprop="url" title="JavaScript 对象原型与方法"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></a>
+    <a href="/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" itemprop="url" title="JavaScript 对象原型与方法"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicitzannuj20zk0m8b29.jpg"></a>
   </div>
   <div class="info">
     
@@ -576,60 +629,6 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2021/10/14/JavaScript/Advanced/defineProperty/" itemprop="url" title="JavaScript defineProperty"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="Created: 2021-10-14 20:20:42">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2021-10-14T20:20:42+08:00">2021-10-14</time>
-  </span>
-  <span class="item" title="Symbols count in article">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>4.1k</span>
-    <span class="text">words</span>
-  </span>
-  <span class="item" title="Reading time">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>4 mins.</span>
-  </span>
-</div>
-
-    <h3><a href="/2021/10/14/JavaScript/Advanced/defineProperty/" itemprop="url" title="JavaScript defineProperty">JavaScript defineProperty</a></h3>
-    <div class="excerpt">
-        # 数据属性描述符
-
-数据数据描述符有如下四个特性：
-
-[[Configurable]]：表示属性是否可以通过 delete 删除属性，是否可以修改它的特性，或者是否可以将它修改为存取属性描述符；
-
-当我们直接在一个对象上定义某个属性时，这个属性的 [[Configurable]] 为 true；
-
-当我们通过属性描述符定义一个属性时，这个属性的 [[Configurable]] 默认为 false；
-
-[[Enumerable]]：表示属性是否可以通过 for-in 或者 Object.keys () 返回该属性；
-
-当我们直接在一个对象上定义某个属性时，这个属性的...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/JavaScript/" itemprop="url" title="JavaScript"><i class="ic i-flag"></i>JavaScript</a>
-      </span>
-    </div>
-    <a href="/2021/10/14/JavaScript/Advanced/defineProperty/" itemprop="url" title="JavaScript defineProperty" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -657,7 +656,7 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
       <div class="overview panel" data-title="Overview">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="image" itemprop="image" alt="Nico Niconi"
-      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+      data-src="//nekoaimer/nekoaimer.github.ioimages/avatar.jpg">
   <p class="name" itemprop="name">Nico Niconi</p>
   <div class="description" itemprop="description"></div>
 </div>
@@ -665,19 +664,19 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">120</span>
+        <span class="count">121</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">12</span>
+        <span class="count">13</span>
         <span class="name">categories</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">25</span>
+        <span class="count">26</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -786,78 +785,44 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/07/11/Vue/Vue3/CompositionAPI/vca_shallowRef&triggerRef/" title="Vue3 shallowRef和triggerRef 用法">Vue3 shallowRef和triggerRef 用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/12/12/JavaScript/Advanced/BOM/" title="浏览器对象模型(BrowserObjectModel)">浏览器对象模型(BrowserObjectModel)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/12/02/JavaScript/Advanced/JSON/" title="JSON 数据存储">JSON 数据存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/12/15/JavaScript/Advanced/DOM/" title="文档对象模型(DocumentObjectModel)">文档对象模型(DocumentObjectModel)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/2021/06/24/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/2021/06/14/Vue/Vue3/OptionsAPI/voa_mitt/" title="Vue3 事件总线 mitt">Vue3 事件总线 mitt</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/2021/06/30/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Node/" title="In Node">Node</a>
-</div>
-
-    <span><a href="/2022/05/13/Node/node-connect-mysql/" title="Node Connect MySQL">Node Connect MySQL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/2021/07/03/Vue/Vue3/CompositionAPI/vca_reactive/" title="Vue3 reactive基本用法">Vue3 reactive基本用法</a></span>
+    <span><a href="/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/" title="instanceof &amp; new &amp; typeof 原理">instanceof & new & typeof 原理</a></span>
   </li>
 
       
@@ -876,10 +841,34 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Ajax/" title="In Ajax">Ajax</a>
+<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
 </div>
 
-    <span><a href="/2021/01/03/Ajax/02-Ajax/" title="李南江老师 Ajax 笔记 に">李南江老师 Ajax 笔记 に</a></span>
+    <span><a href="/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/two-sum/" title="两数之和">两数之和</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/2022/01/16/data-structures-and-algorithms/algorithm/problems/easy/HexBinDecOct/" title="进制转换">进制转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2020/12/17/JavaScript/interesting_question/Strange_01/" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></span>
   </li>
 
       
@@ -887,11 +876,19 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
     
 <div class="breadcrumb">
 <a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+    <span><a href="/2021/06/16/Vue/Vue3/OptionsAPI/voa_slot_basic/" title="Vue3 slot 基本使用">Vue3 slot 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Git/" title="In Git">Git</a>
+</div>
+
+    <span><a href="/2022/03/16/Git/Git/" title="Git 武沛齐笔记">Git 武沛齐笔记</a></span>
   </li>
 
   </ul>
@@ -982,7 +979,7 @@ function createMaster(name, age) &amp;#123; return &amp;#123; name, age, sleepin
 
 <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
-<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+<script src="//nekoaimer/nekoaimer.github.iojs/app.js?v=0.2.5"></script>
 
 
 

@@ -6,7 +6,7 @@
   <link href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" rel="self"/>
   
   <link href="https://nekoaimer.github.io/nekoaimer.github.io/"/>
-  <updated>2022-05-18T07:57:17.592Z</updated>
+  <updated>2022-11-17T15:29:21.930Z</updated>
   <id>https://nekoaimer.github.io/nekoaimer.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/</id>
+    <published>2022-11-17T15:28:09.000Z</published>
+    <updated>2022-11-17T15:29:21.930Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="a"><a class="anchor" href="#a">#</a> a</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;a&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#a&quot;&gt;#&lt;/a&gt; a&lt;/h2&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Oracle/"/>
+    
+    
+    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Oracle/"/>
+    
+  </entry>
   
   <entry>
     <title>Node Express Session JWT</title>
@@ -561,40 +586,6 @@
     
     
     <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS 三角形</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/</id>
-    <published>2022-01-17T12:32:28.000Z</published>
-    <updated>2022-04-08T13:10:00.439Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="预览效果"><a class="anchor" href="#预览效果">#</a> 预览效果</h2><p> <style>#triangle {  width: 0;  height: 0;  border: 50px solid transparent;  border-left: 50px solid #4ad3e2;  border-right: 50px solid #4ad3e2;  border-top: 50px solid #ffb1a3;  border-bottom: 50px solid #f9cb8f;}[class^=triangle] {  margin: 30px;  width: 0;  height: 0;  border: 50px solid transparent;}.triangle-left {  border-left: 50px solid #4ad3e2;}.triangle-right {  border-right: 50px solid #4ad3e2;}.triangle-top {  border-top: 50px solid #ffb1a3;}.triangle-bottom {  border-bottom: 50px solid #f9cb8f;}</style><div id="triangle"></div><div class="triangle-left"></div><div class="triangle-right"></div><div class="triangle-top"></div><div class="triangle-bottom"></div></p><h2 id="html结构"><a class="anchor" href="#html结构">#</a> HTML 结构</h2><figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>triangle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>triangle-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>triangle-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>triangle-top<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>triangle-bottom<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="css-样式"><a class="anchor" href="#css-样式">#</a> CSS 样式</h2><figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">#triangle</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> 50px solid transparent<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property">border-left</span><span class="token punctuation">:</span> 50px solid #4ad3e2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token property">border-right</span><span class="token punctuation">:</span> 50px solid #4ad3e2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token property">border-top</span><span class="token punctuation">:</span> 50px solid #ffb1a3<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 50px solid #f9cb8f<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token selector">[class^=triangle]</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">margin</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> 50px solid transparent<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token selector">.triangle-left</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token property">border-left</span><span class="token punctuation">:</span> 50px solid #4ad3e2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token selector">.triangle-right</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token property">border-right</span><span class="token punctuation">:</span> 50px solid #4ad3e2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token selector">.triangle-top</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token property">border-top</span><span class="token punctuation">:</span> 50px solid #ffb1a3<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token selector">.triangle-bottom</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 50px solid #f9cb8f<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="stylus-样式"><a class="anchor" href="#stylus-样式">#</a> Stylus 样式</h2><ul><li><code>stylus index.styl -o  index.css  -w</code></li></ul><figure class="highlight stylus"><figcaption data-lang="stylus"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">#triangle</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property-declaration"><span class="token property">width</span> <span class="token number">0</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property-declaration"><span class="token property">height</span> <span class="token number">0</span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token property-declaration"><span class="token property">border</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token color">transparent</span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-left</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#4ad3e2</span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-right</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#4ad3e2</span></span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-top</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#ffb1a3</span></span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-bottom</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#f9cb8f</span></span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token selector">[class^=triangle]</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property-declaration"><span class="token property">margin</span> <span class="token number">30</span><span class="token unit">px</span></span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property-declaration"><span class="token property">width</span> <span class="token number">0</span></span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token property-declaration"><span class="token property">height</span> <span class="token number">0</span></span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token property-declaration"><span class="token property">border</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token color">transparent</span></span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token selector">.triangle-left</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-left</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#4ad3e2</span></span></pre></td></tr><tr><td data-num="18"></td><td><pre>  </pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token selector">.triangle-right</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-right</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#4ad3e2</span></span></pre></td></tr><tr><td data-num="21"></td><td><pre>  </pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token selector">.triangle-top</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-top</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#ffb1a3</span></span></pre></td></tr><tr><td data-num="24"></td><td><pre>  </pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token selector">.triangle-bottom</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token property-declaration"><span class="token property">border-bottom</span> <span class="token number">50</span><span class="token unit">px</span> solid <span class="token hexcode">#f9cb8f</span></span></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;预览效果&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#预览效果&quot;&gt;#&lt;/a&gt; 预览效果&lt;/h2&gt;
-&lt;p&gt; 
-&lt;style&gt;
-#triangle {
-  width: 0;
-  height: 0;
-  border: 50px solid transpar</summary>
-      
-    
-    
-    
-    <category term="CSS" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/CSS3/"/>
-    
-    <category term="CSS Demo" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/CSS3/CSS-Demo/"/>
-    
-    
-    <category term="CSS" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/CSS/"/>
-    
-    <category term="CSS Demo" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/CSS-Demo/"/>
     
   </entry>
   

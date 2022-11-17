@@ -8,9 +8,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
-  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//nekoaimer/nekoaimer.github.ioimages/apple-touch-icon.png">
 
-<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+<link rel="icon" type="image/ico" sizes="32x32" href="//nekoaimer/nekoaimer.github.ioimages/favicon.ico">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+<link rel="stylesheet" href="//nekoaimer/nekoaimer.github.iocss/app.css?v=0.2.5">
 
   
 
@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
         </ul>
       </div>
     </header>
@@ -120,7 +120,65 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" itemprop="url" title="JavaScript 模块化"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></a>
+    <a href="/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" itemprop="url" title="JavaScript ES Module"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-11-25 18:14:06">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-11-25T18:14:06+08:00">2021-11-25</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>7.1k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>6 mins.</span>
+  </span>
+</div>
+
+    <h3><a href="/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" itemprop="url" title="JavaScript ES Module">JavaScript ES Module</a></h3>
+    <div class="excerpt">
+        # 认识 ES Module
+
+JavaScript 没有模块化一直是它的痛点，所以才会产生我们前面学习的社区规范：CommonJS、AMD、CMD 等，
+
+所以在 ES 推出自己的模块化系统时，大家也是兴奋异常。
+
+ES Module 和 CommonJS 的模块化有一些不同之处：
+
+一方面它使用了 import 和 export 关键字；
+另一方面它采用编译期的静态分析，并且也加入了动态引用的方式；
+
+ES Module 模块采用 export 和 import 关键字来实现模块化：
+
+export 负责将模块内的内容导出；
+import 负责从其他模块导入内容；
+
+了解：采用 ES...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/JavaScript/" itemprop="url" title="JavaScript"><i class="ic i-flag"></i>JavaScript</a>
+      </span>
+    </div>
+    <a href="/2021/11/25/JavaScript/Advanced/modularization%E3%81%AB/" itemprop="url" title="JavaScript ES Module" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" itemprop="url" title="JavaScript 模块化"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></a>
   </div>
   <div class="info">
     
@@ -176,7 +234,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/20/JavaScript/Advanced/error-handling/" itemprop="url" title="error-handling"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipesng5oej20zk0m87d4.jpg"></a>
+    <a href="/2021/11/20/JavaScript/Advanced/error-handling/" itemprop="url" title="error-handling"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclimtf7dj20zk0m8qav.jpg"></a>
   </div>
   <div class="info">
     
@@ -232,7 +290,7 @@ throw 语句用于抛出一个用户自定义的异常；
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" itemprop="url" title="事件循环面试题"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></a>
+    <a href="/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" itemprop="url" title="事件循环面试题"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclh3brzpj20zk0m8ann.jpg"></a>
   </div>
   <div class="info">
     
@@ -284,7 +342,7 @@ JavaScript 的代码执行是在一个单独的线程中执行的：
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" itemprop="url" title="JavaScript 异步代码处理方案*演化过程*"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></a>
+    <a href="/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" itemprop="url" title="JavaScript 异步代码处理方案*演化过程*"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giph4baakhj20zk0m8h5q.jpg"></a>
   </div>
   <div class="info">
     
@@ -340,7 +398,7 @@ url: https://nekoaimer + &amp;quot;.com&amp;quot; -&amp;gt; res: https://nekoaim
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/15/JavaScript/Advanced/async-await/" itemprop="url" title="JavaScript async &amp; await"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicitzannuj20zk0m8b29.jpg"></a>
+    <a href="/2021/11/15/JavaScript/Advanced/async-await/" itemprop="url" title="JavaScript async &amp; await"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicli9lfebj20zk0m84qp.jpg"></a>
   </div>
   <div class="info">
     
@@ -388,7 +446,7 @@ async function foo() &amp;#123; console.log(&#39;foo function...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/13/JavaScript/Advanced/Generator/" itemprop="url" title="JavaScript Generator"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></a>
+    <a href="/2021/11/13/JavaScript/Advanced/Generator/" itemprop="url" title="JavaScript Generator"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
@@ -441,7 +499,7 @@ MDN：Instead, they return a special type of...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/10/JavaScript/Advanced/iterator/" itemprop="url" title="JavaScript Iterator"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></a>
+    <a href="/2021/11/10/JavaScript/Advanced/iterator/" itemprop="url" title="JavaScript Iterator"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclh3brzpj20zk0m8ann.jpg"></a>
   </div>
   <div class="info">
     
@@ -491,7 +549,7 @@ MDN：Instead, they return a special type of...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" itemprop="url" title="Javascript Promise に"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></a>
+    <a href="/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" itemprop="url" title="Javascript Promise に"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></a>
   </div>
   <div class="info">
     
@@ -543,7 +601,7 @@ new Promise((resolve, reject) =&gt;...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" itemprop="url" title="Javascript Promise いち"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipexw3o58j20zk0m8e81.jpg"></a>
+    <a href="/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" itemprop="url" title="Javascript Promise いち"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
@@ -587,59 +645,6 @@ function requsetDate(url, resolve, reject) &amp;#123; // 模拟网络请求 setT
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicliierfjj20zk0m8npd.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="Created: 2021-11-02 13:16:56">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2021-11-02T13:16:56+08:00">2021-11-02</time>
-  </span>
-  <span class="item" title="Symbols count in article">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>2.9k</span>
-    <span class="text">words</span>
-  </span>
-  <span class="item" title="Reading time">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>3 mins.</span>
-  </span>
-</div>
-
-    <h3><a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理">Javascript 响应式原理</a></h3>
-    <div class="excerpt">
-        # 什么是响应式？
-
-我们先来看一下响应式意味着什么？我们来看一段代码：
-
-有一个初始化的值，有一段代码使用了这个值；
-当 n 发生了改变 下面的数据应该重新执行一遍 就应该会输出 40
-
-let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触发响应式自动执行第二次结果为 40
-
-上面的这样一种可以自动响应数据变量的代码机制，我们就称之为是响应式的。
-
-#...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" itemprop="url" title="JavaScript 手写原理"><i class="ic i-flag"></i>JavaScript 手写原理</a>
-      </span>
-    </div>
-    <a href="/2021/11/02/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Reactivity/" itemprop="url" title="Javascript 响应式原理" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -667,7 +672,7 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
       <div class="overview panel" data-title="Overview">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="image" itemprop="image" alt="Nico Niconi"
-      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+      data-src="//nekoaimer/nekoaimer.github.ioimages/avatar.jpg">
   <p class="name" itemprop="name">Nico Niconi</p>
   <div class="description" itemprop="description"></div>
 </div>
@@ -675,19 +680,19 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">120</span>
+        <span class="count">121</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">12</span>
+        <span class="count">13</span>
         <span class="name">categories</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">25</span>
+        <span class="count">26</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -796,10 +801,12 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/categories/CSS3/" title="In CSS">CSS</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/CSS3/CSS-Demo/" title="In CSS Demo">CSS Demo</a>
 </div>
 
-    <span><a href="/2021/12/28/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/use-Mustache/" title="JavaScript Mustache 模板引擎用法">JavaScript Mustache 模板引擎用法</a></span>
+    <span><a href="/2022/01/17/CSS3/CSS%20Demo/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/" title="CSS 三角形">CSS 三角形</a></span>
   </li>
 
       
@@ -811,29 +818,19 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
 <a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/06/30/Vue/Vue3/OptionsAPI/voa_mixins_extends/" title="Vue3 mixin &amp; extends">Vue3 mixin & extends</a></span>
+    <span><a href="/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<a href="/categories/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/two-sum/" title="两数之和">两数之和</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" title="事件循环面试题">事件循环面试题</a></span>
+    <span><a href="/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" title="Vue3 teleport &amp; plugins">Vue3 teleport & plugins</a></span>
   </li>
 
       
@@ -845,29 +842,7 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
 <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
-</div>
-
-    <span><a href="/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/calculate-money-in-leetcode-bank/" title="计算力扣银行的钱">计算力扣银行的钱</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/11/20/JavaScript/Advanced/error-handling/" title="error-handling">error-handling</a></span>
+    <span><a href="/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/" title="JavaScript 实现无缝滚动轮播图(carousel)">JavaScript 实现无缝滚动轮播图(carousel)</a></span>
   </li>
 
       
@@ -879,7 +854,47 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
 <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/" title="forEach &amp; filter &amp; map &amp; reduce 原理">forEach & filter & map & reduce 原理</a></span>
+    <span><a href="/2021/12/26/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/waterFall/" title="JavaScript 手写瀑布流 (waterFall)">JavaScript 手写瀑布流 (waterFall)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/12/15/JavaScript/Advanced/DOM/" title="文档对象模型(DocumentObjectModel)">文档对象模型(DocumentObjectModel)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Ajax/" title="In Ajax">Ajax</a>
+</div>
+
+    <span><a href="/2021/01/01/Ajax/01-Ajax/" title="李南江老师 Ajax 笔记 いち">李南江老师 Ajax 笔记 いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/CSS3/" title="In CSS">CSS</a>
+</div>
+
+    <span><a href="/2020/12/25/CSS3/CSS%20Layout/grid/" title="grid 布局">grid 布局</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/11/03/JavaScript/Advanced/Promise%E3%81%84%E3%81%A1/" title="Javascript Promise いち">Javascript Promise いち</a></span>
   </li>
 
       
@@ -891,17 +906,7 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
 <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/11/07/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Promise/" title="JavaScript 手写 Promise">JavaScript 手写 Promise</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+    <span><a href="/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" title="JavaScript 实现 Mustache 模板引擎">JavaScript 实现 Mustache 模板引擎</a></span>
   </li>
 
   </ul>
@@ -992,7 +997,7 @@ let n = 10console.log(n * 2) // 第一次执行结果为： 20n = 20//n * 2 触�
 
 <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
-<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+<script src="//nekoaimer/nekoaimer.github.iojs/app.js?v=0.2.5"></script>
 
 
 

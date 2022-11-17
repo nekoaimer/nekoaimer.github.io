@@ -8,9 +8,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
-  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//nekoaimer/nekoaimer.github.ioimages/apple-touch-icon.png">
 
-<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/favicon.ico">
+<link rel="icon" type="image/ico" sizes="32x32" href="//nekoaimer/nekoaimer.github.ioimages/favicon.ico">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/css/app.css?v=0.2.5">
+<link rel="stylesheet" href="//nekoaimer/nekoaimer.github.iocss/app.css?v=0.2.5">
 
   
 
@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
         </ul>
       </div>
     </header>
@@ -120,7 +120,61 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" itemprop="url" title="JavaScript 柯里化实现"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclj61ylzj20zk0m8b29.jpg"></a>
+    <a href="/2021/10/14/JavaScript/Advanced/defineProperty/" itemprop="url" title="JavaScript defineProperty"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-10-14 20:20:42">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-14T20:20:42+08:00">2021-10-14</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>4.1k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>4 mins.</span>
+  </span>
+</div>
+
+    <h3><a href="/2021/10/14/JavaScript/Advanced/defineProperty/" itemprop="url" title="JavaScript defineProperty">JavaScript defineProperty</a></h3>
+    <div class="excerpt">
+        # 数据属性描述符
+
+数据数据描述符有如下四个特性：
+
+[[Configurable]]：表示属性是否可以通过 delete 删除属性，是否可以修改它的特性，或者是否可以将它修改为存取属性描述符；
+
+当我们直接在一个对象上定义某个属性时，这个属性的 [[Configurable]] 为 true；
+
+当我们通过属性描述符定义一个属性时，这个属性的 [[Configurable]] 默认为 false；
+
+[[Enumerable]]：表示属性是否可以通过 for-in 或者 Object.keys () 返回该属性；
+
+当我们直接在一个对象上定义某个属性时，这个属性的...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/JavaScript/" itemprop="url" title="JavaScript"><i class="ic i-flag"></i>JavaScript</a>
+      </span>
+    </div>
+    <a href="/2021/10/14/JavaScript/Advanced/defineProperty/" itemprop="url" title="JavaScript defineProperty" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/10/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/currying/" itemprop="url" title="JavaScript 柯里化实现"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclflwv2aj20zk0m84qp.jpg"></a>
   </div>
   <div class="info">
     
@@ -179,7 +233,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" itemprop="url" title="call &amp; apply &amp; bind 原理"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></a>
+    <a href="/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" itemprop="url" title="call &amp; apply &amp; bind 原理"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipexw3o58j20zk0m8e81.jpg"></a>
   </div>
   <div class="info">
     
@@ -222,7 +276,7 @@ Function.prototype._call = function (thisArg, ...args) &amp;#123; // 1. 将 this
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/08/JavaScript/Advanced/this/" itemprop="url" title="JavaScript name &amp; this"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></a>
+    <a href="/2021/10/08/JavaScript/Advanced/this/" itemprop="url" title="JavaScript name &amp; this"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></a>
   </div>
   <div class="info">
     
@@ -271,7 +325,7 @@ var name = &#39;nekoaimer&#39;// 当你第一次赋值时 name...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/05/JavaScript/Advanced/closure/" itemprop="url" title="JavaScript 闭包"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></a>
+    <a href="/2021/10/05/JavaScript/Advanced/closure/" itemprop="url" title="JavaScript 闭包"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicit31ffoj20zk0m8naf.jpg"></a>
   </div>
   <div class="info">
     
@@ -323,7 +377,7 @@ var name = &#39;nekoaimer&#39;// 当你第一次赋值时 name...
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/03/JavaScript/Advanced/scope/" itemprop="url" title="JavaScript 作用域"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></a>
+    <a href="/2021/10/03/JavaScript/Advanced/scope/" itemprop="url" title="JavaScript 作用域"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giciukx8a7j20zk0m8aio.jpg"></a>
   </div>
   <div class="info">
     
@@ -370,7 +424,7 @@ var name = &#39;nekoaimer&#39;foo(233)function foo(num) &amp;#123; console.log(m
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/10/01/JavaScript/Advanced/V8/" itemprop="url" title="V8 引擎"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipesng5oej20zk0m87d4.jpg"></a>
+    <a href="/2021/10/01/JavaScript/Advanced/V8/" itemprop="url" title="V8 引擎"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></a>
   </div>
   <div class="info">
     
@@ -422,7 +476,7 @@ SpiderMonkey：第一款 JavaScript 引擎，由 Brendan Eich 开发（JavaScrip
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" itemprop="url" title="Mini-Vue 实现"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></a>
+    <a href="/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" itemprop="url" title="Mini-Vue 实现"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicitspjpbj20zk0m81ky.jpg"></a>
   </div>
   <div class="info">
     
@@ -483,7 +537,7 @@ Vue3 的 Proxy 实现
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" itemprop="url" title="Vue3 teleport &amp; plugins"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></a>
+    <a href="/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" itemprop="url" title="Vue3 teleport &amp; plugins"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></a>
   </div>
   <div class="info">
     
@@ -527,7 +581,7 @@ vue&amp;lt;template&gt; &amp;lt;div class=&quot;app&quot;&gt; &amp;lt;teleport t
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" itemprop="url" title="Vue3 directives 自定义指令"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></a>
+    <a href="/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" itemprop="url" title="Vue3 directives 自定义指令"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></a>
   </div>
   <div class="info">
     
@@ -567,49 +621,6 @@ vue&amp;lt;template&gt; &amp;lt;div&gt; &amp;lt;input type=&quot;text&quot; v-fo
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" itemprop="url" title="Vue3 render &amp; jsx"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclhnx9glj20zk0m8npd.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="Created: 2021-08-05 13:49:33">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2021-08-05T13:49:33+08:00">2021-08-05</time>
-  </span>
-  <span class="item" title="Symbols count in article">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>2.8k</span>
-    <span class="text">words</span>
-  </span>
-  <span class="item" title="Reading time">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>3 mins.</span>
-  </span>
-</div>
-
-    <h3><a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" itemprop="url" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></h3>
-    <div class="excerpt">
-        # 1.render 基本使用
-vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export default &amp;#123; data() &amp;#123; return &amp;#123; counter: 0 &amp;#125; &amp;#125;, render() &amp;#123; return h(&quot;div&quot;, &amp;#123;class: &quot;app&quot;&amp;#125;, [ h(&quot;h2&quot;, null,...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/Vue/Vue3/" itemprop="url" title="Vue3"><i class="ic i-flag"></i>Vue3</a>
-      </span>
-    </div>
-    <a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" itemprop="url" title="Vue3 render &amp; jsx" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -637,7 +648,7 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
       <div class="overview panel" data-title="Overview">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="image" itemprop="image" alt="Nico Niconi"
-      data-src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/images/avatar.jpg">
+      data-src="//nekoaimer/nekoaimer.github.ioimages/avatar.jpg">
   <p class="name" itemprop="name">Nico Niconi</p>
   <div class="description" itemprop="description"></div>
 </div>
@@ -645,19 +656,19 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">120</span>
+        <span class="count">121</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">12</span>
+        <span class="count">13</span>
         <span class="name">categories</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">25</span>
+        <span class="count">26</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -766,10 +777,22 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Ajax/" title="In Ajax">Ajax</a>
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/01/05/Ajax/03-Ajax/" title="尚硅谷 3小时Ajax入门到精通 いち">尚硅谷 3小时Ajax入门到精通 いち</a></span>
+    <span><a href="/2021/07/19/Vue/Vue3/CompositionAPI/vca_watchEffect/" title="Vue3 watchEffect 的基本使用">Vue3 watchEffect 的基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Node/" title="In Node">Node</a>
+</div>
+
+    <span><a href="/2022/04/25/Node/node-basics/" title="Node Basics">Node Basics</a></span>
   </li>
 
       
@@ -779,7 +802,17 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
 <a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/2021/10/05/JavaScript/Advanced/closure/" title="JavaScript 闭包">JavaScript 闭包</a></span>
+    <span><a href="/2021/10/03/JavaScript/Advanced/scope/" title="JavaScript 作用域">JavaScript 作用域</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/03/07/Vue/Vue%20note/02-atguigu/" title="Vue TodoList 案例">Vue TodoList 案例</a></span>
   </li>
 
       
@@ -791,17 +824,7 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
 <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/2021/03/13/Vue/Vue%20note/05-atguigu/" title="Vue2 Vuex">Vue2 Vuex</a></span>
+    <span><a href="/2021/12/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/mustache/" title="JavaScript 实现 Mustache 模板引擎">JavaScript 实现 Mustache 模板引擎</a></span>
   </li>
 
       
@@ -809,21 +832,45 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
     
 <div class="breadcrumb">
 <a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" title="事件循环面试题">事件循环面试题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+    <span><a href="/2021/10/10/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/call-apply-bind/" title="call &amp; apply &amp; bind 原理">call & apply & bind 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/" title="JavaScript 实现 Vuex">JavaScript 实现 Vuex</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" title="JavaScript 模块化">JavaScript 模块化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
   </li>
 
       
@@ -833,37 +880,7 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
 <a href="/categories/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/2021/03/11/Vue/Vue%20note/04-atguigu/" title="Vue2 插槽">Vue2 插槽</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" title="JavaScript 对象原型与方法">JavaScript 对象原型与方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Node/" title="In Node">Node</a>
-</div>
-
-    <span><a href="/2022/05/01/Node/node-express/" title="Node Express">Node Express</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/31/JavaScript/Advanced/Proxy&Reflect/" title="JavaScript Proxy &amp; Reflect">JavaScript Proxy & Reflect</a></span>
+    <span><a href="/2021/06/20/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
   </li>
 
   </ul>
@@ -954,7 +971,7 @@ vue&amp;lt;script&gt; import &amp;#123; h &amp;#125; from &#39;vue&#39;; export 
 
 <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
-<script src="//cdn.jsdelivr.net/gh/nekoaimer/nekoaimer.github.io@latest/js/app.js?v=0.2.5"></script>
+<script src="//nekoaimer/nekoaimer.github.iojs/app.js?v=0.2.5"></script>
 
 
 
