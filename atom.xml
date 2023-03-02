@@ -6,7 +6,7 @@
   <link href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" rel="self"/>
   
   <link href="https://nekoaimer.github.io/nekoaimer.github.io/"/>
-  <updated>2022-11-17T15:29:21.930Z</updated>
+  <updated>2022-12-07T17:42:33.539Z</updated>
   <id>https://nekoaimer.github.io/nekoaimer.github.io/</id>
   
   <author>
@@ -17,25 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
+    <title>Oarcle常用查询</title>
     <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/"/>
     <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/</id>
     <published>2022-11-17T15:28:09.000Z</published>
-    <updated>2022-11-17T15:29:21.930Z</updated>
+    <updated>2022-12-07T17:42:33.539Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="a"><a class="anchor" href="#a">#</a> a</h2>]]></content>
+    <content type="html"><![CDATA[<ul><li>查询表空间</li></ul><figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 查询当前用户所处表空间</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">select</span> default_tablespace <span class="token keyword">from</span> dba_users <span class="token keyword">where</span> username<span class="token operator">=</span><span class="token string">'Loguser'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">-- 查看所有的表空间</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">-- 方式 1：dba_tablespaces --</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_tablespaces<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">-- 方式 2：v$tablespace</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> v$<span class="token keyword">tablespace</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul><li>查看用户下面的所有的表</li></ul><figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 方式 1：user_tables --</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> user_tables<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">-- 方式 2: dba_tables --</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_tables <span class="token keyword">where</span> owner<span class="token operator">=</span><span class="token string">'TMS21'</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul><li>查看表空间下有多少用户</li></ul><figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 注意表空间的名字是大写</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">select</span> <span class="token keyword">distinct</span> s<span class="token punctuation">.</span>owner <span class="token keyword">from</span> dba_segments s</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">where</span> s<span class="token punctuation">.</span>tablespace_name <span class="token operator">=</span> upper<span class="token punctuation">(</span><span class="token string">'tablespace_name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul><li>查看表空间位置</li></ul><figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_data_files <span class="token keyword">order</span> <span class="token keyword">by</span> file_id<span class="token punctuation">;</span></pre></td></tr></table></figure><p>-- Create table<br />CREATE TABLE S_ERR_LOG<br />(<br />LOG_ID  NUMBER NOT NULL,<br />ERR_DATA DATE,<br />ERR_LOG  VARCHAR2(4000)，<br />PRIMARY KEY (LOG_ID)<br />)<br />-- CREATE SEQUENCE SEQ_LOG_ID<br />MINVALUE 1<br />MAXVALUE 9999999999999999999999999999<br />START WITH 1<br />INCREMENT BY 1<br />CACHE 20;</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;a&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#a&quot;&gt;#&lt;/a&gt; a&lt;/h2&gt;
-</summary>
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;查询表空间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;figcaption data-lang=&quot;SQL&quot;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&quot;1&quot;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;</summary>
       
     
     
     
-    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Oracle/"/>
+    <category term="SQL" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/SQL/"/>
     
+    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/SQL/Oracle/"/>
+    
+    
+    <category term="SQL" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/SQL/"/>
     
     <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Oracle/"/>
     
