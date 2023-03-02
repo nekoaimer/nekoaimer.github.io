@@ -3,11 +3,11 @@
   <title>Nekoaimer</title>
   
   <subtitle>清心如水，清水即心</subtitle>
-  <link href="https://nekoaimer.github.io/atom.xml" rel="self"/>
+  <link href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" rel="self"/>
   
-  <link href="https://nekoaimer.github.io/"/>
+  <link href="https://nekoaimer.github.io/nekoaimer.github.io/"/>
   <updated>2022-12-07T17:42:33.539Z</updated>
-  <id>https://nekoaimer.github.io/</id>
+  <id>https://nekoaimer.github.io/nekoaimer.github.io/</id>
   
   <author>
     <name>Nico Niconi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Oarcle常用查询</title>
-    <link href="https://nekoaimer.github.io/2022/11/17/Oracle/test/"/>
-    <id>https://nekoaimer.github.io/2022/11/17/Oracle/test/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/</id>
     <published>2022-11-17T15:28:09.000Z</published>
     <updated>2022-12-07T17:42:33.539Z</updated>
     
@@ -36,21 +36,21 @@
     
     
     
-    <category term="SQL" scheme="https://nekoaimer.github.io/categories/SQL/"/>
+    <category term="SQL" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/SQL/"/>
     
-    <category term="Oracle" scheme="https://nekoaimer.github.io/categories/SQL/Oracle/"/>
+    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/SQL/Oracle/"/>
     
     
-    <category term="SQL" scheme="https://nekoaimer.github.io/tags/SQL/"/>
+    <category term="SQL" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/SQL/"/>
     
-    <category term="Oracle" scheme="https://nekoaimer.github.io/tags/Oracle/"/>
+    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Oracle/"/>
     
   </entry>
   
   <entry>
     <title>Node Express Session JWT</title>
-    <link href="https://nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/"/>
-    <id>https://nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/</id>
     <published>2022-05-14T13:20:20.000Z</published>
     <updated>2022-05-18T07:57:17.592Z</updated>
     
@@ -67,17 +67,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Connect MySQL</title>
-    <link href="https://nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/"/>
-    <id>https://nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/</id>
     <published>2022-05-13T08:50:31.000Z</published>
     <updated>2022-05-17T12:15:20.496Z</updated>
     
@@ -94,17 +94,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node CORS-JSONP</title>
-    <link href="https://nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/"/>
-    <id>https://nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/</id>
     <published>2022-05-08T06:01:27.000Z</published>
     <updated>2022-05-18T00:46:09.296Z</updated>
     
@@ -124,17 +124,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Middleware</title>
-    <link href="https://nekoaimer.github.io/2022/05/05/Node/node-express-middleware/"/>
-    <id>https://nekoaimer.github.io/2022/05/05/Node/node-express-middleware/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/</id>
     <published>2022-05-05T04:16:40.000Z</published>
     <updated>2022-05-16T06:03:51.879Z</updated>
     
@@ -152,17 +152,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Express</title>
-    <link href="https://nekoaimer.github.io/2022/05/01/Node/node-express/"/>
-    <id>https://nekoaimer.github.io/2022/05/01/Node/node-express/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/01/Node/node-express/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/01/Node/node-express/</id>
     <published>2022-05-01T12:11:35.000Z</published>
     <updated>2022-05-15T04:17:30.772Z</updated>
     
@@ -180,17 +180,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Basics</title>
-    <link href="https://nekoaimer.github.io/2022/04/25/Node/node-basics/"/>
-    <id>https://nekoaimer.github.io/2022/04/25/Node/node-basics/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/</id>
     <published>2022-04-25T09:35:48.000Z</published>
     <updated>2022-05-18T00:42:28.035Z</updated>
     
@@ -206,17 +206,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Git 命令补充</title>
-    <link href="https://nekoaimer.github.io/2022/04/23/Git/git-command/"/>
-    <id>https://nekoaimer.github.io/2022/04/23/Git/git-command/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/</id>
     <published>2022-04-22T18:58:23.000Z</published>
     <updated>2022-04-23T06:59:58.824Z</updated>
     
@@ -231,17 +231,17 @@
     
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/categories/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/tags/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>判断是否是回文数</title>
-    <link href="https://nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/"/>
-    <id>https://nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/</id>
     <published>2022-04-13T10:08:11.000Z</published>
     <updated>2022-04-13T12:51:19.866Z</updated>
     
@@ -260,21 +260,21 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
     
-    <category term="Easy" scheme="https://nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/"/>
+    <category term="Easy" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/"/>
     
     
-    <category term="Easy" scheme="https://nekoaimer.github.io/tags/Easy/"/>
+    <category term="Easy" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Easy/"/>
     
-    <category term="数据结构与算" scheme="https://nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97/"/>
+    <category term="数据结构与算" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97/"/>
     
   </entry>
   
   <entry>
     <title>Git 武沛齐笔记</title>
-    <link href="https://nekoaimer.github.io/2022/03/16/Git/Git/"/>
-    <id>https://nekoaimer.github.io/2022/03/16/Git/Git/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/</id>
     <published>2022-03-16T06:52:22.000Z</published>
     <updated>2022-04-23T06:54:59.942Z</updated>
     
@@ -289,17 +289,17 @@
     
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/categories/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/tags/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现无缝滚动轮播图(carousel)</title>
-    <link href="https://nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/"/>
-    <id>https://nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/</id>
     <published>2022-02-12T06:16:58.000Z</published>
     <updated>2022-04-04T02:25:56.112Z</updated>
     
@@ -317,21 +317,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现 Vuex</title>
-    <link href="https://nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/"/>
-    <id>https://nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/</id>
     <published>2022-02-01T12:27:24.000Z</published>
     <updated>2022-03-25T04:29:39.072Z</updated>
     
@@ -347,21 +347,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现图片懒加载</title>
-    <link href="https://nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/"/>
-    <id>https://nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/</id>
     <published>2022-01-31T05:00:00.000Z</published>
     <updated>2022-03-20T06:33:56.492Z</updated>
     
@@ -377,21 +377,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现数组扁平化</title>
-    <link href="https://nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/"/>
-    <id>https://nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/</id>
     <published>2022-01-29T09:25:20.000Z</published>
     <updated>2022-04-18T08:51:07.323Z</updated>
     
@@ -407,21 +407,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>instanceof &amp; new &amp; typeof 原理</title>
-    <link href="https://nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/"/>
-    <id>https://nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/</id>
     <published>2022-01-27T02:44:52.000Z</published>
     <updated>2022-04-07T15:28:20.400Z</updated>
     
@@ -437,21 +437,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>fill &amp; join &amp; includes 原理</title>
-    <link href="https://nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/"/>
-    <id>https://nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/</id>
     <published>2022-01-25T03:14:44.000Z</published>
     <updated>2022-04-01T05:53:19.126Z</updated>
     
@@ -466,21 +466,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>every &amp; some &amp; find &amp; findIndex 原理</title>
-    <link href="https://nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/"/>
-    <id>https://nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/</id>
     <published>2022-01-23T08:29:59.000Z</published>
     <updated>2022-03-07T03:45:56.547Z</updated>
     
@@ -495,21 +495,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>forEach &amp; filter &amp; map &amp; reduce 原理</title>
-    <link href="https://nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/"/>
-    <id>https://nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/</id>
     <published>2022-01-21T07:26:10.000Z</published>
     <updated>2022-02-08T16:40:30.027Z</updated>
     
@@ -524,21 +524,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>优先级队列实现 (PriorityQueue)</title>
-    <link href="https://nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/"/>
-    <id>https://nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/</id>
     <published>2022-01-19T15:01:23.000Z</published>
     <updated>2022-02-12T12:52:45.947Z</updated>
     
@@ -557,19 +557,19 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
     
-    <category term="data structure" scheme="https://nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
+    <category term="data structure" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>队列实现击鼓传花 (Queue)</title>
-    <link href="https://nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/"/>
-    <id>https://nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/</id>
+    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/"/>
+    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/</id>
     <published>2022-01-19T01:58:35.000Z</published>
     <updated>2022-02-12T12:52:58.136Z</updated>
     
@@ -586,12 +586,12 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
     
-    <category term="data structure" scheme="https://nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
+    <category term="data structure" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
