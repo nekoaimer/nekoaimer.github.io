@@ -3,11 +3,11 @@
   <title>Nekoaimer</title>
   
   <subtitle>清心如水，清水即心</subtitle>
-  <link href="https://nekoaimer.github.io/nekoaimer.github.io/atom.xml" rel="self"/>
+  <link href="https://nekoaimer.com/atom.xml" rel="self"/>
   
-  <link href="https://nekoaimer.github.io/nekoaimer.github.io/"/>
-  <updated>2022-12-07T17:42:33.539Z</updated>
-  <id>https://nekoaimer.github.io/nekoaimer.github.io/</id>
+  <link href="https://nekoaimer.com/"/>
+  <updated>2023-04-02T12:15:25.084Z</updated>
+  <id>https://nekoaimer.com/</id>
   
   <author>
     <name>Nico Niconi</name>
@@ -17,9 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Oarcle Array</title>
+    <link href="https://nekoaimer.com/2022/11/17/Oracle/array/"/>
+    <id>https://nekoaimer.com/2022/11/17/Oracle/array/</id>
+    <published>2022-11-17T15:28:09.000Z</published>
+    <updated>2023-04-02T12:15:25.084Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="单维数组"><a class="anchor" href="#单维数组">#</a> 单维数组</h3><pre><code class="language-SQL">-- 不加 INDEX BY BINARY_INTEGER 写法DECLARE TYPE SEQ_TYPE IS TABLE OF NUMBER; V_SEQ SEQ_TYPE:= SEQ_TYPE();BEGIN V_SEQ.EXTEND; V_SEQ(1):= 2; V_SEQ.EXTEND; V_SEQ(2):= 3; V_SEQ.EXTEND; V_SEQ(3):= 3; FOR I IN 1.. V_SEQ.COUNT LOOP  DBMS_OUTPUT.PUT_LINE(V_SEQ(I)); END LOOP;END;-- 2 3 3-- 加上 INDEX BY BINARY_INTEGER 写法DECLARE TYPE SEQ_TYPE IS TABLE OF NUMBER INDEX BY BINARY_INTEGER; V_SEQ SEQ_TYPE;BEGIN V_SEQ(1):= 2; V_SEQ(2):= 3; V_SEQ(3):= 3; FOR I IN 1.. V_SEQ.COUNT LOOP  DBMS_OUTPUT.PUT_LINE(V_SEQ(I)); END LOOP;END;-- 2 3 3</code></pre><p><strong>总结：INDEX BY BINARY_INTEGER<br /> 如果加上的话可以省略 SEQ_TYPE:= SEQ_TYPE () 初始化这个步骤；也不需要每插入一个空间就需要进行 EXTEND</strong>;</p><h3 id="多维数组"><a class="anchor" href="#多维数组">#</a> 多维数组</h3><pre><code class="language-SQL">--多维数组DECLARE  TYPE USER IS RECORD(   ID     CHAR(20),   NAME   CHAR(20),   AGE    NUMBER);  TYPE U_TYPE_TAB IS TABLE OF USER INDEX BY BINARY_INTEGER;   USER_REC_ARRAY U_TYPE_TAB;  USER_REC USER;BEGIN  -- 1.插入方式1：BULK COLLECT INTO  SELECT ID,NAME,AGE BULK COLLECT INTO USER_REC_ARRAY FROM -- 这里插入数据相当与覆盖，所以使用BULK COLLECT INT0后数据还会变化时尽量写在前面。    (SELECT '001' ID,'LAIN' NAME,16 AGE FROM DUAL UNION ALL  SELECT '002' ID,'NICO' NAME, 15 AGE FROM DUAL);  -- 2.插入方式2：表达式 形式 赋值  USER_REC.ID:= '005';  USER_REC.NAME:= 'JACK';  USER_REC.AGE:= 17;  USER_REC_ARRAY(3):=USER_REC;  -- 3.插入方式3：单格数据插入, 这里使用插入相当于吧JACK的ID替换为003了  SELECT '003' INTO USER_REC_ARRAY(USER_REC_ARRAY.COUNT).ID FROM DUAL;  /* 4.插入方式4：先查询插入，再进行表达式赋值。如果按照下面的写法：     SELECT '004' INTO USER_REC_ARRAY(4).ID FROM DUAL;     USER_REC.NAME:= 'SHARLEY';  USER_REC.AGE:= 18;     USER_REC_ARRAY(4):=USER_REC;     此时USER_REC会把当前行覆盖掉，所以这里004是被USER_REC给覆盖掉了，那么这里的USER_REC是没有给ID赋值的，取到的值就是上一个赋的值：005     所以先插入的数据 004 会被 下面的表达式覆盖，结果会是：ID: '005', NAME: SHARLEY, AGE：18  */  -- 只要下面这种插入顺序，结果才会是：ID: 004, NAME: SHARLEY, AGE：18  USER_REC.NAME:= 'SHARLEY';  USER_REC.AGE:= 18;  USER_REC_ARRAY(4).NAME:=USER_REC.NAME;  USER_REC_ARRAY(4).AGE:=USER_REC.AGE;  SELECT '004' INTO USER_REC_ARRAY(4).ID FROM DUAL;  FOR I IN 1 .. USER_REC_ARRAY.COUNT LOOP    DBMS_OUTPUT.PUT_LINE(USER_REC_ARRAY(I).ID || '-' || USER_REC_ARRAY(I).NAME || '-' || USER_REC_ARRAY(I).AGE);  END LOOP;END;/*RESULT：001                 -LAIN                -16002                 -NICO                -15003                 -JACK                -17004                 -SHARLEY             -18*/</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;单维数组&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#单维数组&quot;&gt;#&lt;/a&gt; 单维数组&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- 不加 INDEX BY BINARY_INTEGER 写法
+DECLARE
+ TYPE </summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="https://nekoaimer.com/categories/SQL/"/>
+    
+    <category term="Oracle" scheme="https://nekoaimer.com/categories/SQL/Oracle/"/>
+    
+    
+    <category term="SQL" scheme="https://nekoaimer.com/tags/SQL/"/>
+    
+    <category term="Oracle" scheme="https://nekoaimer.com/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Oarcle常用查询</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/11/17/Oracle/test/</id>
+    <link href="https://nekoaimer.com/2022/11/17/Oracle/test/"/>
+    <id>https://nekoaimer.com/2022/11/17/Oracle/test/</id>
     <published>2022-11-17T15:28:09.000Z</published>
     <updated>2022-12-07T17:42:33.539Z</updated>
     
@@ -36,21 +67,21 @@
     
     
     
-    <category term="SQL" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/SQL/"/>
+    <category term="SQL" scheme="https://nekoaimer.com/categories/SQL/"/>
     
-    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/SQL/Oracle/"/>
+    <category term="Oracle" scheme="https://nekoaimer.com/categories/SQL/Oracle/"/>
     
     
-    <category term="SQL" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/SQL/"/>
+    <category term="SQL" scheme="https://nekoaimer.com/tags/SQL/"/>
     
-    <category term="Oracle" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Oracle/"/>
+    <category term="Oracle" scheme="https://nekoaimer.com/tags/Oracle/"/>
     
   </entry>
   
   <entry>
     <title>Node Express Session JWT</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/14/Node/node-express-session-jwt/</id>
+    <link href="https://nekoaimer.com/2022/05/14/Node/node-express-session-jwt/"/>
+    <id>https://nekoaimer.com/2022/05/14/Node/node-express-session-jwt/</id>
     <published>2022-05-14T13:20:20.000Z</published>
     <updated>2022-05-18T07:57:17.592Z</updated>
     
@@ -67,17 +98,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Connect MySQL</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/13/Node/node-connect-mysql/</id>
+    <link href="https://nekoaimer.com/2022/05/13/Node/node-connect-mysql/"/>
+    <id>https://nekoaimer.com/2022/05/13/Node/node-connect-mysql/</id>
     <published>2022-05-13T08:50:31.000Z</published>
     <updated>2022-05-17T12:15:20.496Z</updated>
     
@@ -94,17 +125,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node CORS-JSONP</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/08/Node/node-cors-jsonp/</id>
+    <link href="https://nekoaimer.com/2022/05/08/Node/node-cors-jsonp/"/>
+    <id>https://nekoaimer.com/2022/05/08/Node/node-cors-jsonp/</id>
     <published>2022-05-08T06:01:27.000Z</published>
     <updated>2022-05-18T00:46:09.296Z</updated>
     
@@ -124,17 +155,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Middleware</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/05/Node/node-express-middleware/</id>
+    <link href="https://nekoaimer.com/2022/05/05/Node/node-express-middleware/"/>
+    <id>https://nekoaimer.com/2022/05/05/Node/node-express-middleware/</id>
     <published>2022-05-05T04:16:40.000Z</published>
     <updated>2022-05-16T06:03:51.879Z</updated>
     
@@ -152,17 +183,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Express</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/05/01/Node/node-express/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/05/01/Node/node-express/</id>
+    <link href="https://nekoaimer.com/2022/05/01/Node/node-express/"/>
+    <id>https://nekoaimer.com/2022/05/01/Node/node-express/</id>
     <published>2022-05-01T12:11:35.000Z</published>
     <updated>2022-05-15T04:17:30.772Z</updated>
     
@@ -180,17 +211,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Node Basics</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/25/Node/node-basics/</id>
+    <link href="https://nekoaimer.com/2022/04/25/Node/node-basics/"/>
+    <id>https://nekoaimer.com/2022/04/25/Node/node-basics/</id>
     <published>2022-04-25T09:35:48.000Z</published>
     <updated>2022-05-18T00:42:28.035Z</updated>
     
@@ -206,17 +237,17 @@
     
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/categories/Node/"/>
     
     
-    <category term="Node" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Node/"/>
+    <category term="Node" scheme="https://nekoaimer.com/tags/Node/"/>
     
   </entry>
   
   <entry>
     <title>Git 命令补充</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/23/Git/git-command/</id>
+    <link href="https://nekoaimer.com/2022/04/23/Git/git-command/"/>
+    <id>https://nekoaimer.com/2022/04/23/Git/git-command/</id>
     <published>2022-04-22T18:58:23.000Z</published>
     <updated>2022-04-23T06:59:58.824Z</updated>
     
@@ -231,17 +262,17 @@
     
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.com/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>判断是否是回文数</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/</id>
+    <link href="https://nekoaimer.com/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/"/>
+    <id>https://nekoaimer.com/2022/04/13/data-structures-and-algorithms/algorithm/problems/easy/palindromic/</id>
     <published>2022-04-13T10:08:11.000Z</published>
     <updated>2022-04-13T12:51:19.866Z</updated>
     
@@ -260,21 +291,21 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/"/>
     
-    <category term="Easy" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/Easy/"/>
+    <category term="Easy" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/Easy/"/>
     
     
-    <category term="Easy" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Easy/"/>
+    <category term="Easy" scheme="https://nekoaimer.com/tags/Easy/"/>
     
-    <category term="数据结构与算" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97/"/>
+    <category term="数据结构与算" scheme="https://nekoaimer.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97/"/>
     
   </entry>
   
   <entry>
     <title>Git 武沛齐笔记</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/03/16/Git/Git/</id>
+    <link href="https://nekoaimer.com/2022/03/16/Git/Git/"/>
+    <id>https://nekoaimer.com/2022/03/16/Git/Git/</id>
     <published>2022-03-16T06:52:22.000Z</published>
     <updated>2022-04-23T06:54:59.942Z</updated>
     
@@ -289,17 +320,17 @@
     
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.com/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/Git/"/>
+    <category term="Git" scheme="https://nekoaimer.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现无缝滚动轮播图(carousel)</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/</id>
+    <link href="https://nekoaimer.com/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/"/>
+    <id>https://nekoaimer.com/2022/02/12/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/carousel/</id>
     <published>2022-02-12T06:16:58.000Z</published>
     <updated>2022-04-04T02:25:56.112Z</updated>
     
@@ -317,21 +348,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现 Vuex</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/</id>
+    <link href="https://nekoaimer.com/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/"/>
+    <id>https://nekoaimer.com/2022/02/01/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vuex/</id>
     <published>2022-02-01T12:27:24.000Z</published>
     <updated>2022-03-25T04:29:39.072Z</updated>
     
@@ -347,21 +378,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现图片懒加载</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/</id>
+    <link href="https://nekoaimer.com/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/"/>
+    <id>https://nekoaimer.com/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/</id>
     <published>2022-01-31T05:00:00.000Z</published>
     <updated>2022-03-20T06:33:56.492Z</updated>
     
@@ -377,21 +408,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 实现数组扁平化</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/</id>
+    <link href="https://nekoaimer.com/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/"/>
+    <id>https://nekoaimer.com/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/</id>
     <published>2022-01-29T09:25:20.000Z</published>
     <updated>2022-04-18T08:51:07.323Z</updated>
     
@@ -407,21 +438,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>instanceof &amp; new &amp; typeof 原理</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/</id>
+    <link href="https://nekoaimer.com/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/"/>
+    <id>https://nekoaimer.com/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/</id>
     <published>2022-01-27T02:44:52.000Z</published>
     <updated>2022-04-07T15:28:20.400Z</updated>
     
@@ -437,21 +468,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>fill &amp; join &amp; includes 原理</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/</id>
+    <link href="https://nekoaimer.com/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/"/>
+    <id>https://nekoaimer.com/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/</id>
     <published>2022-01-25T03:14:44.000Z</published>
     <updated>2022-04-01T05:53:19.126Z</updated>
     
@@ -466,21 +497,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>every &amp; some &amp; find &amp; findIndex 原理</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/</id>
+    <link href="https://nekoaimer.com/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/"/>
+    <id>https://nekoaimer.com/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/</id>
     <published>2022-01-23T08:29:59.000Z</published>
     <updated>2022-03-07T03:45:56.547Z</updated>
     
@@ -495,21 +526,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>forEach &amp; filter &amp; map &amp; reduce 原理</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/</id>
+    <link href="https://nekoaimer.com/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/"/>
+    <id>https://nekoaimer.com/2022/01/21/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/forEach-filter-map-reduce/</id>
     <published>2022-01-21T07:26:10.000Z</published>
     <updated>2022-02-08T16:40:30.027Z</updated>
     
@@ -524,21 +555,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/categories/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
     
-    <category term="JavaScript" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://nekoaimer.com/tags/JavaScript/"/>
     
-    <category term="JavaScript 手写原理" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <category term="JavaScript 手写原理" scheme="https://nekoaimer.com/tags/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>优先级队列实现 (PriorityQueue)</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/</id>
+    <link href="https://nekoaimer.com/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/"/>
+    <id>https://nekoaimer.com/2022/01/19/data-structures-and-algorithms/data-structure/priority-queue/</id>
     <published>2022-01-19T15:01:23.000Z</published>
     <updated>2022-02-12T12:52:45.947Z</updated>
     
@@ -557,41 +588,12 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/"/>
     
-    <category term="data structure" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
-    
-    
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>队列实现击鼓传花 (Queue)</title>
-    <link href="https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/"/>
-    <id>https://nekoaimer.github.io/nekoaimer.github.io/2022/01/19/data-structures-and-algorithms/data-structure/pass-the-parcel/</id>
-    <published>2022-01-19T01:58:35.000Z</published>
-    <updated>2022-02-12T12:52:58.136Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="队列结构queue"><a class="anchor" href="#队列结构queue">#</a> 队列结构（Queue）</h2><ul><li><p>队列是一个简单的数据结构，它是一个 <code>允许在一端进行插入操作，而在另一端进行删除操作的线性表</code> 。队列遵循先进先出（FIFO, First-In-First-Out）的特征，和栈（LIFO, Last In First Out）刚好相反。</p></li><li><p>队列，它是一种受限的线性表</p><ul><li>受限之处在于它只允许在表的前端 (front) 进行删除操作</li><li>而在表的后端 (rear) 进行插入操作</li></ul></li><li><p>生活中类似的队列结构</p><ul><li>比如电影院、商城、奶茶店排队</li><li>优先排队的人，优先处理</li></ul></li></ul><h2 id="实现队列"><a class="anchor" href="#实现队列">#</a> 实现队列</h2><ul><li><code>封装一个队列实现下面的击鼓传花</code></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 封装队列类</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">function</span> <span class="token function">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token comment">// 属性</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 方法</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token comment">// 1. 将元素加入到队列中</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">enqueue</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token comment">// 2. 从队列中删除前端元素</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">dequeue</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token comment">// 3. 查看前端的元素</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">front</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token comment">// 4. 查看队列是否为空</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">isEmpty</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token comment">// 5. 查看队列中元素个数</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">size</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length</pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token comment">// 6.toString 方法</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">toString</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">let</span> resStr <span class="token operator">=</span> <span class="token string">''</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span>key <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>      resStr<span class="token operator">+=</span> key</pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">return</span> resStr</pre></td></tr><tr><td data-num="39"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="example"><a class="anchor" href="#example">#</a> Example</h2><ul><li>原游戏击鼓传花规则是，例如班级的学生围城一圈，从某位学生手里向旁边的同学传一束花。这个时候某个人在击鼓， 鼓声停下的一刻，花落在谁手里，谁就出来表演节目</li><li>修改游戏规则<ul><li>学生们围成一圈， 开始数数， 数到某个数的人自动淘汰，最后剩下的人获得游戏胜利，并获得胜利者的位置。</li></ul></li></ul><p><strong>Example 1:</strong></p><figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>输入：<span class="token punctuation">[</span><span class="token string">'樱岛麻衣'</span><span class="token punctuation">,</span> <span class="token string">'小鸟游六花'</span><span class="token punctuation">,</span> <span class="token string">'入间同学'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">6</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">输出：el</span><span class="token punctuation">:</span> <span class="token key atrule">入间同学  index</span><span class="token punctuation">:</span> <span class="token number">2</span></pre></td></tr></table></figure><ul><li>解释：从 0 开始数到 6 是樱岛麻衣，那么樱岛麻衣被淘汰此时数组剩下两个元素 [' 小鸟游六花 ', ' 入间同学 '],</li><li>接着被淘汰的元素往下从 0 数到 6，是小鸟游六花，那么小鸟游六花被淘汰</li><li>此时数组只剩下入间同学，并获取原来的下标值，那么就是 2</li></ul><p><strong>Example 2:</strong></p><figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>输入：<span class="token punctuation">[</span><span class="token string">'Saber'</span><span class="token punctuation">,</span> <span class="token string">'Lain'</span><span class="token punctuation">,</span> <span class="token string">'Nico'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">8</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">输出：el</span><span class="token punctuation">:</span> <span class="token key atrule">Lain  index</span><span class="token punctuation">:</span> <span class="token number">1</span></pre></td></tr></table></figure><h2 id="solving-ideas"><a class="anchor" href="#solving-ideas">#</a> Solving Ideas</h2><ul><li><code>我们使用上面封装的队列方法实现击鼓传花</code></li></ul><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">passGame</span><span class="token punctuation">(</span><span class="token parameter">nameList<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 1. 创建一个队列</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// 2. 将所有人依次加入到队列中</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nameList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    queue<span class="token punctuation">.</span><span class="token function">enqueue</span><span class="token punctuation">(</span>nameList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 3. 开始数数字</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token keyword">while</span> <span class="token punctuation">(</span>queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      queue<span class="token punctuation">.</span><span class="token function">enqueue</span><span class="token punctuation">(</span>queue<span class="token punctuation">.</span><span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    queue<span class="token punctuation">.</span><span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">index: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>nameList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>queue<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> : el: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>queue<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token function">passGame</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Saber'</span><span class="token punctuation">,</span> <span class="token string">'Lain'</span><span class="token punctuation">,</span> <span class="token string">'Nico'</span><span class="token punctuation">,</span> <span class="token string">'Nekoaimer'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment">// el: Nekoaimer  index: 3</span></pre></td></tr></table></figure>]]></content>
+    <category term="data structure" scheme="https://nekoaimer.com/categories/data-structures-and-algorithms/data-structure/"/>
     
     
-      
-      
-    <summary type="html">&lt;h2 id=&quot;队列结构queue&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#队列结构queue&quot;&gt;#&lt;/a&gt; 队列结构（Queue）&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;队列是一个简单的数据结构，它是一个 &lt;code&gt;允许在一端进行插入操作，而在另一端进行删除操作的线</summary>
-      
-    
-    
-    
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/"/>
-    
-    <category term="data structure" scheme="https://nekoaimer.github.io/nekoaimer.github.io/categories/data-structures-and-algorithms/data-structure/"/>
-    
-    
-    <category term="数据结构与算法" scheme="https://nekoaimer.github.io/nekoaimer.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="数据结构与算法" scheme="https://nekoaimer.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
