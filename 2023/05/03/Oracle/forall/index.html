@@ -1,0 +1,647 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Nekoaimer" href="https://nekoaimer.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Nekoaimer" href="https://nekoaimer.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Nekoaimer" href="https://nekoaimer.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="SQL,Oracle" />
+
+
+<link rel="canonical" href="https://nekoaimer.com/2023/05/03/Oracle/forall/">
+
+
+
+  <title>
+Oarcle Create Type - Oracle - SQL |
+Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Oarcle Create Type
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2023-05-03 23:24:09">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-03T23:24:09+08:00">2023-05-03</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>4.3k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>4 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/SQL/" itemprop="item" rel="index" title="In SQL"><span itemprop="name">SQL</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/SQL/Oracle/" itemprop="item" rel="index" title="In Oracle"><span itemprop="name">Oracle</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.com/2023/05/03/Oracle/forall/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h4 id="prerequisites"><a class="anchor" href="#prerequisites">#</a> Prerequisites</h4>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> DATE_TEMP<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  ID NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">YEAR</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">MONTH</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">DAY</span> NUMBER</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="forall"><a class="anchor" href="#forall">#</a> FORALL</h4>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre>FORALL index_name <span class="token operator">IN</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  &#123;</pre></td></tr><tr><td data-num="3"></td><td><pre>    lower_bound <span class="token punctuation">.</span><span class="token punctuation">.</span> upper_bound</pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token operator">|</span> INDICES <span class="token keyword">OF</span> collection_name <span class="token punctuation">[</span> <span class="token operator">BETWEEN</span> lower_bound <span class="token operator">AND</span> upper_bound <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token operator">|</span> <span class="token keyword">VALUES</span> <span class="token keyword">OF</span> index_collection</pre></td></tr><tr><td data-num="6"></td><td><pre>  &#125;</pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">[</span> <span class="token keyword">SAVE</span> EXCEPTIONS <span class="token punctuation">]</span> dml_statement<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="lower_boundupper_bound"><a class="anchor" href="#lower_boundupper_bound">#</a> lower_bound..upper_bound</h4>
+<ul>
+<li>FORALL 下标变量 (只能当作下标被引用) IN 下限.. 上限</li>
+<li>index_name: 参数索引标识符</li>
+<li>lower_bound..upper_bound: 类似 FOR I IN 1..100</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">DECLARE</span></pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token keyword">TYPE</span> DATE_TEMP_TYPE <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> DATE_TEMP<span class="token operator">%</span>ROWTYPE <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">TEMP</span> DATE_TEMP_TYPE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre> <span class="token keyword">TYPE</span> ARRAY_TYPE <span class="token operator">IS</span> VARRAY<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">OF</span> NUMBER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre> V_ARRAY ARRAY_TYPE:<span class="token operator">=</span>ARRAY_TYPE<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">BEGIN</span></pre></td></tr><tr><td data-num="8"></td><td><pre> <span class="token comment">-- 插入 10 条数据进行测试</span></pre></td></tr><tr><td data-num="9"></td><td><pre> <span class="token keyword">SELECT</span> <span class="token keyword">LEVEL</span> ID<span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">YEAR</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token keyword">LEVEL</span> <span class="token keyword">YEAR</span><span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">MONTH</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token keyword">MONTH</span><span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">DAY</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token keyword">DAY</span></pre></td></tr><tr><td data-num="10"></td><td><pre>   <span class="token keyword">BULK</span> COLLECT <span class="token keyword">INTO</span> <span class="token keyword">TEMP</span> <span class="token keyword">FROM</span> DUAL <span class="token keyword">CONNECT</span> <span class="token keyword">BY</span> <span class="token keyword">LEVEL</span> <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre> <span class="token comment">-- INSERT</span></pre></td></tr><tr><td data-num="13"></td><td><pre> FORALL I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span>COUNT</pre></td></tr><tr><td data-num="14"></td><td><pre>   <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> DATE_TEMP <span class="token keyword">VALUES</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">-- UPDATE</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">TEMP</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span> :<span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  FORALL I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT</pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">UPDATE</span> DATE_TEMP DT <span class="token keyword">SET</span> DT<span class="token punctuation">.</span><span class="token keyword">DAY</span> <span class="token operator">=</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span> <span class="token keyword">WHERE</span> DT<span class="token punctuation">.</span>ID <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">-- DELETE</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  FORALL I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span>V_ARRAY<span class="token punctuation">.</span>COUNT</pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">DELETE</span> DATE_TEMP DT <span class="token keyword">WHERE</span> DT<span class="token punctuation">.</span>ID <span class="token operator">=</span> V_ARRAY<span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token keyword">END</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="indices-of"><a class="anchor" href="#indices-of">#</a> INDICES OF</h4>
+<ul>
+<li>FORALL 下标变量 IN VALUES OF 集合 (把该集合中的值当作下标，且该集合值的类型只能是 PLS_INTEGER BINARY_INTEGER)</li>
+<li>当集合中某条数据被删除时，使用索引可能会造成错误 ORA-22160，那么此时 FORALL 可以搭配 INDICES OF 来使用。</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">DECLARE</span></pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token keyword">TYPE</span> DATE_TEMP_TYPE <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> DATE_TEMP<span class="token operator">%</span>ROWTYPE <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">TEMP</span> DATE_TEMP_TYPE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre> <span class="token keyword">TYPE</span> ARRAY_TYPE <span class="token operator">IS</span> VARRAY<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">OF</span> NUMBER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre> V_ARRAY ARRAY_TYPE:<span class="token operator">=</span>ARRAY_TYPE<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">BEGIN</span></pre></td></tr><tr><td data-num="8"></td><td><pre> <span class="token keyword">SELECT</span> <span class="token keyword">LEVEL</span> ID<span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">YEAR</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token keyword">LEVEL</span> <span class="token keyword">YEAR</span><span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">MONTH</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token keyword">MONTH</span><span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">DAY</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token keyword">DAY</span></pre></td></tr><tr><td data-num="9"></td><td><pre>   <span class="token keyword">BULK</span> COLLECT <span class="token keyword">INTO</span> <span class="token keyword">TEMP</span> <span class="token keyword">FROM</span> DUAL <span class="token keyword">CONNECT</span> <span class="token keyword">BY</span> <span class="token keyword">LEVEL</span> <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">/**</pre></td></tr><tr><td data-num="12"></td><td><pre>    删除 TEMP 集合 1、4、7 行的数据</pre></td></tr><tr><td data-num="13"></td><td><pre>    此时就不能用 for, 因为 TEMP (1) 这样取会显示下标 [1] 中的元素不存在，错误代码：ORA-22160</pre></td></tr><tr><td data-num="14"></td><td><pre>    那么就需要使用 INDICES OF</pre></td></tr><tr><td data-num="15"></td><td><pre>  */</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">TEMP</span><span class="token punctuation">.</span><span class="token keyword">DELETE</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token keyword">TEMP</span><span class="token punctuation">.</span><span class="token keyword">DELETE</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token keyword">TEMP</span><span class="token punctuation">.</span><span class="token keyword">DELETE</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token comment">-- INSERT</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  FORALL I <span class="token operator">IN</span> INDICES <span class="token keyword">OF</span> <span class="token keyword">TEMP</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> DATE_TEMP <span class="token keyword">VALUES</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token comment">-- UPDATR</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token keyword">TEMP</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span> :<span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  FORALL I <span class="token operator">IN</span> INDICES <span class="token keyword">OF</span> <span class="token keyword">TEMP</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">UPDATE</span> DATE_TEMP DT <span class="token keyword">SET</span> DT<span class="token punctuation">.</span><span class="token keyword">DAY</span> <span class="token operator">=</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span> <span class="token keyword">WHERE</span> DT<span class="token punctuation">.</span>ID <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token comment">-- DELETE</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  V_ARRAY<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> :<span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  FORALL I <span class="token operator">IN</span> INDICES <span class="token keyword">OF</span> V_ARRAY</pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token keyword">DELETE</span> DATE_TEMP DT <span class="token keyword">WHERE</span> DT<span class="token punctuation">.</span>ID <span class="token operator">=</span> V_ARRAY<span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token keyword">END</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="values-of"><a class="anchor" href="#values-of">#</a> VALUES OF</h4>
+<ul>
+<li>FORALL 下标变量 IN VALUES OF 集合 (把该集合中的值当作下标，且该集合值的类型只能是 PLS_INTEGER BINARY_INTEGER)</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">DECLARE</span></pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token keyword">TYPE</span> DATE_TEMP_TYPE <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> DATE_TEMP<span class="token operator">%</span>ROWTYPE <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">TEMP</span> DATE_TEMP_TYPE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre> <span class="token keyword">TYPE</span> TAB_TYPE <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> PLS_INTEGER <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre> V_TAB TAB_TYPE:<span class="token operator">=</span>TAB_TYPE<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">BEGIN</span></pre></td></tr><tr><td data-num="8"></td><td><pre> <span class="token keyword">SELECT</span> <span class="token keyword">LEVEL</span> ID<span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">YEAR</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token keyword">LEVEL</span> <span class="token keyword">YEAR</span><span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">MONTH</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token keyword">MONTH</span><span class="token punctuation">,</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">DAY</span> <span class="token keyword">FROM</span> SYSDATE<span class="token punctuation">)</span> <span class="token keyword">DAY</span></pre></td></tr><tr><td data-num="9"></td><td><pre>   <span class="token keyword">BULK</span> COLLECT <span class="token keyword">INTO</span> <span class="token keyword">TEMP</span> <span class="token keyword">FROM</span> DUAL <span class="token keyword">CONNECT</span> <span class="token keyword">BY</span> <span class="token keyword">LEVEL</span> <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token comment">/** INSERT</pre></td></tr><tr><td data-num="12"></td><td><pre>    因为使用的 VALUES OF，而上面也已经定好对应 1、2、3 下标的数据分别是 1、4、7</pre></td></tr><tr><td data-num="13"></td><td><pre>    所以此时使用 FORALL 会将 TEMP 集合 ID 为 1、4、7 的数据插入到 DATE_TEMP 表中，也就是说会插入 3 条数据</pre></td></tr><tr><td data-num="14"></td><td><pre>  */</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  FORALL I <span class="token operator">IN</span> <span class="token keyword">VALUES</span> <span class="token keyword">OF</span> V_TAB</pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> DATE_TEMP <span class="token keyword">VALUES</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token comment">/** DELETE</pre></td></tr><tr><td data-num="20"></td><td><pre>    DATE_TEMP 表 ID 为 7 的这行数据 字段 DAY 的值将被修改为 30</pre></td></tr><tr><td data-num="21"></td><td><pre>  */</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token keyword">TEMP</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span> :<span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  FORALL I <span class="token operator">IN</span> <span class="token keyword">VALUES</span> <span class="token keyword">OF</span> V_TAB</pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">UPDATE</span> DATE_TEMP DT <span class="token keyword">SET</span> DT<span class="token punctuation">.</span><span class="token keyword">DAY</span> <span class="token operator">=</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span> <span class="token keyword">WHERE</span> DT<span class="token punctuation">.</span>ID <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token comment">/** DELETE</pre></td></tr><tr><td data-num="28"></td><td><pre>    这里删除了 V_TAB () 下标为 2、3 的元素，也就是对应的值 4、7</pre></td></tr><tr><td data-num="29"></td><td><pre>    那么此时这里只剩下下标为 1 的数据，对应的值恰好也是 1</pre></td></tr><tr><td data-num="30"></td><td><pre>    所以 DATE_TEMP 表 ID 为 1 的这行数据将会被删除</pre></td></tr><tr><td data-num="31"></td><td><pre>  */</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  V_TAB<span class="token punctuation">.</span><span class="token keyword">DELETE</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  V_TAB<span class="token punctuation">.</span><span class="token keyword">DELETE</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre></pre></td></tr><tr><td data-num="35"></td><td><pre>  FORALL I <span class="token operator">IN</span> <span class="token keyword">VALUES</span> <span class="token keyword">OF</span> V_TAB</pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token keyword">DELETE</span> DATE_TEMP DT <span class="token keyword">WHERE</span> DT<span class="token punctuation">.</span>ID <span class="token operator">=</span> V_TAB<span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token keyword">END</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="for-forall-efficiency-test"><a class="anchor" href="#for-forall-efficiency-test">#</a> FOR &amp; FORALL Efficiency Test</h4>
+<h5 id="insert"><a class="anchor" href="#insert">#</a> INSERT</h5>
+<ul>
+<li>这里进行 FOR 与 FORALL 效率的测试</li>
+<li>其中 FORALL 搭配集合插入时（BULK COLLECT INTO）执行效率会非常明显的高于 FOR。</li>
+<li>而更新与删除的效率与 FOR 几乎一致。</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">DECLARE</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">TYPE</span> TEMP_REC <span class="token operator">IS</span> RECORD<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  ID NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">YEAR</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">MONTH</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">DAY</span> NUMBER</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">TYPE</span> TEMP_TAB <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> TEMP_REC <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">TEMP</span> TEMP_TAB<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">BEGIN</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">SELECT</span> <span class="token keyword">LEVEL</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY'</span><span class="token punctuation">)</span> <span class="token keyword">YEAR</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'MM'</span><span class="token punctuation">)</span> <span class="token keyword">MONTH</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'DD'</span><span class="token punctuation">)</span> <span class="token keyword">DAY</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">BULK</span> COLLECT <span class="token keyword">INTO</span> <span class="token keyword">TEMP</span> <span class="token keyword">FROM</span> DUAL <span class="token keyword">CONNECT</span> <span class="token keyword">BY</span> <span class="token keyword">LEVEL</span> <span class="token operator">&lt;=</span> <span class="token number">1000000</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>  DBMS_OUTPUT<span class="token punctuation">.</span>PUT_LINE<span class="token punctuation">(</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">IF</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">THEN</span></pre></td></tr><tr><td data-num="18"></td><td><pre>     FORALL I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> DATE_TEMP <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">YEAR</span><span class="token punctuation">,</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">MONTH</span><span class="token punctuation">,</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token keyword">ELSE</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">FOR</span> I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT <span class="token keyword">LOOP</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> DATE_TEMP <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">YEAR</span><span class="token punctuation">,</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">MONTH</span><span class="token punctuation">,</span> <span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">DAY</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">END</span> <span class="token keyword">LOOP</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>   <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>   <span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">END</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="update"><a class="anchor" href="#update">#</a> UPDATE</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">DECLARE</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">TYPE</span> TEMP_REC <span class="token operator">IS</span> RECORD<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  ID NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">YEAR</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">MONTH</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">DAY</span> NUMBER</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">TYPE</span> TEMP_TAB <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> TEMP_REC <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">TEMP</span> TEMP_TAB<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">BEGIN</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">SELECT</span> <span class="token keyword">LEVEL</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY'</span><span class="token punctuation">)</span> <span class="token keyword">YEAR</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'MM'</span><span class="token punctuation">)</span> <span class="token keyword">MONTH</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'DD'</span><span class="token punctuation">)</span> <span class="token keyword">DAY</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">BULK</span> COLLECT <span class="token keyword">INTO</span> <span class="token keyword">TEMP</span> <span class="token keyword">FROM</span> DUAL <span class="token keyword">CONNECT</span> <span class="token keyword">BY</span> <span class="token keyword">LEVEL</span> <span class="token operator">&lt;=</span> <span class="token number">1000000</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>  DBMS_OUTPUT<span class="token punctuation">.</span>PUT_LINE<span class="token punctuation">(</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">IF</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">THEN</span></pre></td></tr><tr><td data-num="18"></td><td><pre>     FORALL I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT <span class="token keyword">UPDATE</span> DATE_TEMP <span class="token keyword">SET</span> <span class="token keyword">YEAR</span><span class="token operator">=</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">YEAR</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">WHERE</span> ID<span class="token operator">=</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span>ID<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token keyword">ELSE</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">FOR</span> I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT <span class="token keyword">LOOP</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token keyword">UPDATE</span> DATE_TEMP <span class="token keyword">SET</span> <span class="token keyword">YEAR</span><span class="token operator">=</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">YEAR</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">WHERE</span> ID<span class="token operator">=</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span>ID<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">END</span> <span class="token keyword">LOOP</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>   <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>   <span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">END</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="delete"><a class="anchor" href="#delete">#</a> DELETE</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">DECLARE</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">TYPE</span> TEMP_REC <span class="token operator">IS</span> RECORD<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  ID NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">YEAR</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">MONTH</span> NUMBER<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">DAY</span> NUMBER</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">TYPE</span> TEMP_TAB <span class="token operator">IS</span> <span class="token keyword">TABLE</span> <span class="token keyword">OF</span> TEMP_REC <span class="token keyword">INDEX</span> <span class="token keyword">BY</span> PLS_INTEGER<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">TEMP</span> TEMP_TAB<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">BEGIN</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">SELECT</span> <span class="token keyword">LEVEL</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY'</span><span class="token punctuation">)</span> <span class="token keyword">YEAR</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'MM'</span><span class="token punctuation">)</span> <span class="token keyword">MONTH</span><span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'DD'</span><span class="token punctuation">)</span> <span class="token keyword">DAY</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">BULK</span> COLLECT <span class="token keyword">INTO</span> <span class="token keyword">TEMP</span> <span class="token keyword">FROM</span> DUAL <span class="token keyword">CONNECT</span> <span class="token keyword">BY</span> <span class="token keyword">LEVEL</span> <span class="token operator">&lt;=</span> <span class="token number">1000000</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>  DBMS_OUTPUT<span class="token punctuation">.</span>PUT_LINE<span class="token punctuation">(</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">IF</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">THEN</span></pre></td></tr><tr><td data-num="18"></td><td><pre>     FORALL I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT <span class="token keyword">DELETE</span> DATE_TEMP <span class="token keyword">WHERE</span> ID<span class="token operator">=</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span>ID<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token keyword">ELSE</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">FOR</span> I <span class="token operator">IN</span> <span class="token number">1.</span><span class="token punctuation">.</span><span class="token keyword">TEMP</span><span class="token punctuation">.</span>COUNT <span class="token keyword">LOOP</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token keyword">DELETE</span>  DATE_TEMP <span class="token keyword">WHERE</span> ID<span class="token operator">=</span><span class="token keyword">TEMP</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">.</span>ID<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">END</span> <span class="token keyword">LOOP</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>   <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token keyword">END</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/SQL/" rel="tag"><i class="ic i-tag"></i> SQL</a>
+          <a href="/tags/Oracle/" rel="tag"><i class="ic i-tag"></i> Oracle</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2023-05-08 01:08:10" itemprop="dateModified" datetime="2023-05-08T01:08:10+08:00">2023-05-08</time>
+  </span>
+  <span id="2023/05/03/Oracle/forall/" class="item leancloud_visitors" data-flag-title="Oarcle Create Type" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>Nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.com/2023/05/03/Oracle/forall/" title="Oarcle Create Type">https://nekoaimer.com/2023/05/03/Oracle/forall/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/11/17/Oracle/Query/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesx5fdwj20zk0m81kx.jpg" title="Oarcle Query Basic">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Oracle</span>
+  <h3>Oarcle Query Basic</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/05/03/Oracle/Type/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexj2jgzj20zk0m8b09.jpg" title="Oarcle Create Type">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Oracle</span>
+  <h3>Oarcle Create Type</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#prerequisites"><span class="toc-number">1.</span> <span class="toc-text"> Prerequisites</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#forall"><span class="toc-number">2.</span> <span class="toc-text"> FORALL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lower_boundupper_bound"><span class="toc-number">3.</span> <span class="toc-text"> lower_bound..upper_bound</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#indices-of"><span class="toc-number">4.</span> <span class="toc-text"> INDICES OF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#values-of"><span class="toc-number">5.</span> <span class="toc-text"> VALUES OF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-forall-efficiency-test"><span class="toc-number">6.</span> <span class="toc-text"> FOR &amp; FORALL Efficiency Test</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#insert"><span class="toc-number">6.1.</span> <span class="toc-text"> INSERT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#update"><span class="toc-number">6.2.</span> <span class="toc-text"> UPDATE</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#delete"><span class="toc-number">6.3.</span> <span class="toc-text"> DELETE</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2022/11/17/Oracle/Query/" rel="bookmark" title="Oarcle Query Basic">Oarcle Query Basic</a></li><li><a href="/2022/11/17/Oracle/array/" rel="bookmark" title="Oarcle Array">Oarcle Array</a></li><li><a href="/2023/05/03/Oracle/Type/" rel="bookmark" title="Oarcle Create Type">Oarcle Create Type</a></li><li class="active"><a href="/2023/05/03/Oracle/forall/" rel="bookmark" title="Oarcle Create Type">Oarcle Create Type</a></li><li><a href="/2023/05/04/Oracle/Ratio_to_report/" rel="bookmark" title="Oarcle Function Ratio_to_report">Oarcle Function Ratio_to_report</a></li><li><a href="/2023/05/04/Oracle/JavaSource/" rel="bookmark" title="Oarcle JavaSource">Oarcle JavaSource</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">126</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">14</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">27</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/11/17/Oracle/Query/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/05/03/Oracle/Type/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/06/26/Vue/Vue3/OptionsAPI/voa_transition_basic/" title="Vue3 transition 基本使用">Vue3 transition 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Ajax/" title="In Ajax">Ajax</a>
+</div>
+
+    <span><a href="/2021/01/05/Ajax/03-Ajax/" title="尚硅谷 3小时Ajax入门到精通 いち">尚硅谷 3小时Ajax入门到精通 いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/06/12/Vue/Vue3/OptionsAPI/vca_provide-inject/" title="Vue3 Provide和Inject 基本使用">Vue3 Provide和Inject 基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2022/01/27/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/instanceof-new-typeof/" title="instanceof &amp; new &amp; typeof 原理">instanceof & new & typeof 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/08/01/Vue/Vue3/CompositionAPI/vca_encapsulation/" title="Vue3 setup 案例封装">Vue3 setup 案例封装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/SQL/" title="In SQL">SQL</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/SQL/Oracle/" title="In Oracle">Oracle</a>
+</div>
+
+    <span><a href="/2022/11/17/Oracle/array/" title="Oarcle Array">Oarcle Array</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2022/01/31/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/lazyload/" title="JavaScript 实现图片懒加载">JavaScript 实现图片懒加载</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2022/01/25/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/fill-includes-join/" title="fill &amp; join &amp; includes 原理">fill & join & includes 原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/11/30/JavaScript/Advanced/publish-package/" title="JavaScript Npm 发布自己的包">JavaScript Npm 发布自己的包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/12/07/JavaScript/Advanced/IndexedDB/" title="浏览器存储方案 IndexedDB">浏览器存储方案 IndexedDB</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">648k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">9:49</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/05/03/Oracle/forall/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
