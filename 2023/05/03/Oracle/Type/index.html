@@ -117,12 +117,12 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
         </ul>
       </div>
     </header>
@@ -175,8 +175,8 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <li>使用 type 建表可以局限于只为这张表提供对应的属性或方法</li>
 </ul>
 <h4 id="create-type-basic"><a class="anchor" href="#create-type-basic">#</a> Create Type Basic</h4>
-<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- way 1</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> repalce <span class="token keyword">type</span> type_name <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  field_name <span class="token keyword">type</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  field_name <span class="token keyword">type</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">-- way 2</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">Create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> type_name <span class="token keyword">of</span> custom_type<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="as-object"><a class="anchor" href="#as-object">#</a> AS OBJECT</h4>
-<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t1 <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   userid varchar2<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   username varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> user1 <span class="token keyword">of</span> t1<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="of-custom_type"><a class="anchor" href="#of-custom_type">#</a> OF CUSTOM_TYPE</h4>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- way 1</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> repalce <span class="token keyword">type</span> type_name <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  field_name <span class="token keyword">type</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  field_name <span class="token keyword">type</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">-- way 2</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">Create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> type_name <span class="token keyword">of</span> custom_type<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="as-object"><a class="anchor" href="#as-object">#</a> AS OBJECT</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t1 <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   userid varchar2<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   username varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> user1 <span class="token keyword">of</span> t1<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="of-custom_type"><a class="anchor" href="#of-custom_type">#</a> OF CUSTOM_TYPE</h5>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre>example <span class="token number">1</span>:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t2 <span class="token keyword">as</span> <span class="token keyword">table</span> <span class="token keyword">of</span> varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>example <span class="token number">2</span>:</pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t3 <span class="token keyword">as</span> varray<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">of</span> varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>example <span class="token number">3</span>:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">declare</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    v_array t3:<span class="token operator">=</span> t3<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    v_array<span class="token punctuation">.</span>extend<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    v_array<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>:<span class="token operator">=</span> <span class="token string">'b'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    v_array<span class="token punctuation">.</span>extend<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">select</span> <span class="token string">'c'</span> <span class="token keyword">into</span> v_array<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">for</span> i <span class="token operator">in</span> <span class="token number">1.</span><span class="token punctuation">.</span>v_array<span class="token punctuation">.</span>count  <span class="token keyword">loop</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>v_array<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">-- a b c</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">end</span> <span class="token keyword">loop</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="type-function"><a class="anchor" href="#type-function">#</a> Type Function</h4>
 <h5 id="member-function"><a class="anchor" href="#member-function">#</a> Member Function</h5>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- Create Type Defined</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> userinfo_type <span class="token keyword">as</span> object<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  userid <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  username varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  gender number<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  age number<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  member <span class="token keyword">function</span> getGender<span class="token punctuation">(</span>gender <span class="token operator">in</span> number<span class="token punctuation">)</span> <span class="token keyword">return</span> varchar2<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  member <span class="token keyword">function</span> setGender<span class="token punctuation">(</span>gender <span class="token operator">in</span> varchar2<span class="token punctuation">)</span> <span class="token keyword">return</span> varchar2<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  member <span class="token keyword">function</span> getYear<span class="token punctuation">(</span>age <span class="token operator">in</span> number<span class="token punctuation">)</span> <span class="token keyword">return</span> number<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  pragma restrict_references<span class="token punctuation">(</span>getGender<span class="token punctuation">,</span>   rnps<span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  pragma restrict_references<span class="token punctuation">(</span>setGender<span class="token punctuation">,</span>   wnps<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="14"></td><td><pre>RNDS: (Read No Database State) 表示该 subprogram 不会查询 (query) 数据库中的表: ORA-00452</pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>WNDS: (Write No Database State) 表示该 subprogram 不会改变数据库中的表的数据</pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>RNPS: (Read No Package State) 不访问包中的变量</pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>WNPS:(Write No Package State) 不改变包中的变量值</pre></td></tr><tr><td data-num="21"></td><td><pre>*/</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment">-- Create Type Body</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> body userinfo_type <span class="token keyword">as</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  member <span class="token keyword">function</span> getGender<span class="token punctuation">(</span>gender <span class="token operator">in</span> number<span class="token punctuation">)</span> <span class="token keyword">return</span> varchar2</pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token operator">is</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">if</span> gender <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">then</span> <span class="token keyword">return</span> <span class="token string">'男'</span><span class="token punctuation">;</span> <span class="token keyword">end</span> <span class="token keyword">if</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">'女'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>  member <span class="token keyword">function</span> setGender<span class="token punctuation">(</span>gender <span class="token operator">in</span> varchar2<span class="token punctuation">)</span> <span class="token keyword">return</span> varchar2</pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token operator">is</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">if</span> gender <span class="token operator">=</span> <span class="token string">'男'</span> <span class="token keyword">then</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token keyword">end</span> <span class="token keyword">if</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre>  member <span class="token keyword">function</span> getYear<span class="token punctuation">(</span>age <span class="token operator">in</span> number<span class="token punctuation">)</span> <span class="token keyword">return</span> number</pre></td></tr><tr><td data-num="40"></td><td><pre>  <span class="token operator">is</span></pre></td></tr><tr><td data-num="41"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token keyword">return</span>  extract<span class="token punctuation">(</span><span class="token keyword">year</span> <span class="token keyword">from</span> sysdate<span class="token punctuation">)</span> <span class="token operator">-</span> age<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>  <span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
@@ -196,7 +196,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 调用</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">declare</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  u1 type_user<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  u2 type_user<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  u3 type_user :<span class="token operator">=</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">,</span> <span class="token number">040</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">begin</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">-- 我们可以调用默认 3 个参数的构造函数（因为定义了 3 个属性）</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  u1 :<span class="token operator">=</span> new type_user<span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token number">2001</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>u1<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">' Birthdate：'</span> <span class="token operator">||</span> u1<span class="token punctuation">.</span>Birthdate<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  u2 :<span class="token operator">=</span> new type_user<span class="token punctuation">(</span><span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token number">2002</span><span class="token punctuation">,</span> <span class="token number">02</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>u2<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">' Birthdate：'</span> <span class="token operator">||</span> u2<span class="token punctuation">.</span>Birthdate<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>  dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>u3<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">' Birthdate：'</span><span class="token operator">||</span> u3<span class="token punctuation">.</span>Birthdate<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token comment">/**</pre></td></tr><tr><td data-num="18"></td><td><pre>   Result</pre></td></tr><tr><td data-num="19"></td><td><pre>     A Birthdate：2001</pre></td></tr><tr><td data-num="20"></td><td><pre>     B Birthdate：2002-2</pre></td></tr><tr><td data-num="21"></td><td><pre>     C Birthdate：2003-3-40</pre></td></tr><tr><td data-num="22"></td><td><pre>  */</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
 <li>注意构造函数的存在对在使用 DMl 语句，没有进行类型转换时是不会产生影响的。</li>
 </ul>
-<figure class="highlight plsql"><figcaption data-lang="PL/SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> users <span class="token keyword">of</span> type_user<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token comment">-- 默认是不会参数影响的</span></pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">select</span> <span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">,</span> <span class="token number">04</span> <span class="token keyword">from</span> users<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre> <span class="token comment">-- 需要进行 type_user 转换</span></pre></td></tr><tr><td data-num="6"></td><td><pre> <span class="token keyword">select</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre> <span class="token keyword">select</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre> <span class="token keyword">select</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">,</span> <span class="token number">04</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="abstract-type"><a class="anchor" href="#abstract-type">#</a> Abstract Type</h4>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> users <span class="token keyword">of</span> type_user<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token comment">-- 默认是不会参数影响的</span></pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">select</span> <span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">,</span> <span class="token number">04</span> <span class="token keyword">from</span> users<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre> <span class="token comment">-- 需要进行 type_user 转换</span></pre></td></tr><tr><td data-num="6"></td><td><pre> <span class="token keyword">select</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre> <span class="token keyword">select</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre> <span class="token keyword">select</span> type_user<span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token number">2003</span><span class="token punctuation">,</span> <span class="token number">03</span><span class="token punctuation">,</span> <span class="token number">04</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="abstract-type"><a class="anchor" href="#abstract-type">#</a> Abstract Type</h4>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> other_type <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  sports varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  hobby varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> user_type <span class="token keyword">as</span> object<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  userid varchar2<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  username varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  other other_type</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="abstract-type-test"><a class="anchor" href="#abstract-type-test">#</a> Abstract Type Test</h5>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> userinfo2 <span class="token keyword">of</span> user_type<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">-- insert</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> userinfo2<span class="token punctuation">(</span>userid<span class="token punctuation">,</span> username<span class="token punctuation">,</span> other<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token string">'jack'</span><span class="token punctuation">,</span> other_type<span class="token punctuation">(</span><span class="token string">'ping pong'</span><span class="token punctuation">,</span> <span class="token string">'animation'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> userinfo2<span class="token punctuation">(</span>userid<span class="token punctuation">,</span> username<span class="token punctuation">,</span> other<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'002'</span><span class="token punctuation">,</span> <span class="token string">'lisa'</span><span class="token punctuation">,</span> other_type<span class="token punctuation">(</span><span class="token string">'badminton'</span><span class="token punctuation">,</span> <span class="token string">'animation'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">commit</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">select</span> t<span class="token punctuation">.</span>userid<span class="token punctuation">,</span> t<span class="token punctuation">.</span>username<span class="token punctuation">,</span> t<span class="token punctuation">.</span>other<span class="token punctuation">.</span>sports sports<span class="token punctuation">,</span> t<span class="token punctuation">.</span>other<span class="token punctuation">.</span>hobby hobby <span class="token keyword">from</span> userinfo2 t<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">-- update</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">update</span> userinfo2 t <span class="token keyword">set</span> t<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">'jerry'</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span>other<span class="token punctuation">.</span>sports <span class="token operator">=</span> <span class="token string">'football'</span> <span class="token keyword">where</span> userid <span class="token operator">=</span> <span class="token string">'001'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">commit</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">select</span> t<span class="token punctuation">.</span>userid<span class="token punctuation">,</span> t<span class="token punctuation">.</span>username<span class="token punctuation">,</span> t<span class="token punctuation">.</span>other<span class="token punctuation">.</span>sports sports<span class="token punctuation">,</span> t<span class="token punctuation">.</span>other<span class="token punctuation">.</span>hobby hobby <span class="token keyword">from</span> userinfo2 t<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="type-extends"><a class="anchor" href="#type-extends">#</a> Type Extends</h4>
 <ul>
@@ -233,7 +233,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2023-05-08 17:34:04" itemprop="dateModified" datetime="2023-05-08T17:34:04+08:00">2023-05-08</time>
+    <time title="Modified: 2023-05-08 18:55:18" itemprop="dateModified" datetime="2023-05-08T18:55:18+08:00">2023-05-08</time>
   </span>
   <span id="2023/05/03/Oracle/Type/" class="item leancloud_visitors" data-flag-title="Oarcle Create Type" title="Views">
       <span class="icon">
@@ -291,7 +291,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/2022/11/17/Oracle/Query/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwuom7cj20zk0m8dvn.jpg" title="Oarcle Query Basic">
+  <a href="/2022/11/17/Oracle/Query/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetfk5zwj20zk0m8e81.jpg" title="Oarcle Query Basic">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Oracle</span>
   <h3>Oarcle Query Basic</h3>
@@ -301,7 +301,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/2023/05/04/Oracle/Ratio_to_report/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitcxhpij20zk0m8hdt.jpg" title="Oarcle Function Ratio_to_report">
+  <a href="/2023/05/04/Oracle/Ratio_to_report/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0fdw5cj20zk0m8hdt.jpg" title="Oarcle Function Ratio_to_report">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Oracle</span>
   <h3>Oarcle Function Ratio_to_report</h3>
@@ -323,7 +323,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#create-type-basic"><span class="toc-number">1.</span> <span class="toc-text"> Create Type Basic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#as-object"><span class="toc-number">2.</span> <span class="toc-text"> AS OBJECT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#of-custom_type"><span class="toc-number">3.</span> <span class="toc-text"> OF CUSTOM_TYPE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type-function"><span class="toc-number">4.</span> <span class="toc-text"> Type Function</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#member-function"><span class="toc-number">4.1.</span> <span class="toc-text"> Member Function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#static-function"><span class="toc-number">4.2.</span> <span class="toc-text"> Static Function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#constructor-function"><span class="toc-number">4.3.</span> <span class="toc-text"> Constructor Function</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#abstract-type"><span class="toc-number">5.</span> <span class="toc-text"> Abstract Type</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#abstract-type-test"><span class="toc-number">5.1.</span> <span class="toc-text"> Abstract Type Test</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type-extends"><span class="toc-number">6.</span> <span class="toc-text"> Type Extends</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#not-final-final"><span class="toc-number">6.1.</span> <span class="toc-text"> Not Final &amp; Final</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#type-derive"><span class="toc-number">6.2.</span> <span class="toc-text"> Type Derive</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#final-function"><span class="toc-number">6.3.</span> <span class="toc-text"> Final Function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#overriding-function"><span class="toc-number">6.4.</span> <span class="toc-text"> Overriding Function</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#create-type-basic"><span class="toc-number">1.</span> <span class="toc-text"> Create Type Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#as-object"><span class="toc-number">1.1.</span> <span class="toc-text"> AS OBJECT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#of-custom_type"><span class="toc-number">1.2.</span> <span class="toc-text"> OF CUSTOM_TYPE</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type-function"><span class="toc-number">2.</span> <span class="toc-text"> Type Function</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#member-function"><span class="toc-number">2.1.</span> <span class="toc-text"> Member Function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#static-function"><span class="toc-number">2.2.</span> <span class="toc-text"> Static Function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#constructor-function"><span class="toc-number">2.3.</span> <span class="toc-text"> Constructor Function</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#abstract-type"><span class="toc-number">3.</span> <span class="toc-text"> Abstract Type</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#abstract-type-test"><span class="toc-number">3.1.</span> <span class="toc-text"> Abstract Type Test</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type-extends"><span class="toc-number">4.</span> <span class="toc-text"> Type Extends</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#not-final-final"><span class="toc-number">4.1.</span> <span class="toc-text"> Not Final &amp; Final</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#type-derive"><span class="toc-number">4.2.</span> <span class="toc-text"> Type Derive</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#final-function"><span class="toc-number">4.3.</span> <span class="toc-text"> Final Function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#overriding-function"><span class="toc-number">4.4.</span> <span class="toc-text"> Overriding Function</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -463,80 +463,10 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/categories/Node/" title="In Node">Node</a>
 </div>
 
-    <span><a href="/2021/11/23/JavaScript/Advanced/modularization%E3%81%84%E3%81%A1/" title="JavaScript 模块化">JavaScript 模块化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" title="Javascript Promise に">Javascript Promise に</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/2021/03/07/Vue/Vue%20note/02-atguigu/" title="Vue TodoList 案例">Vue TodoList 案例</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/16/JavaScript/Advanced/object_oriented_%E3%81%84%E3%81%A1/" title="JavaScript 对象原型与方法">JavaScript 对象原型与方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Ajax/" title="In Ajax">Ajax</a>
-</div>
-
-    <span><a href="/2021/01/07/Ajax/04-Ajax/" title="尚硅谷 3小时Ajax入门到精通 に">尚硅谷 3小时Ajax入门到精通 に</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/12/28/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/vue-source-code-analysis/use-Mustache/" title="JavaScript Mustache 模板引擎用法">JavaScript Mustache 模板引擎用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Ajax/" title="In Ajax">Ajax</a>
-</div>
-
-    <span><a href="/2021/01/05/Ajax/03-Ajax/" title="尚硅谷 3小时Ajax入门到精通 いち">尚硅谷 3小时Ajax入门到精通 いち</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/2021/06/16/Vue/Vue3/OptionsAPI/voa_slot_basic/" title="Vue3 slot 基本使用">Vue3 slot 基本使用</a></span>
+    <span><a href="/2022/05/05/Node/node-express-middleware/" title="Node Middleware">Node Middleware</a></span>
   </li>
 
       
@@ -548,7 +478,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
+    <span><a href="/2021/07/15/Vue/Vue3/CompositionAPI/vca_customRef/" title="Vue3 customRef 自定义 debounce">Vue3 customRef 自定义 debounce</a></span>
   </li>
 
       
@@ -560,7 +490,85 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" title="Vue3 teleport &amp; plugins">Vue3 teleport & plugins</a></span>
+    <span><a href="/2021/07/07/Vue/Vue3/CompositionAPI/vca_readonly/" title="Vue3 readonly 的基本用法">Vue3 readonly 的基本用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/03/03/Vue/Vue2/style/" title="Vue2 绑定样式">Vue2 绑定样式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/06/28/Vue/Vue3/OptionsAPI/voa_animate&gsap&lodash/" title="animate &amp; gsap &amp; lodash 使用">animate & gsap & lodash 使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
+</div>
+
+    <span><a href="/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/calculate-money-in-leetcode-bank/" title="计算力扣银行的钱">计算力扣银行的钱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" title="JavaScript 实现数组扁平化">JavaScript 实现数组扁平化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/10/08/JavaScript/Advanced/this/" title="JavaScript name &amp; this">JavaScript name & this</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
   </li>
 
   </ul>
