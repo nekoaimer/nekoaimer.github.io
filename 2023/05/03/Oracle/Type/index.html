@@ -76,7 +76,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>6.4k</span>
+    <span>9.4k</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -84,7 +84,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">Reading time</span>
-    <span>6 mins.</span>
+    <span>9 mins.</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -171,10 +171,10 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <ul>
+    <h4 id="create-type-basic"><a class="anchor" href="#create-type-basic">#</a> Create Type Basic</h4>
+<ul>
 <li>使用 type 建表可以局限于只为这张表提供对应的属性或方法</li>
 </ul>
-<h4 id="create-type-basic"><a class="anchor" href="#create-type-basic">#</a> Create Type Basic</h4>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- way 1</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> repalce <span class="token keyword">type</span> type_name <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  field_name <span class="token keyword">type</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  field_name <span class="token keyword">type</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">-- way 2</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">Create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> type_name <span class="token keyword">of</span> custom_type<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="as-object"><a class="anchor" href="#as-object">#</a> AS OBJECT</h5>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t1 <span class="token keyword">as</span> object <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   userid varchar2<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>   username varchar2<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> user1 <span class="token keyword">of</span> t1<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="of-custom_type"><a class="anchor" href="#of-custom_type">#</a> OF CUSTOM_TYPE</h5>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre>example <span class="token number">1</span>:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t2 <span class="token keyword">as</span> <span class="token keyword">table</span> <span class="token keyword">of</span> varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>example <span class="token number">2</span>:</pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> t3 <span class="token keyword">as</span> varray<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">of</span> varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>example <span class="token number">3</span>:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">declare</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    v_array t3:<span class="token operator">=</span> t3<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    v_array<span class="token punctuation">.</span>extend<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    v_array<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>:<span class="token operator">=</span> <span class="token string">'b'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    v_array<span class="token punctuation">.</span>extend<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">select</span> <span class="token string">'c'</span> <span class="token keyword">into</span> v_array<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">for</span> i <span class="token operator">in</span> <span class="token number">1.</span><span class="token punctuation">.</span>v_array<span class="token punctuation">.</span>count  <span class="token keyword">loop</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>v_array<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">-- a b c</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">end</span> <span class="token keyword">loop</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="type-function"><a class="anchor" href="#type-function">#</a> Type Function</h4>
@@ -183,9 +183,10 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <li>Member Function Test</li>
 </ul>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> userinfo <span class="token keyword">of</span> userinfo_type<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> userinfo <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span><span class="token string">'jack'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> userinfo <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'002'</span><span class="token punctuation">,</span> <span class="token string">'annie'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">commit</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">select</span> t<span class="token punctuation">.</span>userid<span class="token punctuation">,</span> t<span class="token punctuation">.</span>username<span class="token punctuation">,</span> t<span class="token punctuation">.</span>getGender<span class="token punctuation">(</span>gender<span class="token punctuation">)</span> getGender<span class="token punctuation">,</span> t<span class="token punctuation">.</span>setGender<span class="token punctuation">(</span><span class="token string">'男'</span><span class="token punctuation">)</span> setGender<span class="token punctuation">,</span> t<span class="token punctuation">.</span>getYear<span class="token punctuation">(</span>age<span class="token punctuation">)</span> getYear <span class="token keyword">from</span> userinfo t<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="static-function"><a class="anchor" href="#static-function">#</a> Static Function</h5>
-<pre><code class="language-sql">
-</code></pre>
-<h5 id="constructor-function"><a class="anchor" href="#constructor-function">#</a> Constructor Function</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- create type</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> typ_calendar <span class="token keyword">force</span> <span class="token keyword">as</span> object<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">year</span> varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">month</span> varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  Sunday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  Monday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  Tuesday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  Wednesday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  Thursday  varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  Friday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  Saturday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  curday varchar2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  member <span class="token keyword">function</span> <span class="token function">format</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    curday <span class="token keyword">date</span>        :<span class="token operator">=</span> sysdate<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    fmtlen pls_integer :<span class="token operator">=</span> <span class="token number">8</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">)</span> <span class="token keyword">return</span> typ_calendar<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  static <span class="token keyword">function</span> format_day<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">day</span> varchar2</pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token punctuation">)</span> <span class="token keyword">return</span> varchar2</pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token comment">-- create type body</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token keyword">create</span> <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">type</span> body typ_calendar <span class="token keyword">as</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  member <span class="token keyword">function</span> <span class="token function">format</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    curday <span class="token keyword">date</span>        :<span class="token operator">=</span> sysdate<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    fmtlen pls_integer :<span class="token operator">=</span> <span class="token number">8</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token punctuation">)</span> <span class="token keyword">return</span> typ_calendar <span class="token keyword">as</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      v_calendar   typ_calendar :<span class="token operator">=</span> typ_calendar<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>      v_dd       varchar2<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>  :<span class="token operator">=</span> to_char<span class="token punctuation">(</span>curday<span class="token punctuation">,</span> <span class="token string">'dd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token keyword">function</span> fmt<span class="token punctuation">(</span> fmtstr varchar2 <span class="token punctuation">)</span><span class="token keyword">return</span> varchar2 <span class="token keyword">as</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token keyword">return</span> lpad<span class="token punctuation">(</span>fmtstr<span class="token punctuation">,</span> fmtlen<span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">end</span> fmt<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    v_calendar<span class="token punctuation">.</span><span class="token keyword">year</span> :<span class="token operator">=</span> <span class="token keyword">year</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    v_calendar<span class="token punctuation">.</span><span class="token keyword">month</span> :<span class="token operator">=</span> <span class="token keyword">month</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Sunday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Sunday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Monday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Monday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Tuesday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Tuesday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Wednesday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Wednesday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Thursday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Thursday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Friday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Friday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Saturday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span>Saturday<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    v_calendar<span class="token punctuation">.</span>Curday :<span class="token operator">=</span> nvl<span class="token punctuation">(</span>self<span class="token punctuation">.</span>Curday<span class="token punctuation">,</span> fmt<span class="token punctuation">(</span>to_char<span class="token punctuation">(</span>curday<span class="token punctuation">,</span> <span class="token string">'dd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre></pre></td></tr><tr><td data-num="48"></td><td><pre>    dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>self<span class="token punctuation">.</span>curday <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">YEAR</span> <span class="token operator">||</span> lpad<span class="token punctuation">(</span><span class="token keyword">MONTH</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span> <span class="token operator">=</span> to_char<span class="token punctuation">(</span>curday<span class="token punctuation">,</span> <span class="token string">'yyyymm'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">then</span></pre></td></tr><tr><td data-num="50"></td><td><pre>      <span class="token keyword">case</span> v_dd</pre></td></tr><tr><td data-num="51"></td><td><pre>      <span class="token keyword">when</span> Sunday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="52"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Sunday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Sunday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>      <span class="token keyword">when</span> Monday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="54"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Monday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Monday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>      <span class="token keyword">when</span> Tuesday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="56"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Tuesday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Tuesday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>      <span class="token keyword">when</span> Wednesday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="58"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Wednesday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Wednesday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>      <span class="token keyword">when</span> Thursday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="60"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Thursday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Thursday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>      <span class="token keyword">when</span> Friday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="62"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Friday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Friday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>      <span class="token keyword">when</span> Saturday <span class="token keyword">then</span></pre></td></tr><tr><td data-num="64"></td><td><pre>        v_calendar<span class="token punctuation">.</span>Saturday :<span class="token operator">=</span> fmt<span class="token punctuation">(</span><span class="token string">'【'</span> <span class="token operator">||</span> Saturday <span class="token operator">||</span> <span class="token string">'】'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>      <span class="token keyword">else</span> <span class="token boolean">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>      <span class="token keyword">end</span> <span class="token keyword">case</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>    <span class="token keyword">end</span> <span class="token keyword">if</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token keyword">return</span> v_calendar<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>  <span class="token keyword">end</span> format<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="71"></td><td><pre></pre></td></tr><tr><td data-num="72"></td><td><pre>  static <span class="token keyword">function</span> format_day <span class="token punctuation">(</span><span class="token keyword">day</span> varchar2<span class="token punctuation">)</span> <span class="token keyword">return</span> varchar2 <span class="token keyword">as</span></pre></td></tr><tr><td data-num="73"></td><td><pre>  v_day number :<span class="token operator">=</span> to_number<span class="token punctuation">(</span><span class="token keyword">day</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>  v_value varchar2<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>  <span class="token keyword">begin</span></pre></td></tr><tr><td data-num="76"></td><td><pre>    <span class="token keyword">case</span></pre></td></tr><tr><td data-num="77"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期一'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="78"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">2</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期二'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">3</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期三'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">4</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期四'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">5</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期五'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">6</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期六'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>      <span class="token keyword">when</span> v_day <span class="token operator">=</span> <span class="token number">7</span> <span class="token keyword">then</span> v_value:<span class="token operator">=</span> <span class="token string">'星期日'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>      <span class="token keyword">else</span> v_value:<span class="token operator">=</span> <span class="token string">'日期天数不合法，'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>    <span class="token keyword">end</span> <span class="token keyword">case</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="86"></td><td><pre></pre></td></tr><tr><td data-num="87"></td><td><pre>   <span class="token keyword">return</span> v_value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>  <span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="89"></td><td><pre><span class="token keyword">end</span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
+<li>Static Function Test</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> calendar <span class="token keyword">of</span> typ_calendar<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">-- 插入数据使用 calendar.format 进行类型转换格式化</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> calendar</pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">select</span> typ_calendar<span class="token punctuation">(</span><span class="token string">'2021'</span><span class="token punctuation">,</span> <span class="token string">'06'</span><span class="token punctuation">,</span> <span class="token string">'01'</span><span class="token punctuation">,</span> <span class="token string">'02'</span><span class="token punctuation">,</span> <span class="token string">'03'</span><span class="token punctuation">,</span> <span class="token string">'04'</span><span class="token punctuation">,</span> <span class="token string">'05'</span><span class="token punctuation">,</span> <span class="token string">'06'</span><span class="token punctuation">,</span> <span class="token string">'07'</span><span class="token punctuation">,</span><span class="token string">'01'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token punctuation">)</span> typ_calendar <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> calendar</pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">select</span> typ_calendar<span class="token punctuation">(</span><span class="token string">'2022'</span><span class="token punctuation">,</span> <span class="token string">'08'</span><span class="token punctuation">,</span> <span class="token string">'01'</span><span class="token punctuation">,</span> <span class="token string">'02'</span><span class="token punctuation">,</span> <span class="token string">'03'</span><span class="token punctuation">,</span> <span class="token string">'04'</span><span class="token punctuation">,</span> <span class="token string">'05'</span><span class="token punctuation">,</span> <span class="token string">'06'</span><span class="token punctuation">,</span> <span class="token string">'07'</span><span class="token punctuation">,</span><span class="token string">'02'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token punctuation">)</span> typ_calendar <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">insert</span> <span class="token keyword">into</span> calendar</pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">select</span> typ_calendar<span class="token punctuation">(</span><span class="token string">'2023'</span><span class="token punctuation">,</span> <span class="token string">'05'</span><span class="token punctuation">,</span> <span class="token string">'01'</span><span class="token punctuation">,</span> <span class="token string">'02'</span><span class="token punctuation">,</span> <span class="token string">'03'</span><span class="token punctuation">,</span> <span class="token string">'04'</span><span class="token punctuation">,</span> <span class="token string">'05'</span><span class="token punctuation">,</span> <span class="token string">'06'</span><span class="token punctuation">,</span> <span class="token string">'07'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token punctuation">)</span> typ_calendar <span class="token keyword">from</span> dual<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">commit</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">-- Member Function Test</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">-- 1.format 是 member（成员函数），可以直接 (表别名.function) 调用 member function 修饰的方法</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">select</span> t<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>sysdate<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">from</span> calendar t<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">-- 2. 直接通过 （type.function） 调用  member function 修饰的方法，会报错：ORA-06553: PLS-306</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">-- select typ_calendar.format(sysdate, 8) from calendar;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment">-- 3. 调用静态方法时不能使用实例值: ORA-06553: PLS-587</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">-- select typ_calendar('2022', '08', '01', '02', '03', '04', '05', '06', '07','02').format().format_day('01') typ_calendar from dual;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment">-- Static Function Test</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment">-- 1. 将数字转星期，通过 type 直接调用 (static function) 修饰的静态方法是没有问题的</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token keyword">select</span> typ_calendar<span class="token punctuation">.</span>format_day<span class="token punctuation">(</span>curday<span class="token punctuation">)</span> <span class="token keyword">from</span> calendar<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">-- 2. 调用静态方法时不能使用实例值: ORA-06553: PLS-587</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token comment">-- select t.format_day('01') from calendar t;</span></pre></td></tr></table></figure><h5 id="constructor-function"><a class="anchor" href="#constructor-function">#</a> Constructor Function</h5>
 <ul>
 <li>定义构造方法必须使用关键字 constructor，构造方法名称必须要与对象类型名称一致。</li>
 <li>下方定义了三个构造函数，相同构造名称，含有不同个数参数（你可以理解为 java 里面的重载）</li>
@@ -233,7 +234,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2023-05-08 18:55:18" itemprop="dateModified" datetime="2023-05-08T18:55:18+08:00">2023-05-08</time>
+    <time title="Modified: 2023-05-09 15:21:30" itemprop="dateModified" datetime="2023-05-09T15:21:30+08:00">2023-05-09</time>
   </span>
   <span id="2023/05/03/Oracle/Type/" class="item leancloud_visitors" data-flag-title="Oarcle Create Type" title="Views">
       <span class="icon">
@@ -291,7 +292,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/2022/11/17/Oracle/Query/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetfk5zwj20zk0m8e81.jpg" title="Oarcle Query Basic">
+  <a href="/2022/11/17/Oracle/Query/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljgocqbj20zk0m8e81.jpg" title="Oarcle Query Basic">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Oracle</span>
   <h3>Oarcle Query Basic</h3>
@@ -301,7 +302,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/2023/05/04/Oracle/Ratio_to_report/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0fdw5cj20zk0m8hdt.jpg" title="Oarcle Function Ratio_to_report">
+  <a href="/2023/05/04/Oracle/Ratio_to_report/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeudstjqj20zk0m8k3r.jpg" title="Oarcle Function Ratio_to_report">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Oracle</span>
   <h3>Oarcle Function Ratio_to_report</h3>
@@ -463,6 +464,84 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/11/05/JavaScript/Advanced/Promise%E3%81%AB/" title="Javascript Promise に">Javascript Promise に</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/SQL/" title="In SQL">SQL</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/SQL/Oracle/" title="In Oracle">Oracle</a>
+</div>
+
+    <span><a href="/2023/05/08/Oracle/forall/" title="Oarcle FORALL">Oarcle FORALL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/11/17/JavaScript/Advanced/event-loop-interview-question/" title="事件循环面试题">事件循环面试题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/08/03/Vue/Vue3/CompositionAPI/vca_script_setup/" title="Vue3 setup 顶层编写 defineProps&amp;defineEmits">Vue3 setup 顶层编写 defineProps&defineEmits</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/06/24/Vue/Vue3/OptionsAPI/voa_component_v-model/" title="Vue3 组件 v-model 高级用法">Vue3 组件 v-model 高级用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/07/09/Vue/Vue3/CompositionAPI/vca_toRef&toRefs/" title="Vue3 toRef和toRefs 的用法">Vue3 toRef和toRefs 的用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" title="Vue3 teleport &amp; plugins">Vue3 teleport & plugins</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Node/" title="In Node">Node</a>
 </div>
 
@@ -474,101 +553,18 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     
 <div class="breadcrumb">
 <a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/07/15/Vue/Vue3/CompositionAPI/vca_customRef/" title="Vue3 customRef 自定义 debounce">Vue3 customRef 自定义 debounce</a></span>
+    <span><a href="/2021/03/13/Vue/Vue%20note/05-atguigu/" title="Vue2 Vuex">Vue2 Vuex</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/07/07/Vue/Vue3/CompositionAPI/vca_readonly/" title="Vue3 readonly 的基本用法">Vue3 readonly 的基本用法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/2021/03/03/Vue/Vue2/style/" title="Vue2 绑定样式">Vue2 绑定样式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/2021/06/28/Vue/Vue3/OptionsAPI/voa_animate&gsap&lodash/" title="animate &amp; gsap &amp; lodash 使用">animate & gsap & lodash 使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/data-structures-and-algorithms/" title="In 数据结构与算法">数据结构与算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/data-structures-and-algorithms/Easy/" title="In Easy">Easy</a>
-</div>
-
-    <span><a href="/2022/01/15/data-structures-and-algorithms/algorithm/problems/easy/calculate-money-in-leetcode-bank/" title="计算力扣银行的钱">计算力扣银行的钱</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/2021/07/01/Vue/Vue3/CompositionAPI/vca_setup/" title="Vue3 setup 的两个参数">Vue3 setup 的两个参数</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
-</div>
-
-    <span><a href="/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" title="JavaScript 实现数组扁平化">JavaScript 实现数组扁平化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/08/JavaScript/Advanced/this/" title="JavaScript name &amp; this">JavaScript name & this</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="In Vue">Vue</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
-</div>
-
-    <span><a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
+    <span><a href="/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" title="技术胖">技术胖</a></span>
   </li>
 
   </ul>
@@ -593,13 +589,13 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">650k words</span>
+    <span title="Symbols count total">653k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">9:51</span>
+    <span title="Reading time total">9:54</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">

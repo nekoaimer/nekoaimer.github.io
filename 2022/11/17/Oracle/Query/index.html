@@ -76,7 +76,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">Symbols count in article</span>
-    <span>672</span>
+    <span>836</span>
     <span class="text">words</span>
   </span>
   <span class="item" title="Reading time">
@@ -117,12 +117,12 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -180,7 +180,10 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 查询当前用户所处表空间</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">select</span> default_tablespace <span class="token keyword">from</span> dba_users <span class="token keyword">where</span> username<span class="token operator">=</span><span class="token string">'Loguser'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">-- 查看所有的表空间</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">-- 方式 1：dba_tablespaces --</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_tablespaces<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">-- 方式 2：v$tablespace</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> v$<span class="token keyword">tablespace</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="查看用户下面的所有的表"><a class="anchor" href="#查看用户下面的所有的表">#</a> 查看用户下面的所有的表</h6>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 方式 1：user_tables --</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> user_tables<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">-- 方式 2: dba_tables --</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_tables <span class="token keyword">where</span> owner<span class="token operator">=</span><span class="token string">'TMS21'</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="查看表空间下有多少用户"><a class="anchor" href="#查看表空间下有多少用户">#</a> 查看表空间下有多少用户</h6>
 <figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- 注意表空间的名字是大写</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">select</span> <span class="token keyword">distinct</span> s<span class="token punctuation">.</span>owner <span class="token keyword">from</span> dba_segments s</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">where</span> s<span class="token punctuation">.</span>tablespace_name <span class="token operator">=</span> upper<span class="token punctuation">(</span><span class="token string">'tablespace_name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="查看表空间位置"><a class="anchor" href="#查看表空间位置">#</a> 查看表空间位置</h6>
-<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_data_files <span class="token keyword">order</span> <span class="token keyword">by</span> file_id<span class="token punctuation">;</span></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_data_files <span class="token keyword">order</span> <span class="token keyword">by</span> file_id<span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="查询函数状态"><a class="anchor" href="#查询函数状态">#</a> 查询函数状态</h6>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> OBJECT_NAME <span class="token keyword">FROM</span> USER_OBJECTS <span class="token keyword">WHERE</span> <span class="token keyword">STATUS</span><span class="token operator">=</span><span class="token string">'INVALID'</span> <span class="token operator">AND</span> OBJECT_TYPE<span class="token operator">=</span><span class="token string">'FUNCTION'</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="查看函数代码"><a class="anchor" href="#查看函数代码">#</a> 查看函数代码</h6>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> <span class="token keyword">TEXT</span> <span class="token keyword">FROM</span> USER_SOURCE <span class="token keyword">WHERE</span> NAME<span class="token operator">=</span><span class="token string">'函数名'</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="编译函数"><a class="anchor" href="#编译函数">#</a> 编译函数</h6>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">ALTER</span> <span class="token keyword">FUNCTION</span> 函数名 COMPILE<span class="token punctuation">;</span></pre></td></tr></table></figure>
       <div class="tags">
           <a href="/tags/SQL/" rel="tag"><i class="ic i-tag"></i> SQL</a>
           <a href="/tags/Oracle/" rel="tag"><i class="ic i-tag"></i> Oracle</a>
@@ -195,7 +198,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Update on</span>
-    <time title="Modified: 2023-05-04 21:43:48" itemprop="dateModified" datetime="2023-05-04T21:43:48+08:00">2023-05-04</time>
+    <time title="Modified: 2023-05-09 10:30:57" itemprop="dateModified" datetime="2023-05-09T10:30:57+08:00">2023-05-09</time>
   </span>
   <span id="2022/11/17/Oracle/Query/" class="item leancloud_visitors" data-flag-title="Oarcle Query Basic" title="Views">
       <span class="icon">
@@ -253,7 +256,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <div class="item left">
       
 
-  <a href="/2022/11/17/Oracle/array/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwuom7cj20zk0m8dvn.jpg" title="Oarcle Array">
+  <a href="/2022/11/17/Oracle/array/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuv80yoj20zk0m8kjl.jpg" title="Oarcle Array">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Oracle</span>
   <h3>Oarcle Array</h3>
@@ -263,7 +266,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <div class="item right">
       
 
-  <a href="/2023/05/03/Oracle/Type/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="Oarcle Create Type">
+  <a href="/2023/05/03/Oracle/Type/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciryrr3rj20zk0m8nhk.jpg" title="Oarcle Create Type">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Oracle</span>
   <h3>Oarcle Create Type</h3>
@@ -285,7 +288,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#_oracle_script"><span class="toc-number">1.</span> <span class="toc-text"> _ORACLE_SCRIPT</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text"> 查询表空间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E4%B8%8B%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E7%9A%84%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text"> 查看用户下面的所有的表</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%B8%8B%E6%9C%89%E5%A4%9A%E5%B0%91%E7%94%A8%E6%88%B7"><span class="toc-number">4.</span> <span class="toc-text"> 查看表空间下有多少用户</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%BD%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text"> 查看表空间位置</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#_oracle_script"><span class="toc-number">1.</span> <span class="toc-text"> _ORACLE_SCRIPT</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text"> 查询表空间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E4%B8%8B%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E7%9A%84%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text"> 查看用户下面的所有的表</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%B8%8B%E6%9C%89%E5%A4%9A%E5%B0%91%E7%94%A8%E6%88%B7"><span class="toc-number">4.</span> <span class="toc-text"> 查看表空间下有多少用户</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%BD%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text"> 查看表空间位置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E7%8A%B6%E6%80%81"><span class="toc-number">6.</span> <span class="toc-text"> 查询函数状态</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text"> 查看函数代码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%87%BD%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text"> 编译函数</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -428,27 +431,19 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <a href="/categories/CSS3/" title="In CSS">CSS</a>
 </div>
 
-    <span><a href="/2020/12/27/CSS3/CSS%20Hmilyl/01-Hmilyl/" title="CSS Hmilyl いち">CSS Hmilyl いち</a></span>
+    <span><a href="/2020/12/23/CSS3/CSS%20Layout/flex/" title="flex 布局">flex 布局</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<a href="/categories/SQL/" title="In SQL">SQL</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/SQL/Oracle/" title="In Oracle">Oracle</a>
 </div>
 
-    <span><a href="/2021/12/15/JavaScript/Advanced/DOM/" title="文档对象模型(DocumentObjectModel)">文档对象模型(DocumentObjectModel)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+    <span><a href="/2023/05/08/Oracle/forall/" title="Oarcle FORALL">Oarcle FORALL</a></span>
   </li>
 
       
@@ -460,7 +455,17 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
+    <span><a href="/2021/07/28/Vue/Vue3/CompositionAPI/vca_life-cycle/" title="Vue3 life-cycle">Vue3 life-cycle</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/06/20/Vue/Vue3/OptionsAPI/voa_references_elements/" title="Vue3 ref 引用元素">Vue3 ref 引用元素</a></span>
   </li>
 
       
@@ -472,46 +477,7 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
 </div>
 
-    <span><a href="/2021/12/24/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/EventBus/" title="JavaScript 事件总线 (EventBus)">JavaScript 事件总线 (EventBus)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/10/31/%E6%8A%80%E6%9C%AF%E8%83%96/" title="技术胖">技术胖</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/CSS3/" title="In CSS">CSS</a>
-</div>
-
-    <span><a href="/2020/12/25/CSS3/CSS%20Layout/grid/" title="grid 布局">grid 布局</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/11/30/JavaScript/Advanced/publish-package/" title="JavaScript Npm 发布自己的包">JavaScript Npm 发布自己的包</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
-</div>
-
-    <span><a href="/2021/10/18/JavaScript/Advanced/object_oriented_%E3%81%AB/" title="JavaScript 原型链和继承">JavaScript 原型链和继承</a></span>
+    <span><a href="/2022/01/23/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/every-some-find-findIndex/" title="every &amp; some &amp; find &amp; findIndex 原理">every & some & find & findIndex 原理</a></span>
   </li>
 
       
@@ -523,7 +489,51 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
 <a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
 </div>
 
-    <span><a href="/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+    <span><a href="/2021/08/09/Vue/Vue3/CompositionAPI/vca_teleport&plugins/" title="Vue3 teleport &amp; plugins">Vue3 teleport & plugins</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/11/13/JavaScript/Advanced/Generator/" title="JavaScript Generator">JavaScript Generator</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2021/12/18/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/debounce/" title="JavaScript 手写防抖函数(debounce)">JavaScript 手写防抖函数(debounce)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2020/12/17/JavaScript/interesting_question/Strange_01/" title="关于奇怪的 typeof 选择题 いち">关于奇怪的 typeof 选择题 いち</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/08/05/Vue/Vue3/CompositionAPI/vca_render&jsx/" title="Vue3 render &amp; jsx">Vue3 render & jsx</a></span>
   </li>
 
   </ul>
@@ -548,13 +558,13 @@ Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="Symbols count total">650k words</span>
+    <span title="Symbols count total">653k words</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">9:51</span>
+    <span title="Reading time total">9:54</span>
   </div>
   <!-- 灯笼 1 -->
   <div class="deng-box">
