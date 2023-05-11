@@ -1,0 +1,668 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Nekoaimer" href="https://nekoaimer.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Nekoaimer" href="https://nekoaimer.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Nekoaimer" href="https://nekoaimer.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="SQL,Oracle" />
+
+
+<link rel="canonical" href="https://nekoaimer.com/2023/05/11/Oracle/Recyclebin/">
+
+
+
+  <title>
+Oracle RECYCLEBIN & PURGE - Oracle - SQL |
+Nico Niconi = Nekoaimer = 清心如水，清水即心</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Oracle RECYCLEBIN & PURGE
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2023-05-11 14:32:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-11T14:32:00+08:00">2023-05-11</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>1.9k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>2 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Nico Niconi</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/SQL/" itemprop="item" rel="index" title="In SQL"><span itemprop="name">SQL</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/SQL/Oracle/" itemprop="item" rel="index" title="In Oracle"><span itemprop="name">Oracle</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://nekoaimer.com/2023/05/11/Oracle/Recyclebin/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Nico Niconi">
+    <meta itemprop="description" content="清心如水，清水即心, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Nekoaimer">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h4 id="what-is-recycle-bin-in-oracle"><a class="anchor" href="#what-is-recycle-bin-in-oracle">#</a> What is recycle bin in oracle</h4>
+<ul>
+<li>The Recycle Bin is a virtual container where all dropped objects reside.<br />
+（回收站是一个虚拟容器，所有删除的对象都存放在其中)</li>
+<li>The dropped objects occupy the same space as when they were created.<br />
+（被删除的对象占用的空间与创建时的空间相同。）</li>
+<li>Once the tables are dropped any associated objects such as indexes, constraints, nested tables, and other dependent objects are prefixed with BIN<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo separator="true">,</mo><mi>a</mi><mi>n</mi><mi>d</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>y</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>t</mi><mi>m</mi><mi>o</mi><mi>v</mi><mi>e</mi><mi>d</mi><mi mathvariant="normal">.</mi><mtext>（删除表后，任何关联的对象（如索引、约束、嵌套表和其他依赖对象）都以</mtext><mi>B</mi><mi>I</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">, and they are not moved.
+（删除表后，任何关联的对象（如索引、约束、嵌套表和其他依赖对象）都以 BIN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">t</span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord">.</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">删</span><span class="mord cjk_fallback">除</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">任</span><span class="mord cjk_fallback">何</span><span class="mord cjk_fallback">关</span><span class="mord cjk_fallback">联</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">象</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">索</span><span class="mord cjk_fallback">引</span><span class="mord cjk_fallback">、</span><span class="mord cjk_fallback">约</span><span class="mord cjk_fallback">束</span><span class="mord cjk_fallback">、</span><span class="mord cjk_fallback">嵌</span><span class="mord cjk_fallback">套</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">和</span><span class="mord cjk_fallback">其</span><span class="mord cjk_fallback">他</span><span class="mord cjk_fallback">依</span><span class="mord cjk_fallback">赖</span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">象</span><span class="mord cjk_fallback">）</span><span class="mord cjk_fallback">都</span><span class="mord cjk_fallback">以</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 为前缀，并且不会移动它们。）</li>
+<li>You can continue to access the data in a dropped table or even use Flashback Query against it. Each user has the same rights and privileges on Recycle Bin objects before they were dropped. You can view your dropped tables by querying the new RECYCLEBIN view.<br />
+（您可以继续访问已删除表中的数据，甚至可以对其使用闪回查询。每个用户在删除回收站对象之前对回收站对象具有相同的权限和特权。可以通过查询新的回收站视图来查看已删除的表。）</li>
+</ul>
+<h4 id="recyclebin"><a class="anchor" href="#recyclebin">#</a> RECYCLEBIN</h4>
+<h5 id="for-a-user"><a class="anchor" href="#for-a-user">#</a> For a user</h5>
+<ul>
+<li>都是可查看回收站中当前用户的对象</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> RECYCLEBIN<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">SELECT</span> Object_Name<span class="token punctuation">,</span> Original_Name<span class="token punctuation">,</span> <span class="token keyword">Type</span> <span class="token keyword">FROM</span> User_Recyclebin<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="for-system-wide"><a class="anchor" href="#for-system-wide">#</a> For system-wide</h5>
+<ul>
+<li>可查看所有回收站的对象，但是需要 DBA 角色或相应权限才能访问该视图。</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> Object_Name<span class="token punctuation">,</span> Original_Name<span class="token punctuation">,</span> <span class="token keyword">Type</span> <span class="token keyword">FROM</span> dba_Recyclebin<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="dba_synonyms"><a class="anchor" href="#dba_synonyms">#</a> DBA_SYNONYMS</h5>
+<ul>
+<li>RECYCLEBIN 与 User_Recyclebin 相同，他们都是同一个视图创建出来的，只不过同义词名称不同。</li>
+<li></li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dba_synonyms <span class="token keyword">where</span> table_name <span class="token operator">like</span> <span class="token string">'%'</span><span class="token operator">||</span>upper<span class="token punctuation">(</span><span class="token string">'recyclebin'</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token string">'%'</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><img data-src="dba_synonyms.png" alt="dba_synonyms" /></p>
+<h4 id="recycle-bin-status"><a class="anchor" href="#recycle-bin-status">#</a> Recycle Bin Status</h4>
+<ul>
+<li>通过初始化参数检查 oracle 中是否启用了回收站</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">show</span> parameter recycle_bin<span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
+<li>Open RecycleBin</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">alter</span> system <span class="token keyword">set</span> recyclebin<span class="token operator">=</span><span class="token keyword">on</span> deferred<span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
+<li>Close RecycleBin</li>
+</ul>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">alter</span> system <span class="token keyword">set</span> recyclebin<span class="token operator">=</span><span class="token keyword">off</span> deferred<span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
+<li class="yellow">注意如果不加 deferred 关键字，会发生错误： ORA-02096。同时该参数对当前会话是不会发生作用，需要开启新的会话。</li>
+</ul>
+<h4 id="clear-recycle-bin"><a class="anchor" href="#clear-recycle-bin">#</a> Clear Recycle Bin</h4>
+<ul>
+<li>对象被删除时，系统会对回收站对象命名，格式：BIN<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mi>n</mi><mi>i</mi><mi>q</mi><mi>u</mi><msub><mi>e</mi><mi>i</mi></msub><mi>d</mi></mrow><annotation encoding="application/x-tex">unique_id</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mord mathnormal">u</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span></span></span></span>version</li>
+</ul>
+<h5 id="purge-table"><a class="anchor" href="#purge-table">#</a> PURGE TABLE</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">PURGE</span> <span class="token keyword">TABLE</span> test<span class="token punctuation">.</span><span class="token keyword">temp</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="purge-recyclebin"><a class="anchor" href="#purge-recyclebin">#</a> PURGE RECYCLEBIN</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">PURGE</span> RECYCLEBIN<span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="purge-index"><a class="anchor" href="#purge-index">#</a> PURGE INDEX</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">PURGE</span> <span class="token keyword">INDEX</span> <span class="token operator">&lt;</span><span class="token keyword">INDEX</span> Name<span class="token operator">></span></pre></td></tr></table></figure><h5 id="purge-tablespace"><a class="anchor" href="#purge-tablespace">#</a> PURGE TABLESPACE</h5>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">PURGE</span> <span class="token keyword">TABLESPACE</span> <span class="token operator">&lt;</span><span class="token keyword">Tablespace</span> name<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">PURGE</span> <span class="token keyword">TABLESPACE</span> <span class="token operator">&lt;</span><span class="token keyword">Tablespace</span> name<span class="token operator">></span>  <span class="token operator">&lt;</span><span class="token keyword">User</span> name<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="flashback"><a class="anchor" href="#flashback">#</a> FLASHBACK</h4>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre>FLASHBACK <span class="token keyword">TABLE</span> <span class="token keyword">TEMP</span> <span class="token keyword">TO</span> BEFORE <span class="token keyword">DROP</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="recyclebin-object_name"><a class="anchor" href="#recyclebin-object_name">#</a> RECYCLEBIN OBJECT_NAME</h4>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token keyword">temp</span> <span class="token keyword">as</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token operator">&lt;</span>OBJECT_NAME<span class="token operator">></span></pre></td></tr></table></figure><ul>
+<li>参考文档：
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZWNoZ29lYXN5LmNvbS9yZWN5Y2xlLWJpbi1pbi1vcmFjbGU=">https://techgoeasy.com/recycle-bin-in-oracle</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NzQzNDgyL2FydGljbGUvZGV0YWlscy84Njc0MTM2NQ==">https://blog.csdn.net/qq_36743482/article/details/86741365</span></li>
+</ul>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/SQL/" rel="tag"><i class="ic i-tag"></i> SQL</a>
+          <a href="/tags/Oracle/" rel="tag"><i class="ic i-tag"></i> Oracle</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Update on</span>
+    <time title="Modified: 2023-05-11 17:16:18" itemprop="dateModified" datetime="2023-05-11T17:16:18+08:00">2023-05-11</time>
+  </span>
+  <span id="2023/05/11/Oracle/Recyclebin/" class="item leancloud_visitors" data-flag-title="Oracle RECYCLEBIN & PURGE" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.jpg" alt="Nico Niconi WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="Nico Niconi Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Nico Niconi <i class="ic i-at"><em>@</em></i>Nekoaimer
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://nekoaimer.com/2023/05/11/Oracle/Recyclebin/" title="Oracle RECYCLEBIN &amp; PURGE">https://nekoaimer.com/2023/05/11/Oracle/Recyclebin/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/05/10/Oracle/Purge/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciuv0socj20zk0m8qes.jpg" title="Oracle RECYCLEBIN &amp; PURGE">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Oracle</span>
+  <h3>Oracle RECYCLEBIN & PURGE</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#what-is-recycle-bin-in-oracle"><span class="toc-number">1.</span> <span class="toc-text"> What is recycle bin in oracle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#recyclebin"><span class="toc-number">2.</span> <span class="toc-text"> RECYCLEBIN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#for-a-user"><span class="toc-number">2.1.</span> <span class="toc-text"> For a user</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#for-system-wide"><span class="toc-number">2.2.</span> <span class="toc-text"> For system-wide</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dba_synonyms"><span class="toc-number">2.3.</span> <span class="toc-text"> DBA_SYNONYMS</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#recycle-bin-status"><span class="toc-number">3.</span> <span class="toc-text"> Recycle Bin Status</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#clear-recycle-bin"><span class="toc-number">4.</span> <span class="toc-text"> Clear Recycle Bin</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#purge-table"><span class="toc-number">4.1.</span> <span class="toc-text"> PURGE TABLE</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#purge-recyclebin"><span class="toc-number">4.2.</span> <span class="toc-text"> PURGE RECYCLEBIN</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#purge-index"><span class="toc-number">4.3.</span> <span class="toc-text"> PURGE INDEX</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#purge-tablespace"><span class="toc-number">4.4.</span> <span class="toc-text"> PURGE TABLESPACE</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flashback"><span class="toc-number">5.</span> <span class="toc-text"> FLASHBACK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#recyclebin-object_name"><span class="toc-number">6.</span> <span class="toc-text"> RECYCLEBIN OBJECT_NAME</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2022/11/17/Oracle/Array/" rel="bookmark" title="Oracle Array">Oracle Array</a></li><li><a href="/2022/11/17/Oracle/Query/" rel="bookmark" title="Oracle Query Basic">Oracle Query Basic</a></li><li><a href="/2023/05/03/Oracle/Type/" rel="bookmark" title="Oracle Create Type">Oracle Create Type</a></li><li><a href="/2023/05/04/Oracle/RATIO_TO_REPORT/" rel="bookmark" title="Oracle Function RATIO_TO_REPORT">Oracle Function RATIO_TO_REPORT</a></li><li><a href="/2023/05/04/Oracle/JavaSoure/" rel="bookmark" title="Oracle JavaSource">Oracle JavaSource</a></li><li><a href="/2023/05/08/Oracle/Forall/" rel="bookmark" title="Oracle FORALL">Oracle FORALL</a></li><li><a href="/2023/05/10/Oracle/Purge/" rel="bookmark" title="Oracle RECYCLEBIN & PURGE">Oracle RECYCLEBIN & PURGE</a></li><li class="active"><a href="/2023/05/11/Oracle/Recyclebin/" rel="bookmark" title="Oracle RECYCLEBIN & PURGE">Oracle RECYCLEBIN & PURGE</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Nico Niconi"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Nico Niconi</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">128</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">14</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">27</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL25la29haW1lcg==" title="https:&#x2F;&#x2F;github.com&#x2F;nekoaimer"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9uZWtvYWltZXI=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nekoaimer"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTU2MzY2ODM5MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;563668390"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vbmVrb2FpbWVy" title="https:&#x2F;&#x2F;weibo.com&#x2F;nekoaimer"><i class="ic i-weibo"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9iMjMudHYvRnRYSFMzNQ==" title="https:&#x2F;&#x2F;b23.tv&#x2F;FtXHS35"><i class="ic i-bilibili"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>About</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>Neko</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-magic"></i>Collect</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/website/" rel="section"><i class="ic i-star"></i>Website</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>Music</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+</div>
+
+    <span><a href="/2021/10/01/JavaScript/Advanced/V8/" title="V8 引擎">V8 引擎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/2021/03/11/Vue/Vue%20note/04-atguigu/" title="Vue2 插槽">Vue2 插槽</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2021/08/13/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/Mini-Vue/mini-vue/" title="Mini-Vue 实现">Mini-Vue 实现</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2021/11/17/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" title="JavaScript 异步代码处理方案*演化过程*">JavaScript 异步代码处理方案*演化过程*</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/SQL/" title="In SQL">SQL</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/SQL/Oracle/" title="In Oracle">Oracle</a>
+</div>
+
+    <span><a href="/2023/05/11/Oracle/Recyclebin/" title="Oracle RECYCLEBIN &amp; PURGE">Oracle RECYCLEBIN & PURGE</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/08/07/Vue/Vue3/CompositionAPI/vca_directives/" title="Vue3 directives 自定义指令">Vue3 directives 自定义指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Node/" title="In Node">Node</a>
+</div>
+
+    <span><a href="/2022/05/01/Node/node-express/" title="Node Express">Node Express</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JavaScript/" title="In JavaScript">JavaScript</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/JavaScript/JavaScript-%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="In JavaScript 手写原理">JavaScript 手写原理</a>
+</div>
+
+    <span><a href="/2022/01/29/JavaScript/%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/arrayFlat/" title="JavaScript 实现数组扁平化">JavaScript 实现数组扁平化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Git/" title="In Git">Git</a>
+</div>
+
+    <span><a href="/2022/04/23/Git/git-command/" title="Git 命令补充">Git 命令补充</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="In Vue">Vue</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Vue/Vue3/" title="In Vue3">Vue3</a>
+</div>
+
+    <span><a href="/2021/07/17/Vue/Vue3/CompositionAPI/vca_computed/" title="Vue3 computed 用法与场景">Vue3 computed 用法与场景</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nico Niconi @ Nico Niconi</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">655k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">9:55</span>
+  </div>
+  <!-- 灯笼 1 -->
+  <div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">节</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+
+  <!-- 灯笼 2 -->
+  <div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">春</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/05/11/Oracle/Recyclebin/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/poi.model.json"},"display":{"position":"right","width":180,"height":180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
